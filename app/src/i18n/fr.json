@@ -1,0 +1,238 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "work": "Projets",
+    "services": "Services",
+    "about": "À propos",
+    "team": "Équipe",
+    "contact": "Contact",
+    "quote": "Devis",
+    "btpConnexion": "BTP Connexion"
+  },
+  "hero": {
+    "title": "CONSTRUIRE L'AVENIR",
+    "subtitle": "Bâtissons avec excellence",
+    "ctaQuote": "Demander un devis",
+    "ctaJoin": "Rejoindre BTP Connexion"
+  },
+  "stats": {
+    "years": "ans d'expérience",
+    "projects": "projets réalisés",
+    "continents": "continents",
+    "satisfaction": "clients satisfaits"
+  },
+  "pillars": {
+    "build": {
+      "title": "CONSTRUIRE",
+      "desc": "Fondations solides, structures durables, bâtiments qui durent des générations."
+    },
+    "create": {
+      "title": "CRÉER",
+      "desc": "Design innovant, value engineering, réduction des risques avant le premier coup de pioche."
+    },
+    "deliver": {
+      "title": "LIVRER",
+      "desc": "Planning précis, logistique optimisée, livraison dans les temps et dans le budget."
+    },
+    "modern": {
+      "title": "MODERNE",
+      "desc": "BIM, préfabrication, matériaux durables pour une construction responsable."
+    },
+    "reliable": {
+      "title": "FIABLE",
+      "desc": "Sécurité avant tout, reporting transparent, équipes engagées du début à la fin."
+    }
+  },
+  "work": {
+    "title": "NOS PROJETS",
+    "subtitle": "De Yaoundé à Berlin, nous construisons l'excellence",
+    "filter": {
+      "all": "Tous",
+      "infrastructure": "Infrastructure",
+      "building": "Bâtiment",
+      "industrial": "Industriel"
+    },
+    "location": {
+      "cameroon": "Cameroun",
+      "africa": "Afrique",
+      "europe": "Europe"
+    }
+  },
+  "services": {
+    "title": "NOS SERVICES",
+    "subtitle": "Une expertise complète du BTP à votre service",
+    "grosOeuvre": {
+      "title": "Gros Œuvre",
+      "desc": "Fondations, structures en béton armé, charpentes et enveloppes du bâtiment."
+    },
+    "genieCivil": {
+      "title": "Génie Civil",
+      "desc": "Routes, ponts, barrages, ouvrages d'art et infrastructures publiques."
+    },
+    "industriel": {
+      "title": "Construction Industrielle",
+      "desc": "Usines, entrepôts, hangars et installations industrielles clé en main."
+    },
+    "tertiaire": {
+      "title": "Bâtiments Tertiaires",
+      "desc": "Bureaux, centres commerciaux, hôtels et espaces de travail modernes."
+    },
+    "renovation": {
+      "title": "Rénovation & Réhabilitation",
+      "desc": "Restauration de patrimoine, mise aux normes et transformation d'espaces."
+    },
+    "etudes": {
+      "title": "Études & Conseil",
+      "desc": "BIM, planning, expertise technique et accompagnement de projet."
+    }
+  },
+  "about": {
+    "title": "À PROPOS DE NOUS",
+    "history": {
+      "title": "Notre Histoire",
+      "p1": "Fondée au Cameroun en 2009, CamerOssaka est née d'une vision ambitieuse : créer un lien solide et durable entre l'expertise africaine et les standards européens de la construction.",
+      "p2": "De nos premiers chantiers à Douala à nos projets internationaux, nous avons bâti notre réputation sur la qualité d'exécution, l'innovation technique et la valorisation des talents locaux. Chaque ouvrage que nous réalisons est le reflet de notre engagement pour des solutions durables, performantes et adaptées aux enjeux contemporains.",
+      "p3": "Aujourd'hui présente sur trois continents, CamerOssaka s'affirme comme un partenaire de confiance pour les projets de construction et d'infrastructures, en portant des valeurs fortes qui guident chacune de nos actions : excellence, intégrité, innovation et solidarité."
+    },
+    "values": {
+      "title": "Nos Valeurs",
+      "excellence": "Excellence",
+      "integrity": "Intégrité",
+      "innovation": "Innovation",
+      "solidarity": "Solidarité"
+    }
+  },
+  "team": {
+    "title": "NOTRE ÉQUIPE",
+    "subtitle": "Des professionnels passionnés à votre service",
+    "direction": "Direction",
+    "cameroon": "Équipe Cameroun",
+    "africa": "Équipe Afrique",
+    "europe": "Équipe Europe",
+    "experts": "Nos Experts"
+  },
+  "contact": {
+    "title": "CONTACTEZ-NOUS",
+    "subtitle": "Nous sommes à votre écoute",
+    "addresses": {
+      "title": "Adresse",
+      "yaounde": "Yaoundé, Cameroun",
+      "douala": "Douala, Cameroun",
+      "berlin": "Berlin, Allemagne"
+    },
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "send": "Envoyer"
+    }
+  },
+  "quote": {
+    "title": "DEMANDER UN DEVIS",
+    "subtitle": "Décrivez votre projet, nous vous répondrons sous 48h",
+    "type": {
+      "label": "Vous êtes",
+      "individual": "Particulier",
+      "company": "Entreprise",
+      "administration": "Administration"
+    },
+    "personal": {
+      "title": "Informations personnelles",
+      "firstname": "Prénom",
+      "lastname": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "company": "Entreprise",
+      "taxNumber": "Numéro de contribuable"
+    },
+    "project": {
+      "title": "Votre projet",
+      "type": "Type de projet",
+      "new": "Construction neuve",
+      "renovation": "Rénovation",
+      "extension": "Extension",
+      "infrastructure": "Infrastructure",
+      "other": "Autre",
+      "description": "Description détaillée",
+      "location": "Localisation (pays, ville)",
+      "budget": "Budget estimé",
+      "deadline": "Délai souhaité",
+      "documents": "Documents (plans, photos...)"
+    },
+    "submit": "Envoyer ma demande",
+    "success": "Votre demande a bien été envoyée. Nous vous contacterons sous 48h."
+  },
+  "btpConnexion": {
+    "title": "BTP CONNEXION",
+    "subtitle": "Rejoignez l'excellence du BTP",
+    "hero": {
+      "title": "Construisez votre avenir avec nous",
+      "desc": "Vous souhaitez évoluer dans le bâtiment et les travaux publics ? Postulez dans la rubrique Carrière chez BTP et laissez CamerOssaka vous connecter aux meilleures opportunités d'emploi, adaptées à votre profil."
+    },
+    "stats": {
+      "openJobs": "postes ouverts",
+      "employees": "collaborateurs",
+      "training": "de formation interne"
+    },
+    "jobs": {
+      "title": "Offres d'emploi",
+      "filter": "Filtrer par",
+      "apply": "Postuler",
+      "location": "Lieu",
+      "contract": "Type de contrat",
+      "cdi": "CDI",
+      "cdd": "CDD",
+      "stage": "Stage",
+      "freelance": "Freelance"
+    },
+    "trades": {
+      "title": "Nos Métiers",
+      "mason": "Maçon",
+      "carpenter": "Charpentier",
+      "electrician": "Électricien",
+      "plumber": "Plombier",
+      "operator": "Conducteur d'engins",
+      "foreman": "Chef de chantier",
+      "engineer": "Ingénieur",
+      "architect": "Architecte",
+      "projectManager": "Chef de projet",
+      "safety": "Responsable sécurité",
+      "survey": "Géomètre",
+      "welder": "Soudeur"
+    },
+    "spontaneous": {
+      "title": "Carrière chez BTP",
+      "subtitle": "Postulez aujourd'hui, nous trouvons le travail qui vous correspond.",
+      "civility": "Civilité",
+      "mr": "M.",
+      "mrs": "Mme",
+      "ms": "Mlle",
+      "firstname": "Prénom",
+      "lastname": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "country": "Pays de résidence",
+      "trade": "Métier recherché",
+      "experience": "Années d'expérience",
+      "education": "Niveau d'études",
+      "cv": "CV (PDF)",
+      "coverLetter": "Lettre de motivation",
+      "portfolio": "Portfolio (optionnel)",
+      "submit": "Envoyer ma candidature"
+    },
+    "testimonials": {
+      "title": "Témoignages",
+      "p1": "Rejoindre CamerOssaka a été une évolution naturelle pour ma carrière. Ici, on apprend, on progresse, on construit l'avenir.",
+      "p2": "De maçon à chef de chantier en 5 ans, CamerOssaka m'a donné les moyens de réussir."
+    }
+  },
+  "footer": {
+    "slogan": "Construire l'avenir, ensemble.",
+    "links": "Liens rapides",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "copyright": "© 2024 CamerOssaka. Tous droits réservés."
+  }
+}
