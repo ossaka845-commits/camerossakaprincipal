@@ -1,0 +1,320 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "work": "Projets",
+    "services": "Services",
+    "about": "À propos",
+    "team": "Équipe",
+    "contact": "Contact",
+    "quote": "Devis",
+    "btpConnexion": "BTP Connexion"
+  },
+  "hero": {
+    "title": "CONSTRUIRE L'AVENIR",
+    "subtitle": "Bâtissons avec excellence",
+    "ctaQuote": "Demander un devis",
+    "ctaJoin": "Rejoindre BTP Connexion"
+  },
+  "stats": {
+    "years": "ans d'expérience",
+    "projects": "projets réalisés",
+    "continents": "continents",
+    "satisfaction": "clients satisfaits"
+  },
+  "pillars": {
+    "build": {
+      "title": "CONSTRUIRE",
+      "desc": "Fondations solides, structures durables, bâtiments qui durent des générations."
+    },
+    "create": {
+      "title": "CRÉER",
+      "desc": "Design innovant, value engineering, réduction des risques avant le premier coup de pioche."
+    },
+    "deliver": {
+      "title": "LIVRER",
+      "desc": "Planning précis, logistique optimisée, livraison dans les temps et dans le budget."
+    },
+    "modern": {
+      "title": "MODERNE",
+      "desc": "BIM, préfabrication, matériaux durables pour une construction responsable."
+    },
+    "reliable": {
+      "title": "FIABLE",
+      "desc": "Sécurité avant tout, reporting transparent, équipes engagées du début à la fin."
+    }
+  },
+  "work": {
+    "title": "NOS PROJETS",
+    "badge": "PORTFOLIO",
+    "projects": {
+      "p1": {
+        "title": "Élément structurel avec armatures saillantes",
+        "location": "Yaoundé",
+        "loc": "Cameroun",
+        "description": "Réalisation d'éléments structurels en béton armé avec armatures saillantes pour une construction durable et résistante."
+      },
+      "p2": {
+        "title": "Tranchée sécurisée pour réseaux techniques",
+        "location": "Dakar",
+        "loc": "Sénégal",
+        "description": "Travaux de tranchée sécurisée pour l'installation de réseaux techniques souterrains (eau, électricité, télécoms)."
+      },
+      "p3": {
+        "title": "Façade modulaire en béton préfabriqué",
+        "location": "Lagos",
+        "loc": "Nigeria",
+        "description": "Conception et pose de façades modulaires en béton préfabriqué pour un immeuble de bureaux moderne."
+      },
+      "p4": {
+        "title": "Coordination et supervision de chantier",
+        "location": "Douala",
+        "loc": "Cameroun",
+        "description": "Mise en place d'une équipe pluridisciplinaire pour la supervision et la coordination de chantier, garantissant qualité et sécurité."
+      },
+      "p5": {
+        "title": "Complexe modulaire multi-niveaux",
+        "location": "Abidjan",
+        "loc": "Côte d'Ivoire",
+        "description": "Construction d'un complexe résidentiel de standing comprenant 80 logements avec espaces verts et parkings."
+      },
+      "p6": {
+        "title": "Infrastructure technique en chantier",
+        "location": "Nigeria",
+        "loc": "Nigeria",
+        "description": "Réalisation d'infrastructures techniques sur chantier incluant réseaux, équipements et installations industrielles."
+      }
+    },
+    "subtitle": "De Yaoundé à Berlin, nous construisons l'excellence",
+    "filter": {
+      "all": "Tous",
+      "infrastructure": "Infrastructure",
+      "building": "Bâtiment",
+      "industrial": "Industriel"
+    },
+    "location": {
+      "cameroon": "Cameroun",
+      "africa": "Afrique",
+      "europe": "Europe"
+    }
+  },
+  "services": {
+    "title": "NOS SERVICES",
+    "badge": "EXPERTISE",
+    "processTitle": "NOTRE PROCESSUS",
+    "processSubtitle": "De l'étude à la livraison, nous vous accompagnons à chaque étape",
+    "ctaTitle": "BESOIN D'UN DEVIS ?",
+    "ctaDesc": "Contactez-nous pour discuter de votre projet et obtenir une estimation détaillée.",
+    "process": {
+      "step1": { "title": "Étude", "desc": "Analyse du projet, faisabilité, budget prévisionnel" },
+      "step2": { "title": "Conception", "desc": "Plans, BIM, choix des matériaux et méthodes" },
+      "step3": { "title": "Réalisation", "desc": "Construction avec suivi rigoureux et reporting" },
+      "step4": { "title": "Livraison", "desc": "Réception, formation et maintenance" }
+    },
+    "subtitle": "Une expertise complète du BTP à votre service",
+    "grosOeuvre": {
+      "title": "Gros Œuvre",
+      "desc": "Fondations, structures en béton armé, charpentes et enveloppes du bâtiment."
+    },
+    "genieCivil": {
+      "title": "Génie Civil",
+      "desc": "Routes, ponts, barrages, ouvrages d'art et infrastructures publiques."
+    },
+    "industriel": {
+      "title": "Construction Industrielle",
+      "desc": "Usines, entrepôts, hangars et installations industrielles clé en main."
+    },
+    "tertiaire": {
+      "title": "Bâtiments Tertiaires",
+      "desc": "Bureaux, centres commerciaux, hôtels et espaces de travail modernes."
+    },
+    "renovation": {
+      "title": "Rénovation & Réhabilitation",
+      "desc": "Restauration de patrimoine, mise aux normes et transformation d'espaces."
+    },
+    "etudes": {
+      "title": "Études & Conseil",
+      "desc": "BIM, planning, expertise technique et accompagnement de projet."
+    }
+  },
+  "about": {
+    "title": "À PROPOS DE NOUS",
+    "badge": "NOTRE HISTOIRE",
+    "yearsExp": "ans d'expérience",
+    "history": {
+      "title": "Notre Histoire",
+      "p1": "Fondée au Cameroun en 2009, CamerOssaka est née d'une vision ambitieuse : créer un lien solide et durable entre l'expertise africaine et les standards européens de la construction.",
+      "p2": "De nos premiers chantiers à Douala à nos projets internationaux, nous avons bâti notre réputation sur la qualité d'exécution, l'innovation technique et la valorisation des talents locaux. Chaque ouvrage que nous réalisons est le reflet de notre engagement pour des solutions durables, performantes et adaptées aux enjeux contemporains.",
+      "p3": "Aujourd'hui présente sur trois continents, CamerOssaka s'affirme comme un partenaire de confiance pour les projets de construction et d'infrastructures, en portant des valeurs fortes qui guident chacune de nos actions : excellence, intégrité, innovation et solidarité."
+    },
+    "values": {
+      "title": "Nos Valeurs",
+      "excellence": "Excellence",
+      "integrity": "Intégrité",
+      "innovation": "Innovation",
+      "solidarity": "Solidarité"
+    }
+  },
+  "team": {
+    "title": "NOTRE ÉQUIPE",
+    "badge": "NOTRE ÉQUIPE",
+    "subtitle": "Des professionnels passionnés à votre service",
+    "direction": "Direction",
+    "cameroon": "Équipe Cameroun",
+    "africa": "Équipe Afrique",
+    "europe": "Équipe Europe",
+    "experts": "Nos Experts"
+  },
+  "contact": {
+    "title": "CONTACTEZ-NOUS",
+    "badge": "CONTACT",
+    "findUs": "Nous localiser",
+    "sendMessage": "Envoyez-nous un message",
+    "messageSent": "Message envoyé !",
+    "messageReply": "Nous vous répondrons dans les plus brefs délais.",
+    "followUs": "Suivez-nous",
+    "subtitle": "Nous sommes à votre écoute",
+    "addresses": {
+      "title": "Adresse",
+      "yaounde": "Yaoundé, Cameroun",
+      "douala": "Douala, Cameroun",
+      "berlin": "Berlin, Allemagne"
+    },
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "send": "Envoyer",
+      "phone": "Téléphone",
+      "phonePlaceholder": "+237 6XX XXX XXX",
+      "namePlaceholder": "Votre nom",
+      "subjectPlaceholder": "Sujet de votre message",
+      "messagePlaceholder": "Votre message..."
+    }
+  },
+  "quote": {
+    "title": "DEMANDER UN DEVIS",
+    "subtitle": "Décrivez votre projet, nous vous répondrons sous 48h",
+    "type": {
+      "label": "Vous êtes",
+      "individual": "Particulier",
+      "company": "Entreprise",
+      "administration": "Administration"
+    },
+    "personal": {
+      "title": "Informations personnelles",
+      "firstname": "Prénom",
+      "lastname": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "company": "Entreprise",
+      "taxNumber": "Numéro de contribuable"
+    },
+    "project": {
+      "title": "Votre projet",
+      "type": "Type de projet",
+      "new": "Construction neuve",
+      "renovation": "Rénovation",
+      "extension": "Extension",
+      "infrastructure": "Infrastructure",
+      "other": "Autre",
+      "description": "Description détaillée",
+      "location": "Localisation (pays, ville)",
+      "budget": "Budget estimé",
+      "deadline": "Délai souhaité",
+      "documents": "Documents (plans, photos...)"
+    },
+    "submit": "Envoyer ma demande",
+    "success": "Votre demande a bien été envoyée. Nous vous contacterons sous 48h."
+  },
+  "btpConnexion": {
+    "title": "BTP CONNEXION",
+    "badge": "BTP CONNEXION",
+    "applicationSent": "Candidature envoyée !",
+    "applicationReply": "Nous vous contacterons dans les plus brefs délais.",
+    "subtitle": "Rejoignez l'excellence du BTP",
+    "hero": {
+      "title": "Construisez votre avenir avec nous",
+      "desc": "Vous souhaitez évoluer dans le bâtiment et les travaux publics ? Postulez dans la rubrique Carrière chez BTP et laissez CamerOssaka vous connecter aux meilleures opportunités d'emploi, adaptées à votre profil."
+    },
+    "stats": {
+      "openJobs": "postes ouverts",
+      "employees": "collaborateurs",
+      "training": "de formation interne"
+    },
+    "jobs": {
+      "title": "Offres d'emploi",
+      "filter": "Filtrer par",
+      "apply": "Postuler",
+      "location": "Lieu",
+      "contract": "Type de contrat",
+      "cdi": "CDI",
+      "cdd": "CDD",
+      "stage": "Stage",
+      "freelance": "Freelance"
+    },
+    "trades": {
+      "title": "Nos Métiers",
+      "mason": "Maçon",
+      "carpenter": "Charpentier",
+      "electrician": "Électricien",
+      "plumber": "Plombier",
+      "operator": "Conducteur d'engins",
+      "foreman": "Chef de chantier",
+      "engineer": "Ingénieur",
+      "architect": "Architecte",
+      "projectManager": "Chef de projet",
+      "safety": "Responsable sécurité",
+      "survey": "Géomètre",
+      "welder": "Soudeur"
+    },
+    "spontaneous": {
+      "title": "Carrière chez BTP",
+      "subtitle": "Postulez aujourd'hui, nous trouvons le travail qui vous correspond.",
+      "civility": "Civilité",
+      "mr": "M.",
+      "mrs": "Mme",
+      "ms": "Mlle",
+      "firstname": "Prénom",
+      "lastname": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "country": "Pays de résidence",
+      "trade": "Métier recherché",
+      "experience": "Années d'expérience",
+      "education": "Niveau d'études",
+      "cv": "CV (PDF)",
+      "coverLetter": "Lettre de motivation",
+      "portfolio": "Portfolio (optionnel)",
+      "submit": "Envoyer ma candidature",
+      "messageLabel": "Message / Motivation",
+      "cvLabel": "CV (optionnel)",
+      "cvClick": "Cliquez pour ajouter votre CV"
+    },
+    "testimonials": {
+      "title": "Témoignages",
+      "p1": "Rejoindre CamerOssaka a été une évolution naturelle pour ma carrière. Ici, on apprend, on progresse, on construit l'avenir.",
+      "p2": "De maçon à chef de chantier en 5 ans, CamerOssaka m'a donné les moyens de réussir."
+    }
+  },
+  "common": {
+    "followUs": "Suivez-nous",
+    "followUsSocial": "Suivez-nous sur les réseaux sociaux",
+    "seeAllProjects": "Voir tous les projets",
+    "contactUs": "Nous contacter",
+    "sending": "Envoi en cours..."
+  },
+  "home": {
+    "pillarsTitle": "NOS PILIERS",
+    "ctaTitle": "PRÊT À CONSTRUIRE ?",
+    "ctaDesc": "Que vous soyez un particulier, une entreprise ou une administration, nous avons les solutions pour votre projet."
+  },
+  "footer": {
+    "slogan": "Construire l'avenir, ensemble.",
+    "links": "Liens rapides",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "copyright": "© 2024 CamerOssaka. Tous droits réservés."
+  }
+}
