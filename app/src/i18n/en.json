@@ -1,0 +1,238 @@
+{
+  "nav": {
+    "home": "Home",
+    "work": "Projects",
+    "services": "Services",
+    "about": "About",
+    "team": "Team",
+    "contact": "Contact",
+    "quote": "Quote",
+    "btpConnexion": "BTP Connexion"
+  },
+  "hero": {
+    "title": "BUILDING THE FUTURE",
+    "subtitle": "Building with excellence",
+    "ctaQuote": "Request a quote",
+    "ctaJoin": "Join BTP Connexion"
+  },
+  "stats": {
+    "years": "years of experience",
+    "projects": "completed projects",
+    "continents": "continents",
+    "satisfaction": "satisfied clients"
+  },
+  "pillars": {
+    "build": {
+      "title": "BUILD",
+      "desc": "Solid foundations, durable structures, buildings that last for generations."
+    },
+    "create": {
+      "title": "CREATE",
+      "desc": "Innovative design, value engineering, risk reduction before the first shovel."
+    },
+    "deliver": {
+      "title": "DELIVER",
+      "desc": "Precise planning, optimized logistics, on-time and on-budget delivery."
+    },
+    "modern": {
+      "title": "MODERN",
+      "desc": "BIM, prefabrication, sustainable materials for responsible construction."
+    },
+    "reliable": {
+      "title": "RELIABLE",
+      "desc": "Safety first, transparent reporting, committed teams from start to finish."
+    }
+  },
+  "work": {
+    "title": "OUR PROJECTS",
+    "subtitle": "From Yaoundé to Berlin, we build excellence",
+    "filter": {
+      "all": "All",
+      "infrastructure": "Infrastructure",
+      "building": "Building",
+      "industrial": "Industrial"
+    },
+    "location": {
+      "cameroon": "Cameroon",
+      "africa": "Africa",
+      "europe": "Europe"
+    }
+  },
+  "services": {
+    "title": "OUR SERVICES",
+    "subtitle": "Comprehensive construction expertise at your service",
+    "grosOeuvre": {
+      "title": "Structural Work",
+      "desc": "Foundations, reinforced concrete structures, frameworks and building envelopes."
+    },
+    "genieCivil": {
+      "title": "Civil Engineering",
+      "desc": "Roads, bridges, dams, civil works and public infrastructure."
+    },
+    "industriel": {
+      "title": "Industrial Construction",
+      "desc": "Factories, warehouses, hangars and turnkey industrial facilities."
+    },
+    "tertiaire": {
+      "title": "Commercial Buildings",
+      "desc": "Offices, shopping centers, hotels and modern workspaces."
+    },
+    "renovation": {
+      "title": "Renovation & Rehabilitation",
+      "desc": "Heritage restoration, compliance upgrades and space transformation."
+    },
+    "etudes": {
+      "title": "Studies & Consulting",
+      "desc": "BIM, planning, technical expertise and project support."
+    }
+  },
+  "about": {
+    "title": "ABOUT US",
+    "history": {
+      "title": "Our History",
+      "p1": "Founded in Cameroon in 2009, CamerOssaka was born from an ambitious vision: to create a solid and lasting link between African expertise and European construction standards.",
+      "p2": "From our first construction sites in Douala to our international projects, we have built our reputation on quality execution, technical innovation and the development of local talent. Every structure we build reflects our commitment to sustainable, high-performance solutions adapted to contemporary challenges.",
+      "p3": "Now present on three continents, CamerOssaka stands as a trusted partner for construction and infrastructure projects, carrying strong values that guide each of our actions: excellence, integrity, innovation and solidarity."
+    },
+    "values": {
+      "title": "Our Values",
+      "excellence": "Excellence",
+      "integrity": "Integrity",
+      "innovation": "Innovation",
+      "solidarity": "Solidarity"
+    }
+  },
+  "team": {
+    "title": "OUR TEAM",
+    "subtitle": "Passionate professionals at your service",
+    "direction": "Management",
+    "cameroon": "Team Cameroon",
+    "africa": "Team Africa",
+    "europe": "Team Europe",
+    "experts": "Our Experts"
+  },
+  "contact": {
+    "title": "CONTACT US",
+    "subtitle": "We are here for you",
+    "addresses": {
+      "title": "Address",
+      "yaounde": "Yaoundé, Cameroon",
+      "douala": "Douala, Cameroon",
+      "berlin": "Berlin, Germany"
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send"
+    }
+  },
+  "quote": {
+    "title": "REQUEST A QUOTE",
+    "subtitle": "Describe your project, we will respond within 48 hours",
+    "type": {
+      "label": "You are",
+      "individual": "Individual",
+      "company": "Company",
+      "administration": "Administration"
+    },
+    "personal": {
+      "title": "Personal Information",
+      "firstname": "First Name",
+      "lastname": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company",
+      "taxNumber": "Tax Number"
+    },
+    "project": {
+      "title": "Your Project",
+      "type": "Project Type",
+      "new": "New Construction",
+      "renovation": "Renovation",
+      "extension": "Extension",
+      "infrastructure": "Infrastructure",
+      "other": "Other",
+      "description": "Detailed Description",
+      "location": "Location (Country, City)",
+      "budget": "Estimated Budget",
+      "deadline": "Desired Timeline",
+      "documents": "Documents (Plans, Photos...)"
+    },
+    "submit": "Submit Request",
+    "success": "Your request has been sent successfully. We will contact you within 48 hours."
+  },
+  "btpConnexion": {
+    "title": "BTP CONNEXION",
+    "subtitle": "Join the excellence in construction",
+    "hero": {
+      "title": "Build your future with us",
+      "desc": "Looking to grow in construction and public works? Apply in the BTP Career section and let CamerOssaka connect you to the best job opportunities tailored to your profile."
+    },
+    "stats": {
+      "openJobs": "open positions",
+      "employees": "employees",
+      "training": "internal training"
+    },
+    "jobs": {
+      "title": "Job Offers",
+      "filter": "Filter by",
+      "apply": "Apply",
+      "location": "Location",
+      "contract": "Contract Type",
+      "cdi": "Permanent",
+      "cdd": "Fixed-term",
+      "stage": "Internship",
+      "freelance": "Freelance"
+    },
+    "trades": {
+      "title": "Our Trades",
+      "mason": "Mason",
+      "carpenter": "Carpenter",
+      "electrician": "Electrician",
+      "plumber": "Plumber",
+      "operator": "Machine Operator",
+      "foreman": "Foreman",
+      "engineer": "Engineer",
+      "architect": "Architect",
+      "projectManager": "Project Manager",
+      "safety": "Safety Officer",
+      "survey": "Surveyor",
+      "welder": "Welder"
+    },
+    "spontaneous": {
+      "title": "BTP Career",
+      "subtitle": "Apply today, we find the job that suits you.",
+      "civility": "Title",
+      "mr": "Mr",
+      "mrs": "Mrs",
+      "ms": "Ms",
+      "firstname": "First Name",
+      "lastname": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "country": "Country of Residence",
+      "trade": "Desired Trade",
+      "experience": "Professional Experience (years)",
+      "education": "Education Level",
+      "cv": "Resume (PDF)",
+      "coverLetter": "Cover Letter",
+      "portfolio": "Portfolio (optional)",
+      "submit": "Submit Application"
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "p1": "Joining CamerOssaka was a natural career move. Here you learn, grow and build the future.",
+      "p2": "From mason to foreman in 5 years, CamerOssaka gave me the means to succeed."
+    }
+  },
+  "footer": {
+    "slogan": "Building the future, together.",
+    "links": "Quick Links",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2024 CamerOssaka. All rights reserved."
+  }
+}
