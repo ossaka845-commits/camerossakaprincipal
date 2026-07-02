@@ -13,6 +13,17 @@ export default defineConfig({
     },
   },
   server: {
-    allowedHosts: 'all',
+    allowedHosts: true,
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-gsap': ['gsap'],
+          'vendor-i18n': ['i18next', 'react-i18next', 'i18next-browser-languagedetector'],
+        },
+      },
+    },
   },
 });

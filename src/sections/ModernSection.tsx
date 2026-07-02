@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from 'react';
+﻿import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SlantedFrame from '../components/SlantedFrame';
@@ -83,7 +83,7 @@ export default function ModernSection() {
   return (
     <section
       ref={sectionRef}
-      className="section-pinned z-[60] bg-[#0B0F17]"
+      className="section-pinned z-[60] bg-white"
     >
       {/* Right Image Card */}
       <div
@@ -120,7 +120,7 @@ export default function ModernSection() {
         <h2 className="heading-display text-[clamp(48px,7vw,96px)] text-[#F7F8FB] mb-6">
           MODERN
         </h2>
-        <p className="text-[#A6AFBF] text-lg leading-relaxed max-w-[36vw] mb-8">
+        <p className="text-[#666666] text-lg leading-relaxed max-w-[36vw] mb-8">
           BIM, prefabrication, and sustainable materials—built for performance and compliance.
         </p>
         <a href="#innovation" className="cta-link text-lg">

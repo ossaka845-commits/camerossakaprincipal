@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from 'react';
+﻿import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SlantedFrame from '../components/SlantedFrame';
@@ -97,7 +97,7 @@ export default function CreateSection() {
   return (
     <section
       ref={sectionRef}
-      className="section-pinned z-40 bg-[#0B0F17]"
+      className="section-pinned z-40 bg-white"
     >
       {/* Left Image Block */}
       <div
@@ -141,7 +141,7 @@ export default function CreateSection() {
       {/* Right Body */}
       <p
         ref={bodyRef}
-        className="absolute text-[#A6AFBF] text-lg leading-relaxed"
+        className="absolute text-[#666666] text-lg leading-relaxed"
         style={{ left: '56vw', top: '34vh', width: '36vw' }}
       >
         Design-build, value engineering, and constructability reviews that reduce risk before ground breaks.

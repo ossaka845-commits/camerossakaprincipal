@@ -1,19 +1,18 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+﻿import { useEffect, useRef, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Building2, Users, Award, Facebook, Instagram, Youtube, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Building2, Users, Award, Facebook, Instagram, Youtube, ChevronLeft, ChevronRight, Hammer, Lightbulb, PackageCheck, Cpu, ShieldCheck } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const heroSlides = [
- '/images/3persone.png',
-    '/images/image8.png',
-     '/images/image4.png',
+  '/images/3persone.png',
+  '/images/image8.png',
+  '/images/image4.png',
   '/images/1772988529.png',
   '/images/image6.png',
-
 ];
 
 export default function Home() {
@@ -36,7 +35,6 @@ export default function Home() {
     setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
   }, []);
 
-  // Auto-advance slides
   useEffect(() => {
     const timer = setInterval(nextSlide, 6000);
     return () => clearInterval(timer);
@@ -44,337 +42,444 @@ export default function Home() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero animation
-      gsap.fromTo('.hero-title', 
-        { y: 60, opacity: 0 }, 
-        { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.3 }
-      );
-      gsap.fromTo('.hero-subtitle', 
-        { y: 40, opacity: 0 }, 
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.5 }
-      );
-      gsap.fromTo('.hero-cta', 
-        { y: 30, opacity: 0 }, 
-        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', delay: 0.7, stagger: 0.1 }
-      );
+      gsap.fromTo('.hero-eyebrow', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', delay: 0.2 });
+      gsap.fromTo('.hero-title', { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.4 });
+      gsap.fromTo('.hero-subtitle', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.65 });
+      gsap.fromTo('.hero-cta', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', delay: 0.85, stagger: 0.12 });
+      gsap.fromTo('.hero-stat', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', delay: 1.1, stagger: 0.1 });
 
-      // Stats animation
-      gsap.fromTo('.stat-item', 
-        { y: 40, opacity: 0 }, 
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.6, 
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: statsRef.current,
-            start: 'top 80%',
-          }
+      gsap.fromTo('.stat-card',
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.12,
+          scrollTrigger: { trigger: statsRef.current, start: 'top 82%' }
         }
       );
 
-      // Pillars animation
-      gsap.fromTo('.pillar-card', 
-        { y: 60, opacity: 0 }, 
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.6, 
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: pillarsRef.current,
-            start: 'top 75%',
-          }
+      gsap.fromTo('.pillar-card',
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.55, stagger: 0.1,
+          scrollTrigger: { trigger: pillarsRef.current, start: 'top 78%' }
         }
       );
 
-      // CTA animation
-      gsap.fromTo(ctaRef.current, 
-        { y: 50, opacity: 0 }, 
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.8,
-          scrollTrigger: {
-            trigger: ctaRef.current,
-            start: 'top 80%',
-          }
+      gsap.fromTo('.project-card',
+        { y: 40, opacity: 0, scale: 0.97 },
+        { y: 0, opacity: 1, scale: 1, duration: 0.55, stagger: 0.12,
+          scrollTrigger: { trigger: '.projects-grid', start: 'top 80%' }
+        }
+      );
+
+      gsap.fromTo(ctaRef.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8,
+          scrollTrigger: { trigger: ctaRef.current, start: 'top 82%' }
         }
       );
     });
-
     return () => ctx.revert();
   }, []);
 
   const stats = [
-    { value: '15+', label: t('stats.years'), icon: Award },
-    { value: '500+', label: t('stats.projects'), icon: Building2 },
-    { value: '98%', label: t('stats.satisfaction'), icon: Users },
+    { value: '15+', label: t('stats.years'), icon: Award, accent: '#D4A03A' },
+    { value: '500+', label: t('stats.projects'), icon: Building2, accent: '#CC1A1A' },
+    { value: '98%', label: t('stats.satisfaction'), icon: Users, accent: '#CC1A1A' },
   ];
 
   const pillars = [
-    { key: 'build', color: '#007A5E' },
-    { key: 'create', color: '#D4A03A' },
-    { key: 'deliver', color: '#CE1126' },
-    { key: 'modern', color: '#FCD116', textDark: true },
-    { key: 'reliable', color: '#1A2744', border: true },
+    { key: 'build',    icon: Hammer,       accent: '#CC1A1A', accentLight: 'rgba(204,26,26,0.12)' },
+    { key: 'create',   icon: Lightbulb,    accent: '#D4A03A', accentLight: 'rgba(212,160,58,0.12)' },
+    { key: 'deliver',  icon: PackageCheck, accent: '#CE1126', accentLight: 'rgba(206,17,38,0.10)' },
+    { key: 'modern',   icon: Cpu,          accent: '#CC1A1A', accentLight: 'rgba(212,160,58,0.10)' },
+    { key: 'reliable', icon: ShieldCheck,  accent: '#FCD116', accentLight: 'rgba(252,209,22,0.10)' },
   ];
 
   return (
     <div className="pt-20">
-      {/* Hero Section */}
-      <section 
+
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          HERO â€” Full-viewport cinematic carousel
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <section
         ref={heroRef}
-        className="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
+        className="relative min-h-[95vh] flex items-center overflow-hidden"
       >
-        {/* Background carousel */}
+        {/* Background slides */}
         <div className="absolute inset-0">
           {heroSlides.map((slide, index) => (
             <img
               key={index}
               src={slide}
-              alt={`Slide ${index + 1}`}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+              alt={`CamerOssaka — chantier ${index + 1}`}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              fetchPriority={index === 0 ? 'high' : 'low'}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                 index === currentSlide ? 'opacity-100' : 'opacity-0'
               }`}
             />
           ))}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F17]/90 via-[#0B0F17]/70 to-[#007A5E]/30" />
+          {/* Multi-layer overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#060606]/92 via-[#060606]/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/80 via-transparent to-[#060606]/30" />
+          {/* Subtle blueprint grid */}
+          <div className="absolute inset-0 grid-blueprint opacity-30" />
         </div>
 
-        {/* Slide arrows */}
+        {/* Cameroon flag accent line â€” left edge */}
+        <div className="absolute left-0 top-0 bottom-0 w-1 flex flex-col">
+          <div className="flex-1 bg-[#007A5E]" />
+          <div className="flex-1 bg-[#CE1126]" />
+          <div className="flex-1 bg-[#FCD116]" />
+        </div>
+
+        {/* Slide nav arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-[#007A5E] transition-colors backdrop-blur-sm"
+          className="absolute left-6 md:left-10 bottom-12 z-20 w-11 h-11 flex items-center justify-center border border-white/25 text-white hover:border-[#CC1A1A] hover:text-[#CC1A1A] transition-all duration-300 backdrop-blur-sm"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-[#007A5E] transition-colors backdrop-blur-sm"
+          className="absolute left-20 md:left-24 bottom-12 z-20 w-11 h-11 flex items-center justify-center border border-white/25 text-white hover:border-[#CC1A1A] hover:text-[#CC1A1A] transition-all duration-300 backdrop-blur-sm"
           aria-label="Next slide"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-5 h-5" />
         </button>
 
-        {/* Slide indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+        {/* Slide counter */}
+        <div className="absolute left-[4vw] bottom-14 z-20 flex items-center gap-3 ml-[100px] md:ml-[110px]">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
+              className={`transition-all duration-300 ${
                 index === currentSlide
-                  ? 'bg-[#D4A03A] w-8'
-                  : 'bg-white/50 hover:bg-white/80'
+                  ? 'w-8 h-0.5 bg-[#CC1A1A]'
+                  : 'w-3 h-0.5 bg-white/35 hover:bg-white/60'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
+          <span className="text-white/40 text-xs ml-2 label-mono">
+            {String(currentSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
+          </span>
         </div>
 
-        {/* Decorative African pattern */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 opacity-20">
-          <svg viewBox="0 0 1440 120" className="w-full h-full" preserveAspectRatio="none">
-            <path fill="#FCD116" d="M0,60 Q360,120 720,60 T1440,60 L1440,120 L0,120 Z" />
-          </svg>
-        </div>
+        {/* Hero content â€” left aligned */}
+        <div className="relative z-10 px-[5vw] lg:px-[8vw] max-w-4xl">
+          {/* Eyebrow */}
+          <div className="hero-eyebrow flex items-center gap-3 mb-8">
+            <div className="w-8 h-px bg-[#CC1A1A]" />
+            <span className="label-mono text-[#CC1A1A] text-[11px]">{t('home.eyebrow')}</span>
+          </div>
 
-        {/* Content */}
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <h1 className="hero-title heading-display text-[clamp(48px,10vw,96px)] text-white mb-6">
+          {/* Main headline */}
+          <h1 className="hero-title heading-display text-[clamp(52px,9vw,96px)] text-[#111111] leading-[0.9] mb-8">
             {t('hero.title')}
           </h1>
 
-          <p className="hero-subtitle text-xl md:text-2xl text-[#A6AFBF] mb-10 max-w-2xl mx-auto">
+          {/* Divider */}
+          <div className="hero-subtitle w-16 h-0.5 bg-[#D4A03A] mb-6" />
+
+          {/* Subtitle */}
+          <p
+            className="hero-subtitle text-lg md:text-xl text-[#111111] font-semibold max-w-lg mb-10 leading-relaxed"
+            style={{ textShadow: '0 1px 2px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.7)' }}
+          >
             {t('hero.subtitle')}
           </p>
 
-          <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center">
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
             <Link
-              to="/devis"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#007A5E] text-white font-semibold rounded-sm hover:bg-[#006B52] transition-colors"
+              to="/Submit"
+              className="hero-cta group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#CC1A1A] text-white font-semibold hover:bg-[#B01515] transition-all duration-300 text-sm tracking-wide"
             >
               {t('hero.ctaQuote')}
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              to="/btp-connexion"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#D4A03A] text-[#D4A03A] font-semibold rounded-sm hover:bg-[#D4A03A] hover:text-[#0B0F17] transition-colors"
+              to="/Register"
+              className="hero-cta group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#111111] text-white font-semibold hover:bg-[#2A2A2A] transition-all duration-300 text-sm tracking-wide"
             >
               {t('hero.ctaJoin')}
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
+
+        {/* Right-side floating stats â€” desktop only */}
+        <div className="absolute right-[4vw] bottom-16 hidden lg:flex flex-col gap-4 z-20">
+          {stats.map((stat, i) => (
+            <div
+              key={i}
+              className="hero-stat flex items-center gap-4 px-5 py-3 backdrop-blur-sm"
+              style={{ background: 'rgba(255,255,255,0.85)', borderLeft: `2px solid ${stat.accent}`, boxShadow: '0 4px 16px rgba(26,39,68,0.08)' }}
+            >
+              <div className="text-2xl font-bold text-[#111111] font-['Space_Grotesk']">{stat.value}</div>
+              <div className="text-[11px] text-[#666666] label-mono leading-tight max-w-[100px]">{stat.label}</div>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* Stats Bar */}
-      <section ref={statsRef} className="bg-[#1A2744] py-12">
-        <div className="px-4 lg:px-[4vw]">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          STATS BAR â€” Glass accent cards
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <section ref={statsRef} className="relative py-16 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-[#F2EDE5]" />
+        <div className="absolute inset-0 ambient-glow-green pointer-events-none" />
+        <div className="divider-gradient absolute top-0 left-0 right-0" />
+        <div className="divider-gradient absolute bottom-0 left-0 right-0" />
+
+        <div className="relative px-4 lg:px-[4vw]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {stats.map((stat, index) => (
-              <div key={index} className="stat-item text-center">
-                <stat.icon className="w-8 h-8 mx-auto mb-3 text-[#D4A03A]" />
-                <div className="text-4xl md:text-5xl font-bold text-white font-['Sora'] mb-1">
-                  {stat.value}
+              <div
+                key={index}
+                className="stat-card group relative overflow-hidden p-8 hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md"
+                style={{ background: '#FFFFFF', border: '1px solid #E5DFD3' }}
+              >
+                {/* Colored top border accent */}
+                <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: stat.accent }} />
+
+                <div className="flex items-start justify-between">
+                  <div>
+                    <div className="text-5xl font-bold font-['Space_Grotesk'] mb-2" style={{ color: stat.accent }}>
+                      {stat.value}
+                    </div>
+                    <div className="label-mono text-[#666666] text-[11px]">{stat.label}</div>
+                  </div>
+                  <stat.icon className="w-8 h-8 opacity-20 group-hover:opacity-40 transition-opacity" style={{ color: stat.accent }} />
                 </div>
-                <div className="text-sm text-[#A6AFBF] label-mono">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Pillars Section */}
-      <section ref={pillarsRef} className="py-24 bg-[#0B0F17]">
-        <div className="px-4 lg:px-[4vw]">
-          <div className="text-center mb-16">
-            <h2 className="heading-display text-[clamp(32px,5vw,56px)] text-white mb-4">
-              {t('home.pillarsTitle')}
-            </h2>
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          PILLARS â€” Dark glass cards with icon accents
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <section ref={pillarsRef} className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-[#F0EBE2]" />
+        <div className="absolute inset-0 grid-dots opacity-40 pointer-events-none" />
+
+        <div className="relative px-4 lg:px-[4vw]">
+          {/* Section header */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-8 h-px bg-[#CC1A1A]" />
+                <span className="label-mono text-[#CC1A1A] text-[11px]">{t('home.valuesLabel')}</span>
+              </div>
+              <h2 className="heading-display text-[clamp(32px,5vw,56px)] text-[#111111]">
+              </h2>
+            </div>
+            <p className="text-[#777777] max-w-xs mt-4 lg:mt-0 text-sm leading-relaxed">
+              {t('home.valuesDesc')}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Cards grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
             {pillars.map((pillar) => (
               <div
                 key={pillar.key}
-                className={`pillar-card p-8 rounded-sm ${
-                  pillar.border ? 'border-2 border-[#D4A03A]' : ''
-                }`}
-                style={{ backgroundColor: pillar.color }}
+                className="pillar-card group relative p-7 overflow-hidden cursor-default shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+                style={{
+                  background: '#FFFFFF',
+                  border: '1px solid #E5DFD3',
+                }}
               >
-                <h3 className={`heading-display text-3xl mb-4 ${
-                  pillar.textDark ? 'text-[#0B0F17]' : 'text-white'
-                }`}>
-                  {t(`pillars.${pillar.key}.title`)}
-                </h3>
-                <p className={`leading-relaxed ${
-                  pillar.textDark ? 'text-[#0B0F17]/80' : 'text-white/80'
-                }`}>
-                  {t(`pillars.${pillar.key}.desc`)}
-                </p>
+                {/* Hover background fill */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ background: pillar.accentLight }}
+                />
+                {/* Colored left accent bar */}
+                <div
+                  className="absolute left-0 top-0 bottom-0 w-0.5 group-hover:w-1 transition-all duration-300"
+                  style={{ background: pillar.accent }}
+                />
+
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div
+                    className="w-12 h-12 flex items-center justify-center mb-6 rounded-sm"
+                    style={{ background: `${pillar.accent}18`, border: `1px solid ${pillar.accent}35` }}
+                  >
+                    <pillar.icon className="w-5 h-5" style={{ color: pillar.accent }} />
+                  </div>
+
+                  <h3 className="heading-display text-xl text-[#111111] mb-3">
+                    {t(`pillars.${pillar.key}.title`)}
+                  </h3>
+                  <p className="text-[#777777] text-sm leading-relaxed group-hover:text-[#666666] transition-colors">
+                    {t(`pillars.${pillar.key}.desc`)}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Projects Preview */}
-      <section className="py-24 bg-[#1A2744]">
-        <div className="px-4 lg:px-[4vw]">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          FEATURED PROJECTS
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <section className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-[#F0EBE2]" />
+        <div className="divider-gradient absolute top-0 left-0 right-0" />
+
+        <div className="relative px-4 lg:px-[4vw]">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14">
             <div>
-              <h2 className="heading-display text-[clamp(32px,5vw,56px)] text-white mb-4">
-                {t('work.title')}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-8 h-px bg-[#D4A03A]" />
+                <span className="label-mono text-[#D4A03A] text-[11px]">{t('work.badge')}</span>
+              </div>
+              <h2 className="heading-display text-[clamp(32px,5vw,56px)] text-[#111111]">
               </h2>
-              <p className="text-lg text-[#A6AFBF]">{t('work.subtitle')}</p>
             </div>
             <Link
               to="/work"
-              className="mt-6 md:mt-0 inline-flex items-center gap-2 text-[#D4A03A] hover:text-white transition-colors"
+              className="mt-6 md:mt-0 inline-flex items-center gap-2 text-sm text-[#CC1A1A] hover:text-white transition-colors group"
             >
               {t('common.seeAllProjects')}
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-            { img: '/images/build_concrete_structure.jpg', title: t('work.projects.p1.title'), loc: t('work.projects.p1.loc') },
-              { img: '/images/image6.png', title: t('work.projects.p2.title'), loc: t('work.projects.p2.loc') },
-              { img: '/images/modern_concrete_wall.jpg', title: t('work.projects.p3.title'), loc: t('work.projects.p3.loc') },
-            ].map((project, index) => (
-              <Link
-                key={index}
-                to="/work"
-                className="group relative aspect-[4/3] overflow-hidden rounded-sm"
-              >
-                <img
-                  src={project.img}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F17] via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="w-2 h-2 bg-[#007A5E] rounded-full" />
-                    <span className="text-sm text-[#A6AFBF]">{project.loc}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold text-white font-['Sora']">{project.title}</h3>
+          <div className="projects-grid grid grid-cols-1 md:grid-cols-12 gap-4">
+            {/* Large featured card */}
+            <Link
+              to="/work"
+              className="project-card group md:col-span-7 relative aspect-[16/10] overflow-hidden"
+            >
+              <img
+                src="/images/build_concrete_structure.jpg"
+                alt={t('work.projects.p1.title')}
+                loading="lazy"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/90 via-[#060606]/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="capsule capsule-mint mb-3">{t('work.projects.p1.loc')}</div>
+                <h3 className="text-2xl font-semibold text-white font-['Space_Grotesk'] mb-2">
+                  {t('work.projects.p1.title')}
+                </h3>
+                <div className="flex items-center gap-2 text-[#CC1A1A] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span>{t('common.viewProject')}</span>
+                  <ArrowRight className="w-4 h-4" />
                 </div>
-              </Link>
+              </div>
+            </Link>
+
+            {/* Right column â€” 2 stacked cards */}
+            <div className="md:col-span-5 flex flex-col gap-4">
+              {[
+                { img: '/images/image6.png', title: t('work.projects.p2.title'), loc: t('work.projects.p2.loc') },
+                { img: '/images/modern_concrete_wall.jpg', title: t('work.projects.p3.title'), loc: t('work.projects.p3.loc') },
+              ].map((project, index) => (
+                <Link
+                  key={index}
+                  to="/work"
+                  className="project-card group relative overflow-hidden"
+                  style={{ aspectRatio: '16/9' }}
+                >
+                  <img
+                    src={project.img}
+                    alt={project.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/90 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <div className="capsule capsule-white mb-2 text-[10px]">{project.loc}</div>
+                    <h3 className="text-base font-semibold text-white font-['Space_Grotesk']">{project.title}</h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          CTA â€” Immersive green-tinted section
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <section ref={ctaRef} className="relative py-32 overflow-hidden">
+        {/* Background layers */}
+        <div className="absolute inset-0 bg-[#F2EDE5]" />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(204,26,26,0.18) 0%, transparent 70%)' }} />
+        <div className="absolute inset-0 grid-blueprint-subtle opacity-50 pointer-events-none" />
+        {/* Decorative geometric accent */}
+        <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-5" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #CC1A1A 0, #CC1A1A 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
+        <div className="divider-gradient absolute top-0 left-0 right-0" />
+
+        <div className="relative px-4 lg:px-[4vw] max-w-3xl">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-8 h-px bg-[#CC1A1A]" />
+            <span className="label-mono text-[#CC1A1A] text-[11px]">TRAVAILLONS ENSEMBLE</span>
+          </div>
+
+          <h2 className="heading-display text-[clamp(36px,6vw,64px)] text-[#111111] mb-6">
+            {t('home.ctaTitle')}
+          </h2>
+          <p className="text-lg text-[#666666] mb-12 leading-relaxed max-w-xl">
+            {t('home.ctaDesc')}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 flex-wrap mb-16">
+            <Link
+              to="/Submit"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#CC1A1A] text-white font-semibold hover:bg-[#B01515] transition-all duration-300 text-sm tracking-wide"
+            >
+              {t('hero.ctaQuote')}
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              to="/Register"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#CC1A1A] text-white font-semibold hover:bg-[#B01515] transition-all duration-300 text-sm tracking-wide"
+            >
+              {t('hero.ctaJoin')}
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          {/* Social row */}
+          <div className="flex items-center gap-5">
+            <span className="label-mono text-[#999999] text-[10px]">{t('common.followUsSocial')}</span>
+            <div className="w-8 h-px bg-[#E5E5E5]" />
+            {[
+              { href: 'https://www.facebook.com/profile.php?id=100064047309007', icon: Facebook },
+              { href: 'https://www.instagram.com/camerossak/', icon: Instagram },
+              { href: 'https://www.youtube.com/@Camer-ossakaConstruction-ol8nl', icon: Youtube },
+              { href: 'https://www.tiktok.com/@camerossaka', icon: null },
+            ].map((s, i) => (
+              <a
+                key={i}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 flex items-center justify-center border border-[#E5E5E5] text-[#999999] hover:border-[#CC1A1A] hover:text-[#CC1A1A] transition-all duration-300"
+              >
+                {s.icon ? (
+                  <s.icon className="w-4 h-4" />
+                ) : (
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                  </svg>
+                )}
+              </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section ref={ctaRef} className="py-24 bg-gradient-to-br from-[#007A5E]/20 to-[#1A2744]">
-        <div className="px-4 lg:px-[4vw] text-center">
-          <h2 className="heading-display text-[clamp(32px,5vw,56px)] text-white mb-6">
-            {t('home.ctaTitle')}
-          </h2>
-          <p className="text-lg text-[#A6AFBF] mb-10 max-w-2xl mx-auto">
-            {t('home.ctaDesc')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/devis"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#007A5E] text-white font-semibold rounded-sm hover:bg-[#006B52] transition-colors"
-            >
-              {t('hero.ctaQuote')}
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-white text-white font-semibold rounded-sm hover:bg-white hover:text-[#0B0F17] transition-colors"
-            >
-              {t('common.contactUs')}
-            </Link>
-          </div>
-          
-          {/* Social Media */}
-          <div className="mt-12">
-            <p className="text-[#A6AFBF] mb-4">{t('common.followUsSocial')}</p>
-            <div className="flex justify-center gap-4">
-              <a
-                href="https://www.facebook.com/profile.php?id=100064047309007"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#1A2744] flex items-center justify-center text-[#A6AFBF] hover:bg-[#D4A03A] hover:text-white transition-all"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/camerossak/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#1A2744] flex items-center justify-center text-[#A6AFBF] hover:bg-[#D4A03A] hover:text-white transition-all"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.tiktok.com/@camerossaka"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#1A2744] flex items-center justify-center text-[#A6AFBF] hover:bg-[#D4A03A] hover:text-white transition-all"
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                </svg>
-              </a>
-              <a
-                href="https://www.youtube.com/@Camer-ossakaConstruction-ol8nl"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#1A2744] flex items-center justify-center text-[#A6AFBF] hover:bg-[#D4A03A] hover:text-white transition-all"
-              >
-                <Youtube className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

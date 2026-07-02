@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+﻿import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -7,10 +7,10 @@ import { Award, Shield, Lightbulb, Heart, Facebook, Instagram, Youtube } from 'l
 gsap.registerPlugin(ScrollTrigger);
 
 const values = [
-  { key: 'excellence', icon: Award, color: '#D4A03A' },
-  { key: 'integrity', icon: Shield, color: '#007A5E' },
-  { key: 'innovation', icon: Lightbulb, color: '#FCD116', darkText: true },
-  { key: 'solidarity', icon: Heart, color: '#CE1126' },
+  { key: 'excellence', icon: Award,     accent: '#D4A03A', accentLight: 'rgba(212,160,58,0.10)' },
+  { key: 'integrity',  icon: Shield,    accent: '#CC1A1A', accentLight: 'rgba(204,26,26,0.10)' },
+  { key: 'innovation', icon: Lightbulb, accent: '#CC1A1A', accentLight: 'rgba(212,160,58,0.10)' },
+  { key: 'solidarity', icon: Heart,     accent: '#CE1126', accentLight: 'rgba(206,17,38,0.08)' },
 ];
 
 export default function About() {
@@ -39,100 +39,116 @@ export default function About() {
   return (
     <div className="pt-24 pb-16">
       {/* Header */}
-      <section className="px-4 lg:px-[4vw] mb-16">
-        <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#007A5E]/20 border border-[#007A5E]/40 rounded-full mb-6">
-            <span className="text-sm text-[#007A5E] label-mono">{t('about.badge')}</span>
+      <section className="relative px-4 lg:px-[4vw] mb-20 pt-8">
+        <div className="absolute inset-0 -top-24 grid-blueprint opacity-20 pointer-events-none" />
+        <div className="relative">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-px bg-[#D4A03A]" />
+            <span className="label-mono text-[#D4A03A] text-[11px]">{t('about.badge')}</span>
           </div>
-          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-white mb-4">
+          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#111111] mb-4">
             {t('about.title')}
           </h1>
         </div>
       </section>
 
       {/* History Section */}
-      <section className="px-4 lg:px-[4vw] mb-20">
-        <div className="max-w-3xl">
-          <h2 className="heading-display text-3xl text-white mb-6">
-            {t('about.history.title')}
-          </h2>
-          <div className="space-y-4 text-[#A6AFBF] leading-relaxed">
-            <p>{t('about.history.p1')}</p>
-            <p>{t('about.history.p2')}</p>
-            <p>{t('about.history.p3')}</p>
+      <section className="px-4 lg:px-[4vw] mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-7">
+            <h2 className="heading-display text-3xl text-[#111111] mb-6">
+              {t('about.history.title')}
+            </h2>
+            <div className="space-y-4 text-[#666666] leading-relaxed text-sm">
+              <p>{t('about.history.p1')}</p>
+              <p>{t('about.history.p2')}</p>
+              <p>{t('about.history.p3')}</p>
+            </div>
           </div>
-          <div className="mt-8 inline-block bg-[#007A5E] p-6 rounded-sm">
-            <div className="text-4xl font-bold text-white font-['Sora']">15+</div>
-              <div className="text-white/80 text-sm">{t('about.yearsExp')}</div>
+          <div className="lg:col-span-5 flex gap-4">
+            {[
+              { num: '15+', label: t('about.yearsExp'), accent: '#CC1A1A' },
+              { num: '200+', label: t('about.projectsDone') ?? 'Projets réalisés', accent: '#D4A03A' },
+            ].map((stat) => (
+              <div
+                key={stat.num}
+                className="flex-1 p-6"
+                style={{ background: 'linear-gradient(160deg, #111111, #0D0D0D)', border: '1px solid rgba(0,0,0,0.08)', borderTop: `2px solid ${stat.accent}` }}
+              >
+                <div className="text-4xl font-bold mb-1" style={{ color: stat.accent, fontFamily: "'Space Grotesk', sans-serif" }}>
+                  {stat.num}
+                </div>
+                <div className="text-[#666666] text-xs label-mono">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="values-section px-4 lg:px-[4vw] py-20">
-        <h2 className="heading-display text-3xl text-white mb-12 text-center">
-          {t('about.values.title')}
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((value) => (
-            <div
-              key={value.key}
-              className="value-card p-8 rounded-sm text-center"
-              style={{ backgroundColor: value.color }}
-            >
-              <value.icon className={`w-12 h-12 mx-auto mb-4 ${
-                value.darkText ? 'text-[#0B0F17]' : 'text-white'
-              }`} />
-              <h3 className={`heading-display text-xl ${
-                value.darkText ? 'text-[#0B0F17]' : 'text-white'
-              }`}>
-                {t(`about.values.${value.key}`)}
-              </h3>
-            </div>
-          ))}
+      <section className="relative values-section px-4 lg:px-[4vw] py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-[#F2EDE5]" />
+        <div className="divider-gradient absolute top-0 left-0 right-0" />
+        <div className="divider-gradient absolute bottom-0 left-0 right-0" />
+
+        <div className="relative">
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="w-8 h-px bg-[#D4A03A]" />
+            <span className="label-mono text-[#D4A03A] text-[11px]">NOS VALEURS</span>
+            <div className="w-8 h-px bg-[#D4A03A]" />
+          </div>
+          <h2 className="heading-display text-[clamp(28px,5vw,48px)] text-[#111111] mb-16 text-center">
+            {t('about.values.title')}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {values.map((value) => (
+              <div
+                key={value.key}
+                className="value-card group relative p-8 overflow-hidden hover:-translate-y-0.5 transition-all duration-300 shadow-sm"
+                style={{ background: '#FFFFFF', border: '1px solid #E5DFD3' }}
+              >
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: value.accentLight }} />
+                <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: value.accent }} />
+                <div className="relative z-10">
+                  <div
+                    className="w-12 h-12 flex items-center justify-center mb-6"
+                    style={{ background: `${value.accent}18`, border: `1px solid ${value.accent}35` }}
+                  >
+                    <value.icon className="w-5 h-5" style={{ color: value.accent }} />
+                  </div>
+                  <h3 className="heading-display text-lg text-[#111111] transition-colors">
+                    {t(`about.values.${value.key}`)}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Social Media Section */}
-      <section className="px-4 lg:px-[4vw] py-12">
-        <div className="text-center">
-          <h3 className="text-xl font-semibold text-white mb-6 font-['Sora']">{t('common.followUs')}</h3>
-          <div className="flex justify-center gap-4">
+      <section className="px-4 lg:px-[4vw] py-16">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="w-8 h-px bg-[#7A8A9C]" />
+          <span className="label-mono text-[#666666] text-[11px]">{t('common.followUs')}</span>
+        </div>
+        <div className="flex gap-3">
+          {[
+            { href: 'https://www.facebook.com/profile.php?id=100064047309007', icon: <Facebook className="w-4 h-4" /> },
+            { href: 'https://www.instagram.com/camerossak/', icon: <Instagram className="w-4 h-4" /> },
+            { href: 'https://www.youtube.com/@Camer-ossakaConstruction-ol8nl', icon: <Youtube className="w-4 h-4" /> },
+          ].map(({ href, icon }) => (
             <a
-              href="https://www.facebook.com/profile.php?id=100064047309007"
+              key={href}
+              href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-[#1A2744] flex items-center justify-center text-[#A6AFBF] hover:bg-[#D4A03A] hover:text-white transition-all"
+              className="w-9 h-9 flex items-center justify-center text-[#666666] hover:text-white hover:border-white transition-all"
+              style={{ border: '1px solid rgba(255,255,255,0.12)' }}
             >
-              <Facebook className="w-6 h-6" />
+              {icon}
             </a>
-            <a
-              href="https://www.instagram.com/camerossak/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-[#1A2744] flex items-center justify-center text-[#A6AFBF] hover:bg-[#D4A03A] hover:text-white transition-all"
-            >
-              <Instagram className="w-6 h-6" />
-            </a>
-            <a
-              href="https://www.tiktok.com/@camerossaka"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-[#1A2744] flex items-center justify-center text-[#A6AFBF] hover:bg-[#D4A03A] hover:text-white transition-all"
-            >
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-              </svg>
-            </a>
-            <a
-              href="https://www.youtube.com/@Camer-ossakaConstruction-ol8nl"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-[#1A2744] flex items-center justify-center text-[#A6AFBF] hover:bg-[#D4A03A] hover:text-white transition-all"
-            >
-              <Youtube className="w-6 h-6" />
-            </a>
-          </div>
+          ))}
         </div>
       </section>
     </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -103,13 +103,13 @@ export default function Work() {
       {/* Header */}
       <section className="px-4 lg:px-[4vw] mb-12">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#007A5E]/20 border border-[#007A5E]/40 rounded-full mb-6">
-            <span className="text-sm text-[#007A5E] label-mono">{t('work.badge')}</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#CC1A1A]/20 border border-[#CC1A1A]/40 rounded-full mb-6">
+            <span className="text-sm text-[#CC1A1A] label-mono">{t('work.badge')}</span>
           </div>
-          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-white mb-4">
+          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#111111] mb-4">
             {t('work.title')}
           </h1>
-          <p className="text-xl text-[#A6AFBF]">{t('work.subtitle')}</p>
+          <p className="text-xl text-[#666666]">{t('work.subtitle')}</p>
         </div>
       </section>
 
@@ -119,18 +119,19 @@ export default function Work() {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="project-card group bg-[#1A2744] rounded-sm overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
+              className="project-card group bg-white border border-[#E5DFD3] shadow-sm rounded-sm overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
               onClick={() => setSelectedProject(project)}
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F17] via-transparent to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-transparent to-transparent opacity-60" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <div className="flex items-center gap-2 text-sm text-[#A6AFBF] mb-2">
+                  <div className="flex items-center gap-2 text-sm text-white/80 mb-2">
                     <MapPin className="w-4 h-4" />
                     {project.location}
                   </div>
@@ -148,11 +149,11 @@ export default function Work() {
       {/* Project Modal */}
       {selectedProject && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B0F17]/90 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white/90 backdrop-blur-sm"
           onClick={() => setSelectedProject(null)}
         >
           <div 
-            className="bg-[#1A2744] rounded-sm max-w-3xl w-full max-h-[90vh] overflow-auto"
+            className="bg-white rounded-sm max-w-3xl w-full max-h-[90vh] overflow-auto"
             onClick={e => e.stopPropagation()}
           >
             <div className="relative aspect-video">
@@ -163,19 +164,20 @@ export default function Work() {
               />
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 w-10 h-10 bg-[#0B0F17]/80 text-white rounded-full flex items-center justify-center hover:bg-[#0B0F17] transition-colors"
+                aria-label="Fermer"
+                className="absolute top-4 right-4 w-10 h-10 bg-white/80 text-[#111111] text-xl rounded-full flex items-center justify-center hover:bg-white transition-colors"
               >
                 ×
               </button>
             </div>
             <div className="p-8">
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-[#A6AFBF]">{selectedProject.location}</span>
+                <span className="text-[#666666]">{selectedProject.location}</span>
               </div>
-              <h2 className="heading-display text-3xl text-white mb-4">
+              <h2 className="heading-display text-3xl text-[#111111] mb-4">
                 {selectedProject.title}
               </h2>
-              <p className="text-[#A6AFBF] mb-6 leading-relaxed">
+              <p className="text-[#666666] mb-6 leading-relaxed">
                 {selectedProject.description}
               </p>
 

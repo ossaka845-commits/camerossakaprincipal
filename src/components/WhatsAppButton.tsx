@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { X } from 'lucide-react';
 
 const WHATSAPP_NUMBER = '237233456789';
@@ -18,7 +18,7 @@ export default function WhatsAppButton() {
           <div className="bg-[#075E54] px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img
-                src="/images/loggo_camerossaka.jpg"
+                src="/images/co_logo.png"
                 alt="CamerOssaka"
                 className="w-12 h-12 rounded-full object-cover border-2 border-white/30"
               />

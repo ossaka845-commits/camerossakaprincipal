@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 export default function Navigation() {
@@ -25,14 +25,14 @@ export default function Navigation() {
       <nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled
-            ? 'bg-[#0B0F17]/90 backdrop-blur-md py-4'
+            ? 'bg-[#0b141f]/95 backdrop-blur-md border-b border-[#1e2d3d] py-4'
             : 'bg-transparent py-6'
         }`}
       >
         <div className="px-6 lg:px-[6vw] flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="text-xl font-bold tracking-tight font-['Sora']">
-            Camer<span className="text-[#D4A03A]">Ossaka</span>
+        <a href="#" className="group flex items-center gap-1 text-xl font-bold tracking-tight font-['Space_Grotesk']">
+            <span className="text-[#F7F8FB]">Camer</span><span className="text-[#79d8b7] group-hover:text-[#a8e8d4] transition-colors">Ossaka</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -41,11 +41,17 @@ export default function Navigation() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-[#A6AFBF] hover:text-[#F7F8FB] transition-colors duration-300 label-mono"
+                className="text-sm text-[#666666] hover:text-[#79d8b7] transition-colors duration-300 label-mono"
               >
                 {link.label}
               </a>
             ))}
+            <a
+              href="#contact"
+              className="ml-4 px-5 py-2 text-sm font-medium text-[#0b141f] bg-[#79d8b7] hover:bg-[#a8e8d4] transition-colors duration-300 rounded-sm label-mono"
+            >
+              CONTACT
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -66,8 +72,8 @@ export default function Navigation() {
       >
         <div className="flex flex-col h-full px-6 py-6">
           <div className="flex items-center justify-between mb-16">
-            <span className="text-xl font-bold tracking-tight font-['Sora']">
-              Camer<span className="text-[#D4A03A]">Ossaka</span>
+            <span className="text-xl font-bold tracking-tight font-['Space_Grotesk']">
+              Camer<span className="text-[#79d8b7]">Ossaka</span>
             </span>
             <button
               className="text-[#F7F8FB]"
@@ -82,7 +88,7 @@ export default function Navigation() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-3xl font-bold text-[#F7F8FB] hover:text-[#D4A03A] transition-colors duration-300 font-['Sora']"
+                className="text-3xl font-bold text-[#F7F8FB] hover:text-[#79d8b7] transition-colors duration-300 font-['Space_Grotesk']"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
@@ -93,7 +99,7 @@ export default function Navigation() {
           <div className="mt-auto">
             <a
               href="#contact"
-              className="inline-block px-8 py-4 bg-[#D4A03A] text-[#0B0F17] font-semibold rounded-sm"
+              className="inline-block px-8 py-4 bg-[#79d8b7] text-[#0b141f] font-semibold rounded-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Start a project

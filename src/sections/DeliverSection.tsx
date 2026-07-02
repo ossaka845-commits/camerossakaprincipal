@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from 'react';
+﻿import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SlantedFrame from '../components/SlantedFrame';
@@ -91,14 +91,14 @@ export default function DeliverSection() {
   return (
     <section
       ref={sectionRef}
-      className="section-pinned z-50 bg-[#0B0F17]"
+      className="section-pinned z-50 bg-white"
     >
       {/* Left Text Block */}
       <div ref={textGroupRef} className="absolute" style={{ left: '10vw', top: '18vh' }}>
         <h2 className="heading-display text-[clamp(48px,7vw,96px)] text-[#F7F8FB] mb-6">
           DELIVER
         </h2>
-        <p className="text-[#A6AFBF] text-lg leading-relaxed max-w-[34vw] mb-8">
+        <p className="text-[#666666] text-lg leading-relaxed max-w-[34vw] mb-8">
           Scheduling, logistics, and field coordination—delivered on time and within scope.
         </p>
         <a href="#process" className="cta-link text-lg">
@@ -144,7 +144,7 @@ export default function DeliverSection() {
       >
         {['Planning', 'Procurement', 'Handover'].map((item, index) => (
           <div key={item} className="flex items-center gap-3">
-            <span className="text-[#D4A03A] label-mono">0{index + 1}</span>
+            <span className="text-[#CC1A1A] label-mono">0{index + 1}</span>
             <span className="text-[#F7F8FB] font-medium">{item}</span>
           </div>
         ))}

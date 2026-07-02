@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from 'react';
+﻿import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SlantedFrame from '../components/SlantedFrame';
@@ -98,7 +98,7 @@ export default function BuildSection() {
     <section
       ref={sectionRef}
       id="work"
-      className="section-pinned z-30 bg-[#0B0F17]"
+      className="section-pinned z-30 bg-white"
     >
       {/* Left Image Card */}
       <div
@@ -160,7 +160,7 @@ export default function BuildSection() {
       {/* Body */}
       <p
         ref={bodyRef}
-        className="absolute text-[#A6AFBF] text-lg leading-relaxed"
+        className="absolute text-[#666666] text-lg leading-relaxed"
         style={{ left: '10vw', top: '82vh', width: '40vw' }}
       >
         Foundations, structures, and envelopes—engineered for longevity.
@@ -169,7 +169,7 @@ export default function BuildSection() {
       {/* Micro Label */}
       <span
         ref={labelRef}
-        className="label-mono absolute text-[#D4A03A]"
+        className="label-mono absolute text-[#CC1A1A]"
         style={{ left: '78vw', top: '74vh' }}
       >
         01 / BUILD

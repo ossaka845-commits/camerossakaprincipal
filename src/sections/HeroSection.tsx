@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from 'react';
+﻿import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SlantedFrame from '../components/SlantedFrame';
@@ -110,7 +110,9 @@ export default function HeroSection() {
           alt="Construction site"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F17]/35 to-[#0B0F17]/72" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0D0D0D]/40 via-[#0D0D0D]/20 to-[#0D0D0D]/80" />
+        {/* Blueprint grid overlay */}
+        <div className="absolute inset-0 grid-blueprint opacity-60" />
       </div>
 
       {/* Gold Square Cap */}
@@ -136,18 +138,19 @@ export default function HeroSection() {
       <div className="absolute inset-0 flex flex-col justify-center px-[10vw]">
         {/* Headline */}
         <div ref={headlineRef} className="mb-8">
+          <div className="tech-label mb-4">GÉNIE CIVIL & ARCHITECTURE</div>
           <h1 className="heading-display text-[clamp(44px,6vw,84px)] text-[#F7F8FB]">
-            WE BUILD
+            BUILDING THE
           </h1>
-          <h1 className="heading-display text-[clamp(44px,6vw,84px)] text-[#F7F8FB]">
-            WHAT STANDS
+          <h1 className="heading-display text-[clamp(44px,6vw,84px)] text-[#CC1A1A]">
+            FUTURE
           </h1>
         </div>
 
         {/* Subheadline */}
         <p
           ref={subheadlineRef}
-          className="text-lg md:text-xl text-[#A6AFBF] max-w-[34vw] mb-8 leading-relaxed"
+          className="text-lg md:text-xl text-[#666666] max-w-[34vw] mb-8 leading-relaxed"
         >
           General contracting and construction management for complex infrastructure.
         </p>
@@ -167,7 +170,7 @@ export default function HeroSection() {
             href="https://www.facebook.com/profile.php?id=100064047309007"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-[#D4A03A] transition-all"
+            className="w-10 h-10 rounded-sm bg-white/8 border border-[#CC1A1A]/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-[#CC1A1A]/20 hover:border-[#CC1A1A]/60 transition-all"
           >
             <Facebook className="w-5 h-5" />
           </a>
@@ -175,7 +178,7 @@ export default function HeroSection() {
             href="https://www.instagram.com/camerossak/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-[#D4A03A] transition-all"
+            className="w-10 h-10 rounded-sm bg-white/8 border border-[#CC1A1A]/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-[#CC1A1A]/20 hover:border-[#CC1A1A]/60 transition-all"
           >
             <Instagram className="w-5 h-5" />
           </a>
@@ -183,7 +186,7 @@ export default function HeroSection() {
             href="https://www.tiktok.com/@camerossaka"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-[#D4A03A] transition-all"
+            className="w-10 h-10 rounded-sm bg-white/8 border border-[#CC1A1A]/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-[#CC1A1A]/20 hover:border-[#CC1A1A]/60 transition-all"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
@@ -193,7 +196,7 @@ export default function HeroSection() {
             href="https://www.youtube.com/@Camer-ossakaConstruction-ol8nl"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-[#D4A03A] transition-all"
+            className="w-10 h-10 rounded-sm bg-white/8 border border-[#CC1A1A]/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-[#CC1A1A]/20 hover:border-[#CC1A1A]/60 transition-all"
           >
             <Youtube className="w-5 h-5" />
           </a>

@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from 'react';
+﻿import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SlantedFrame from '../components/SlantedFrame';
@@ -83,7 +83,7 @@ export default function ReliableSection() {
   return (
     <section
       ref={sectionRef}
-      className="section-pinned z-[70] bg-[#0B0F17]"
+      className="section-pinned z-[70] bg-white"
     >
       {/* Left Image Card */}
       <div
@@ -120,7 +120,7 @@ export default function ReliableSection() {
         <h2 className="heading-display text-[clamp(48px,7vw,96px)] text-[#F7F8FB] mb-6">
           RELIABLE
         </h2>
-        <p className="text-[#A6AFBF] text-lg leading-relaxed max-w-[36vw] mb-8">
+        <p className="text-[#666666] text-lg leading-relaxed max-w-[36vw] mb-8">
           Safety-first operations, clear reporting, and teams that stay accountable from kickoff to warranty.
         </p>
         <a href="#team" className="cta-link text-lg">

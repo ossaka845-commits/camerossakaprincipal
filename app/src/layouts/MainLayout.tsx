@@ -53,9 +53,9 @@ export default function MainLayout() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <img 
-              src="/images/loggo_camerossaka.jpg" 
+              src="/images/co_logo.png" 
               alt="CamerOssaka Logo" 
-              className="w-10 h-10 rounded-sm object-cover"
+              className="w-16 h-16 rounded-sm object-cover"
             />
             <span className="text-xl font-bold tracking-tight font-['Sora'] text-white">
               Camer-<span className="text-[#D4A03A]">Ossaka</span> Construction
@@ -206,9 +206,9 @@ export default function MainLayout() {
             <div>
               <Link to="/" className="flex items-center gap-2 mb-6">
                 <img 
-                  src="/images/loggo_camerossaka.jpg" 
+                  src="/images/co_logo.png" 
                   alt="CamerOssaka Logo" 
-                  className="w-10 h-10 rounded-sm object-cover"
+                  className="w-16 h-16 rounded-sm object-cover"
                 />
                 <span className="text-xl font-bold tracking-tight font-['Sora'] text-white">
                   Camer-<span className="text-[#D4A03A]">Ossaka</span> Construction

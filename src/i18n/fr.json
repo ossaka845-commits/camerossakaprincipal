@@ -7,13 +7,14 @@
     "team": "Équipe",
     "contact": "Contact",
     "quote": "Devis",
-    "btpConnexion": "BTP Connexion"
+    "btpConnexion": "C-O Connexion"
   },
   "hero": {
     "title": "CONSTRUIRE L'AVENIR",
     "subtitle": "Bâtissons avec excellence",
-    "ctaQuote": "Demander un devis",
-    "ctaJoin": "Rejoindre BTP Connexion"
+    "ctaQuote": "Nous Soumettre un Projet",
+    "ctaJoin": "S'enregistrer chez nous",
+    "ctaWorkforce": "Trouver la main d'œuvre"
   },
   "stats": {
     "years": "ans d'expérience",
@@ -146,6 +147,7 @@
       "p2": "De nos premiers chantiers à Douala à nos projets internationaux, nous avons bâti notre réputation sur la qualité d'exécution, l'innovation technique et la valorisation des talents locaux. Chaque ouvrage que nous réalisons est le reflet de notre engagement pour des solutions durables, performantes et adaptées aux enjeux contemporains.",
       "p3": "Aujourd'hui présente sur trois continents, CamerOssaka s'affirme comme un partenaire de confiance pour les projets de construction et d'infrastructures, en portant des valeurs fortes qui guident chacune de nos actions : excellence, intégrité, innovation et solidarité."
     },
+    "projectsDone": "Projets réalisés",
     "values": {
       "title": "Nos Valeurs",
       "excellence": "Excellence",
@@ -193,7 +195,7 @@
     }
   },
   "quote": {
-    "title": "DEMANDER UN DEVIS",
+    "title": "NOUS SOUMETTRE UN PROJET",
     "subtitle": "Décrivez votre projet, nous vous répondrons sous 48h",
     "type": {
       "label": "Vous êtes",
@@ -228,8 +230,8 @@
     "success": "Votre demande a bien été envoyée. Nous vous contacterons sous 48h."
   },
   "btpConnexion": {
-    "title": "BTP CONNEXION",
-    "badge": "BTP CONNEXION",
+    "title": "C-O CONNEXION",
+    "badge": "C-O CONNEXION",
     "applicationSent": "Candidature envoyée !",
     "applicationReply": "Nous vous contacterons dans les plus brefs délais.",
     "subtitle": "Rejoignez l'excellence du BTP",
@@ -301,11 +303,15 @@
     "followUs": "Suivez-nous",
     "followUsSocial": "Suivez-nous sur les réseaux sociaux",
     "seeAllProjects": "Voir tous les projets",
+    "viewProject": "Voir le projet",
     "contactUs": "Nous contacter",
     "sending": "Envoi en cours..."
   },
   "home": {
+    "eyebrow": "GÉNIE CIVIL & ARCHITECTURE",
     "pillarsTitle": "NOS PILIERS",
+    "valuesLabel": "NOS VALEURS",
+    "valuesDesc": "Cinq engagements qui définissent chaque projet que nous réalisons.",
     "ctaTitle": "PRÊT À CONSTRUIRE ?",
     "ctaDesc": "Que vous soyez un particulier, une entreprise ou une administration, nous avons les solutions pour votre projet."
   },

@@ -17,27 +17,27 @@ html, body, #root {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0F17;
+  background: #0b141f;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #007A5E;
-  border-radius: 4px;
+  background: #79d8b7;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #006B52;
+  background: #a8e8d4;
 }
 
-/* Selection color - Cameroon green */
+/* Selection color — Titan mint */
 ::selection {
-  background: rgba(0, 122, 94, 0.4);
+  background: rgba(121, 216, 183, 0.25);
   color: #F7F8FB;
 }
 
 /* Focus styles */
 *:focus-visible {
-  outline: 2px solid #007A5E;
+  outline: 2px solid #79d8b7;
   outline-offset: 2px;
 }
 

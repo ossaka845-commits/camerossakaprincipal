@@ -7,13 +7,14 @@
     "team": "Team",
     "contact": "Contact",
     "quote": "Quote",
-    "btpConnexion": "BTP Connexion"
+    "btpConnexion": "C-O Connexion"
   },
   "hero": {
     "title": "BUILDING THE FUTURE",
     "subtitle": "Building with excellence",
-    "ctaQuote": "Request a quote",
-    "ctaJoin": "Join BTP Connexion"
+    "ctaQuote": "Submit a Project",
+    "ctaJoin": "Register with us",
+    "ctaWorkforce": "Find Workforce"
   },
   "stats": {
     "years": "years of experience",
@@ -146,6 +147,7 @@
       "p2": "From our first construction sites in Douala to our international projects, we have built our reputation on quality execution, technical innovation and the development of local talent. Every structure we build reflects our commitment to sustainable, high-performance solutions adapted to contemporary challenges.",
       "p3": "Now present on three continents, CamerOssaka stands as a trusted partner for construction and infrastructure projects, carrying strong values that guide each of our actions: excellence, integrity, innovation and solidarity."
     },
+    "projectsDone": "Projects completed",
     "values": {
       "title": "Our Values",
       "excellence": "Excellence",
@@ -228,8 +230,8 @@
     "success": "Your request has been sent successfully. We will contact you within 48 hours."
   },
   "btpConnexion": {
-    "title": "BTP CONNEXION",
-    "badge": "BTP CONNEXION",
+    "title": "C-O CONNEXION",
+    "badge": "C-O CONNEXION",
     "applicationSent": "Application sent!",
     "applicationReply": "We will contact you as soon as possible.",
     "subtitle": "Join the excellence in construction",
@@ -301,11 +303,15 @@
     "followUs": "Follow us",
     "followUsSocial": "Follow us on social media",
     "seeAllProjects": "See all projects",
+    "viewProject": "View project",
     "contactUs": "Contact us",
     "sending": "Sending..."
   },
   "home": {
+    "eyebrow": "CIVIL ENGINEERING & ARCHITECTURE",
     "pillarsTitle": "OUR PILLARS",
+    "valuesLabel": "OUR VALUES",
+    "valuesDesc": "Five commitments that define every project we deliver.",
     "ctaTitle": "READY TO BUILD?",
     "ctaDesc": "Whether you are an individual, a company or an administration, we have the solutions for your project."
   },

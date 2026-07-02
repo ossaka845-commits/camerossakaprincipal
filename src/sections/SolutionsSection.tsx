@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from 'react';
+﻿import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -76,10 +76,12 @@ export default function SolutionsSection() {
     <section
       ref={sectionRef}
       id="about"
-      className="section-pinned z-20 bg-[#0B0F17] flex items-center justify-center"
+      className="section-pinned z-20 bg-white flex items-center justify-center"
     >
       {/* Vignette */}
       <div className="vignette" />
+      {/* Blueprint grid overlay */}
+      <div className="absolute inset-0 grid-blueprint" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-[72vw]">
@@ -92,7 +94,7 @@ export default function SolutionsSection() {
 
         <p
           ref={bodyRef}
-          className="text-lg md:text-xl text-[#A6AFBF] max-w-[44vw] mx-auto mb-10 leading-relaxed"
+          className="text-lg md:text-xl text-[#666666] max-w-[44vw] mx-auto mb-10 leading-relaxed"
         >
           From preconstruction planning to closeout, we coordinate trades, timelines, and budgets—so your project hits mark.
         </p>

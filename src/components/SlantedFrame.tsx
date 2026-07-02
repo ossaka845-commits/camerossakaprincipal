@@ -1,4 +1,4 @@
-interface SlantedFrameProps {
+﻿interface SlantedFrameProps {
   className?: string;
   style?: React.CSSProperties;
 }

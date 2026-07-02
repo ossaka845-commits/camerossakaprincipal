@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from 'react';
+﻿import { useRef, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { HardHat, ClipboardList, Lightbulb, Calendar, Wrench, Leaf } from 'lucide-react';
@@ -107,21 +107,29 @@ export default function ServicesSection() {
     <section
       ref={sectionRef}
       id="services"
-      className="relative z-[80] bg-[#F4F6FA] py-24 lg:py-32"
+      className="relative z-[80] bg-white py-28 lg:py-36 overflow-hidden"
     >
-      <div className="px-6 lg:px-[6vw]">
+      {/* Blueprint grid background */}
+      <div className="absolute inset-0 grid-blueprint" />
+      {/* Faint radial gradient to focus center */}
+      <div className="absolute inset-0 bg-radial-[ellipse_at_center] from-transparent via-transparent to-[#0D0D0D]/70 pointer-events-none" />
+
+      <div className="relative px-6 lg:px-[6vw]">
+        {/* Top label */}
+        <div className="tech-label mb-6">EXPERTISE & CAPACITÉS</div>
+
         {/* Headline */}
         <h2
           ref={headlineRef}
-          className="heading-display text-[clamp(32px,4vw,56px)] text-[#0B0F17] mb-6"
+          className="heading-display text-[clamp(32px,4vw,56px)] text-[#F7F8FB] mb-6"
         >
-          SERVICES & EXPERTISE
+          SERVICES &amp; EXPERTISE
         </h2>
 
         {/* Intro */}
         <p
           ref={introRef}
-          className="text-lg text-[#4A5568] max-w-[52vw] mb-16 leading-relaxed"
+          className="text-lg text-[#666666] max-w-[52vw] mb-20 leading-relaxed"
         >
           We manage complexity—so you can focus on outcomes.
         </p>
@@ -129,21 +137,25 @@ export default function ServicesSection() {
         {/* Services Grid */}
         <div
           ref={servicesRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#EBEBEB]/60 mb-20 border border-[#EBEBEB]/60"
         >
-          {services.map((service) => (
+          {services.map((service, i) => (
             <div
               key={service.title}
-              className="group p-8 bg-white rounded-sm shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="group p-8 bg-white hover:bg-[#0f1a27] transition-colors duration-300 relative"
             >
-              <service.icon 
-                className="w-10 h-10 text-[#D4A03A] mb-6 transition-transform duration-300 group-hover:scale-110" 
+              {/* Corner accent */}
+              <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-[#CC1A1A]/30 group-hover:border-[#CC1A1A]/70 transition-colors duration-300" />
+              {/* Index */}
+              <span className="label-mono text-[#3e5261] mb-6 block">{String(i + 1).padStart(2, '0')}</span>
+              <service.icon
+                className="w-8 h-8 text-[#CC1A1A] mb-6 transition-transform duration-300 group-hover:scale-105"
                 strokeWidth={1.5}
               />
-              <h3 className="text-xl font-semibold text-[#0B0F17] mb-3 font-['Sora']">
+              <h3 className="text-xl font-semibold text-[#F7F8FB] mb-3 font-['Space_Grotesk'] tracking-tight">
                 {service.title}
               </h3>
-              <p className="text-[#4A5568] leading-relaxed">
+              <p className="text-[#666666] leading-relaxed text-sm">
                 {service.description}
               </p>
             </div>
@@ -152,12 +164,13 @@ export default function ServicesSection() {
 
         {/* Industries */}
         <div>
-          <h3 className="label-mono text-[#4A5568] mb-6">INDUSTRIES</h3>
-          <div ref={industriesRef} className="flex flex-wrap gap-4">
+          <h3 className="label-mono text-[#3e5261] mb-6">SECTORS</h3>
+          <div ref={industriesRef} className="flex flex-wrap gap-3">
             {industries.map((industry) => (
               <span
                 key={industry}
-                className="px-6 py-3 border-2 border-[#D4A03A] text-[#0B0F17] font-medium rounded-full hover:bg-[#D4A03A] hover:text-white transition-colors duration-300"
+                className="px-5 py-2.5 border border-[#CC1A1A]/30 text-[#CC1A1A] text-sm font-medium hover:bg-[#CC1A1A]/10 hover:border-[#CC1A1A]/60 transition-all duration-300 rounded-sm cursor-default tracking-wide"
+                style={{ fontFamily: 'IBM Plex Mono, monospace', fontSize: '11px', letterSpacing: '0.15em' }}
               >
                 {industry}
               </span>

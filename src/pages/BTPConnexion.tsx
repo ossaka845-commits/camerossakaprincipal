@@ -1,35 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+﻿import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { 
-  Building2, 
-  Users, 
-  GraduationCap, 
-  MapPin, 
-  Briefcase, 
-  Clock,
-  Upload,
-  Send,
-  CheckCircle,
-  HardHat,
-  Zap,
-  Droplets,
-  Truck,
-  UserCog,
-  Cpu,
-  PenTool,
-  ClipboardList,
-  Shield,
-  Compass,
-  Flame,
-  Loader2
-} from 'lucide-react';
+import { Upload, Send, CheckCircle, HardHat, Loader2, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import {
   Select,
   SelectContent,
@@ -39,230 +14,103 @@ import {
 } from '@/components/ui/select';
 import { generateAndSendForm } from '@/lib/formMailer';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const jobOffers = [
-  {
-    id: 1,
-    title: 'Secrétaire BTP (Bénévolat – 100 % en ligne)',
-    location: 'Yaoundé, Cameroun',
-    type: 'cdi',
-    contract: 'Contrat à long terme',
-    description: 'Capacité à prendre des notes claires et structurées lors des réunions en ligne, Sens de l\'organisation , Motivé(e) et esprit d’entreprise',
-    requirements: ['Débutant(e) accepté(e)', 'Bac', 'Leadership'],
-  },
-];
-
-const trades = [
-  { key: 'mason', icon: Building2 },
-  { key: 'carpenter', icon: PenTool },
-  { key: 'electrician', icon: Zap },
-  { key: 'plumber', icon: Droplets },
-  { key: 'operator', icon: Truck },
-  { key: 'foreman', icon: UserCog },
-  { key: 'engineer', icon: Cpu },
-  { key: 'architect', icon: Building2 },
-  { key: 'projectManager', icon: ClipboardList },
-  { key: 'safety', icon: Shield },
-  { key: 'survey', icon: Compass },
-  { key: 'welder', icon: Flame },
-];
-
-const testimonials = [
-  {
-    text: 'btpConnexion.testimonials.p1',
-    author: 'Pierre K.',
-    role: 'Chef de chantier',
-    location: 'Cameroun',
-  },
-  {
-    text: 'btpConnexion.testimonials.p2',
-    author: 'Marie D.',
-    role: 'Ingénieure',
-    location: 'Allemagne',
-  },
-];
-
 export default function BTPConnexion() {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState<'jobs' | 'spontaneous'>('jobs');
-  const [selectedJob, setSelectedJob] = useState<number | null>(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [showApplicationModal, setShowApplicationModal] = useState(false);
-  const [applicationData, setApplicationData] = useState({
-    firstname: '',
+
+  const [activeTab, setActiveTab] = useState<'findwork' | 'entreprise'>('findwork');
+  const [findworkCvFileName, setFindworkCvFileName] = useState<string | null>(null);
+  const [findworkSubmitted, setFindworkSubmitted] = useState(false);
+  const [findworkLoading, setFindworkLoading] = useState(false);
+  const [findworkData, setFindworkData] = useState({
     lastname: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
-  const [applicationSubmitted, setApplicationSubmitted] = useState(false);
-  const [cvFileName, setCvFileName] = useState<string | null>(null);
-  const [spontaneousCvFileName, setSpontaneousCvFileName] = useState<string | null>(null);
-  const [portfolioFileName, setPortfolioFileName] = useState<string | null>(null);
-  const [spontaneousData, setSpontaneousData] = useState({
-    civility: 'mr',
     firstname: '',
-    lastname: '',
-    email: '',
-    phone: '',
-    country: '',
-    trade: '',
+    pays: '',
+    ville: '',
+    metier: '',
     experience: '',
-    education: '',
-    coverLetter: '',
+    disponibilite: '',
+    contact: '',
+    competences: '',
   });
 
-  const jobsRef = useRef<HTMLDivElement>(null);
-  const tradesRef = useRef<HTMLDivElement>(null);
+  const [entrepriseSubmitted, setEntrepriseSubmitted] = useState(false);
+  const [entrepriseLoading, setEntrepriseLoading] = useState(false);
+  const [entrepriseData, setEntrepriseData] = useState({
+    nom: '',
+    domaine: '',
+    localisation: '',
+    email: '',
+    telephone: '',
+    admin: '',
+  });
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo('.job-card', 
-        { y: 40, opacity: 0 }, 
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.5, 
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: jobsRef.current,
-            start: 'top 80%',
-          }
-        }
-      );
-
-      gsap.fromTo('.trade-card', 
-        { scale: 0.9, opacity: 0 }, 
-        { 
-          scale: 1, 
-          opacity: 1, 
-          duration: 0.4, 
-          stagger: 0.05,
-          scrollTrigger: {
-            trigger: tradesRef.current,
-            start: 'top 80%',
-          }
-        }
-      );
-    });
-
-    return () => ctx.revert();
-  }, []);
-
-  const handleApplyClick = (jobId: number) => {
-    setSelectedJob(jobId);
-    setShowApplicationModal(true);
-  };
-
-  const handleApplicationSubmit = async (e: React.FormEvent) => {
+  const handleEntrepriseSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-
+    setEntrepriseLoading(true);
     try {
-      const job = jobOffers.find(j => j.id === selectedJob);
       await generateAndSendForm({
-        title: `CANDIDATURE - ${job?.title || 'Offre d\'emploi'}`,
-        senderName: `${applicationData.firstname} ${applicationData.lastname}`,
-        senderEmail: applicationData.email,
+        title: 'INSCRIPTION ESPACE ENTREPRISES - C-O CONNEXION',
+        senderName: entrepriseData.nom,
+        senderEmail: entrepriseData.email || 'noreply@camerossaka.com',
         fields: [
-          { label: 'Poste', value: job?.title || '' },
-          { label: 'Localisation du poste', value: job?.location || '' },
-          { label: 'Prénom', value: applicationData.firstname },
-          { label: 'Nom', value: applicationData.lastname },
-          { label: 'Email', value: applicationData.email },
-          { label: 'Téléphone', value: applicationData.phone },
-          { label: 'Message / Motivation', value: applicationData.message },
-          ...(cvFileName ? [{ label: 'CV joint', value: cvFileName }] : []),
+          { label: 'Nom entreprise', value: entrepriseData.nom },
+          { label: 'Domaine', value: entrepriseData.domaine },
+          { label: 'Localisation', value: entrepriseData.localisation },
+          { label: 'Email', value: entrepriseData.email },
+          { label: 'Téléphone', value: entrepriseData.telephone },
+          { label: 'Email administrateur', value: entrepriseData.admin },
         ],
       });
-
-      setApplicationSubmitted(true);
-      setTimeout(() => {
-        setShowApplicationModal(false);
-        setApplicationSubmitted(false);
-        setApplicationData({ firstname: '', lastname: '', email: '', phone: '', message: '' });
-        setCvFileName(null);
-        setSelectedJob(null);
-      }, 3000);
+      setEntrepriseSubmitted(true);
     } catch (error) {
       console.error('Erreur:', error);
-      setApplicationSubmitted(true);
+      setEntrepriseSubmitted(true);
     } finally {
-      setIsLoading(false);
+      setEntrepriseLoading(false);
     }
   };
 
-  const handleSpontaneousSubmit = async (e: React.FormEvent) => {
+  const handleFindworkSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-
+    setFindworkLoading(true);
     try {
       await generateAndSendForm({
-        title: 'CANDIDATURE SPONTANÉE - BTP CONNEXION',
-        senderName: `${spontaneousData.firstname} ${spontaneousData.lastname}`,
-        senderEmail: spontaneousData.email,
+        title: 'INSCRIPTION TROUVER DU TRAVAIL - C-O CONNEXION',
+        senderName: `${findworkData.firstname} ${findworkData.lastname}`,
+        senderEmail: findworkData.contact.includes('@') ? findworkData.contact : 'noreply@camerossaka.com',
         fields: [
-          { label: 'Civilité', value: spontaneousData.civility === 'mr' ? 'Monsieur' : spontaneousData.civility === 'mrs' ? 'Madame' : 'Mademoiselle' },
-          { label: 'Prénom', value: spontaneousData.firstname },
-          { label: 'Nom', value: spontaneousData.lastname },
-          { label: 'Email', value: spontaneousData.email },
-          { label: 'Téléphone', value: spontaneousData.phone },
-          { label: 'Pays', value: spontaneousData.country },
-          { label: 'Métier / Spécialité', value: spontaneousData.trade },
-          { label: 'Expérience', value: spontaneousData.experience },
-          { label: 'Niveau d\'études', value: spontaneousData.education },
-          { label: 'Lettre de motivation', value: spontaneousData.coverLetter },
-          ...(spontaneousCvFileName ? [{ label: 'CV joint', value: spontaneousCvFileName }] : []),
-          ...(portfolioFileName ? [{ label: 'Portfolio joint', value: portfolioFileName }] : []),
+          { label: 'Nom', value: findworkData.lastname },
+          { label: 'Prénom', value: findworkData.firstname },
+          { label: 'Pays', value: findworkData.pays },
+          { label: 'Ville', value: findworkData.ville },
+          { label: 'Métier', value: findworkData.metier },
+          { label: 'Expérience (années)', value: findworkData.experience },
+          { label: 'Disponibilité', value: findworkData.disponibilite },
+          { label: 'Numéro / Email', value: findworkData.contact },
+          { label: 'Compétences spécifiques', value: findworkData.competences || '–' },
+          ...(findworkCvFileName ? [{ label: 'CV joint', value: findworkCvFileName }] : []),
         ],
       });
-
-      setIsSubmitted(true);
+      setFindworkSubmitted(true);
     } catch (error) {
       console.error('Erreur:', error);
-      setIsSubmitted(true);
+      setFindworkSubmitted(true);
     } finally {
-      setIsLoading(false);
+      setFindworkLoading(false);
     }
   };
-
-  if (isSubmitted) {
-    return (
-      <div className="pt-24 pb-16 min-h-screen flex items-center justify-center">
-        <div className="text-center px-4">
-          <div className="w-20 h-20 mx-auto mb-6 bg-[#007A5E] rounded-full flex items-center justify-center">
-            <CheckCircle className="w-10 h-10 text-white" />
-          </div>
-          <h1 className="heading-display text-3xl md:text-4xl text-white mb-4">
-            Candidature envoyée !
-          </h1>
-          <p className="text-[#A6AFBF] mb-8">
-            Notre équipe RH étudiera votre profil et vous contactera si votre candidature est retenue.
-          </p>
-          <a
-            href="/btp-connexion"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#007A5E] text-white font-semibold rounded-sm hover:bg-[#006B52] transition-colors"
-          >
-            Retour à BTP Connexion
-          </a>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="pt-24 pb-16">
       {/* Hero */}
       <section className="px-4 lg:px-[4vw] mb-16">
-        <div className="bg-gradient-to-r from-[#007A5E] to-[#006B52] rounded-sm p-12 lg:p-16">
+        <div className="bg-gradient-to-r from-[#CC1A1A] to-[#B01515] rounded-sm p-12 lg:p-16">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full mb-6">
-              <HardHat className="w-5 h-5 text-white" />
-              <span className="text-sm text-white label-mono">BTP CONNEXION</span>
+              <HardHat className="w-5 h-5 text-[#CC1A1A]" />
+              <span className="text-sm text-[#111111] label-mono">C-O CONNEXION</span>
             </div>
-            <h1 className="heading-display text-[clamp(32px,6vw,56px)] text-white mb-4">
+            <h1 className="heading-display text-[clamp(32px,6vw,56px)] text-[#111111] mb-4">
               {t('btpConnexion.hero.title')}
             </h1>
             <p className="text-lg text-white/80 mb-8">
@@ -272,524 +120,281 @@ export default function BTPConnexion() {
         </div>
       </section>
 
-      {/* Tabs */}
+      {/* Tab header */}
       <section className="px-4 lg:px-[4vw] mb-12">
-        <div className="flex gap-4 border-b border-[#2A3441]">
+        <div className="flex gap-2 border-b border-[#E5E5E5]">
           <button
-            onClick={() => setActiveTab('jobs')}
+            onClick={() => setActiveTab('findwork')}
             className={`px-6 py-4 font-medium transition-colors ${
-              activeTab === 'jobs'
-                ? 'text-[#007A5E] border-b-2 border-[#007A5E]'
-                : 'text-[#A6AFBF] hover:text-white'
+              activeTab === 'findwork'
+                ? 'text-[#CC1A1A] border-b-2 border-[#CC1A1A]'
+                : 'text-[#666666] hover:text-white'
             }`}
           >
-            {t('btpConnexion.jobs.title')}
+            Trouver du travail
           </button>
           <button
-            onClick={() => setActiveTab('spontaneous')}
+            onClick={() => setActiveTab('entreprise')}
             className={`px-6 py-4 font-medium transition-colors ${
-              activeTab === 'spontaneous'
-                ? 'text-[#007A5E] border-b-2 border-[#007A5E]'
-                : 'text-[#A6AFBF] hover:text-white'
+              activeTab === 'entreprise'
+                ? 'text-[#CC1A1A] border-b-2 border-[#CC1A1A]'
+                : 'text-[#666666] hover:text-white'
             }`}
           >
-            {t('btpConnexion.spontaneous.title')}
+            Espace Entreprises
           </button>
         </div>
       </section>
 
-      {/* Jobs Tab */}
-      {activeTab === 'jobs' && (
-        <>
-          <section ref={jobsRef} className="px-4 lg:px-[4vw] mb-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {jobOffers.map((job) => (
-                <div
-                  key={job.id}
-                  className="job-card bg-[#1A2744] p-6 rounded-sm hover:shadow-lg transition-shadow cursor-pointer"
-                  onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)}
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-lg font-semibold text-white font-['Sora'] mb-2">
-                        {job.title}
-                      </h3>
-                      <div className="flex items-center gap-4 text-sm text-[#A6AFBF]">
-                        <span className="flex items-center gap-1">
-                          <MapPin className="w-4 h-4" />
-                          {job.location}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
-                          {job.contract}
-                        </span>
-                      </div>
-                    </div>
-                    <span className="px-3 py-1 bg-[#007A5E]/20 text-[#007A5E] text-xs font-medium rounded-full">
-                      {t(`btpConnexion.jobs.${job.type}`)}
-                    </span>
-                  </div>
-                  
-                  <p className="text-[#A6AFBF] text-sm mb-4">{job.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {job.requirements.map((req, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 bg-[#0B0F17] text-[#A6AFBF] text-xs rounded-full"
-                      >
-                        {req}
-                      </span>
-                    ))}
-                  </div>
-
-                  {selectedJob === job.id && (
-                    <div className="mt-6 pt-6 border-t border-[#2A3441]">
-                      <Button 
-                        className="w-full bg-[#007A5E] hover:bg-[#006B52] text-white"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleApplyClick(job.id);
-                        }}
-                      >
-                        <Send className="w-4 h-4 mr-2" />
-                        {t('btpConnexion.jobs.apply')}
-                      </Button>
-                    </div>
-                  )}
-                </div>
-              ))}
+      {/* Findwork Form */}
+      {activeTab === 'findwork' && (
+      <section className="px-4 lg:px-[4vw]">
+        <div className="max-w-3xl mx-auto">
+          {findworkSubmitted ? (
+            <div className="text-center py-16">
+              <div className="w-20 h-20 mx-auto mb-6 bg-[#CC1A1A] rounded-full flex items-center justify-center">
+                <CheckCircle className="w-10 h-10 text-[#0D0D0D]" />
+              </div>
+              <h2 className="heading-display text-3xl text-[#111111] mb-4">Inscription envoyée !</h2>
+              <p className="text-[#666666]">Notre équipe vous contactera dès qu'un poste correspond à votre profil.</p>
             </div>
-          </section>
+          ) : (
+            <div className="bg-white border border-[#E5DFD3] shadow-sm p-8 rounded-sm">
+              <h2 className="heading-display text-2xl text-[#111111] mb-2">Trouver du travail</h2>
+              <p className="text-[#666666] mb-8">Inscrivez-vous pour être mis en relation avec des employeurs du BTP.</p>
 
-          {/* Trades */}
-          <section ref={tradesRef} className="px-4 lg:px-[4vw] py-20 bg-[#1A2744]">
-            <h2 className="heading-display text-2xl text-white mb-8 text-center">
-              {t('btpConnexion.trades.title')}
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {trades.map((trade) => (
-                <div
-                  key={trade.key}
-                  className="trade-card flex items-center gap-3 p-4 bg-[#0B0F17] rounded-sm hover:bg-[#007A5E]/20 transition-colors cursor-pointer"
-                >
-                  <trade.icon className="w-6 h-6 text-[#D4A03A]" />
-                  <span className="text-white text-sm">{t(`btpConnexion.trades.${trade.key}`)}</span>
-                </div>
-              ))}
-            </div>
-          </section>
+              <form onSubmit={handleFindworkSubmit} className="space-y-6">
 
-          {/* Testimonials */}
-          <section className="px-4 lg:px-[4vw] py-20">
-            <h2 className="heading-display text-2xl text-white mb-8 text-center">
-              {t('btpConnexion.testimonials.title')}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-[#1A2744] p-8 rounded-sm">
-                  <p className="text-[#A6AFBF] mb-6 italic">"{t(testimonial.text)}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#007A5E] rounded-full flex items-center justify-center">
-                      <span className="text-white font-semibold">{testimonial.author.charAt(0)}</span>
-                    </div>
-                    <div>
-                      <div className="text-white font-medium">{testimonial.author}</div>
-                      <div className="text-[#A6AFBF] text-sm">{testimonial.role} • {testimonial.location}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        </>
-      )}
-
-      {/* Spontaneous Application Tab */}
-      {activeTab === 'spontaneous' && (
-        <section className="px-4 lg:px-[4vw]">
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-[#1A2744] p-8 rounded-sm mb-8">
-              <h2 className="heading-display text-2xl text-white mb-2">
-                {t('btpConnexion.spontaneous.title')}
-              </h2>
-              <p className="text-[#A6AFBF]">{t('btpConnexion.spontaneous.subtitle')}</p>
-            </div>
-
-            <form onSubmit={handleSpontaneousSubmit} className="space-y-8">
-              <div className="bg-[#1A2744] p-8 rounded-sm">
+                {/* Nom / Prénom */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">
-                      {t('btpConnexion.spontaneous.civility')}
-                    </Label>
-                    <RadioGroup
-                      value={spontaneousData.civility}
-                      onValueChange={(value) => setSpontaneousData({ ...spontaneousData, civility: value })}
-                      className="flex gap-4"
-                    >
-                      {[
-                        { key: 'mr', label: t('btpConnexion.spontaneous.mr') },
-                        { key: 'mrs', label: t('btpConnexion.spontaneous.mrs') },
-                        { key: 'ms', label: t('btpConnexion.spontaneous.ms') },
-                      ].map((civ) => (
-                        <div key={civ.key} className="flex items-center space-x-2">
-                          <RadioGroupItem value={civ.key} id={civ.key} className="border-[#007A5E]" />
-                          <Label htmlFor={civ.key} className="text-white cursor-pointer">{civ.label}</Label>
-                        </div>
-                      ))}
-                    </RadioGroup>
+                    <Label className="label-mono text-[#666666] mb-2 block">Nom <span className="text-[#CC1A1A]">*</span></Label>
+                    <Input value={findworkData.lastname} onChange={(e) => setFindworkData({ ...findworkData, lastname: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] h-12" placeholder="Votre nom" required />
                   </div>
-
                   <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">
-                      {t('btpConnexion.spontaneous.firstname')}
-                    </Label>
-                    <Input
-                      value={spontaneousData.firstname}
-                      onChange={(e) => setSpontaneousData({ ...spontaneousData, firstname: e.target.value })}
-                      className="bg-[#0B0F17] border-[#2A3441] text-white h-12"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">
-                      {t('btpConnexion.spontaneous.lastname')}
-                    </Label>
-                    <Input
-                      value={spontaneousData.lastname}
-                      onChange={(e) => setSpontaneousData({ ...spontaneousData, lastname: e.target.value })}
-                      className="bg-[#0B0F17] border-[#2A3441] text-white h-12"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">
-                      {t('btpConnexion.spontaneous.email')}
-                    </Label>
-                    <Input
-                      type="email"
-                      value={spontaneousData.email}
-                      onChange={(e) => setSpontaneousData({ ...spontaneousData, email: e.target.value })}
-                      className="bg-[#0B0F17] border-[#2A3441] text-white h-12"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">
-                      {t('btpConnexion.spontaneous.phone')}
-                    </Label>
-                    <Input
-                      type="tel"
-                      value={spontaneousData.phone}
-                      onChange={(e) => setSpontaneousData({ ...spontaneousData, phone: e.target.value })}
-                      className="bg-[#0B0F17] border-[#2A3441] text-white h-12"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">
-                      {t('btpConnexion.spontaneous.country')}
-                    </Label>
-                    <Input
-                      value={spontaneousData.country}
-                      onChange={(e) => setSpontaneousData({ ...spontaneousData, country: e.target.value })}
-                      className="bg-[#0B0F17] border-[#2A3441] text-white h-12"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">
-                      {t('btpConnexion.spontaneous.trade')}
-                    </Label>
-                    <Select
-                      value={spontaneousData.trade}
-                      onValueChange={(value) => setSpontaneousData({ ...spontaneousData, trade: value })}
-                    >
-                      <SelectTrigger className="bg-[#0B0F17] border-[#2A3441] text-white h-12">
-                        <SelectValue placeholder="Sélectionnez..." />
-                      </SelectTrigger>
-                      <SelectContent className="bg-[#1A2744] border-[#2A3441]">
-                        {trades.map((trade) => (
-                          <SelectItem key={trade.key} value={trade.key} className="text-white">
-                            {t(`btpConnexion.trades.${trade.key}`)}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">
-                      {t('btpConnexion.spontaneous.experience')}
-                    </Label>
-                    <Select
-                      value={spontaneousData.experience}
-                      onValueChange={(value) => setSpontaneousData({ ...spontaneousData, experience: value })}
-                    >
-                      <SelectTrigger className="bg-[#0B0F17] border-[#2A3441] text-white h-12">
-                        <SelectValue placeholder="Sélectionnez..." />
-                      </SelectTrigger>
-                      <SelectContent className="bg-[#1A2744] border-[#2A3441]">
-                        {['Débutant (0-2 ans)', 'Confirmé (3-5 ans)', 'Expérimenté (5-10 ans)', 'Senior (10+ ans)'].map((exp) => (
-                          <SelectItem key={exp} value={exp} className="text-white">
-                            {exp}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">
-                      {t('btpConnexion.spontaneous.education')}
-                    </Label>
-                    <Select
-                      value={spontaneousData.education}
-                      onValueChange={(value) => setSpontaneousData({ ...spontaneousData, education: value })}
-                    >
-                      <SelectTrigger className="bg-[#0B0F17] border-[#2A3441] text-white h-12">
-                        <SelectValue placeholder="Sélectionnez..." />
-                      </SelectTrigger>
-                      <SelectContent className="bg-[#1A2744] border-[#2A3441]">
-                        {['CAP/BEPC', 'Bac', 'Bac Pro', 'Bac+1', 'Bac+2', 'Bac+3', 'Bac+4', 'Bac+5',].map((edu) => (
-                          <SelectItem key={edu} value={edu} className="text-white">
-                            {edu}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    <Label className="label-mono text-[#666666] mb-2 block">Prénom <span className="text-[#CC1A1A]">*</span></Label>
+                    <Input value={findworkData.firstname} onChange={(e) => setFindworkData({ ...findworkData, firstname: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] h-12" placeholder="Votre prénom" required />
                   </div>
                 </div>
 
-                <div className="mt-6">
-                  <Label className="label-mono text-[#A6AFBF] mb-2 block">
-                    {t('btpConnexion.spontaneous.coverLetter')}
-                  </Label>
-                  <Textarea
-                    value={spontaneousData.coverLetter}
-                    onChange={(e) => setSpontaneousData({ ...spontaneousData, coverLetter: e.target.value })}
-                    className="bg-[#0B0F17] border-[#2A3441] text-white min-h-[120px] resize-none"
-                    placeholder="Présentez-vous et expliquez pourquoi vous souhaitez rejoindre CamerOssaka..."
-                  />
+                {/* Pays / Ville */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <Label className="label-mono text-[#666666] mb-2 block">Pays <span className="text-[#CC1A1A]">*</span></Label>
+                    <Input value={findworkData.pays} onChange={(e) => setFindworkData({ ...findworkData, pays: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] h-12" placeholder="Ex: Cameroun, France..." required />
+                  </div>
+                  <div>
+                    <Label className="label-mono text-[#666666] mb-2 block">Ville <span className="text-[#CC1A1A]">*</span></Label>
+                    <Input value={findworkData.ville} onChange={(e) => setFindworkData({ ...findworkData, ville: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] h-12" placeholder="Ex: Yaoundé, Douala..." required />
+                  </div>
                 </div>
 
-                <div className="mt-6">
-                  <Label className="label-mono text-[#A6AFBF] mb-2 block">
-                    {t('btpConnexion.spontaneous.cv')}
-                  </Label>
-                  <label className="border-2 border-dashed border-[#2A3441] rounded-sm p-8 text-center hover:border-[#007A5E] transition-colors cursor-pointer block">
-                    <input
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      className="hidden"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        if (file) {
-                          setSpontaneousCvFileName(file.name);
-                        }
-                      }}
-                    />
-                    <Upload className="w-8 h-8 mx-auto mb-3 text-[#A6AFBF]" />
-                    {spontaneousCvFileName ? (
-                      <p className="text-[#007A5E] text-sm font-medium">✅ {spontaneousCvFileName}</p>
+                {/* Métier */}
+                <div>
+                  <Label className="label-mono text-[#666666] mb-2 block">Métier <span className="text-[#CC1A1A]">*</span></Label>
+                  <Select value={findworkData.metier} onValueChange={(value) => setFindworkData({ ...findworkData, metier: value })} required>
+                    <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
+                      <SelectValue placeholder="Sélectionnez votre métier..." />
+                    </SelectTrigger>
+                    <SelectContent className="bg-white border-[#E5DFD3]">
+                      <SelectItem value="Manoeuvre" className="text-[#111111]">Manœuvre</SelectItem>
+                      <SelectItem value="Macon" className="text-[#111111]">Maçon</SelectItem>
+                      <SelectItem value="Technicien" className="text-[#111111]">Technicien</SelectItem>
+                      <SelectItem value="Ingenieur" className="text-[#111111]">Ingénieur</SelectItem>
+                      <SelectItem value="Plombier" className="text-[#111111]">Plombier</SelectItem>
+                      <SelectItem value="Electricien" className="text-[#111111]">Électricien</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Expérience */}
+                <div>
+                  <Label className="label-mono text-[#666666] mb-2 block">Expérience (années) <span className="text-[#CC1A1A]">*</span></Label>
+                  <Select value={findworkData.experience} onValueChange={(value) => setFindworkData({ ...findworkData, experience: value })} required>
+                    <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
+                      <SelectValue placeholder="Sélectionnez..." />
+                    </SelectTrigger>
+                    <SelectContent className="bg-white border-[#E5DFD3]">
+                      <SelectItem value="0-2 ans" className="text-[#111111]">0 - 2 ans</SelectItem>
+                      <SelectItem value="3-5 ans" className="text-[#111111]">3 - 5 ans</SelectItem>
+                      <SelectItem value="5-10 ans" className="text-[#111111]">5 - 10 ans</SelectItem>
+                      <SelectItem value="10+ ans" className="text-[#111111]">10 ans et plus</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* CV upload */}
+                <div>
+                  <Label className="label-mono text-[#666666] mb-2 block">CV (PDF) <span className="text-[#CC1A1A]">*</span></Label>
+                  <label className="border-2 border-dashed border-[#E5E5E5] rounded-sm p-8 text-center hover:border-[#CC1A1A] transition-colors cursor-pointer block">
+                    <input type="file" accept=".pdf" className="hidden" onChange={(e) => { const file = e.target.files?.[0]; if (file) setFindworkCvFileName(file.name); }} />
+                    <Upload className="w-8 h-8 mx-auto mb-3 text-[#666666]" />
+                    {findworkCvFileName ? (
+                      <p className="text-[#CC1A1A] text-sm font-medium">CV joint : {findworkCvFileName}</p>
                     ) : (
                       <>
-                        <p className="text-[#A6AFBF] text-sm">
-                          Glissez-déposez votre CV ou cliquez pour parcourir
-                        </p>
-                        <p className="text-[#4A5568] text-xs mt-2">
-                          PDF uniquement, max 5 Mo
-                        </p>
+                        <p className="text-[#666666] text-sm">Glissez-deposez votre CV ou cliquez pour parcourir</p>
+                        <p className="text-[#999999] text-xs mt-1">PDF uniquement, max 5 Mo</p>
                       </>
                     )}
                   </label>
                 </div>
 
-                <div className="mt-6">
-                  <Label className="label-mono text-[#A6AFBF] mb-2 block">
-                    {t('btpConnexion.spontaneous.portfolio')}
-                  </Label>
-                  <label className="border-2 border-dashed border-[#2A3441] rounded-sm p-8 text-center hover:border-[#007A5E] transition-colors cursor-pointer block">
-                    <input
-                      type="file"
-                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
-                      className="hidden"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        if (file) {
-                          setPortfolioFileName(file.name);
-                        }
-                      }}
-                    />
-                    <Upload className="w-8 h-8 mx-auto mb-3 text-[#A6AFBF]" />
-                    {portfolioFileName ? (
-                      <p className="text-[#007A5E] text-sm font-medium">✅ {portfolioFileName}</p>
-                    ) : (
-                      <p className="text-[#A6AFBF] text-sm">
-                        Documents supplémentaires (optionnel)
-                      </p>
-                    )}
-                  </label>
+                {/* Disponibilité */}
+                <div>
+                  <Label className="label-mono text-[#666666] mb-2 block">Disponibilité <span className="text-[#CC1A1A]">*</span></Label>
+                  <Input value={findworkData.disponibilite} onChange={(e) => setFindworkData({ ...findworkData, disponibilite: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] h-12" placeholder="Ex: Immediate, Dans 1 mois, A partir du..." required />
                 </div>
-              </div>
 
-              <Button
-                type="submit"
-                disabled={isLoading}
-                className="w-full bg-[#007A5E] hover:bg-[#006B52] text-white py-6 h-auto"
-              >
-                {isLoading ? (
-                  <><Loader2 className="w-5 h-5 mr-2 animate-spin" />{t('common.sending')}</>
-                ) : (
-                  <><Send className="w-5 h-5 mr-2" />{t('btpConnexion.spontaneous.submit')}</>
-                )}
-              </Button>
-            </form>
-          </div>
-        </section>
+                {/* Numéro / Email */}
+                <div>
+                  <Label className="label-mono text-[#666666] mb-2 block">Numéro / Email <span className="text-[#CC1A1A]">*</span></Label>
+                  <Input value={findworkData.contact} onChange={(e) => setFindworkData({ ...findworkData, contact: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] h-12" placeholder="+237 6XX XXX XXX ou adresse@email.com" required />
+                </div>
+
+                {/* Compétences spécifiques */}
+                <div>
+                  <Label className="label-mono text-[#666666] mb-2 block">Compétences spécifiques <span className="text-[#999999] font-normal">(optionnel)</span></Label>
+                  <Textarea value={findworkData.competences} onChange={(e) => setFindworkData({ ...findworkData, competences: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] min-h-[100px] resize-none" placeholder="Ex: AutoCAD, beton arme, coffrage, soudure TIG..." />
+                </div>
+
+                <Button type="submit" disabled={findworkLoading} className="w-full bg-[#CC1A1A] hover:bg-[#5fc4a3] text-[#0D0D0D] font-semibold py-6 h-auto">
+                  {findworkLoading ? (
+                    <><Loader2 className="w-5 h-5 mr-2 animate-spin" />Envoi en cours...</>
+                  ) : (
+                    <><Send className="w-5 h-5 mr-2" />Envoyer mon inscription</>
+                  )}
+                </Button>
+
+              </form>
+            </div>
+          )}
+        </div>
+      </section>
       )}
 
-      {/* Application Modal */}
-      {showApplicationModal && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B0F17]/90 backdrop-blur-sm"
-          onClick={() => setShowApplicationModal(false)}
-        >
-          <div 
-            className="bg-[#1A2744] rounded-sm max-w-lg w-full max-h-[90vh] overflow-auto p-8"
-            onClick={e => e.stopPropagation()}
-          >
-            {applicationSubmitted ? (
-              <div className="text-center py-8">
-                <div className="w-16 h-16 mx-auto mb-4 bg-[#007A5E] rounded-full flex items-center justify-center">
-                  <CheckCircle className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">{t('btpConnexion.applicationSent')}</h3>
-                <p className="text-[#A6AFBF]">{t('btpConnexion.applicationReply')}</p>
+      {/* Espace Entreprises Form */}
+      {activeTab === 'entreprise' && (
+      <section className="px-4 lg:px-[4vw]">
+        <div className="max-w-3xl mx-auto">
+          {entrepriseSubmitted ? (
+            <div className="text-center py-16">
+              <div className="w-24 h-24 mx-auto mb-6 bg-[#CC1A1A] rounded-full flex items-center justify-center">
+                <ShieldCheck className="w-12 h-12 text-[#0D0D0D]" />
               </div>
-            ) : (
-              <>
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="heading-display text-xl text-white">{t('btpConnexion.jobs.apply')}</h2>
-                  <button
-                    onClick={() => setShowApplicationModal(false)}
-                    className="w-8 h-8 bg-[#0B0F17] text-white rounded-full flex items-center justify-center hover:bg-[#2A3441] transition-colors"
-                  >
-                    ×
-                  </button>
+              <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#CC1A1A]/20 border border-[#CC1A1A] rounded-full mb-6">
+                <ShieldCheck className="w-4 h-4 text-[#CC1A1A]" />
+                <span className="text-[#CC1A1A] font-semibold label-mono text-sm">Entreprise vérifiée</span>
+              </div>
+              <h2 className="heading-display text-3xl text-[#111111] mb-4">Demande envoyée !</h2>
+              <p className="text-[#666666]">Notre équipe vérifiera votre dossier et activera votre badge <span className="text-[#CC1A1A]">Entreprise vérifiée</span> sous 48h.</p>
+            </div>
+          ) : (
+            <div className="bg-white border border-[#E5DFD3] shadow-sm p-8 rounded-sm">
+              <div className="flex items-start justify-between mb-2">
+                <h2 className="heading-display text-2xl text-[#111111]">Espace Entreprises</h2>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#CC1A1A]/10 border border-[#CC1A1A]/40 rounded-full">
+                  <ShieldCheck className="w-4 h-4 text-[#CC1A1A]" />
+                  <span className="text-[#CC1A1A] text-xs font-semibold label-mono">Entreprise vérifiée</span>
                 </div>
-                
-                <div className="mb-6 p-4 bg-[#0B0F17] rounded-sm">
-                  <p className="text-white font-semibold">{jobOffers.find(j => j.id === selectedJob)?.title}</p>
-                  <p className="text-[#A6AFBF] text-sm">{jobOffers.find(j => j.id === selectedJob)?.location}</p>
+              </div>
+              <p className="text-[#666666] mb-8">Inscrivez votre entreprise pour accéder aux profils qualifiés et être visible sur la plateforme C-O Connexion.</p>
+
+              <form onSubmit={handleEntrepriseSubmit} className="space-y-6">
+
+                {/* Nom entreprise */}
+                <div>
+                  <Label className="label-mono text-[#666666] mb-2 block">Nom de l'entreprise <span className="text-[#CC1A1A]">*</span></Label>
+                  <Input
+                    value={entrepriseData.nom}
+                    onChange={(e) => setEntrepriseData({ ...entrepriseData, nom: e.target.value })}
+                    className="bg-white border-[#E5E5E5] text-[#111111] h-12"
+                    placeholder="Ex: Camerossaka SARL"
+                    required
+                  />
                 </div>
 
-                <form onSubmit={handleApplicationSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <Label className="label-mono text-[#A6AFBF] mb-2 block">{t('btpConnexion.spontaneous.firstname')}</Label>
-                      <Input
-                        type="text"
-                        value={applicationData.firstname}
-                        onChange={(e) => setApplicationData({ ...applicationData, firstname: e.target.value })}
-                        className="bg-[#0B0F17] border-[#2A3441] text-white h-12"
-                        placeholder="Votre prénom"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label className="label-mono text-[#A6AFBF] mb-2 block">Nom</Label>
-                      <Input
-                        type="text"
-                        value={applicationData.lastname}
-                        onChange={(e) => setApplicationData({ ...applicationData, lastname: e.target.value })}
-                        className="bg-[#0B0F17] border-[#2A3441] text-white h-12"
-                        placeholder="Votre nom"
-                        required
-                      />
-                    </div>
-                  </div>
-                  
+                {/* Domaine / Localisation */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">Email</Label>
+                    <Label className="label-mono text-[#666666] mb-2 block">Domaine <span className="text-[#CC1A1A]">*</span></Label>
+                    <Select value={entrepriseData.domaine} onValueChange={(value) => setEntrepriseData({ ...entrepriseData, domaine: value })} required>
+                      <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
+                        <SelectValue placeholder="Sélectionnez un domaine..." />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white border-[#E5DFD3]">
+                        <SelectItem value="BTP" className="text-[#111111]">BTP (Bâtiment & Travaux Publics)</SelectItem>
+                        <SelectItem value="Routes" className="text-[#111111]">Routes & Voirie</SelectItem>
+                        <SelectItem value="Batiment" className="text-[#111111]">Bâtiment</SelectItem>
+                        <SelectItem value="Genie civil" className="text-[#111111]">Génie Civil</SelectItem>
+                        <SelectItem value="Travaux publics" className="text-[#111111]">Travaux Publics</SelectItem>
+                        <SelectItem value="Construction" className="text-[#111111]">Construction</SelectItem>
+                        <SelectItem value="Autre" className="text-[#111111]">Autre</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label className="label-mono text-[#666666] mb-2 block">Localisation <span className="text-[#CC1A1A]">*</span></Label>
                     <Input
-                      type="email"
-                      value={applicationData.email}
-                      onChange={(e) => setApplicationData({ ...applicationData, email: e.target.value })}
-                      className="bg-[#0B0F17] border-[#2A3441] text-white h-12"
-                      placeholder="votre@email.com"
+                      value={entrepriseData.localisation}
+                      onChange={(e) => setEntrepriseData({ ...entrepriseData, localisation: e.target.value })}
+                      className="bg-white border-[#E5E5E5] text-[#111111] h-12"
+                      placeholder="Ex: Yaoundé, Douala..."
                       required
                     />
                   </div>
-                  
+                </div>
+
+                {/* Email / Téléphone */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">{t('btpConnexion.spontaneous.phone')}</Label>
+                    <Label className="label-mono text-[#666666] mb-2 block">Email <span className="text-[#CC1A1A]">*</span></Label>
+                    <Input
+                      type="email"
+                      value={entrepriseData.email}
+                      onChange={(e) => setEntrepriseData({ ...entrepriseData, email: e.target.value })}
+                      className="bg-white border-[#E5E5E5] text-[#111111] h-12"
+                      placeholder="contact@entreprise.com"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label className="label-mono text-[#666666] mb-2 block">Téléphone <span className="text-[#CC1A1A]">*</span></Label>
                     <Input
                       type="tel"
-                      value={applicationData.phone}
-                      onChange={(e) => setApplicationData({ ...applicationData, phone: e.target.value })}
-                      className="bg-[#0B0F17] border-[#2A3441] text-white h-12"
+                      value={entrepriseData.telephone}
+                      onChange={(e) => setEntrepriseData({ ...entrepriseData, telephone: e.target.value })}
+                      className="bg-white border-[#E5E5E5] text-[#111111] h-12"
                       placeholder="+237 6XX XXX XXX"
                       required
                     />
                   </div>
-                  
-                  <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">{t('btpConnexion.spontaneous.messageLabel')}</Label>
-                    <Textarea
-                      value={applicationData.message}
-                      onChange={(e) => setApplicationData({ ...applicationData, message: e.target.value })}
-                      className="bg-[#0B0F17] border-[#2A3441] text-white min-h-[120px] resize-none"
-                      placeholder="Présentez-vous brièvement et expliquez votre motivation..."
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <Label className="label-mono text-[#A6AFBF] mb-2 block">{t('btpConnexion.spontaneous.cvLabel')}</Label>
-                    <label className="border-2 border-dashed border-[#2A3441] rounded-sm p-4 text-center hover:border-[#007A5E] transition-colors cursor-pointer block">
-                      <input
-                        type="file"
-                        accept=".pdf,.doc,.docx"
-                        className="hidden"
-                        onChange={(e) => {
-                          const file = e.target.files?.[0];
-                          if (file) {
-                            setCvFileName(file.name);
-                          }
-                        }}
-                      />
-                      <Upload className="w-6 h-6 mx-auto mb-2 text-[#A6AFBF]" />
-                      {cvFileName ? (
-                        <p className="text-[#007A5E] text-sm font-medium">✅ {cvFileName}</p>
-                      ) : (
-                        <p className="text-[#A6AFBF] text-sm">{t('btpConnexion.spontaneous.cvClick')}</p>
-                      )}
-                    </label>
-                  </div>
+                </div>
 
-                  <Button
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full bg-[#007A5E] hover:bg-[#006B52] text-white py-4 h-auto mt-6"
-                  >
-                    {isLoading ? (
-                      <><Loader2 className="w-5 h-5 mr-2 animate-spin" />{t('common.sending')}</>
-                    ) : (
-                      <><Send className="w-5 h-5 mr-2" />{t('btpConnexion.spontaneous.submit')}</>
-                    )}
-                  </Button>
-                </form>
-              </>
-            )}
-          </div>
+                {/* Email ou admin */}
+                <div>
+                  <Label className="label-mono text-[#666666] mb-2 block">Email administrateur <span className="text-[#999999] font-normal">(optionnel)</span></Label>
+                  <Input
+                    value={entrepriseData.admin}
+                    onChange={(e) => setEntrepriseData({ ...entrepriseData, admin: e.target.value })}
+                    className="bg-white border-[#E5E5E5] text-[#111111] h-12"
+                    placeholder="Email du responsable ou gestionnaire du compte"
+                  />
+                </div>
+
+                <Button type="submit" disabled={entrepriseLoading} className="w-full bg-[#CC1A1A] hover:bg-[#5fc4a3] text-[#0D0D0D] font-semibold py-6 h-auto">
+                  {entrepriseLoading ? (
+                    <><Loader2 className="w-5 h-5 mr-2 animate-spin" />Envoi en cours...</>
+                  ) : (
+                    <><Send className="w-5 h-5 mr-2" />Inscrire mon entreprise</>
+                  )}
+                </Button>
+
+              </form>
+            </div>
+          )}
         </div>
+      </section>
       )}
     </div>
   );
