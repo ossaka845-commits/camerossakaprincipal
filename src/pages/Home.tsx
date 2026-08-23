@@ -168,12 +168,6 @@ export default function Home() {
 
         {/* Hero content â€” left aligned */}
         <div className="relative z-10 px-[5vw] lg:px-[8vw] max-w-4xl">
-          {/* Eyebrow */}
-          <div className="hero-eyebrow flex items-center gap-3 mb-8">
-            <div className="w-8 h-px bg-[#CC1A1A]" />
-            <span className="label-mono text-[#CC1A1A] text-[11px]">{t('home.eyebrow')}</span>
-          </div>
-
           {/* Main headline */}
           <h1 className="hero-title heading-display text-[clamp(52px,9vw,96px)] text-[#111111] leading-[0.9] mb-8">
             {t('hero.title')}

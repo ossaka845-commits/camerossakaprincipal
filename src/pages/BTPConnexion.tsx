@@ -75,7 +75,7 @@ export default function BTPConnexion() {
     setFindworkLoading(true);
     try {
       await generateAndSendForm({
-        title: 'INSCRIPTION TROUVER DU TRAVAIL - C-O CONNEXION',
+        title: 'INSCRIPTION ESPACE PARTICULIER - C-O CONNEXION',
         senderName: `${findworkData.firstname} ${findworkData.lastname}`,
         senderEmail: findworkData.contact.includes('@') ? findworkData.contact : 'noreply@camerossaka.com',
         fields: [
@@ -131,7 +131,7 @@ export default function BTPConnexion() {
                 : 'text-[#666666] hover:text-white'
             }`}
           >
-            Trouver du travail
+            Espace particulier
           </button>
           <button
             onClick={() => setActiveTab('entreprise')}
@@ -160,7 +160,7 @@ export default function BTPConnexion() {
             </div>
           ) : (
             <div className="bg-white border border-[#E5DFD3] shadow-sm p-8 rounded-sm">
-              <h2 className="heading-display text-2xl text-[#111111] mb-2">Trouver du travail</h2>
+              <h2 className="heading-display text-2xl text-[#111111] mb-2">Espace particulier</h2>
               <p className="text-[#666666] mb-8">Inscrivez-vous pour être mis en relation avec des employeurs du BTP.</p>
 
               <form onSubmit={handleFindworkSubmit} className="space-y-6">

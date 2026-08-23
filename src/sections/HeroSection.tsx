@@ -138,7 +138,6 @@ export default function HeroSection() {
       <div className="absolute inset-0 flex flex-col justify-center px-[10vw]">
         {/* Headline */}
         <div ref={headlineRef} className="mb-8">
-          <div className="tech-label mb-4">GÉNIE CIVIL & ARCHITECTURE</div>
           <h1 className="heading-display text-[clamp(44px,6vw,84px)] text-[#F7F8FB]">
             BUILDING THE
           </h1>
