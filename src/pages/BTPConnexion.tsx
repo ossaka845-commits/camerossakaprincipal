@@ -258,6 +258,16 @@ export default function BTPConnexion() {
                   <Textarea value={findworkData.competences} onChange={(e) => setFindworkData({ ...findworkData, competences: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] min-h-[100px] resize-none" placeholder="Ex: AutoCAD, beton arme, coffrage, soudure TIG..." />
                 </div>
 
+                {/* Consentement anonymat */}
+                <div className="bg-[#FAF7F0] border border-[#E5DFD3] rounded-sm p-4">
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" required className="mt-1 w-4 h-4 accent-[#CC1A1A] shrink-0" />
+                    <span className="text-sm text-[#666666]">
+                      Avant de vous enregistrer : vos informations resteront strictement <span className="font-semibold text-[#111111]">anonymes et confidentielles</span>. J'ai lu et j'accepte. <span className="text-[#CC1A1A]">*</span>
+                    </span>
+                  </label>
+                </div>
+
                 <Button type="submit" disabled={findworkLoading} className="w-full bg-[#CC1A1A] hover:bg-[#5fc4a3] text-[#0D0D0D] font-semibold py-6 h-auto">
                   {findworkLoading ? (
                     <><Loader2 className="w-5 h-5 mr-2 animate-spin" />Envoi en cours...</>
@@ -380,6 +390,16 @@ export default function BTPConnexion() {
                     className="bg-white border-[#E5E5E5] text-[#111111] h-12"
                     placeholder="Email du responsable ou gestionnaire du compte"
                   />
+                </div>
+
+                {/* Consentement anonymat */}
+                <div className="bg-[#FAF7F0] border border-[#E5DFD3] rounded-sm p-4">
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" required className="mt-1 w-4 h-4 accent-[#CC1A1A] shrink-0" />
+                    <span className="text-sm text-[#666666]">
+                      Avant de vous enregistrer : vos informations resteront strictement <span className="font-semibold text-[#111111]">anonymes et confidentielles</span>. J'ai lu et j'accepte. <span className="text-[#CC1A1A]">*</span>
+                    </span>
+                  </label>
                 </div>
 
                 <Button type="submit" disabled={entrepriseLoading} className="w-full bg-[#CC1A1A] hover:bg-[#5fc4a3] text-[#0D0D0D] font-semibold py-6 h-auto">
