@@ -476,6 +476,16 @@ export default function Devis() {
                   </div>
                 </div>
 
+                {/* Consentement anonymat */}
+                <div className="bg-[#FAF7F0] border border-[#E5DFD3] rounded-sm p-4">
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" required className="mt-1 w-4 h-4 accent-[#CC1A1A] shrink-0" />
+                    <span className="text-sm text-[#666666]">
+                      Avant de vous enregistrer : vos informations resteront strictement <span className="font-semibold text-[#111111]">anonymes et confidentielles</span>. J'ai lu et j'accepte. <span className="text-[#CC1A1A]">*</span>
+                    </span>
+                  </label>
+                </div>
+
                 <div className="flex justify-between">
                   <Button
                     type="button"
