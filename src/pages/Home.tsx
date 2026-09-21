@@ -389,9 +389,9 @@ export default function Home() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/90 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <div className="capsule capsule-white mb-2 text-[10px]">{project.loc}</div>
-                    <h3 className="text-base font-semibold text-white font-['Sora']">{project.title}</h3>
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <div className="capsule capsule-white mb-3">{project.loc}</div>
+                    <h3 className="text-2xl font-semibold text-white font-['Sora']">{project.title}</h3>
                   </div>
                 </Link>
               ))}
