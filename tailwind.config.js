@@ -65,9 +65,9 @@ module.exports = {
         },
         // Titan Structure — architectural accent palette
         titan: {
-          brand: '#CC1A1A',
-          mint: '#CC1A1A',
-          emerald: '#CC1A1A',
+          brand: '#4338CA',
+          mint: '#4338CA',
+          emerald: '#4338CA',
           dark: '#0D0D0D',
           surface: '#111111',
           card: '#161616',
@@ -79,8 +79,8 @@ module.exports = {
         light: '#F4F6FA',
       },
       fontFamily: {
-        sans: ['Space Grotesk', 'Inter', 'sans-serif'],
-        display: ['Space Grotesk', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        display: ['Sora', 'sans-serif'],
         mono: ['IBM Plex Mono', 'monospace'],
         special: ['Space Grotesk', 'sans-serif'],
       },

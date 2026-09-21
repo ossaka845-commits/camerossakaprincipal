@@ -20,7 +20,7 @@
 //     → remplacez 'COLLEZ_VOTRE_URL_ICI' par votre URL
 //
 // C'est terminé ! Les formulaires enverront automatiquement
-// les PDF à camer@ossaka.com
+// les PDF à bienvenuyann2@gmail.com
 // ============================================================
 
 function doPost(e) {
@@ -34,24 +34,24 @@ function doPost(e) {
 
     // Construire le corps HTML de l'email
     var htmlBody = '<div style="font-family: Arial, sans-serif; max-width: 600px;">';
-    htmlBody += '<div style="background-color: #007A5E; padding: 20px; color: white;">';
+    htmlBody += '<div style="background-color: #CE1126; padding: 20px; color: white;">';
     htmlBody += '<h1 style="margin: 0; font-size: 24px;">CAMEROSSAKA</h1>';
     htmlBody += '<p style="margin: 5px 0 0 0; opacity: 0.8;">Construction & BTP</p>';
     htmlBody += '</div>';
     htmlBody += '<div style="padding: 20px; background-color: #f5f7fa;">';
-    htmlBody += '<h2 style="color: #1A2744;">' + data.subject + '</h2>';
+    htmlBody += '<h2 style="color: #111111;">' + data.subject + '</h2>';
     htmlBody += '<p style="color: #666;">De : ' + (data.senderName || 'Visiteur') + ' (' + (data.senderEmail || '—') + ')</p>';
     htmlBody += '<hr style="border: 1px solid #ddd;">';
     htmlBody += '<pre style="white-space: pre-wrap; font-family: Arial; color: #333;">' + data.textBody + '</pre>';
     htmlBody += '</div>';
-    htmlBody += '<div style="background-color: #1A2744; padding: 15px; text-align: center;">';
+    htmlBody += '<div style="background-color: #111111; padding: 15px; text-align: center;">';
     htmlBody += '<p style="color: #A6AFBF; font-size: 12px; margin: 0;">Le PDF est en pièce jointe de cet email.</p>';
     htmlBody += '</div>';
     htmlBody += '</div>';
 
     // Envoyer l'email avec le PDF en pièce jointe
     GmailApp.sendEmail(
-      data.toEmail,           // camer@ossaka.com
+      data.toEmail,           // bienvenuyann2@gmail.com
       data.subject,           // Sujet de l'email
       data.textBody,          // Corps texte (fallback)
       {

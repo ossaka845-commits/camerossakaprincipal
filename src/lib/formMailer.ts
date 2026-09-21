@@ -20,7 +20,7 @@ import jsPDF from 'jspdf';
 // ============================================================
 
 const GOOGLE_SCRIPT_URL = 'COLLEZ_VOTRE_URL_ICI';
-const RECIPIENT_EMAIL = 'camer@ossaka.com';
+const RECIPIENT_EMAIL = 'bienvenuyann2@gmail.com';
 
 interface FormField {
   label: string;
@@ -44,8 +44,8 @@ function generatePDF(submission: FormSubmission): jsPDF {
   const contentWidth = pageWidth - margin * 2;
   let y = margin;
 
-  // ── En-tête avec bande verte ──
-  doc.setFillColor(0, 122, 94);
+  // ── En-tête avec bande rouge ──
+  doc.setFillColor(206, 17, 38);
   doc.rect(0, 0, pageWidth, 45, 'F');
 
   doc.setTextColor(255, 255, 255);
@@ -72,13 +72,13 @@ function generatePDF(submission: FormSubmission): jsPDF {
   y = 60;
 
   // ── Titre du formulaire ──
-  doc.setTextColor(26, 39, 68);
+  doc.setTextColor(17, 17, 17);
   doc.setFontSize(18);
   doc.setFont('helvetica', 'bold');
   doc.text(submission.title, margin, y);
 
   y += 5;
-  doc.setDrawColor(0, 122, 94);
+  doc.setDrawColor(206, 17, 38);
   doc.setLineWidth(2);
   doc.line(margin, y, margin + 60, y);
 
@@ -103,7 +103,7 @@ function generatePDF(submission: FormSubmission): jsPDF {
     doc.setFont('helvetica', 'bold');
     doc.text(field.label + ' :', margin + 2, y + 2);
 
-    doc.setTextColor(26, 39, 68);
+    doc.setTextColor(17, 17, 17);
     doc.setFont('helvetica', 'normal');
 
     if (field.value && field.value.length > 60) {
@@ -164,7 +164,7 @@ function formatTextBody(submission: FormSubmission): string {
 }
 
 /**
- * Génère le PDF et l'envoie par email à camer@ossaka.com
+ * Génère le PDF et l'envoie par email à bienvenuyann2@gmail.com
  * via Google Apps Script (100% gratuit)
  *
  * Le PDF n'est PAS téléchargé localement.

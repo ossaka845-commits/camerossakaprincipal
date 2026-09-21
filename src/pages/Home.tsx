@@ -8,11 +8,11 @@ import { ArrowRight, Building2, Users, Award, Facebook, Instagram, Youtube, Chev
 gsap.registerPlugin(ScrollTrigger);
 
 const heroSlides = [
-  '/images/3persone.png',
-  '/images/image8.png',
-  '/images/image4.png',
-  '/images/1772988529.png',
-  '/images/image6.png',
+  '/images/3persone.webp',
+  '/images/image8.webp',
+  '/images/image4.webp',
+  '/images/1772988529.webp',
+  '/images/image6.webp',
 ];
 
 export default function Home() {
@@ -80,17 +80,17 @@ export default function Home() {
   }, []);
 
   const stats = [
-    { value: '15+', label: t('stats.years'), icon: Award, accent: '#D4A03A' },
-    { value: '500+', label: t('stats.projects'), icon: Building2, accent: '#CC1A1A' },
-    { value: '98%', label: t('stats.satisfaction'), icon: Users, accent: '#CC1A1A' },
+    { value: '15+', label: t('stats.years'), icon: Award, accent: '#CE1126' },
+    { value: '500+', label: t('stats.projects'), icon: Building2, accent: '#111111' },
+    { value: '98%', label: t('stats.satisfaction'), icon: Users, accent: '#CE1126' },
   ];
 
   const pillars = [
-    { key: 'build',    icon: Hammer,       accent: '#CC1A1A', accentLight: 'rgba(204,26,26,0.12)' },
-    { key: 'create',   icon: Lightbulb,    accent: '#D4A03A', accentLight: 'rgba(212,160,58,0.12)' },
+    { key: 'build',    icon: Hammer,       accent: '#CE1126', accentLight: 'rgba(206,17,38,0.10)' },
+    { key: 'create',   icon: Lightbulb,    accent: '#111111', accentLight: 'rgba(0,0,0,0.12)' },
     { key: 'deliver',  icon: PackageCheck, accent: '#CE1126', accentLight: 'rgba(206,17,38,0.10)' },
-    { key: 'modern',   icon: Cpu,          accent: '#CC1A1A', accentLight: 'rgba(212,160,58,0.10)' },
-    { key: 'reliable', icon: ShieldCheck,  accent: '#FCD116', accentLight: 'rgba(252,209,22,0.10)' },
+    { key: 'modern',   icon: Cpu,          accent: '#0A0A0A', accentLight: 'rgba(0,0,0,0.08)' },
+    { key: 'reliable', icon: ShieldCheck,  accent: '#111111', accentLight: 'rgba(0,0,0,0.10)' },
   ];
 
   return (
@@ -124,24 +124,23 @@ export default function Home() {
           <div className="absolute inset-0 grid-blueprint opacity-30" />
         </div>
 
-        {/* Cameroon flag accent line â€” left edge */}
+        {/* Accent bar — left edge */}
         <div className="absolute left-0 top-0 bottom-0 w-1 flex flex-col">
-          <div className="flex-1 bg-[#007A5E]" />
           <div className="flex-1 bg-[#CE1126]" />
-          <div className="flex-1 bg-[#FCD116]" />
+          <div className="flex-1 bg-white" />
         </div>
 
         {/* Slide nav arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-6 md:left-10 bottom-12 z-20 w-11 h-11 flex items-center justify-center border border-white/25 text-white hover:border-[#CC1A1A] hover:text-[#CC1A1A] transition-all duration-300 backdrop-blur-sm"
+          className="absolute left-6 md:left-10 bottom-12 z-20 w-11 h-11 flex items-center justify-center border border-white/25 text-white hover:border-[#111111] hover:text-[#111111] transition-all duration-300 backdrop-blur-sm"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute left-20 md:left-24 bottom-12 z-20 w-11 h-11 flex items-center justify-center border border-white/25 text-white hover:border-[#CC1A1A] hover:text-[#CC1A1A] transition-all duration-300 backdrop-blur-sm"
+          className="absolute left-20 md:left-24 bottom-12 z-20 w-11 h-11 flex items-center justify-center border border-white/25 text-white hover:border-[#111111] hover:text-[#111111] transition-all duration-300 backdrop-blur-sm"
           aria-label="Next slide"
         >
           <ChevronRight className="w-5 h-5" />
@@ -155,7 +154,7 @@ export default function Home() {
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 ${
                 index === currentSlide
-                  ? 'w-8 h-0.5 bg-[#CC1A1A]'
+                  ? 'w-8 h-0.5 bg-[#111111]'
                   : 'w-3 h-0.5 bg-white/35 hover:bg-white/60'
               }`}
               aria-label={`Go to slide ${index + 1}`}
@@ -169,18 +168,15 @@ export default function Home() {
         {/* Hero content â€” left aligned */}
         <div className="relative z-10 px-[5vw] lg:px-[8vw] max-w-4xl">
           {/* Main headline */}
-          <h1 className="hero-title heading-display text-[clamp(52px,9vw,96px)] text-[#111111] leading-[0.9] mb-8">
+          <h1 className="hero-title heading-display text-[clamp(52px,9vw,96px)] text-white leading-[0.9] mb-8">
             {t('hero.title')}
           </h1>
 
           {/* Divider */}
-          <div className="hero-subtitle w-16 h-0.5 bg-[#D4A03A] mb-6" />
+          <div className="hero-subtitle w-16 h-0.5 bg-[#CE1126] mb-6" />
 
           {/* Subtitle */}
-          <p
-            className="hero-subtitle text-lg md:text-xl text-[#111111] font-semibold max-w-lg mb-10 leading-relaxed"
-            style={{ textShadow: '0 1px 2px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.7)' }}
-          >
+          <p className="hero-subtitle text-lg md:text-xl text-white/90 font-medium max-w-lg mb-10 leading-relaxed">
             {t('hero.subtitle')}
           </p>
 
@@ -188,14 +184,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
             <Link
               to="/Submit"
-              className="hero-cta group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#CC1A1A] text-white font-semibold hover:bg-[#B01515] transition-all duration-300 text-sm tracking-wide"
+              className="hero-cta group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#CE1126] text-white font-semibold hover:bg-[#A50E20] transition-all duration-300 text-sm tracking-wide"
             >
               {t('hero.ctaQuote')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/Register"
-              className="hero-cta group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#111111] text-white font-semibold hover:bg-[#2A2A2A] transition-all duration-300 text-sm tracking-wide"
+              className="hero-cta group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 border border-white/40 text-white font-semibold hover:bg-white hover:text-[#111111] backdrop-blur-sm transition-all duration-300 text-sm tracking-wide"
             >
               {t('hero.ctaJoin')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -209,9 +205,9 @@ export default function Home() {
             <div
               key={i}
               className="hero-stat flex items-center gap-4 px-5 py-3 backdrop-blur-sm"
-              style={{ background: 'rgba(255,255,255,0.85)', borderLeft: `2px solid ${stat.accent}`, boxShadow: '0 4px 16px rgba(26,39,68,0.08)' }}
+              style={{ background: 'rgba(255,255,255,0.85)', borderLeft: `2px solid ${stat.accent}`, boxShadow: '0 4px 16px rgba(0,0,0,0.08)' }}
             >
-              <div className="text-2xl font-bold text-[#111111] font-['Space_Grotesk']">{stat.value}</div>
+              <div className="text-2xl font-bold text-[#111111] font-['Sora']">{stat.value}</div>
               <div className="text-[11px] text-[#666666] label-mono leading-tight max-w-[100px]">{stat.label}</div>
             </div>
           ))}
@@ -223,7 +219,7 @@ export default function Home() {
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section ref={statsRef} className="relative py-16 overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-[#F2EDE5]" />
+        <div className="absolute inset-0 bg-[#FFFFFF]" />
         <div className="absolute inset-0 ambient-glow-green pointer-events-none" />
         <div className="divider-gradient absolute top-0 left-0 right-0" />
         <div className="divider-gradient absolute bottom-0 left-0 right-0" />
@@ -234,14 +230,14 @@ export default function Home() {
               <div
                 key={index}
                 className="stat-card group relative overflow-hidden p-8 hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md"
-                style={{ background: '#FFFFFF', border: '1px solid #E5DFD3' }}
+                style={{ background: '#FFFFFF', border: '1px solid #E5E5E5' }}
               >
                 {/* Colored top border accent */}
                 <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: stat.accent }} />
 
                 <div className="flex items-start justify-between">
                   <div>
-                    <div className="text-5xl font-bold font-['Space_Grotesk'] mb-2" style={{ color: stat.accent }}>
+                    <div className="text-5xl font-bold font-['Sora'] mb-2" style={{ color: stat.accent }}>
                       {stat.value}
                     </div>
                     <div className="label-mono text-[#666666] text-[11px]">{stat.label}</div>
@@ -258,7 +254,7 @@ export default function Home() {
           PILLARS â€” Dark glass cards with icon accents
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section ref={pillarsRef} className="relative py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-[#F0EBE2]" />
+        <div className="absolute inset-0 bg-[#F5F5F5]" />
         <div className="absolute inset-0 grid-dots opacity-40 pointer-events-none" />
 
         <div className="relative px-4 lg:px-[4vw]">
@@ -266,10 +262,11 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16">
             <div>
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-8 h-px bg-[#CC1A1A]" />
-                <span className="label-mono text-[#CC1A1A] text-[11px]">{t('home.valuesLabel')}</span>
+                <div className="w-8 h-px bg-[#CE1126]" />
+                <span className="label-mono text-[#CE1126] text-[11px]">{t('home.valuesLabel')}</span>
               </div>
               <h2 className="heading-display text-[clamp(32px,5vw,56px)] text-[#111111]">
+                {t('home.pillarsTitle')}
               </h2>
             </div>
             <p className="text-[#777777] max-w-xs mt-4 lg:mt-0 text-sm leading-relaxed">
@@ -285,7 +282,7 @@ export default function Home() {
                 className="pillar-card group relative p-7 overflow-hidden cursor-default shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
                 style={{
                   background: '#FFFFFF',
-                  border: '1px solid #E5DFD3',
+                  border: '1px solid #E5E5E5',
                 }}
               >
                 {/* Hover background fill */}
@@ -325,22 +322,23 @@ export default function Home() {
           FEATURED PROJECTS
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="relative py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-[#F0EBE2]" />
+        <div className="absolute inset-0 bg-[#F5F5F5]" />
         <div className="divider-gradient absolute top-0 left-0 right-0" />
 
         <div className="relative px-4 lg:px-[4vw]">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14">
             <div>
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-8 h-px bg-[#D4A03A]" />
-                <span className="label-mono text-[#D4A03A] text-[11px]">{t('work.badge')}</span>
+                <div className="w-8 h-px bg-[#111111]" />
+                <span className="label-mono text-[#111111] text-[11px]">{t('work.badge')}</span>
               </div>
               <h2 className="heading-display text-[clamp(32px,5vw,56px)] text-[#111111]">
+                {t('work.title')}
               </h2>
             </div>
             <Link
               to="/work"
-              className="mt-6 md:mt-0 inline-flex items-center gap-2 text-sm text-[#CC1A1A] hover:text-white transition-colors group"
+              className="mt-6 md:mt-0 inline-flex items-center gap-2 text-sm text-[#CE1126] hover:text-[#A50E20] transition-colors group"
             >
               {t('common.seeAllProjects')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -361,11 +359,11 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/90 via-[#060606]/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="capsule capsule-mint mb-3">{t('work.projects.p1.loc')}</div>
-                <h3 className="text-2xl font-semibold text-white font-['Space_Grotesk'] mb-2">
+                <div className="capsule capsule-white mb-3">{t('work.projects.p1.loc')}</div>
+                <h3 className="text-2xl font-semibold text-white font-['Sora'] mb-2">
                   {t('work.projects.p1.title')}
                 </h3>
-                <div className="flex items-center gap-2 text-[#CC1A1A] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="flex items-center gap-2 text-[#111111] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span>{t('common.viewProject')}</span>
                   <ArrowRight className="w-4 h-4" />
                 </div>
@@ -375,7 +373,7 @@ export default function Home() {
             {/* Right column â€” 2 stacked cards */}
             <div className="md:col-span-5 flex flex-col gap-4">
               {[
-                { img: '/images/image6.png', title: t('work.projects.p2.title'), loc: t('work.projects.p2.loc') },
+                { img: '/images/image6.webp', title: t('work.projects.p2.title'), loc: t('work.projects.p2.loc') },
                 { img: '/images/modern_concrete_wall.jpg', title: t('work.projects.p3.title'), loc: t('work.projects.p3.loc') },
               ].map((project, index) => (
                 <Link
@@ -393,7 +391,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/90 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <div className="capsule capsule-white mb-2 text-[10px]">{project.loc}</div>
-                    <h3 className="text-base font-semibold text-white font-['Space_Grotesk']">{project.title}</h3>
+                    <h3 className="text-base font-semibold text-white font-['Sora']">{project.title}</h3>
                   </div>
                 </Link>
               ))}
@@ -407,17 +405,17 @@ export default function Home() {
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section ref={ctaRef} className="relative py-32 overflow-hidden">
         {/* Background layers */}
-        <div className="absolute inset-0 bg-[#F2EDE5]" />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(204,26,26,0.18) 0%, transparent 70%)' }} />
+        <div className="absolute inset-0 bg-[#FFFFFF]" />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(206,17,38,0.14) 0%, transparent 70%)' }} />
         <div className="absolute inset-0 grid-blueprint-subtle opacity-50 pointer-events-none" />
         {/* Decorative geometric accent */}
-        <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-5" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #CC1A1A 0, #CC1A1A 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-5" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #CE1126 0, #CE1126 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="divider-gradient absolute top-0 left-0 right-0" />
 
         <div className="relative px-4 lg:px-[4vw] max-w-3xl">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-8 h-px bg-[#CC1A1A]" />
-            <span className="label-mono text-[#CC1A1A] text-[11px]">TRAVAILLONS ENSEMBLE</span>
+            <div className="w-8 h-px bg-[#CE1126]" />
+            <span className="label-mono text-[#CE1126] text-[11px]">TRAVAILLONS ENSEMBLE</span>
           </div>
 
           <h2 className="heading-display text-[clamp(36px,6vw,64px)] text-[#111111] mb-6">
@@ -430,14 +428,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 flex-wrap mb-16">
             <Link
               to="/Submit"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#CC1A1A] text-white font-semibold hover:bg-[#B01515] transition-all duration-300 text-sm tracking-wide"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#CE1126] text-white font-semibold hover:bg-[#A50E20] transition-all duration-300 text-sm tracking-wide"
             >
               {t('hero.ctaQuote')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/Register"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#CC1A1A] text-white font-semibold hover:bg-[#B01515] transition-all duration-300 text-sm tracking-wide"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-[#111111] text-[#111111] font-semibold hover:bg-[#111111] hover:text-white transition-all duration-300 text-sm tracking-wide"
             >
               {t('hero.ctaJoin')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -459,7 +457,7 @@ export default function Home() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center border border-[#E5E5E5] text-[#999999] hover:border-[#CC1A1A] hover:text-[#CC1A1A] transition-all duration-300"
+                className="w-9 h-9 flex items-center justify-center border border-[#E5E5E5] text-[#999999] hover:border-[#CE1126] hover:text-[#CE1126] transition-all duration-300"
               >
                 {s.icon ? (
                   <s.icon className="w-4 h-4" />

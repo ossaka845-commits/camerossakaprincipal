@@ -95,8 +95,8 @@ export default function Contact() {
       {/* Header */}
       <section className="px-4 lg:px-[4vw] mb-16">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#CC1A1A]/20 border border-[#CC1A1A]/40 rounded-full mb-6">
-            <span className="text-sm text-[#CC1A1A] label-mono">{t('contact.badge')}</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#CE1126]/10 border border-[#CE1126]/40 rounded-full mb-6">
+            <span className="text-sm text-[#CE1126] label-mono">{t('contact.badge')}</span>
           </div>
           <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#111111] mb-4">
             {t('contact.title')}
@@ -110,33 +110,33 @@ export default function Contact() {
         <h2 className="heading-display text-2xl text-[#111111] mb-8">{t('contact.addresses.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {offices.map((office, index) => (
-            <div key={index} className="office-card bg-white border border-[#E5DFD3] shadow-sm p-6 rounded-sm">
+            <div key={index} className="office-card bg-white border border-[#E5E5E5] shadow-sm p-6 rounded-sm">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl">{office.flag}</span>
                 <div>
-                  <h3 className="text-lg font-semibold text-white font-['Sora']">{office.city}</h3>
+                  <h3 className="text-lg font-semibold text-[#111111] font-['Sora']">{office.city}</h3>
                   <p className="text-[#666666] text-sm">{office.country}</p>
                 </div>
               </div>
               <div className="space-y-3">
                 <div className="flex items-start gap-3 text-[#666666]">
-                  <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#CC1A1A]" />
+                  <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#CE1126]" />
                   <span>{office.address}</span>
                 </div>
                 <div className="flex items-center gap-3 text-[#666666]">
-                  <Phone className="w-5 h-5 flex-shrink-0 text-[#CC1A1A]" />
-                  <a href={`tel:${office.phone}`} className="hover:text-[#D4A03A] transition-colors">
+                  <Phone className="w-5 h-5 flex-shrink-0 text-[#CE1126]" />
+                  <a href={`tel:${office.phone}`} className="hover:text-[#111111] transition-colors">
                     {office.phone}
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-[#666666]">
-                  <Mail className="w-5 h-5 flex-shrink-0 text-[#CC1A1A]" />
-                  <a href={`mailto:${office.email}`} className="hover:text-[#D4A03A] transition-colors">
+                  <Mail className="w-5 h-5 flex-shrink-0 text-[#CE1126]" />
+                  <a href={`mailto:${office.email}`} className="hover:text-[#111111] transition-colors">
                     {office.email}
                   </a>
                 </div>
                 <div className="flex items-center gap-3 text-[#666666]">
-                  <Clock className="w-5 h-5 flex-shrink-0 text-[#CC1A1A]" />
+                  <Clock className="w-5 h-5 flex-shrink-0 text-[#CE1126]" />
                   <span>{office.hours}</span>
                 </div>
               </div>
@@ -163,16 +163,16 @@ export default function Contact() {
       </section>
 
       {/* Contact Form */}
-      <section className="px-4 lg:px-[4vw] py-20 bg-[#F0EBE2]">
+      <section className="px-4 lg:px-[4vw] py-20 bg-[#F5F5F5]">
         <div className="max-w-2xl mx-auto">
           <h2 className="heading-display text-2xl text-[#111111] mb-8 text-center">
             {t('contact.sendMessage')}
           </h2>
           
           {isSubmitted ? (
-            <div className="bg-[#CC1A1A]/20 border border-[#CC1A1A] rounded-sm p-8 text-center">
-              <div className="w-16 h-16 mx-auto mb-4 bg-[#CC1A1A] rounded-full flex items-center justify-center">
-                <Send className="w-8 h-8 text-[#CC1A1A]" />
+            <div className="bg-[#CE1126]/10 border border-[#CE1126] rounded-sm p-8 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 bg-[#CE1126] rounded-full flex items-center justify-center">
+                <Send className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-[#111111] mb-2">{t('contact.messageSent')}</h3>
               <p className="text-[#666666]">{t('contact.messageReply')}</p>
@@ -180,7 +180,7 @@ export default function Contact() {
           ) : (
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               {error && (
-                <div className="bg-red-500/20 border border-red-500 rounded-sm p-4 text-red-300 text-sm">
+                <div className="bg-red-500/10 border border-red-500 rounded-sm p-4 text-red-700 text-sm">
                   {error}
                 </div>
               )}
@@ -252,7 +252,7 @@ export default function Contact() {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-[#CC1A1A] hover:bg-[#B01515] text-white font-semibold py-6 h-auto"
+                className="w-full bg-[#CE1126] hover:bg-[#A50E20] text-white font-semibold py-6 h-auto"
               >
                 {isLoading ? (
                   <><Loader2 className="w-5 h-5 mr-2 animate-spin" />{t('common.sending')}</>
@@ -266,7 +266,7 @@ export default function Contact() {
       </section>
 
       {/* Social Media */}
-      <section className="px-4 lg:px-[4vw] py-16 bg-[#F0EBE2]">
+      <section className="px-4 lg:px-[4vw] py-16 bg-[#F5F5F5]">
         <div className="text-center">
           <h2 className="heading-display text-2xl text-[#111111] mb-6">{t('contact.followUs')}</h2>
           <div className="flex justify-center gap-6">

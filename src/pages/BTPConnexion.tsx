@@ -104,13 +104,13 @@ export default function BTPConnexion() {
     <div className="pt-24 pb-16">
       {/* Hero */}
       <section className="px-4 lg:px-[4vw] mb-16">
-        <div className="bg-gradient-to-r from-[#CC1A1A] to-[#B01515] rounded-sm p-12 lg:p-16">
+        <div className="bg-gradient-to-r from-[#CE1126] to-[#A50E20] rounded-sm p-12 lg:p-16">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 rounded-full mb-6">
-              <HardHat className="w-5 h-5 text-[#CC1A1A]" />
-              <span className="text-sm text-[#111111] label-mono">C-O CONNEXION</span>
+              <HardHat className="w-5 h-5 text-[#111111]" />
+              <span className="text-sm text-white label-mono">C-O CONNEXION</span>
             </div>
-            <h1 className="heading-display text-[clamp(32px,6vw,56px)] text-[#111111] mb-4">
+            <h1 className="heading-display text-[clamp(32px,6vw,56px)] text-white mb-4">
               {t('btpConnexion.hero.title')}
             </h1>
             <p className="text-lg text-white/80 mb-8">
@@ -127,8 +127,8 @@ export default function BTPConnexion() {
             onClick={() => setActiveTab('findwork')}
             className={`px-6 py-4 font-medium transition-colors ${
               activeTab === 'findwork'
-                ? 'text-[#CC1A1A] border-b-2 border-[#CC1A1A]'
-                : 'text-[#666666] hover:text-white'
+                ? 'text-[#CE1126] border-b-2 border-[#CE1126]'
+                : 'text-[#666666] hover:text-[#111111]'
             }`}
           >
             Espace particulier
@@ -137,8 +137,8 @@ export default function BTPConnexion() {
             onClick={() => setActiveTab('entreprise')}
             className={`px-6 py-4 font-medium transition-colors ${
               activeTab === 'entreprise'
-                ? 'text-[#CC1A1A] border-b-2 border-[#CC1A1A]'
-                : 'text-[#666666] hover:text-white'
+                ? 'text-[#CE1126] border-b-2 border-[#CE1126]'
+                : 'text-[#666666] hover:text-[#111111]'
             }`}
           >
             Espace Entreprises
@@ -152,14 +152,14 @@ export default function BTPConnexion() {
         <div className="max-w-3xl mx-auto">
           {findworkSubmitted ? (
             <div className="text-center py-16">
-              <div className="w-20 h-20 mx-auto mb-6 bg-[#CC1A1A] rounded-full flex items-center justify-center">
-                <CheckCircle className="w-10 h-10 text-[#0D0D0D]" />
+              <div className="w-20 h-20 mx-auto mb-6 bg-[#CE1126] rounded-full flex items-center justify-center">
+                <CheckCircle className="w-10 h-10 text-white" />
               </div>
               <h2 className="heading-display text-3xl text-[#111111] mb-4">Inscription envoyée !</h2>
               <p className="text-[#666666]">Notre équipe vous contactera dès qu'un poste correspond à votre profil.</p>
             </div>
           ) : (
-            <div className="bg-white border border-[#E5DFD3] shadow-sm p-8 rounded-sm">
+            <div className="bg-white border border-[#E5E5E5] shadow-sm p-8 rounded-sm">
               <h2 className="heading-display text-2xl text-[#111111] mb-2">Espace particulier</h2>
               <p className="text-[#666666] mb-8">Inscrivez-vous pour être mis en relation avec des employeurs du BTP.</p>
 
@@ -168,11 +168,11 @@ export default function BTPConnexion() {
                 {/* Nom / Prénom */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <Label className="label-mono text-[#666666] mb-2 block">Nom <span className="text-[#CC1A1A]">*</span></Label>
+                    <Label className="label-mono text-[#666666] mb-2 block">Nom <span className="text-[#CE1126]">*</span></Label>
                     <Input value={findworkData.lastname} onChange={(e) => setFindworkData({ ...findworkData, lastname: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] h-12" placeholder="Votre nom" required />
                   </div>
                   <div>
-                    <Label className="label-mono text-[#666666] mb-2 block">Prénom <span className="text-[#CC1A1A]">*</span></Label>
+                    <Label className="label-mono text-[#666666] mb-2 block">Prénom <span className="text-[#CE1126]">*</span></Label>
                     <Input value={findworkData.firstname} onChange={(e) => setFindworkData({ ...findworkData, firstname: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] h-12" placeholder="Votre prénom" required />
                   </div>
                 </div>
@@ -180,23 +180,23 @@ export default function BTPConnexion() {
                 {/* Pays / Ville */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <Label className="label-mono text-[#666666] mb-2 block">Pays <span className="text-[#CC1A1A]">*</span></Label>
+                    <Label className="label-mono text-[#666666] mb-2 block">Pays <span className="text-[#CE1126]">*</span></Label>
                     <Input value={findworkData.pays} onChange={(e) => setFindworkData({ ...findworkData, pays: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] h-12" placeholder="Ex: Cameroun, France..." required />
                   </div>
                   <div>
-                    <Label className="label-mono text-[#666666] mb-2 block">Ville <span className="text-[#CC1A1A]">*</span></Label>
+                    <Label className="label-mono text-[#666666] mb-2 block">Ville <span className="text-[#CE1126]">*</span></Label>
                     <Input value={findworkData.ville} onChange={(e) => setFindworkData({ ...findworkData, ville: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] h-12" placeholder="Ex: Yaoundé, Douala..." required />
                   </div>
                 </div>
 
                 {/* Métier */}
                 <div>
-                  <Label className="label-mono text-[#666666] mb-2 block">Métier <span className="text-[#CC1A1A]">*</span></Label>
+                  <Label className="label-mono text-[#666666] mb-2 block">Métier <span className="text-[#CE1126]">*</span></Label>
                   <Select value={findworkData.metier} onValueChange={(value) => setFindworkData({ ...findworkData, metier: value })} required>
                     <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
                       <SelectValue placeholder="Sélectionnez votre métier..." />
                     </SelectTrigger>
-                    <SelectContent className="bg-white border-[#E5DFD3]">
+                    <SelectContent className="bg-white border-[#E5E5E5]">
                       <SelectItem value="Manoeuvre" className="text-[#111111]">Manœuvre</SelectItem>
                       <SelectItem value="Macon" className="text-[#111111]">Maçon</SelectItem>
                       <SelectItem value="Technicien" className="text-[#111111]">Technicien</SelectItem>
@@ -209,12 +209,12 @@ export default function BTPConnexion() {
 
                 {/* Expérience */}
                 <div>
-                  <Label className="label-mono text-[#666666] mb-2 block">Expérience (années) <span className="text-[#CC1A1A]">*</span></Label>
+                  <Label className="label-mono text-[#666666] mb-2 block">Expérience (années) <span className="text-[#CE1126]">*</span></Label>
                   <Select value={findworkData.experience} onValueChange={(value) => setFindworkData({ ...findworkData, experience: value })} required>
                     <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
                       <SelectValue placeholder="Sélectionnez..." />
                     </SelectTrigger>
-                    <SelectContent className="bg-white border-[#E5DFD3]">
+                    <SelectContent className="bg-white border-[#E5E5E5]">
                       <SelectItem value="0-2 ans" className="text-[#111111]">0 - 2 ans</SelectItem>
                       <SelectItem value="3-5 ans" className="text-[#111111]">3 - 5 ans</SelectItem>
                       <SelectItem value="5-10 ans" className="text-[#111111]">5 - 10 ans</SelectItem>
@@ -225,12 +225,12 @@ export default function BTPConnexion() {
 
                 {/* CV upload */}
                 <div>
-                  <Label className="label-mono text-[#666666] mb-2 block">CV (PDF) <span className="text-[#CC1A1A]">*</span></Label>
-                  <label className="border-2 border-dashed border-[#E5E5E5] rounded-sm p-8 text-center hover:border-[#CC1A1A] transition-colors cursor-pointer block">
+                  <Label className="label-mono text-[#666666] mb-2 block">CV (PDF) <span className="text-[#CE1126]">*</span></Label>
+                  <label className="border-2 border-dashed border-[#E5E5E5] rounded-sm p-8 text-center hover:border-[#CE1126] transition-colors cursor-pointer block">
                     <input type="file" accept=".pdf" className="hidden" onChange={(e) => { const file = e.target.files?.[0]; if (file) setFindworkCvFileName(file.name); }} />
                     <Upload className="w-8 h-8 mx-auto mb-3 text-[#666666]" />
                     {findworkCvFileName ? (
-                      <p className="text-[#CC1A1A] text-sm font-medium">CV joint : {findworkCvFileName}</p>
+                      <p className="text-[#CE1126] text-sm font-medium">CV joint : {findworkCvFileName}</p>
                     ) : (
                       <>
                         <p className="text-[#666666] text-sm">Glissez-deposez votre CV ou cliquez pour parcourir</p>
@@ -242,13 +242,13 @@ export default function BTPConnexion() {
 
                 {/* Disponibilité */}
                 <div>
-                  <Label className="label-mono text-[#666666] mb-2 block">Disponibilité <span className="text-[#CC1A1A]">*</span></Label>
+                  <Label className="label-mono text-[#666666] mb-2 block">Disponibilité <span className="text-[#CE1126]">*</span></Label>
                   <Input value={findworkData.disponibilite} onChange={(e) => setFindworkData({ ...findworkData, disponibilite: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] h-12" placeholder="Ex: Immediate, Dans 1 mois, A partir du..." required />
                 </div>
 
                 {/* Numéro / Email */}
                 <div>
-                  <Label className="label-mono text-[#666666] mb-2 block">Numéro / Email <span className="text-[#CC1A1A]">*</span></Label>
+                  <Label className="label-mono text-[#666666] mb-2 block">Numéro / Email <span className="text-[#CE1126]">*</span></Label>
                   <Input value={findworkData.contact} onChange={(e) => setFindworkData({ ...findworkData, contact: e.target.value })} className="bg-white border-[#E5E5E5] text-[#111111] h-12" placeholder="+237 6XX XXX XXX ou adresse@email.com" required />
                 </div>
 
@@ -259,16 +259,16 @@ export default function BTPConnexion() {
                 </div>
 
                 {/* Consentement anonymat */}
-                <div className="bg-[#FAF7F0] border border-[#E5DFD3] rounded-sm p-4">
+                <div className="bg-[#FAF7F0] border border-[#E5E5E5] rounded-sm p-4">
                   <label className="flex items-start gap-3 cursor-pointer">
-                    <input type="checkbox" required className="mt-1 w-4 h-4 accent-[#CC1A1A] shrink-0" />
+                    <input type="checkbox" required className="mt-1 w-4 h-4 accent-[#CE1126] shrink-0" />
                     <span className="text-sm text-[#666666]">
-                      Avant de vous enregistrer : vos informations resteront strictement <span className="font-semibold text-[#111111]">anonymes et confidentielles</span>. J'ai lu et j'accepte. <span className="text-[#CC1A1A]">*</span>
+                      Avant de vous enregistrer : vos informations resteront strictement <span className="font-semibold text-[#111111]">anonymes et confidentielles</span>. J'ai lu et j'accepte. <span className="text-[#CE1126]">*</span>
                     </span>
                   </label>
                 </div>
 
-                <Button type="submit" disabled={findworkLoading} className="w-full bg-[#CC1A1A] hover:bg-[#5fc4a3] text-[#0D0D0D] font-semibold py-6 h-auto">
+                <Button type="submit" disabled={findworkLoading} className="w-full bg-[#CE1126] hover:bg-[#A50E20] text-white font-semibold py-6 h-auto">
                   {findworkLoading ? (
                     <><Loader2 className="w-5 h-5 mr-2 animate-spin" />Envoi en cours...</>
                   ) : (
@@ -289,23 +289,23 @@ export default function BTPConnexion() {
         <div className="max-w-3xl mx-auto">
           {entrepriseSubmitted ? (
             <div className="text-center py-16">
-              <div className="w-24 h-24 mx-auto mb-6 bg-[#CC1A1A] rounded-full flex items-center justify-center">
-                <ShieldCheck className="w-12 h-12 text-[#0D0D0D]" />
+              <div className="w-24 h-24 mx-auto mb-6 bg-[#CE1126] rounded-full flex items-center justify-center">
+                <ShieldCheck className="w-12 h-12 text-white" />
               </div>
-              <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#CC1A1A]/20 border border-[#CC1A1A] rounded-full mb-6">
-                <ShieldCheck className="w-4 h-4 text-[#CC1A1A]" />
-                <span className="text-[#CC1A1A] font-semibold label-mono text-sm">Entreprise vérifiée</span>
+              <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#CE1126]/10 border border-[#CE1126] rounded-full mb-6">
+                <ShieldCheck className="w-4 h-4 text-[#CE1126]" />
+                <span className="text-[#CE1126] font-semibold label-mono text-sm">Entreprise vérifiée</span>
               </div>
               <h2 className="heading-display text-3xl text-[#111111] mb-4">Demande envoyée !</h2>
-              <p className="text-[#666666]">Notre équipe vérifiera votre dossier et activera votre badge <span className="text-[#CC1A1A]">Entreprise vérifiée</span> sous 48h.</p>
+              <p className="text-[#666666]">Notre équipe vérifiera votre dossier et activera votre badge <span className="text-[#CE1126]">Entreprise vérifiée</span> sous 48h.</p>
             </div>
           ) : (
-            <div className="bg-white border border-[#E5DFD3] shadow-sm p-8 rounded-sm">
+            <div className="bg-white border border-[#E5E5E5] shadow-sm p-8 rounded-sm">
               <div className="flex items-start justify-between mb-2">
                 <h2 className="heading-display text-2xl text-[#111111]">Espace Entreprises</h2>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#CC1A1A]/10 border border-[#CC1A1A]/40 rounded-full">
-                  <ShieldCheck className="w-4 h-4 text-[#CC1A1A]" />
-                  <span className="text-[#CC1A1A] text-xs font-semibold label-mono">Entreprise vérifiée</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#CE1126]/10 border border-[#CE1126]/40 rounded-full">
+                  <ShieldCheck className="w-4 h-4 text-[#CE1126]" />
+                  <span className="text-[#CE1126] text-xs font-semibold label-mono">Entreprise vérifiée</span>
                 </div>
               </div>
               <p className="text-[#666666] mb-8">Inscrivez votre entreprise pour accéder aux profils qualifiés et être visible sur la plateforme C-O Connexion.</p>
@@ -314,7 +314,7 @@ export default function BTPConnexion() {
 
                 {/* Nom entreprise */}
                 <div>
-                  <Label className="label-mono text-[#666666] mb-2 block">Nom de l'entreprise <span className="text-[#CC1A1A]">*</span></Label>
+                  <Label className="label-mono text-[#666666] mb-2 block">Nom de l'entreprise <span className="text-[#CE1126]">*</span></Label>
                   <Input
                     value={entrepriseData.nom}
                     onChange={(e) => setEntrepriseData({ ...entrepriseData, nom: e.target.value })}
@@ -327,12 +327,12 @@ export default function BTPConnexion() {
                 {/* Domaine / Localisation */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <Label className="label-mono text-[#666666] mb-2 block">Domaine <span className="text-[#CC1A1A]">*</span></Label>
+                    <Label className="label-mono text-[#666666] mb-2 block">Domaine <span className="text-[#CE1126]">*</span></Label>
                     <Select value={entrepriseData.domaine} onValueChange={(value) => setEntrepriseData({ ...entrepriseData, domaine: value })} required>
                       <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
                         <SelectValue placeholder="Sélectionnez un domaine..." />
                       </SelectTrigger>
-                      <SelectContent className="bg-white border-[#E5DFD3]">
+                      <SelectContent className="bg-white border-[#E5E5E5]">
                         <SelectItem value="BTP" className="text-[#111111]">BTP (Bâtiment & Travaux Publics)</SelectItem>
                         <SelectItem value="Routes" className="text-[#111111]">Routes & Voirie</SelectItem>
                         <SelectItem value="Batiment" className="text-[#111111]">Bâtiment</SelectItem>
@@ -344,7 +344,7 @@ export default function BTPConnexion() {
                     </Select>
                   </div>
                   <div>
-                    <Label className="label-mono text-[#666666] mb-2 block">Localisation <span className="text-[#CC1A1A]">*</span></Label>
+                    <Label className="label-mono text-[#666666] mb-2 block">Localisation <span className="text-[#CE1126]">*</span></Label>
                     <Input
                       value={entrepriseData.localisation}
                       onChange={(e) => setEntrepriseData({ ...entrepriseData, localisation: e.target.value })}
@@ -358,7 +358,7 @@ export default function BTPConnexion() {
                 {/* Email / Téléphone */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <Label className="label-mono text-[#666666] mb-2 block">Email <span className="text-[#CC1A1A]">*</span></Label>
+                    <Label className="label-mono text-[#666666] mb-2 block">Email <span className="text-[#CE1126]">*</span></Label>
                     <Input
                       type="email"
                       value={entrepriseData.email}
@@ -369,7 +369,7 @@ export default function BTPConnexion() {
                     />
                   </div>
                   <div>
-                    <Label className="label-mono text-[#666666] mb-2 block">Téléphone <span className="text-[#CC1A1A]">*</span></Label>
+                    <Label className="label-mono text-[#666666] mb-2 block">Téléphone <span className="text-[#CE1126]">*</span></Label>
                     <Input
                       type="tel"
                       value={entrepriseData.telephone}
@@ -393,16 +393,16 @@ export default function BTPConnexion() {
                 </div>
 
                 {/* Consentement anonymat */}
-                <div className="bg-[#FAF7F0] border border-[#E5DFD3] rounded-sm p-4">
+                <div className="bg-[#FAF7F0] border border-[#E5E5E5] rounded-sm p-4">
                   <label className="flex items-start gap-3 cursor-pointer">
-                    <input type="checkbox" required className="mt-1 w-4 h-4 accent-[#CC1A1A] shrink-0" />
+                    <input type="checkbox" required className="mt-1 w-4 h-4 accent-[#CE1126] shrink-0" />
                     <span className="text-sm text-[#666666]">
-                      Avant de vous enregistrer : vos informations resteront strictement <span className="font-semibold text-[#111111]">anonymes et confidentielles</span>. J'ai lu et j'accepte. <span className="text-[#CC1A1A]">*</span>
+                      Avant de vous enregistrer : vos informations resteront strictement <span className="font-semibold text-[#111111]">anonymes et confidentielles</span>. J'ai lu et j'accepte. <span className="text-[#CE1126]">*</span>
                     </span>
                   </label>
                 </div>
 
-                <Button type="submit" disabled={entrepriseLoading} className="w-full bg-[#CC1A1A] hover:bg-[#5fc4a3] text-[#0D0D0D] font-semibold py-6 h-auto">
+                <Button type="submit" disabled={entrepriseLoading} className="w-full bg-[#CE1126] hover:bg-[#A50E20] text-white font-semibold py-6 h-auto">
                   {entrepriseLoading ? (
                     <><Loader2 className="w-5 h-5 mr-2 animate-spin" />Envoi en cours...</>
                   ) : (

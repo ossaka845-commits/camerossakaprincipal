@@ -7,9 +7,9 @@ import { Award, Shield, Lightbulb, Heart, Facebook, Instagram, Youtube } from 'l
 gsap.registerPlugin(ScrollTrigger);
 
 const values = [
-  { key: 'excellence', icon: Award,     accent: '#D4A03A', accentLight: 'rgba(212,160,58,0.10)' },
-  { key: 'integrity',  icon: Shield,    accent: '#CC1A1A', accentLight: 'rgba(204,26,26,0.10)' },
-  { key: 'innovation', icon: Lightbulb, accent: '#CC1A1A', accentLight: 'rgba(212,160,58,0.10)' },
+  { key: 'excellence', icon: Award,     accent: '#111111', accentLight: 'rgba(0,0,0,0.10)' },
+  { key: 'integrity',  icon: Shield,    accent: '#CE1126', accentLight: 'rgba(206,17,38,0.10)' },
+  { key: 'innovation', icon: Lightbulb, accent: '#111111', accentLight: 'rgba(0,0,0,0.10)' },
   { key: 'solidarity', icon: Heart,     accent: '#CE1126', accentLight: 'rgba(206,17,38,0.08)' },
 ];
 
@@ -43,8 +43,8 @@ export default function About() {
         <div className="absolute inset-0 -top-24 grid-blueprint opacity-20 pointer-events-none" />
         <div className="relative">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-[#D4A03A]" />
-            <span className="label-mono text-[#D4A03A] text-[11px]">{t('about.badge')}</span>
+            <div className="w-8 h-px bg-[#111111]" />
+            <span className="label-mono text-[#111111] text-[11px]">{t('about.badge')}</span>
           </div>
           <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#111111] mb-4">
             {t('about.title')}
@@ -67,15 +67,15 @@ export default function About() {
           </div>
           <div className="lg:col-span-5 flex gap-4">
             {[
-              { num: '15+', label: t('about.yearsExp'), accent: '#CC1A1A' },
-              { num: '200+', label: t('about.projectsDone') ?? 'Projets réalisés', accent: '#D4A03A' },
+              { num: '15+', label: t('about.yearsExp'), accent: '#CE1126' },
+              { num: '200+', label: t('about.projectsDone') ?? 'Projets réalisés', accent: '#111111' },
             ].map((stat) => (
               <div
                 key={stat.num}
-                className="flex-1 p-6"
-                style={{ background: 'linear-gradient(160deg, #111111, #0D0D0D)', border: '1px solid rgba(0,0,0,0.08)', borderTop: `2px solid ${stat.accent}` }}
+                className="flex-1 p-6 shadow-sm"
+                style={{ background: '#FFFFFF', border: '1px solid #E5E5E5', borderTop: `2px solid ${stat.accent}` }}
               >
-                <div className="text-4xl font-bold mb-1" style={{ color: stat.accent, fontFamily: "'Space Grotesk', sans-serif" }}>
+                <div className="text-4xl font-bold mb-1" style={{ color: stat.accent, fontFamily: "'Sora', sans-serif" }}>
                   {stat.num}
                 </div>
                 <div className="text-[#666666] text-xs label-mono">{stat.label}</div>
@@ -87,15 +87,15 @@ export default function About() {
 
       {/* Values Section */}
       <section className="relative values-section px-4 lg:px-[4vw] py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[#F2EDE5]" />
+        <div className="absolute inset-0 bg-[#FFFFFF]" />
         <div className="divider-gradient absolute top-0 left-0 right-0" />
         <div className="divider-gradient absolute bottom-0 left-0 right-0" />
 
         <div className="relative">
           <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="w-8 h-px bg-[#D4A03A]" />
-            <span className="label-mono text-[#D4A03A] text-[11px]">NOS VALEURS</span>
-            <div className="w-8 h-px bg-[#D4A03A]" />
+            <div className="w-8 h-px bg-[#111111]" />
+            <span className="label-mono text-[#111111] text-[11px]">NOS VALEURS</span>
+            <div className="w-8 h-px bg-[#111111]" />
           </div>
           <h2 className="heading-display text-[clamp(28px,5vw,48px)] text-[#111111] mb-16 text-center">
             {t('about.values.title')}
@@ -105,7 +105,7 @@ export default function About() {
               <div
                 key={value.key}
                 className="value-card group relative p-8 overflow-hidden hover:-translate-y-0.5 transition-all duration-300 shadow-sm"
-                style={{ background: '#FFFFFF', border: '1px solid #E5DFD3' }}
+                style={{ background: '#FFFFFF', border: '1px solid #E5E5E5' }}
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: value.accentLight }} />
                 <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: value.accent }} />
@@ -143,8 +143,8 @@ export default function About() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 flex items-center justify-center text-[#666666] hover:text-white hover:border-white transition-all"
-              style={{ border: '1px solid rgba(255,255,255,0.12)' }}
+              className="w-9 h-9 flex items-center justify-center text-[#666666] hover:text-[#CE1126] hover:border-[#CE1126] transition-all"
+              style={{ border: '1px solid #E5E5E5' }}
             >
               {icon}
             </a>

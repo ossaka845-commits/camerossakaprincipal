@@ -18,7 +18,7 @@ export default function WhatsAppButton() {
           <div className="bg-[#075E54] px-4 py-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img
-                src="/images/co_logo.png"
+                src="/images/ossaka_logo.jpeg"
                 alt="CamerOssaka"
                 className="w-12 h-12 rounded-full object-cover border-2 border-white/30"
               />

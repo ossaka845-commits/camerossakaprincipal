@@ -35,7 +35,7 @@ export default function Work() {
       location: t('work.projects.p2.location'),
       country: 'africa',
       type: 'infrastructure',
-      image: '/images/image6.png',
+      image: '/images/image6.webp',
       description: t('work.projects.p2.description')
     },
     {
@@ -53,7 +53,7 @@ export default function Work() {
       location: t('work.projects.p4.location'),
       country: 'africa',
       type: 'building',
-      image: '/images/3persone.png',
+      image: '/images/3persone.webp',
       description: t('work.projects.p4.description')
     },
     {
@@ -62,7 +62,7 @@ export default function Work() {
       location: t('work.projects.p5.location'),
       country: 'africa',
       type: 'building',
-      image: '/images/image8.png',
+      image: '/images/image8.webp',
       description: t('work.projects.p5.description')
     },
     {
@@ -71,7 +71,7 @@ export default function Work() {
       location: t('work.projects.p6.location'),
       country: 'africa',
       type: 'industrial',
-      image: '/images/image4.png',
+      image: '/images/image4.webp',
       description: t('work.projects.p6.description')
     },
   ];
@@ -103,8 +103,8 @@ export default function Work() {
       {/* Header */}
       <section className="px-4 lg:px-[4vw] mb-12">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#CC1A1A]/20 border border-[#CC1A1A]/40 rounded-full mb-6">
-            <span className="text-sm text-[#CC1A1A] label-mono">{t('work.badge')}</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#CE1126]/10 border border-[#CE1126]/40 rounded-full mb-6">
+            <span className="text-sm text-[#CE1126] label-mono">{t('work.badge')}</span>
           </div>
           <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#111111] mb-4">
             {t('work.title')}
@@ -119,7 +119,7 @@ export default function Work() {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="project-card group bg-white border border-[#E5DFD3] shadow-sm rounded-sm overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
+              className="project-card group bg-white border border-[#E5E5E5] shadow-sm rounded-sm overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
               onClick={() => setSelectedProject(project)}
             >
               <div className="relative aspect-[4/3] overflow-hidden">

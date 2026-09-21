@@ -96,8 +96,8 @@ export default function Devis() {
     return (
       <div className="pt-24 pb-16 min-h-screen flex items-center justify-center">
         <div className="text-center px-4">
-          <div className="w-20 h-20 mx-auto mb-6 bg-[#CC1A1A] rounded-full flex items-center justify-center">
-            <CheckCircle className="w-10 h-10 text-[#CC1A1A]" />
+          <div className="w-20 h-20 mx-auto mb-6 bg-[#CE1126] rounded-full flex items-center justify-center">
+            <CheckCircle className="w-10 h-10 text-white" />
           </div>
           <h1 className="heading-display text-3xl md:text-4xl text-[#111111] mb-4">
             {t('quote.success')}
@@ -107,7 +107,7 @@ export default function Devis() {
           </p>
           <a
             href="/"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#CC1A1A] text-white font-semibold rounded-sm hover:bg-[#B01515] transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#CE1126] text-white font-semibold rounded-sm hover:bg-[#A50E20] transition-colors"
           >
             Retour à l'accueil
           </a>
@@ -121,8 +121,8 @@ export default function Devis() {
       {/* Header */}
       <section className="px-4 lg:px-[4vw] mb-12">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#CC1A1A]/20 border border-[#CC1A1A]/40 rounded-full mb-6">
-            <span className="text-sm text-[#CC1A1A] label-mono">DEVIS</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#CE1126]/10 border border-[#CE1126]/40 rounded-full mb-6">
+            <span className="text-sm text-[#CE1126] label-mono">DEVIS</span>
           </div>
           <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#111111] mb-4">
             {t('quote.title')}
@@ -140,7 +140,7 @@ export default function Devis() {
               <div key={s} className="flex items-center gap-4 flex-1">
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
-                    step >= s ? 'bg-[#CC1A1A] text-white' : 'bg-[#E8E2D8] text-[#666666]'
+                    step >= s ? 'bg-[#CE1126] text-white' : 'bg-[#E5E5E5] text-[#666666]'
                   }`}
                 >
                   {s}
@@ -148,7 +148,7 @@ export default function Devis() {
                 {s < 3 && (
                   <div
                     className={`flex-1 h-1 rounded ${
-                      step > s ? 'bg-[#CC1A1A]' : 'bg-[#E8E2D8]'
+                      step > s ? 'bg-[#CE1126]' : 'bg-[#E5E5E5]'
                     }`}
                   />
                 )}
@@ -160,7 +160,7 @@ export default function Devis() {
             {/* Step 1: Type & Personal Info */}
             {step === 1 && (
               <div className="space-y-8">
-                <div className="bg-white border border-[#E5DFD3] shadow-sm p-8 rounded-sm">
+                <div className="bg-white border border-[#E5E5E5] shadow-sm p-8 rounded-sm">
                   <Label className="label-mono text-[#666666] mb-4 block">
                     {t('quote.type.label')}
                   </Label>
@@ -174,7 +174,7 @@ export default function Devis() {
                       { key: 'company', label: t('quote.type.company') },
                     ].map((type) => (
                       <div key={type.key} className="flex items-center space-x-2">
-                        <RadioGroupItem value={type.key} id={type.key} className="border-[#CC1A1A]" />
+                        <RadioGroupItem value={type.key} id={type.key} className="border-[#CE1126]" />
                         <Label htmlFor={type.key} className="text-[#111111] cursor-pointer">
                           {type.label}
                         </Label>
@@ -183,7 +183,7 @@ export default function Devis() {
                   </RadioGroup>
                 </div>
 
-                <div className="bg-white border border-[#E5DFD3] shadow-sm p-8 rounded-sm">
+                <div className="bg-white border border-[#E5E5E5] shadow-sm p-8 rounded-sm">
                   <h3 className="text-lg font-semibold text-[#111111] mb-6 font-['Sora']">
                     {t('quote.personal.title')}
                   </h3>
@@ -265,7 +265,7 @@ export default function Devis() {
                   <Button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="bg-[#CC1A1A] hover:bg-[#B01515] text-white px-8 py-6 h-auto"
+                    className="bg-[#CE1126] hover:bg-[#A50E20] text-white px-8 py-6 h-auto"
                   >
                     Continuer
                   </Button>
@@ -276,7 +276,7 @@ export default function Devis() {
             {/* Step 2: Project Details */}
             {step === 2 && (
               <div className="space-y-8">
-                <div className="bg-white border border-[#E5DFD3] shadow-sm p-8 rounded-sm">
+                <div className="bg-white border border-[#E5E5E5] shadow-sm p-8 rounded-sm">
                   <h3 className="text-lg font-semibold text-[#111111] mb-6 font-['Sora']">
                     {t('quote.project.title')}
                   </h3>
@@ -293,7 +293,7 @@ export default function Devis() {
                         <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
                           <SelectValue placeholder="Sélectionnez..." />
                         </SelectTrigger>
-                        <SelectContent className="bg-white border-[#E5DFD3]">
+                        <SelectContent className="bg-white border-[#E5E5E5]">
                           {[
                             { key: 'new', label: t('quote.project.new') },
                             { key: 'renovation', label: t('quote.project.renovation') },
@@ -347,7 +347,7 @@ export default function Devis() {
                           <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
                             <SelectValue placeholder="Sélectionnez..." />
                           </SelectTrigger>
-                          <SelectContent className="bg-white border-[#E5DFD3]">
+                          <SelectContent className="bg-white border-[#E5E5E5]">
                             {budgetRanges.map((range) => (
                               <SelectItem key={range} value={range} className="text-[#111111]">
                                 {range}
@@ -367,7 +367,7 @@ export default function Devis() {
                           <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
                             <SelectValue placeholder="Sélectionnez..." />
                           </SelectTrigger>
-                          <SelectContent className="bg-white border-[#E5DFD3]">
+                          <SelectContent className="bg-white border-[#E5E5E5]">
                             {deadlines.map((deadline) => (
                               <SelectItem key={deadline} value={deadline} className="text-[#111111]">
                                 {deadline}
@@ -382,7 +382,7 @@ export default function Devis() {
                       <Label className="label-mono text-[#666666] mb-2 block">
                         {t('quote.project.documents')}
                       </Label>
-                      <label className="border-2 border-dashed border-[#E5E5E5] rounded-sm p-8 text-center hover:border-[#CC1A1A] transition-colors cursor-pointer block">
+                      <label className="border-2 border-dashed border-[#E5E5E5] rounded-sm p-8 text-center hover:border-[#CE1126] transition-colors cursor-pointer block">
                         <input
                           type="file"
                           accept=".pdf,.dwg,.jpg,.jpeg,.png"
@@ -396,7 +396,7 @@ export default function Devis() {
                         />
                         <Upload className="w-8 h-8 mx-auto mb-3 text-[#666666]" />
                         {documentFileName ? (
-                          <p className="text-[#CC1A1A] text-sm font-medium">✅ {documentFileName}</p>
+                          <p className="text-[#CE1126] text-sm font-medium">✅ {documentFileName}</p>
                         ) : (
                           <>
                             <p className="text-[#666666] text-sm">
@@ -417,14 +417,14 @@ export default function Devis() {
                     type="button"
                     variant="outline"
                     onClick={() => setStep(1)}
-                    className="border-[#111111] text-[#111111] hover:bg-[#F0EBE2] px-8 py-6 h-auto"
+                    className="bg-[#CE1126] text-white hover:bg-[#A50E20] px-8 py-6 h-auto"
                   >
                     Retour
                   </Button>
                   <Button
                     type="button"
                     onClick={() => setStep(3)}
-                    className="bg-[#CC1A1A] hover:bg-[#B01515] text-white px-8 py-6 h-auto"
+                    className="bg-[#CE1126] hover:bg-[#A50E20] text-white px-8 py-6 h-auto"
                   >
                     Continuer
                   </Button>
@@ -435,7 +435,7 @@ export default function Devis() {
             {/* Step 3: Review & Submit */}
             {step === 3 && (
               <div className="space-y-8">
-                <div className="bg-white border border-[#E5DFD3] shadow-sm p-8 rounded-sm">
+                <div className="bg-white border border-[#E5E5E5] shadow-sm p-8 rounded-sm">
                   <h3 className="text-lg font-semibold text-[#111111] mb-6 font-['Sora']">
                     Récapitulatif
                   </h3>
@@ -477,11 +477,11 @@ export default function Devis() {
                 </div>
 
                 {/* Consentement anonymat */}
-                <div className="bg-[#FAF7F0] border border-[#E5DFD3] rounded-sm p-4">
+                <div className="bg-[#FAF7F0] border border-[#E5E5E5] rounded-sm p-4">
                   <label className="flex items-start gap-3 cursor-pointer">
-                    <input type="checkbox" required className="mt-1 w-4 h-4 accent-[#CC1A1A] shrink-0" />
+                    <input type="checkbox" required className="mt-1 w-4 h-4 accent-[#CE1126] shrink-0" />
                     <span className="text-sm text-[#666666]">
-                      Avant de vous enregistrer : vos informations resteront strictement <span className="font-semibold text-[#111111]">anonymes et confidentielles</span>. J'ai lu et j'accepte. <span className="text-[#CC1A1A]">*</span>
+                      Avant de vous enregistrer : vos informations resteront strictement <span className="font-semibold text-[#111111]">anonymes et confidentielles</span>. J'ai lu et j'accepte. <span className="text-[#CE1126]">*</span>
                     </span>
                   </label>
                 </div>
@@ -491,14 +491,14 @@ export default function Devis() {
                     type="button"
                     variant="outline"
                     onClick={() => setStep(2)}
-                    className="border-[#111111] text-[#111111] hover:bg-[#F0EBE2] px-8 py-6 h-auto"
+                    className="bg-[#CE1126] text-white hover:bg-[#A50E20] px-8 py-6 h-auto"
                   >
                     Retour
                   </Button>
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="bg-[#CC1A1A] hover:bg-[#B01515] text-white px-8 py-6 h-auto"
+                    className="bg-[#CE1126] hover:bg-[#A50E20] text-white px-8 py-6 h-auto"
                   >
                     {isLoading ? (
                       <><Loader2 className="w-5 h-5 mr-2 animate-spin" />Envoi en cours...</>

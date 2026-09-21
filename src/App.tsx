@@ -46,7 +46,7 @@ function ScrollAndTitleManager() {
 function PageLoader() {
   return (
     <div className="flex items-center justify-center min-h-[60vh]" role="status" aria-label="Chargement">
-      <div className="w-10 h-10 border-4 border-[#1A2744]/20 border-t-[#1A2744] rounded-full animate-spin" />
+      <div className="w-10 h-10 border-4 border-black/20 border-t-black rounded-full animate-spin" />
     </div>
   );
 }
