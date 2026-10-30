@@ -18,7 +18,7 @@ const offices = [
     flag: '🇨🇲',
     address: 'Akwa',
     phone: '+237 6 92 83 13 34',
-    email: 'camer@ossaka.com',
+    email: 'contact@co-connexion.com',
     hours: 'Lun-Ven: 8h00 - 17h00',
   },
  
