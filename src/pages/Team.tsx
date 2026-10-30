@@ -2,34 +2,25 @@
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Mail, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Facebook, Instagram, Youtube } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const leadership = [
   {
-    name: 'Jean-Pierre Ossaka',
-    role: 'CEO & Fondateur',
-    bio: 'Ingénieur civil de formation, 25 ans d\'expérience dans le BTP. Visionnaire passionné par le développement de l\'Afrique.',
-    image: '/images/reliable_team_meeting.jpg',
+    name: 'Jean-Marie Ondoua, M.Sc.',
+    role: 'Fondateur de Camer-Ossaka Connexion  Ingénieur civil & Entrepreneur',
+    bio: "Ingénieur civil et entrepreneur, titulaire d'une licence en génie civil de l'Université de Buea au Cameroun et d'un Master of Science obtenu en Allemagne. Spécialisé en infrastructures et ingénierie environnementale, il exerce actuellement comme surveillant de chantier en Allemagne. Fort de son expertise technique et de son expérience internationale, il ambitionne, à travers Camer-Ossaka Connexion, de promouvoir le développement des infrastructures, les investissements stratégiques et les partenariats internationaux, particulièrement en Afrique.",
   },
   {
-    name: 'Marie-Claire Nkolo',
-    role: 'Directrice Financière',
-    bio: 'Expertise en finance internationale, ancienne directrice chez Deloitte Afrique.',
-    image: '/images/build_concrete_structure.jpg',
+    name: 'Livine Diana Pouako, M.Sc.',
+    role: 'Co-fondatrice | Ingénieure civile & Entrepreneure',
+    bio: "Ingénieure civile et titulaire d'un Master en génie civil, elle possède une expertise technique et une vision entrepreneuriale orientée vers l'innovation et le développement durable. En tant que co-fondatrice de Camer-Ossaka Connexion, elle contribue à la définition des orientations stratégiques, au développement des projets et au rayonnement de l'entreprise. Son engagement, son savoir-faire et son esprit d'initiative participent à la construction d'une organisation ambitieuse, tournée vers l'excellence, les partenariats et la création de valeur.",
   },
   {
-    name: 'Dr. Klaus Müller',
-    role: 'Directeur Europe',
-    bio: 'Docteur en génie civil, 20 ans d\'expérience dans la construction en Allemagne.',
-    image: '/images/deliver_crane_skyline.jpg',
-  },
-  {
-    name: 'Sophie Abena',
-    role: 'Directrice des Opérations',
-    bio: 'Spécialiste en gestion de projet, certifiée PMP, 15 ans dans le BTP africain.',
-    image: '/images/create_blueprint_table.jpg',
+    name: 'Yannick Moumbe Lambo,M.Sc.',
+    role: 'Ingénieur en informatique & Entrepreneur',
+    bio: "Ingénieur en informatique et entrepreneur, titulaire d'une Licence et d'un Master en intelligence artificielle et automatisation obtenus en Allemagne. Il exerce actuellement en tant qu'ingénieur en intelligence artificielle , où il met son expertise au service du développement de solutions intelligentes et de l'automatisation des processus. Son parcours académique et professionnel associe technologies numériques, intelligence artificielle et systèmes intelligents. Au sein de Camer-Ossaka Connexion, il contribue à l'innovation technologique, au développement de solutions numériques avancées et à la réalisation des ambitions stratégiques de l'entreprise.",
   },
 ];
 
@@ -75,32 +66,18 @@ export default function Team() {
       {/* Leadership */}
       <section ref={teamRef} className="px-4 lg:px-[4vw] mb-20">
         <h2 className="heading-display text-2xl text-[#111111] mb-8">{t('team.direction')}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {leadership.map((person, index) => (
-            <div key={index} className="team-card bg-white border border-[#E5E5E5] shadow-sm rounded-sm overflow-hidden group">
-              <div className="aspect-square overflow-hidden">
-                <img
-                  src={person.image}
-                  alt={person.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+        <div className="max-w-6xl mx-auto">
+          {leadership.map((person) => (
+            <article key={person.name} className="team-card grid grid-cols-1 md:grid-cols-[minmax(240px,0.8fr)_2fr] gap-6 md:gap-12 items-start border-b border-[#D8D8D8] py-8 md:py-10 first:border-t">
+              <div>
+                <h3 className="text-2xl font-semibold text-[#111111] font-['Sora'] mb-2">{person.name}</h3>
+                <p className="text-[#CE1126] text-sm leading-relaxed">{person.role}</p>
               </div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-[#111111] font-['Sora'] mb-1">{person.name}</h3>
-                <p className="text-[#111111] text-sm mb-3">{person.role}</p>
-                <p className="text-[#666666] text-sm leading-relaxed mb-4">{person.bio}</p>
-                <div className="flex gap-3">
-                  <a
-                    href="mailto:camer@ossaka.com"
-                    aria-label={`Contacter ${person.name} par e-mail`}
-                    className="text-[#666666] hover:text-[#CE1126] transition-colors"
-                  >
-                    <Mail className="w-5 h-5" />
-                  </a>
-                </div>
+              <div>
+                <p className="label-mono text-[#CE1126] text-[11px] mb-4">Parcours &amp; ambition</p>
+                <p className="text-[#555555] text-base leading-relaxed">{person.bio}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </section>
