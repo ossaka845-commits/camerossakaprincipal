@@ -315,7 +315,7 @@ export default function MainLayout() {
           </div>
 
           <div className="pt-8 border-t border-[#E5E5E5] text-center">
-            <p className="text-[#999999] text-sm">{t('footer.copyright')}</p>
+            <p className="text-[#999999] text-sm">© {new Date().getFullYear()} {t('footer.copyright')}</p>
           </div>
         </div>
       </footer>
