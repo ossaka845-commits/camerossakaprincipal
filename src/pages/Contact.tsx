@@ -17,7 +17,7 @@ const offices = [
     country: 'Cameroun',
     flag: '🇨🇲',
     address: 'Akwa',
-    phone: '+237 233 45 67 89',
+    phone: '+237 6 92 83 13 34',
     email: 'camer@ossaka.com',
     hours: 'Lun-Ven: 8h00 - 17h00',
   },
@@ -157,7 +157,7 @@ export default function Contact() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Localisation CamerOssaka - Akwa, Douala, Cameroun"
+            title="Localisation Camer-Ossaka Connexion - Akwa, Douala, Cameroun"
           ></iframe>
         </div>
       </section>

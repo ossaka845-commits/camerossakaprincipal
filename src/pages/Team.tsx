@@ -112,7 +112,7 @@ export default function Team() {
             REJOIGNEZ L'ÉQUIPE
           </h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-            Vous souhaitez faire partie de l'aventure CamerOssaka ? Découvrez nos offres d'emploi.
+            Vous souhaitez faire partie de l'aventure Camer-Ossaka Connexion ? Découvrez nos offres d'emploi.
           </p>
           <a
             href="/btp-connexion"

@@ -51,7 +51,7 @@ function generatePDF(submission: FormSubmission): jsPDF {
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(24);
   doc.setFont('helvetica', 'bold');
-  doc.text('CAMEROSSAKA', margin, 22);
+  doc.text('CAMER-OSSAKA CONNEXION', margin, 22);
 
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
@@ -128,7 +128,7 @@ function generatePDF(submission: FormSubmission): jsPDF {
   doc.setFontSize(8);
   doc.setTextColor(150, 150, 150);
   doc.text(
-    'Ce document a été généré automatiquement depuis le site CamerOssaka.',
+    'Ce document a été généré automatiquement depuis le site Camer-Ossaka Connexion.',
     pageWidth / 2,
     footerY,
     { align: 'center' }
@@ -183,7 +183,7 @@ export async function generateAndSendForm(
   const fileName = `${submission.title.replace(/\s+/g, '_')}_${Date.now()}.pdf`;
 
   // 4. Préparer le sujet de l'email
-  const subject = `[CamerOssaka] ${submission.title} — ${submission.senderName || 'Visiteur'}`;
+  const subject = `[Camer-Ossaka Connexion] ${submission.title} — ${submission.senderName || 'Visiteur'}`;
 
   // 5. Envoyer au Google Apps Script
   try {

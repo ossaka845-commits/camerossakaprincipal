@@ -2,7 +2,7 @@
 import { X } from 'lucide-react';
 
 const WHATSAPP_NUMBER = '237233456789';
-const DEFAULT_MESSAGE = 'Bonjour, je visite le site Camer-Ossaka Construction et j\'aimerais avoir plus d\'informations.';
+const DEFAULT_MESSAGE = 'Bonjour, je visite le site Camer-Ossaka Connexion et j\'aimerais avoir plus d\'informations.';
 
 export default function WhatsAppButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,11 +19,11 @@ export default function WhatsAppButton() {
             <div className="flex items-center gap-3">
               <img
                 src="/images/ossaka_logo.jpeg"
-                alt="CamerOssaka"
+                alt="Camer-Ossaka Connexion"
                 className="w-12 h-12 rounded-full object-cover border-2 border-white/30"
               />
               <div>
-                <p className="text-white font-semibold text-base">Camer-Ossaka</p>
+                <p className="text-white font-semibold text-base">Camer-Ossaka Connexion</p>
                 <p className="text-[#25D366] text-sm">En ligne</p>
               </div>
             </div>

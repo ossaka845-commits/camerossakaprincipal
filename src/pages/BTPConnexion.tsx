@@ -319,7 +319,7 @@ export default function BTPConnexion() {
                     value={entrepriseData.nom}
                     onChange={(e) => setEntrepriseData({ ...entrepriseData, nom: e.target.value })}
                     className="bg-white border-[#E5E5E5] text-[#111111] h-12"
-                    placeholder="Ex: Camerossaka SARL"
+                    placeholder="Ex: Camer-Ossaka Connexion SARL"
                     required
                   />
                 </div>

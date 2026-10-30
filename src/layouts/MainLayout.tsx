@@ -34,9 +34,9 @@ export default function MainLayout() {
 
   const navLinks = [
     { label: t('nav.home'), href: '/' },
-    { label: t('nav.work'), href: '/work' },
+    { label: t('nav.work'), href: '/projects' },
     { label: t('nav.services'), href: '/services' },
-    { label: t('nav.about'), href: '/about' },
+    { label: t('nav.about'), href: '/a-propos' },
     { label: t('nav.team'), href: '/equipe' },
     { label: t('nav.contact'), href: '/contact' },
   ];
@@ -73,12 +73,12 @@ export default function MainLayout() {
             >
               <img 
                 src="/images/ossaka_logo.jpeg" 
-                alt="CamerOssaka Logo" 
+                alt="Camer-Ossaka Connexion Logo"
                 className="h-full w-full object-contain p-1"
               />
             </div>
             <span className="font-['Sora'] font-bold text-xl tracking-tight text-[#000000] leading-none">
-              CamerOssaka
+              Camer-Ossaka Connexion
             </span>
           </Link>
 
@@ -224,12 +224,12 @@ export default function MainLayout() {
                 <div className="h-14 w-14 rounded-md overflow-hidden ring-1 ring-[#E5E5E5] bg-white">
                   <img 
                     src="/images/ossaka_logo.jpeg" 
-                    alt="CamerOssaka Logo" 
+                    alt="Camer-Ossaka Connexion Logo"
                     className="h-full w-full object-contain p-1"
                   />
                 </div>
                 <span className="font-['Sora'] font-bold text-xl tracking-tight text-[#111111] leading-none">
-                  CamerOssaka
+                  Camer-Ossaka Connexion
                 </span>
               </Link>
               <p className="text-[#666666] leading-relaxed">

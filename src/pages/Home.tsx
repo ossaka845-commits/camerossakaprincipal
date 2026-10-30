@@ -109,7 +109,7 @@ export default function Home() {
             <img
               key={index}
               src={slide}
-              alt={`CamerOssaka — chantier ${index + 1}`}
+              alt={`Camer-Ossaka Connexion — chantier ${index + 1}`}
               loading={index === 0 ? 'eager' : 'lazy'}
               fetchPriority={index === 0 ? 'high' : 'low'}
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
@@ -337,7 +337,7 @@ export default function Home() {
               </h2>
             </div>
             <Link
-              to="/work"
+              to="/projects"
               className="mt-6 md:mt-0 inline-flex items-center gap-2 text-sm text-[#CE1126] hover:text-[#A50E20] transition-colors group"
             >
               {t('common.seeAllProjects')}
@@ -348,7 +348,7 @@ export default function Home() {
           <div className="projects-grid grid grid-cols-1 md:grid-cols-12 gap-4">
             {/* Large featured card */}
             <Link
-              to="/work"
+              to="/projects"
               className="project-card group md:col-span-7 relative aspect-[16/10] overflow-hidden"
             >
               <img
@@ -378,7 +378,7 @@ export default function Home() {
               ].map((project, index) => (
                 <Link
                   key={index}
-                  to="/work"
+                  to="/projects"
                   className="project-card group relative overflow-hidden"
                   style={{ aspectRatio: '16/9' }}
                 >

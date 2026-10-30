@@ -1,4 +1,4 @@
-# CamerOssaka — Design v2 (Cameroun + Afrique + Europe)
+# Camer-Ossaka Connexion — Design v2 (Cameroun + Afrique + Europe)
 
 ## 1. Identité Visuelle Multiculturelle
 
@@ -86,7 +86,7 @@
 ### Sections
 1. **Nos Piliers** : BUILD / CREATE / DELIVER / MODERN / RELIABLE
 2. **Nos Projets Phares** — Aperçu avec lien vers /work
-3. **Pourquoi CamerOssaka** — Valeurs (Qualité, Innovation, Durabilité)
+3. **Pourquoi Camer-Ossaka Connexion** — Valeurs (Qualité, Innovation, Durabilité)
 4. **CTA Final** — Devis ou recrutement
 
 ---
@@ -248,7 +248,7 @@
 Espace dédié aux métiers du BTP pour :
 - Postuler à des offres d'emploi
 - Déposer une candidature spontanée
-- Découvrir les métiers chez CamerOssaka
+- Découvrir les métiers chez Camer-Ossaka Connexion
 
 ### Sections
 

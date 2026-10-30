@@ -35,7 +35,7 @@ function doPost(e) {
     // Construire le corps HTML de l'email
     var htmlBody = '<div style="font-family: Arial, sans-serif; max-width: 600px;">';
     htmlBody += '<div style="background-color: #CE1126; padding: 20px; color: white;">';
-    htmlBody += '<h1 style="margin: 0; font-size: 24px;">CAMEROSSAKA</h1>';
+    htmlBody += '<h1 style="margin: 0; font-size: 24px;">CAMER-OSSAKA CONNEXION</h1>';
     htmlBody += '<p style="margin: 5px 0 0 0; opacity: 0.8;">Construction & BTP</p>';
     htmlBody += '</div>';
     htmlBody += '<div style="padding: 20px; background-color: #f5f7fa;">';
@@ -57,7 +57,7 @@ function doPost(e) {
       {
         htmlBody: htmlBody,   // Corps HTML formaté
         attachments: [pdfBlob], // PDF en pièce jointe
-        name: 'CamerOssaka - Site Web'
+        name: 'Camer-Ossaka Connexion - Site Web'
       }
     );
 
@@ -79,7 +79,7 @@ function doGet() {
   return ContentService
     .createTextOutput(JSON.stringify({
       status: 'ok',
-      message: 'CamerOssaka Form Mailer est actif !'
+      message: 'Camer-Ossaka Connexion Form Mailer est actif !'
     }))
     .setMimeType(ContentService.MimeType.JSON);
 }
