@@ -62,12 +62,6 @@ export default function Home() {
             scrollTrigger: { trigger: pillarsRef.current, start: 'top 78%' }
           }
         );
-        gsap.fromTo('.project-card',
-          { y: 24, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, stagger: 0.1,
-            scrollTrigger: { trigger: '.projects-grid', start: 'top 80%' }
-          }
-        );
         gsap.fromTo(ctaRef.current,
           { y: 28, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.6,
@@ -379,87 +373,7 @@ export default function Home() {
       </section>
 
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-          FEATURED PROJECTS
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      <section className="relative py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-[#F5F5F5]" />
-        <div className="divider-gradient absolute top-0 left-0 right-0" />
-
-        <div className="relative px-4 lg:px-[4vw]">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14">
-            <div>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-8 h-px bg-[#111111]" />
-                <span className="label-mono text-[#111111] text-[11px]">{t('work.badge')}</span>
-              </div>
-              <h2 className="heading-display text-[clamp(32px,5vw,56px)] text-[#111111]">
-                {t('work.title')}
-              </h2>
-            </div>
-            <Link
-              to="/projects"
-              className="mt-6 md:mt-0 inline-flex items-center gap-2 text-sm text-[#CE1126] hover:text-[#A50E20] transition-colors group"
-            >
-              {t('common.seeAllProjects')}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          <div className="projects-grid grid grid-cols-1 md:grid-cols-12 gap-4">
-            {/* Large featured card */}
-            <Link
-              to="/projects"
-              className="project-card group md:col-span-7 relative aspect-[16/10] overflow-hidden"
-            >
-              <img
-                src="/images/build_concrete_structure.jpg"
-                alt={t('work.projects.p1.title')}
-                loading="lazy"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/90 via-[#060606]/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="capsule capsule-white mb-3">{t('work.projects.p1.loc')}</div>
-                <h3 className="text-2xl font-semibold text-white font-['Sora'] mb-2">
-                  {t('work.projects.p1.title')}
-                </h3>
-                <div className="flex items-center gap-2 text-[#111111] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span>{t('common.viewProject')}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </div>
-              </div>
-            </Link>
-
-            {/* Right column â€” 2 stacked cards */}
-            <div className="md:col-span-5 flex flex-col gap-4">
-              {[
-                { img: '/images/image6.webp', title: t('work.projects.p2.title'), loc: t('work.projects.p2.loc') },
-                { img: '/images/modern_concrete_wall.jpg', title: t('work.projects.p3.title'), loc: t('work.projects.p3.loc') },
-              ].map((project, index) => (
-                <Link
-                  key={index}
-                  to="/projects"
-                  className="project-card group relative overflow-hidden"
-                  style={{ aspectRatio: '16/9' }}
-                >
-                  <img
-                    src={project.img}
-                    alt={project.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/90 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <div className="capsule capsule-white mb-3">{project.loc}</div>
-                    <h3 className="text-2xl font-semibold text-white font-['Sora']">{project.title}</h3>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           CTA â€” Immersive green-tinted section
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
