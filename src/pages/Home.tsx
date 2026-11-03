@@ -261,20 +261,9 @@ export default function Home() {
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           PILLARS â€” Dark glass cards with icon accents
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      <section ref={pagesRef} className="relative py-24 lg:py-32 overflow-hidden">
+      <section ref={pagesRef} className="relative py-12 lg:py-16 overflow-hidden">
         <div className="absolute inset-0 bg-[#F7F7F7]" />
         <div className="relative px-4 lg:px-[4vw]">
-          <div className="max-w-2xl mb-12 lg:mb-16">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-8 h-px bg-[#CE1126]" />
-              <span className="label-mono text-[#CE1126] text-[11px]">{t('home.pagesLabel')}</span>
-            </div>
-            <h2 className="heading-display text-[clamp(32px,5vw,56px)] text-[#111111] mb-5">
-              {t('home.pagesTitle')}
-            </h2>
-            <p className="text-[#666666] leading-relaxed max-w-xl">{t('home.pagesDesc')}</p>
-          </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
             {pageLinks.map((page, index) => (
               <Link
