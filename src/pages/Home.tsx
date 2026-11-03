@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Building2, Users, Award, Facebook, Instagram, Youtube, ChevronLeft, ChevronRight, Hammer, Lightbulb, PackageCheck, Cpu, ShieldCheck, BriefcaseBusiness, HardHat, Mail, UsersRound } from 'lucide-react';
+import { ArrowRight, Building2, Users, Award, Facebook, Instagram, Youtube, ChevronLeft, ChevronRight, Hammer, Lightbulb, PackageCheck, Cpu, ShieldCheck } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +19,6 @@ export default function Home() {
   const { t } = useTranslation();
   const heroRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
-  const pagesRef = useRef<HTMLDivElement>(null);
   const pillarsRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -48,12 +47,6 @@ export default function Home() {
           { y: 28, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.55, stagger: 0.08,
             scrollTrigger: { trigger: statsRef.current, start: 'top 82%' }
-          }
-        );
-        gsap.fromTo('.page-card',
-          { y: 28, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.55, stagger: 0.08,
-            scrollTrigger: { trigger: pagesRef.current, start: 'top 82%' }
           }
         );
         gsap.fromTo('.pillar-card',
@@ -86,15 +79,6 @@ export default function Home() {
     { key: 'deliver',  icon: PackageCheck, accent: '#CE1126', accentLight: 'rgba(206,17,38,0.10)' },
     { key: 'modern',   icon: Cpu,          accent: '#0A0A0A', accentLight: 'rgba(0,0,0,0.08)' },
     { key: 'reliable', icon: ShieldCheck,  accent: '#111111', accentLight: 'rgba(0,0,0,0.10)' },
-  ];
-
-  const pageLinks = [
-    { href: '/services', key: 'services', title: t('nav.services'), desc: t('home.pages.services'), image: '/images/build_steel_beams.jpg', icon: HardHat },
-    { href: '/projects', key: 'projects', title: t('nav.work'), desc: t('home.pages.projects'), image: '/images/build_concrete_structure.jpg', icon: Building2 },
-    { href: '/a-propos', key: 'about', title: t('nav.about'), desc: t('home.pages.about'), image: '/images/create_blueprint_table.jpg', icon: Award },
-    { href: '/equipe', key: 'team', title: t('nav.team'), desc: t('home.pages.team'), image: '/images/equipe_foto_camerossaka.jpg', icon: UsersRound },
-    { href: '/btp-connexion', key: 'careers', title: t('nav.btpConnexion'), desc: t('home.pages.careers'), image: '/images/connexionbtp.jpg.jpeg', icon: BriefcaseBusiness },
-    { href: '/contact', key: 'contact', title: t('nav.contact'), desc: t('home.pages.contact'), image: '/images/image4.webp', icon: Mail },
   ];
 
   return (
@@ -261,41 +245,6 @@ export default function Home() {
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           PILLARS â€” Dark glass cards with icon accents
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      <section ref={pagesRef} className="relative py-12 lg:py-16 overflow-hidden">
-        <div className="absolute inset-0 bg-[#F7F7F7]" />
-        <div className="relative px-4 lg:px-[4vw]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-            {pageLinks.map((page, index) => (
-              <Link
-                key={page.key}
-                to={page.href}
-                className="page-card group relative min-h-[280px] sm:min-h-[320px] overflow-hidden rounded-xl bg-[#171717] focus-visible:outline-white"
-              >
-                <img
-                  src={page.image}
-                  alt=""
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover opacity-75 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/5 transition-colors duration-300 group-hover:from-black/90" />
-                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 text-white">
-                  <div className="flex items-center justify-between mb-8">
-                    <span className="text-xs text-white/70 label-mono">{String(index + 1).padStart(2, '0')}</span>
-                    <page.icon className="w-5 h-5 text-white/80" aria-hidden="true" />
-                  </div>
-                  <h3 className="font-['Sora'] font-semibold text-2xl mb-2">{page.title}</h3>
-                  <p className="text-sm text-white/75 leading-relaxed max-w-sm">{page.desc}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-white">
-                    {t('common.discover')}
-                    <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section ref={pillarsRef} className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 bg-[#F5F5F5]" />
         <div className="absolute inset-0 grid-dots opacity-40 pointer-events-none" />
