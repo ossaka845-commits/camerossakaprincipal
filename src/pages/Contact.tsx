@@ -15,7 +15,6 @@ const offices = [
   {
     city: 'Douala',
     country: 'Cameroun',
-    flag: '🇨🇲',
     address: 'Akwa',
     phone: '+237 6 92 83 13 34',
     email: 'contact@co-connexion.com',
@@ -115,7 +114,6 @@ export default function Contact() {
           {offices.map((office, index) => (
             <div key={index} className="office-card bg-white border border-[#E5E5E5] shadow-sm p-6 rounded-sm">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">{office.flag}</span>
                 <div>
                   <h3 className="text-lg font-semibold text-[#111111] font-['Sora']">{office.city}</h3>
                   <p className="text-[#666666] text-sm">{office.country}</p>
