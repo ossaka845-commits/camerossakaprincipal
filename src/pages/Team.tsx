@@ -56,28 +56,28 @@ export default function Team() {
       {/* Header */}
       <section className="px-4 lg:px-[4vw] mb-16">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#CE1126]/10 border border-[#CE1126]/40 rounded-full mb-6">
-            <span className="text-sm text-[#CE1126] label-mono">{t('team.badge')}</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#3B1F8A]/10 border border-[#3B1F8A]/40 rounded-full mb-6">
+            <span className="text-sm text-[#3B1F8A] label-mono">{t('team.badge')}</span>
           </div>
-          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#111111] mb-4">
+          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#2C2834] mb-4">
             {t('team.title')}
           </h1>
-          <p className="text-xl text-[#666666]">{t('team.subtitle')}</p>
+          <p className="text-xl text-[#68636E]">{t('team.subtitle')}</p>
         </div>
       </section>
 
       {/* Leadership */}
       <section ref={teamRef} className="px-4 lg:px-[4vw] mb-20">
-        <h2 className="heading-display text-2xl text-[#111111] mb-8">{t('team.direction')}</h2>
+        <h2 className="heading-display text-2xl text-[#2C2834] mb-8">{t('team.direction')}</h2>
         <div className="max-w-6xl mx-auto">
           {leadership.map((person) => (
             <article key={person.name} className="team-card grid grid-cols-1 md:grid-cols-[minmax(240px,0.8fr)_2fr] gap-6 md:gap-12 items-start border-b border-[#D8D8D8] py-8 md:py-10 first:border-t">
               <div>
-                <h3 className="text-2xl font-semibold text-[#111111] font-['Sora'] mb-2">{person.name}</h3>
-                <p className="text-[#CE1126] text-sm leading-relaxed">{person.role}</p>
+                <h3 className="text-2xl font-semibold text-[#2C2834] font-['Sora'] mb-2">{person.name}</h3>
+                <p className="text-[#3B1F8A] text-sm leading-relaxed">{person.role}</p>
               </div>
               <div>
-                <p className="label-mono text-[#CE1126] text-[11px] mb-4">Parcours &amp; ambition</p>
+                <p className="label-mono text-[#3B1F8A] text-[11px] mb-4">{t('team.profileLabel')}</p>
                 <p className="text-[#555555] text-base leading-relaxed">{person.bio}</p>
               </div>
             </article>
@@ -87,18 +87,18 @@ export default function Team() {
 
       {/* Join CTA */}
       <section className="px-4 lg:px-[4vw] py-20">
-        <div className="bg-gradient-to-r from-[#CE1126] to-[#A50E20] rounded-sm p-12 text-center">
+        <div className="bg-gradient-to-r from-[#E23B3B] to-[#C41E6A] rounded-3xl p-10 md:p-12 text-center">
           <h2 className="heading-display text-3xl md:text-4xl text-white mb-4">
-            REJOIGNEZ L'ÉQUIPE
+            {t('team.joinTitle')}
           </h2>
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-            Vous souhaitez faire partie de l'aventure Camer-Ossaka Connexion ? Découvrez nos offres d'emploi.
+            {t('team.joinDesc')}
           </p>
           <a
             href="/btp-connexion"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#CE1126] font-semibold rounded-sm hover:bg-[#F5F5F5] transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#CE1126] border border-[#CE1126] font-semibold rounded-full hover:bg-[#CE1126] hover:text-white transition-colors"
           >
-            Voir les offres
+            {t('btpConnexion.jobs.title')}
           </a>
           
           {/* Social Media */}

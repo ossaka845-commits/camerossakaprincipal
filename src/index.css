@@ -1,4 +1,4 @@
-﻿@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -11,20 +11,20 @@
     --card-foreground: 220 20% 97%;
     --popover: 220 25% 10%;
     --popover-foreground: 220 20% 97%;
-    --primary: 162 100% 24%;
+    --primary: 352 85% 44%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 20% 15%;
-    --secondary-foreground: 220 20% 97%;
+    --secondary: 352 100% 97%;
+    --secondary-foreground: 352 85% 44%;
     --muted: 220 15% 20%;
     --muted-foreground: 220 15% 65%;
-    --accent: 43 65% 53%;
-    --accent-foreground: 220 25% 5%;
+    --accent: 352 100% 96%;
+    --accent-foreground: 352 85% 44%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 15% 20%;
     --input: 220 15% 20%;
-    --ring: 162 100% 24%;
-    --radius: 0.5rem;
+    --ring: 352 85% 44%;
+    --radius: 0.75rem;
     
     /* Custom colors */
     --cameroon-green: #CE1126;
@@ -89,7 +89,7 @@
   :focus-visible {
     outline: 2px solid #CE1126;
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: 8px;
   }
 
   body {
@@ -156,9 +156,9 @@
   }
   
   .heading-display {
-    @apply font-bold uppercase leading-[0.95];
+    @apply font-bold leading-[1.05];
     font-family: 'Sora', sans-serif;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
   }
   
   .label-mono {
@@ -294,16 +294,83 @@
   }
 
   /* ── Feature Card ──────────────────────────────── */
-  .feature-card {
+  .feature-card,
+  .surface-card {
     background: #FFFFFF;
     border: 1px solid #E5E5E5;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 6px 20px rgba(0, 0, 0, 0.05);
-    transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
+    border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+    transition: border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease;
   }
-  .feature-card:hover {
-    border-color: rgba(206, 17, 38, 0.55);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08), 0 16px 36px rgba(0, 0, 0, 0.10);
-    transform: translateY(-3px);
+  .feature-card:hover,
+  .surface-card:hover {
+    border-color: rgba(206, 17, 38, 0.35);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 16px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.75rem;
+    background: #CE1126;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    border-radius: 9999px;
+    transition: background-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+  }
+  .btn-primary:hover {
+    background: #A50E20;
+    box-shadow: 0 8px 24px rgba(206, 17, 38, 0.28);
+  }
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.75rem;
+    background: transparent;
+    color: #CE1126;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border: 1.5px solid #CE1126;
+    border-radius: 9999px;
+    transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+  }
+  .btn-secondary:hover {
+    background: #CE1126;
+    color: #FFFFFF;
+  }
+  .btn-secondary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-secondary-light {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.75rem;
+    background: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border: 1.5px solid #CE1126;
+    border-radius: 9999px;
+    backdrop-filter: blur(8px);
+    transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+  }
+  .btn-secondary-light:hover {
+    background: #CE1126;
+    color: #FFFFFF;
   }
 
   /* ── Capsule pill badges ───────────────────────── */

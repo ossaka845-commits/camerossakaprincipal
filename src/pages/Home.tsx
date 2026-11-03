@@ -109,7 +109,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#060606]/92 via-[#060606]/70 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/80 via-transparent to-[#060606]/30" />
           {/* Subtle blueprint grid */}
-          <div className="absolute inset-0 grid-blueprint opacity-30" />
+          <div className="absolute inset-0 grid-blueprint opacity-15" />
         </div>
 
         {/* Accent bar — left edge */}
@@ -121,14 +121,14 @@ export default function Home() {
         {/* Slide nav arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-6 md:left-10 bottom-12 z-20 w-11 h-11 flex items-center justify-center border border-white/25 text-white hover:border-[#111111] hover:text-[#111111] transition-all duration-300 backdrop-blur-sm"
+          className="absolute left-6 md:left-10 bottom-12 z-20 w-11 h-11 rounded-full flex items-center justify-center border border-[#CE1126] bg-[#CE1126] text-white hover:border-[#A50E20] hover:bg-[#A50E20] transition-all duration-300"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute left-20 md:left-24 bottom-12 z-20 w-11 h-11 flex items-center justify-center border border-white/25 text-white hover:border-[#111111] hover:text-[#111111] transition-all duration-300 backdrop-blur-sm"
+          className="absolute left-20 md:left-24 bottom-12 z-20 w-11 h-11 rounded-full flex items-center justify-center border border-[#CE1126] bg-[#CE1126] text-white hover:border-[#A50E20] hover:bg-[#A50E20] transition-all duration-300"
           aria-label="Next slide"
         >
           <ChevronRight className="w-5 h-5" />
@@ -142,8 +142,8 @@ export default function Home() {
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 ${
                 index === currentSlide
-                  ? 'w-8 h-0.5 bg-[#111111]'
-                  : 'w-3 h-0.5 bg-white/35 hover:bg-white/60'
+                  ? 'w-8 h-0.5 bg-[#CE1126]'
+                  : 'w-3 h-0.5 bg-[#CE1126]/50 hover:bg-[#CE1126]'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -160,7 +160,7 @@ export default function Home() {
             <span className="w-8 h-px bg-[#CE1126]" />
             <span className="label-mono text-white/80 text-[11px]">{t('home.eyebrow')}</span>
           </div>
-          <h1 className="hero-title heading-display text-[clamp(52px,9vw,96px)] text-white leading-[0.9] mb-8">
+          <h1 className="hero-title heading-display text-[clamp(40px,7.5vw,84px)] text-white leading-[1.02] mb-8">
             {t('hero.title')}
           </h1>
 
@@ -174,19 +174,13 @@ export default function Home() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
-            <Link
-              to="/Submit"
-              className="hero-cta group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#CE1126] text-white font-semibold hover:bg-[#A50E20] transition-all duration-300 text-sm tracking-wide"
-            >
+            <Link to="/Submit" className="hero-cta btn-primary">
               {t('hero.ctaQuote')}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              to="/Register"
-              className="hero-cta group inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 border border-white/40 text-white font-semibold hover:bg-white hover:text-[#111111] backdrop-blur-sm transition-all duration-300 text-sm tracking-wide"
-            >
+            <Link to="/Register" className="hero-cta btn-secondary-light">
               {t('hero.ctaJoin')}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -196,8 +190,8 @@ export default function Home() {
           {stats.map((stat, i) => (
             <div
               key={i}
-              className="hero-stat flex items-center gap-4 px-5 py-3 backdrop-blur-sm"
-              style={{ background: 'rgba(255,255,255,0.85)', borderLeft: `2px solid ${stat.accent}`, boxShadow: '0 4px 16px rgba(0,0,0,0.08)' }}
+              className="hero-stat flex items-center gap-4 px-5 py-3 rounded-xl backdrop-blur-sm"
+              style={{ background: 'rgba(255,255,255,0.9)', borderLeft: `3px solid ${stat.accent}`, boxShadow: '0 8px 28px rgba(0,0,0,0.12)' }}
             >
               <div className="text-2xl font-bold text-[#111111] font-['Sora']">{stat.value}</div>
               <div className="text-[11px] text-[#666666] label-mono leading-tight max-w-[100px]">{stat.label}</div>
@@ -206,39 +200,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-          STATS BAR â€” Glass accent cards
-      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      <section ref={statsRef} className="relative py-16 overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-[#FFFFFF]" />
-        <div className="absolute inset-0 ambient-glow-green pointer-events-none" />
-        <div className="divider-gradient absolute top-0 left-0 right-0" />
-        <div className="divider-gradient absolute bottom-0 left-0 right-0" />
-
-        <div className="relative px-4 lg:px-[4vw]">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="stat-card group relative overflow-hidden p-8 hover:-translate-y-0.5 transition-all duration-300 shadow-sm hover:shadow-md"
-                style={{ background: '#FFFFFF', border: '1px solid #E5E5E5' }}
-              >
-                {/* Colored top border accent */}
-                <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: stat.accent }} />
-
-                <div className="flex items-start justify-between">
-                  <div>
-                    <div className="text-5xl font-bold font-['Sora'] mb-2" style={{ color: stat.accent }}>
-                      {stat.value}
-                    </div>
-                    <div className="label-mono text-[#666666] text-[11px]">{stat.label}</div>
-                  </div>
-                  <stat.icon className="w-8 h-8 opacity-20 group-hover:opacity-40 transition-opacity" style={{ color: stat.accent }} />
-                </div>
-              </div>
-            ))}
-          </div>
+      <section ref={statsRef} className="relative py-14 lg:hidden overflow-hidden bg-white">
+        <div className="relative px-4 grid grid-cols-3 gap-3">
+          {stats.map((stat, index) => (
+            <div key={index} className="stat-card text-center py-4">
+              <div className="text-2xl font-bold font-['Sora'] text-[#CE1126]">{stat.value}</div>
+              <div className="label-mono text-[#666666] text-[9px] mt-1 leading-tight">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -247,7 +216,7 @@ export default function Home() {
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section ref={pillarsRef} className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 bg-[#F5F5F5]" />
-        <div className="absolute inset-0 grid-dots opacity-40 pointer-events-none" />
+        <div className="absolute inset-0 grid-dots opacity-20 pointer-events-none" />
 
         <div className="relative px-4 lg:px-[4vw]">
           {/* Section header */}
@@ -271,11 +240,7 @@ export default function Home() {
             {pillars.map((pillar) => (
               <div
                 key={pillar.key}
-                className="pillar-card group relative p-7 overflow-hidden cursor-default shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
-                style={{
-                  background: '#FFFFFF',
-                  border: '1px solid #E5E5E5',
-                }}
+                className="pillar-card surface-card group relative p-7 overflow-hidden cursor-default"
               >
                 {/* Hover background fill */}
                 <div
@@ -291,13 +256,13 @@ export default function Home() {
                 <div className="relative z-10">
                   {/* Icon */}
                   <div
-                    className="w-12 h-12 flex items-center justify-center mb-6 rounded-sm"
+                    className="w-12 h-12 flex items-center justify-center mb-6 rounded-xl"
                     style={{ background: `${pillar.accent}18`, border: `1px solid ${pillar.accent}35` }}
                   >
                     <pillar.icon className="w-5 h-5" style={{ color: pillar.accent }} />
                   </div>
 
-                  <h3 className="heading-display text-xl text-[#111111] mb-3">
+                  <h3 className="font-['Sora'] font-semibold text-xl text-[#111111] mb-3 tracking-tight">
                     {t(`pillars.${pillar.key}.title`)}
                   </h3>
                   <p className="text-[#777777] text-sm leading-relaxed group-hover:text-[#666666] transition-colors">
@@ -327,7 +292,7 @@ export default function Home() {
         <div className="relative px-4 lg:px-[4vw] max-w-3xl">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-px bg-[#CE1126]" />
-            <span className="label-mono text-[#CE1126] text-[11px]">TRAVAILLONS ENSEMBLE</span>
+            <span className="label-mono text-[#CE1126] text-[11px]">{t('home.ctaKicker')}</span>
           </div>
 
           <h2 className="heading-display text-[clamp(36px,6vw,64px)] text-[#111111] mb-6">
@@ -338,19 +303,13 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 flex-wrap mb-16">
-            <Link
-              to="/Submit"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#CE1126] text-white font-semibold hover:bg-[#A50E20] transition-all duration-300 text-sm tracking-wide"
-            >
+            <Link to="/Submit" className="btn-primary">
               {t('hero.ctaQuote')}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link
-              to="/Register"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 border-2 border-[#111111] text-[#111111] font-semibold hover:bg-[#111111] hover:text-white transition-all duration-300 text-sm tracking-wide"
-            >
+            <Link to="/Register" className="btn-secondary">
               {t('hero.ctaJoin')}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
@@ -375,7 +334,7 @@ export default function Home() {
                 ][i]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 flex items-center justify-center border border-[#E5E5E5] text-[#999999] hover:border-[#CE1126] hover:text-[#CE1126] transition-all duration-300"
+                className="w-9 h-9 rounded-full flex items-center justify-center border border-[#E5E5E5] text-[#999999] hover:border-[#CE1126] hover:text-[#CE1126] transition-all duration-300"
               >
                 {s.icon ? (
                   <s.icon className="w-4 h-4" />

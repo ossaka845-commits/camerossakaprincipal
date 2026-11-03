@@ -59,9 +59,8 @@ html, body, #root {
 .heading-display {
   font-family: 'Sora', sans-serif;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 0.95;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
 }
 
 /* CTA Link style */

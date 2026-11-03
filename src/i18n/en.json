@@ -1,91 +1,91 @@
 {
   "nav": {
     "home": "Home",
-    "work": "Projects",
-    "services": "Services",
-    "about": "About",
-    "team": "Team",
+    "work": "Work",
+    "services": "Capabilities",
+    "about": "Company",
+    "team": "Leadership",
     "contact": "Contact",
     "quote": "Quote",
     "btpConnexion": "C-O Connexion"
   },
   "hero": {
-    "title": "BUILDING THE FUTURE",
-    "subtitle": "Building with excellence",
-    "ctaQuote": "Submit a Project",
-    "ctaJoin": "Register with us",
-    "ctaWorkforce": "Find Workforce"
+    "title": "Building the future",
+    "subtitle": "A Douala-based contractor for structural works, civil engineering and turnkey projects — delivered with discipline and transparency.",
+    "ctaQuote": "Request a quote",
+    "ctaJoin": "Join C-O Connexion",
+    "ctaWorkforce": "Find a crew"
   },
   "stats": {
-    "years": "years of experience",
-    "projects": "completed projects",
+    "years": "years in operation",
+    "projects": "projects delivered",
     "continents": "continents",
-    "satisfaction": "satisfied clients"
+    "satisfaction": "returning clients"
   },
   "pillars": {
     "build": {
-      "title": "BUILD",
-      "desc": "Solid foundations, durable structures, buildings that last for generations."
+      "title": "Build",
+      "desc": "Foundations, reinforced concrete and structures designed to last — not just to be handed over."
     },
     "create": {
-      "title": "CREATE",
-      "desc": "Innovative design, value engineering, risk reduction before the first shovel."
+      "title": "Design",
+      "desc": "Studies, value engineering and technical choices before the first shovel hits the ground."
     },
     "deliver": {
-      "title": "DELIVER",
-      "desc": "Precise planning, optimized logistics, on-time and on-budget delivery."
+      "title": "Deliver",
+      "desc": "Programme, logistics and handover: sites kept on time and on budget."
     },
     "modern": {
-      "title": "MODERN",
-      "desc": "BIM, prefabrication, sustainable materials for responsible construction."
+      "title": "Innovate",
+      "desc": "BIM, prefabrication and materials suited to more responsible construction."
     },
     "reliable": {
-      "title": "RELIABLE",
-      "desc": "Safety first, transparent reporting, committed teams from start to finish."
+      "title": "Stand by it",
+      "desc": "Safety, clear reporting and a team present from kick-off through defects liability."
     }
   },
   "work": {
-    "title": "OUR PROJECTS",
-    "badge": "PORTFOLIO",
+    "title": "Work",
+    "badge": "Sites",
     "projects": {
       "p1": {
-        "title": "Structural element with protruding reinforcements",
+        "title": "Reinforced concrete structure",
         "location": "Yaoundé",
         "loc": "Cameroon",
-        "description": "Construction of reinforced concrete structural elements with protruding reinforcements for a durable and resilient build."
+        "description": "Reinforced-concrete members with exposed rebar, built for durability and inspection."
       },
       "p2": {
-        "title": "Secured trench for technical networks",
+        "title": "Utility trench",
         "location": "Dakar",
         "loc": "Senegal",
-        "description": "Secured trench work for the installation of underground technical networks (water, electricity, telecoms)."
+        "description": "Safe excavation for water, power and telecom networks."
       },
       "p3": {
-        "title": "Modular prefabricated concrete facade",
+        "title": "Precast concrete façade",
         "location": "Lagos",
         "loc": "Nigeria",
-        "description": "Design and installation of modular prefabricated concrete facades for a modern office building."
+        "description": "Design and installation of modular precast panels for an office building."
       },
       "p4": {
-        "title": "Construction site coordination and supervision",
+        "title": "Site management",
         "location": "Douala",
         "loc": "Cameroon",
-        "description": "Establishment of a multidisciplinary team for site supervision and coordination, ensuring quality and safety."
+        "description": "Multidisciplinary coordination of quality, safety and progress under one lead."
       },
       "p5": {
-        "title": "Multi-level modular complex",
+        "title": "Residential ensemble",
         "location": "Abidjan",
-        "loc": "Ivory Coast",
-        "description": "Construction of a prestigious residential complex comprising 80 units with green spaces and parking."
+        "loc": "Côte d'Ivoire",
+        "description": "Eighty-unit residential scheme with parking and landscaped grounds."
       },
       "p6": {
-        "title": "Technical infrastructure on construction site",
+        "title": "Technical infrastructure",
         "location": "Nigeria",
         "loc": "Nigeria",
-        "description": "Construction of technical infrastructure on site including networks, equipment and industrial installations."
+        "description": "On-site networks, equipment and industrial installations."
       }
     },
-    "subtitle": "From Yaoundé to Berlin, we build excellence",
+    "subtitle": "Work across Cameroon and Africa — structure, networks and buildings.",
     "filter": {
       "all": "All",
       "infrastructure": "Infrastructure",
@@ -99,82 +99,88 @@
     }
   },
   "services": {
-    "title": "OUR SERVICES",
-    "badge": "EXPERTISE",
-    "processTitle": "OUR PROCESS",
-    "processSubtitle": "From study to delivery, we accompany you at every step",
-    "ctaTitle": "NEED A QUOTE?",
-    "ctaDesc": "Contact us to discuss your project and get a detailed estimate.",
+    "title": "Capabilities",
+    "badge": "Trades",
+    "processTitle": "How we work",
+    "processSubtitle": "From study to handover, one point of contact and a readable programme.",
+    "ctaTitle": "A clear quote, no obligation",
+    "ctaDesc": "Describe the works: we return with an estimate and a realistic timetable.",
+    "methodLabel": "Method",
+    "startLabel": "Start a project",
+    "ctaButton": "Submit a project",
     "process": {
-      "step1": { "title": "Study", "desc": "Project analysis, feasibility, preliminary budget" },
-      "step2": { "title": "Design", "desc": "Plans, BIM, choice of materials and methods" },
-      "step3": { "title": "Build", "desc": "Construction with rigorous monitoring and reporting" },
-      "step4": { "title": "Delivery", "desc": "Handover, training and maintenance" }
+      "step1": { "title": "Study", "desc": "Feasibility, site constraints and outline budget." },
+      "step2": { "title": "Design", "desc": "Drawings, BIM, materials and methods." },
+      "step3": { "title": "Build", "desc": "Supervised execution, reporting and risk control." },
+      "step4": { "title": "Handover", "desc": "Delivery, operator briefing and follow-up." }
     },
-    "subtitle": "Comprehensive construction expertise at your service",
+    "subtitle": "Structure, finishes, industrial works and studies — one chain of delivery.",
     "grosOeuvre": {
-      "title": "Structural Work",
-      "desc": "Foundations, reinforced concrete structures, frameworks and building envelopes."
+      "title": "Structural works",
+      "desc": "Foundations, reinforced concrete, frames and building envelope."
     },
     "genieCivil": {
-      "title": "Finishing Works",
-      "desc": "Plumbing, electricity, carpentry, plastering, painting and coverings."
+      "title": "Finishes",
+      "desc": "Plumbing, electrical, joinery, plaster, paint and coverings."
     },
     "industriel": {
-      "title": "Industrial Construction",
-      "desc": "Factories, warehouses, hangars and turnkey industrial facilities."
+      "title": "Industrial construction",
+      "desc": "Plants, warehouses, sheds and turnkey industrial facilities."
     },
     "tertiaire": {
-      "title": "Commercial Buildings",
-      "desc": "Offices, shopping centers, hotels and modern workspaces."
+      "title": "Commercial buildings",
+      "desc": "Offices, retail, hotels and contemporary workplaces."
     },
     "renovation": {
-      "title": "Renovation & Rehabilitation",
-      "desc": "Heritage restoration, compliance upgrades and space transformation."
+      "title": "Renovation",
+      "desc": "Compliance upgrades, rehabilitation and reuse of existing space."
     },
     "etudes": {
-      "title": "Studies & Consulting",
-      "desc": "BIM, planning, technical expertise and project support."
+      "title": "Studies & advice",
+      "desc": "BIM, programming, technical expertise and client-side support."
     }
   },
   "about": {
-    "title": "ABOUT US",
-    "badge": "OUR HISTORY",
-    "yearsExp": "years of experience",
+    "title": "Company",
+    "badge": "Who we are",
+    "yearsExp": "years in operation",
     "history": {
-      "title": "Our History",
-      "p1": "Founded in Cameroon in 2009, Camer-Ossaka Connexion was born from an ambitious vision: to create a solid and lasting link between African expertise and European construction standards.",
-      "p2": "From our first construction sites in Douala to our international projects, we have built our reputation on quality execution, technical innovation and the development of local talent. Every structure we build reflects our commitment to sustainable, high-performance solutions adapted to contemporary challenges.",
-      "p3": "Now present on three continents, Camer-Ossaka Connexion stands as a trusted partner for construction and infrastructure projects, carrying strong values that guide each of our actions: excellence, integrity, innovation and solidarity."
+      "title": "Our story",
+      "p1": "Founded in Cameroon in 2009, Camer-Ossaka Connexion links local craft with European construction standards — adapted to the site, not copied from a template.",
+      "p2": "From early sites in Douala to work abroad, our name rests on execution, clear commitments and teams that keep growing.",
+      "p3": "We work with private clients, companies and institutions on buildings and infrastructure, held to four tests: quality, integrity, method and solidarity."
     },
-    "projectsDone": "Projects completed",
+    "projectsDone": "Projects delivered",
     "values": {
-      "title": "Our Values",
+      "title": "What we stand by",
       "excellence": "Excellence",
       "integrity": "Integrity",
-      "innovation": "Innovation",
+      "innovation": "Method",
       "solidarity": "Solidarity"
     }
   },
   "team": {
-    "title": "OUR TEAM",
-    "badge": "OUR TEAM",
-    "subtitle": "Passionate professionals at your service",
-    "direction": "Management",
-    "cameroon": "Team Cameroon",
-    "africa": "Team Africa",
-    "europe": "Team Europe",
-    "experts": "Our Experts"
+    "title": "Leadership",
+    "badge": "Governance",
+    "subtitle": "Engineers and founders, trained in Cameroon and in Europe.",
+    "direction": "Founders",
+    "cameroon": "Cameroon team",
+    "africa": "Africa team",
+    "europe": "Europe team",
+    "experts": "Experts",
+    "profileLabel": "Background",
+    "joinTitle": "Join the team",
+    "joinDesc": "C-O Connexion matches construction talent with companies. Browse openings or submit your profile."
   },
   "contact": {
-    "title": "CONTACT US",
-    "badge": "CONTACT",
+    "title": "Contact",
+    "badge": "Contact",
     "findUs": "Find us",
-    "sendMessage": "Send us a message",
-    "messageSent": "Message sent!",
-    "messageReply": "We will respond as soon as possible.",
-    "followUs": "Follow us",
-    "subtitle": "We are here for you",
+    "sendMessage": "Your message",
+    "messageSent": "Message sent",
+    "messageReply": "We reply within two working days.",
+    "followUs": "Social",
+    "subtitle": "Office in Akwa, Douala. One contact, a followed-up answer.",
     "addresses": {
       "title": "Address",
       "yaounde": "Yaoundé, Cameroon",
@@ -187,123 +193,128 @@
       "subject": "Subject",
       "message": "Message",
       "send": "Send",
-      "sendError": "Your message could not be sent. Check your connection and try again.",
+      "sendError": "The message could not be sent. Check your connection and try again.",
       "phone": "Phone",
-      "phonePlaceholder": "+237 6XX XXX XXX",
+      "phonePlaceholder": "+237 6 XX XX XX XX",
       "namePlaceholder": "Your name",
-      "subjectPlaceholder": "Subject of your message",
-      "messagePlaceholder": "Your message..."
+      "subjectPlaceholder": "Subject of your enquiry",
+      "messagePlaceholder": "Describe what you need…"
     }
   },
   "quote": {
-    "title": "REQUEST A QUOTE",
-    "subtitle": "Describe your project, we will respond within 48 hours",
+    "title": "Request a quote",
+    "subtitle": "Three steps. We review your file and come back within 48 hours.",
     "type": {
       "label": "You are",
-      "individual": "Individual",
+      "individual": "Private client",
       "company": "Company",
-      "administration": "Administration"
+      "administration": "Public body"
     },
     "personal": {
-      "title": "Personal Information",
-      "firstname": "First Name",
-      "lastname": "Last Name",
+      "title": "Your details",
+      "firstname": "First name",
+      "lastname": "Last name",
       "email": "Email",
       "phone": "Phone",
       "company": "Company",
-      "taxNumber": "Tax Number"
+      "taxNumber": "Tax ID"
     },
     "project": {
-      "title": "Your Project",
-      "type": "Project Type",
-      "new": "New Construction",
+      "title": "The project",
+      "type": "Type of works",
+      "new": "New build",
       "renovation": "Renovation",
       "extension": "Extension",
       "infrastructure": "Infrastructure",
       "other": "Other",
-      "description": "Detailed Description",
-      "location": "Location (Country, City)",
-      "budget": "Estimated Budget",
-      "deadline": "Desired Timeline",
-      "documents": "Documents (Plans, Photos...)"
+      "description": "Description",
+      "location": "Location (country, city)",
+      "budget": "Indicative budget",
+      "deadline": "Preferred timeline",
+      "documents": "Attachments (drawings, photos)"
     },
-    "submit": "Submit Request",
-    "success": "Your request has been sent successfully. We will contact you within 48 hours.",
-    "submitError": "Your request could not be sent. Check your connection and try again."
+    "submit": "Send request",
+    "success": "Request received. We will contact you within 48 hours.",
+    "submitError": "The request could not be sent. Check your connection and try again."
   },
   "btpConnexion": {
-    "title": "C-O CONNEXION",
-    "badge": "C-O CONNEXION",
-    "applicationSent": "Application sent!",
-    "applicationReply": "We will contact you as soon as possible.",
-    "subtitle": "Join the excellence in construction",
+    "title": "C-O Connexion",
+    "badge": "Careers & companies",
+    "applicationSent": "Application sent",
+    "applicationReply": "We will get back to you once your profile has been reviewed.",
+    "subtitle": "Camer-Ossaka Connexion’s construction network",
+    "tabIndividual": "For individuals",
+    "tabCompany": "For companies",
+    "registrationSent": "Registration sent",
+    "registrationReply": "We will contact you when an assignment matches your profile.",
+    "individualIntro": "Register to be matched with construction employers.",
     "hero": {
-      "title": "Build your future with us",
-      "desc": "Looking to grow in construction and public works? Apply in the BTP Career section and let Camer-Ossaka Connexion connect you to the best job opportunities tailored to your profile."
+      "title": "Talent and contractors",
+      "desc": "Submit your profile or register your company. We connect skills with the sites that need them."
     },
     "stats": {
-      "openJobs": "open positions",
-      "employees": "employees",
-      "training": "internal training"
+      "openJobs": "open roles",
+      "employees": "people",
+      "training": "in-house training"
     },
     "jobs": {
-      "title": "Job Offers",
-      "filter": "Filter by",
+      "title": "Openings",
+      "filter": "Filter",
       "apply": "Apply",
       "location": "Location",
-      "contract": "Contract Type",
+      "contract": "Contract",
       "cdi": "Permanent",
       "cdd": "Fixed-term",
       "stage": "Internship",
       "freelance": "Freelance"
     },
     "trades": {
-      "title": "Our Trades",
+      "title": "Trades",
       "mason": "Mason",
       "carpenter": "Carpenter",
       "electrician": "Electrician",
       "plumber": "Plumber",
-      "operator": "Machine Operator",
+      "operator": "Plant operator",
       "foreman": "Foreman",
       "engineer": "Engineer",
       "architect": "Architect",
-      "projectManager": "Project Manager",
-      "safety": "Safety Officer",
+      "projectManager": "Project manager",
+      "safety": "H&S lead",
       "survey": "Surveyor",
       "welder": "Welder"
     },
     "spontaneous": {
-      "title": "BTP Career",
-      "subtitle": "Apply today, we find the job that suits you.",
+      "title": "For individuals",
+      "subtitle": "Submit your profile — we match you with suitable assignments.",
       "civility": "Title",
       "mr": "Mr",
       "mrs": "Mrs",
       "ms": "Ms",
-      "firstname": "First Name",
-      "lastname": "Last Name",
+      "firstname": "First name",
+      "lastname": "Last name",
       "email": "Email",
       "phone": "Phone",
-      "country": "Country of Residence",
-      "trade": "Desired Trade",
-      "experience": "Professional Experience (years)",
-      "education": "Education Level",
-      "cv": "Resume (PDF)",
-      "coverLetter": "Cover Letter",
+      "country": "Country of residence",
+      "trade": "Trade",
+      "experience": "Years of experience",
+      "education": "Education",
+      "cv": "CV (PDF)",
+      "coverLetter": "Cover letter",
       "portfolio": "Portfolio (optional)",
-      "submit": "Submit Application",
-      "messageLabel": "Message / Motivation",
+      "submit": "Send application",
+      "messageLabel": "Message",
       "cvLabel": "CV (optional)",
-      "cvClick": "Click to add your CV"
+      "cvClick": "Add a CV"
     },
     "testimonials": {
-      "title": "Testimonials",
-      "p1": "Joining Camer-Ossaka Connexion was a natural career move. Here you learn, grow and build the future.",
-      "p2": "From mason to foreman in 5 years, Camer-Ossaka Connexion gave me the means to succeed."
+      "title": "Voices",
+      "p1": "You progress on site and in skill. The support is practical.",
+      "p2": "From mason to foreman in five years: responsibility was given step by step."
     }
   },
   "common": {
-    "followUs": "Follow us",
-    "followUsSocial": "Follow us on social media",
+    "followUs": "Follow",
+    "followUsSocial": "Social",
     "primaryNavigation": "Primary navigation",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
@@ -312,26 +323,28 @@
     "socialInstagram": "Instagram",
     "socialTikTok": "TikTok",
     "socialYoutube": "YouTube",
-    "seeAllProjects": "See all projects",
-    "discover": "Discover",
+    "seeAllProjects": "All projects",
+    "discover": "Explore",
     "viewProject": "View project",
     "contactUs": "Contact us",
-    "sending": "Sending..."
+    "sending": "Sending…"
   },
   "home": {
-    "eyebrow": "CIVIL ENGINEERING & ARCHITECTURE",
-    "pillarsTitle": "OUR PILLARS",
-    "valuesLabel": "OUR VALUES",
-    "valuesDesc": "Five commitments that define every project we deliver.",
-    "ctaTitle": "READY TO BUILD?",
-    "ctaDesc": "Whether you are an individual, a company or an administration, we have the solutions for your project."
+    "eyebrow": "Construction · Douala & international",
+    "pillarsTitle": "Our standard",
+    "valuesLabel": "Method",
+    "valuesDesc": "Five commitments, from first drawing to handover.",
+    "ctaKicker": "Work with us",
+    "ctaTitle": "Tell us about the project",
+    "ctaDesc": "Private client, company or public body: we review the brief and issue a readable quote."
   },
   "footer": {
-    "slogan": "Building the future, together.",
-    "links": "Quick Links",
+    "slogan": "Sites delivered. Buildings that last.",
+    "links": "Navigate",
     "legal": "Legal",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "copyright": "Camer-Ossaka Connexion. All rights reserved."
+    "privacy": "Privacy",
+    "terms": "Terms of use",
+    "copyright": "Camer-Ossaka Connexion. All rights reserved.",
+    "social": "Social"
   }
 }

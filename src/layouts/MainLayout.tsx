@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Menu, X, ChevronDown, Facebook, Instagram, Youtube } from 'lucide-react';
@@ -60,34 +60,38 @@ export default function MainLayout() {
           />
         </div>
         <div className="px-4 lg:px-[4vw] flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3 min-w-0">
             <div
-              className={`rounded-md overflow-hidden ring-1 ring-[#E5E5E5] shadow-sm bg-white transition-all duration-500 ${
-                isScrolled ? 'h-11 w-11' : 'h-14 w-14'
+              className={`shrink-0 rounded-xl overflow-hidden bg-white transition-all duration-500 ${
+                isScrolled ? 'h-11 w-11' : 'h-12 w-12 md:h-14 md:w-14'
               }`}
             >
-              <img 
-                src="/images/ossaka_logo.jpeg" 
-                alt="Camer-Ossaka Connexion Logo"
-                className="h-full w-full object-contain p-1"
+              <img
+                src="/images/ossaka_logo.jpeg"
+                alt="Camer-Ossaka Connexion"
+                className="h-full w-full object-contain p-0.5"
               />
             </div>
-            <span className="font-['Sora'] font-bold text-xl tracking-tight text-[#000000] leading-none">
-              Camer-Ossaka Connexion
+            <span className="min-w-0 flex flex-col leading-tight">
+              <span className="font-['Sora'] font-semibold text-[15px] md:text-lg tracking-tight text-[#111111] truncate">
+                Camer-Ossaka
+              </span>
+              <span className="text-[11px] md:text-xs tracking-[0.14em] uppercase text-[#666666]">
+                Connexion
+              </span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`nav-link text-base font-bold transition-colors duration-300 label-mono tracking-wide ${
+                className={`nav-link text-[13px] font-medium transition-colors duration-300 ${
                   location.pathname === link.href
                     ? 'nav-link-active text-[#CE1126]'
-                    : 'text-[#000000] hover:text-[#CE1126]'
+                    : 'text-[#333333] hover:text-[#CE1126]'
                 }`}
               >
                 {link.label}
@@ -101,7 +105,7 @@ export default function MainLayout() {
             <div className="relative">
               <button
                 onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-[#111111] hover:text-[#CE1126] transition-colors"
+                className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-[#CE1126] hover:text-[#A50E20] transition-colors"
               >
                 <img src={currentLang.flag} alt={currentLang.name} className="w-5 h-4 object-cover rounded-sm" />
                 <span className="uppercase">{currentLang.code}</span>
@@ -109,12 +113,12 @@ export default function MainLayout() {
               </button>
               
               {isLangMenuOpen && (
-                <div className="absolute top-full right-0 mt-2 bg-white rounded-sm shadow-xl border border-[#E5E5E5] overflow-hidden min-w-[150px]">
+                <div className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-xl border border-[#E5E5E5] overflow-hidden min-w-[150px]">
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
                       onClick={() => changeLanguage(lang.code)}
-                      className={`flex items-center gap-3 w-full px-5 py-3 text-left hover:bg-[#F5F5F5] transition-colors whitespace-nowrap ${
+                      className={`flex items-center gap-3 w-full px-5 py-3 text-left hover:bg-[#CE1126]/10 hover:text-[#CE1126] transition-colors whitespace-nowrap ${
                         i18n.language === lang.code ? 'text-[#CE1126]' : 'text-[#111111]'
                       }`}
                     >
@@ -129,7 +133,7 @@ export default function MainLayout() {
             {/* CTA Devis */}
             <Link
               to="/devis"
-              className="inline-flex items-center gap-2 bg-[#CE1126] hover:bg-[#A50E20] text-white text-sm font-semibold px-5 py-2.5 rounded-sm transition-all duration-300 hover:shadow-[0_6px_20px_rgba(206,17,38,0.30)] hover:-translate-y-0.5"
+              className="btn-primary !px-5 !py-2.5 text-sm whitespace-nowrap shadow-none hover:-translate-y-0.5"
             >
               {t('nav.quote')}
             </Link>
@@ -138,7 +142,7 @@ export default function MainLayout() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-[#111111]"
+            className="lg:hidden text-[#CE1126] hover:text-[#A50E20]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}  
             aria-label={isMobileMenuOpen ? t('common.closeMenu') : t('common.openMenu')}
             aria-expanded={isMobileMenuOpen}
@@ -167,7 +171,7 @@ export default function MainLayout() {
                 key={link.href}
                 to={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-2xl font-bold font-['Sora'] ${
+                className={`text-2xl font-semibold font-['Sora'] tracking-tight ${
                   location.pathname === link.href
                     ? 'text-[#CE1126]'
                     : 'text-[#111111] hover:text-[#CE1126]'
@@ -183,7 +187,7 @@ export default function MainLayout() {
             <Link
               to="/devis"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-center bg-[#CE1126] hover:bg-[#A50E20] text-white font-semibold px-6 py-4 rounded-sm transition-colors"
+              className="btn-primary w-full py-4"
             >
               {t('nav.quote')}
             </Link>
@@ -196,8 +200,8 @@ export default function MainLayout() {
                   onClick={() => changeLanguage(lang.code)}
                   className={`flex items-center gap-2 px-4 py-3 rounded-sm border ${
                     i18n.language === lang.code
-                      ? 'border-[#CE1126] text-[#CE1126]'
-                      : 'border-[#E5E5E5] text-[#111111]'
+                      ? 'border-[#CE1126] bg-[#CE1126] text-white'
+                      : 'border-[#CE1126] text-[#CE1126] hover:bg-[#CE1126]/10'
                   }`}
                 >
                   <img src={lang.flag} alt={lang.name} className="w-6 h-5 object-cover rounded-sm" />
@@ -227,15 +231,20 @@ export default function MainLayout() {
             {/* Brand */}
             <div>
               <Link to="/" className="inline-flex items-center gap-3 mb-6">
-                <div className="h-14 w-14 rounded-md overflow-hidden ring-1 ring-[#E5E5E5] bg-white">
-                  <img 
-                    src="/images/ossaka_logo.jpeg" 
-                    alt="Camer-Ossaka Connexion Logo"
-                    className="h-full w-full object-contain p-1"
+                <div className="h-12 w-12 rounded-xl overflow-hidden bg-white">
+                  <img
+                    src="/images/ossaka_logo.jpeg"
+                    alt="Camer-Ossaka Connexion"
+                    className="h-full w-full object-contain p-0.5"
                   />
                 </div>
-                <span className="font-['Sora'] font-bold text-xl tracking-tight text-[#111111] leading-none">
-                  Camer-Ossaka Connexion
+                <span className="flex flex-col leading-tight">
+                  <span className="font-['Sora'] font-semibold text-lg tracking-tight text-[#111111]">
+                    Camer-Ossaka
+                  </span>
+                  <span className="text-[11px] tracking-[0.14em] uppercase text-[#666666]">
+                    Connexion
+                  </span>
                 </span>
               </Link>
               <p className="text-[#666666] leading-relaxed">
@@ -280,7 +289,7 @@ export default function MainLayout() {
               </ul>
 
               {/* Social Media */}
-              <h4 className="text-[#111111] font-semibold mb-4 mt-8 font-['Sora']">Réseaux Sociaux</h4>
+              <h4 className="text-[#111111] font-semibold mb-4 mt-8 font-['Sora']">{t('footer.social')}</h4>
               <div className="flex gap-4">
                 <a
                   href="https://www.facebook.com/profile.php?id=100064047309007"
