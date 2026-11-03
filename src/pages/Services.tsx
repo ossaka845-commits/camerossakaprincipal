@@ -29,23 +29,26 @@ export default function Services() {
   const servicesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo('.service-card', 
-        { y: 60, opacity: 0 }, 
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.6, 
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: servicesRef.current,
-            start: 'top 75%',
+    const media = gsap.matchMedia();
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      const ctx = gsap.context(() => {
+        gsap.fromTo('.service-card',
+          { y: 60, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: servicesRef.current,
+              start: 'top 75%',
+            }
           }
-        }
-      );
+        );
+      });
+      return () => ctx.revert();
     });
-
-    return () => ctx.revert();
+    return () => media.revert();
   }, []);
 
   return (

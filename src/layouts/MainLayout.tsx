@@ -23,10 +23,6 @@ export default function MainLayout() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location]);
-
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     setIsLangMenuOpen(false);
@@ -144,6 +140,9 @@ export default function MainLayout() {
           <button
             className="lg:hidden text-[#111111]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}  
+            aria-label={isMobileMenuOpen ? t('common.closeMenu') : t('common.openMenu')}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -152,6 +151,11 @@ export default function MainLayout() {
 
       {/* Mobile Menu Overlay */}
       <div
+        id="mobile-navigation"
+        role="navigation"
+        aria-label={t('common.primaryNavigation')}
+        aria-hidden={!isMobileMenuOpen}
+        inert={!isMobileMenuOpen}
         className={`fixed inset-0 z-40 bg-[#FFFFFF] transition-transform duration-500 lg:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
@@ -162,6 +166,7 @@ export default function MainLayout() {
               <Link
                 key={link.href}
                 to={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className={`text-2xl font-bold font-['Sora'] ${
                   location.pathname === link.href
                     ? 'text-[#CE1126]'
@@ -177,6 +182,7 @@ export default function MainLayout() {
             {/* CTA Devis Mobile */}
             <Link
               to="/devis"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center justify-center bg-[#CE1126] hover:bg-[#A50E20] text-white font-semibold px-6 py-4 rounded-sm transition-colors"
             >
               {t('nav.quote')}
@@ -278,6 +284,7 @@ export default function MainLayout() {
               <div className="flex gap-4">
                 <a
                   href="https://www.facebook.com/profile.php?id=100064047309007"
+                  aria-label={t('common.socialFacebook')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center text-[#666666] hover:bg-[#CE1126] hover:border-[#CE1126] hover:text-white transition-all"
@@ -286,6 +293,7 @@ export default function MainLayout() {
                 </a>
                 <a
                   href="https://www.instagram.com/camerossak/"
+                  aria-label={t('common.socialInstagram')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center text-[#666666] hover:bg-[#CE1126] hover:border-[#CE1126] hover:text-white transition-all"
@@ -294,6 +302,7 @@ export default function MainLayout() {
                 </a>
                 <a
                   href="https://www.tiktok.com/@camerossaka"
+                  aria-label={t('common.socialTikTok')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center text-[#666666] hover:bg-[#CE1126] hover:border-[#CE1126] hover:text-white transition-all"
@@ -304,6 +313,7 @@ export default function MainLayout() {
                 </a>
                 <a
                   href="https://www.youtube.com/@Camer-ossakaConstruction-ol8nl"
+                  aria-label={t('common.socialYoutube')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center text-[#666666] hover:bg-[#CE1126] hover:border-[#CE1126] hover:text-white transition-all"

@@ -187,6 +187,7 @@
       "subject": "Sujet",
       "message": "Message",
       "send": "Envoyer",
+      "sendError": "L’envoi a échoué. Vérifiez votre connexion et réessayez.",
       "phone": "Téléphone",
       "phonePlaceholder": "+237 6XX XXX XXX",
       "namePlaceholder": "Votre nom",
@@ -227,7 +228,8 @@
       "documents": "Documents (plans, photos...)"
     },
     "submit": "Envoyer ma demande",
-    "success": "Votre demande a bien été envoyée. Nous vous contacterons sous 48h."
+    "success": "Votre demande a bien été envoyée. Nous vous contacterons sous 48h.",
+    "submitError": "Votre demande n’a pas pu être envoyée. Vérifiez votre connexion et réessayez."
   },
   "btpConnexion": {
     "title": "C-O CONNEXION",
@@ -302,13 +304,33 @@
   "common": {
     "followUs": "Suivez-nous",
     "followUsSocial": "Suivez-nous sur les réseaux sociaux",
+    "primaryNavigation": "Navigation principale",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "close": "Fermer",
+    "socialFacebook": "Facebook",
+    "socialInstagram": "Instagram",
+    "socialTikTok": "TikTok",
+    "socialYoutube": "YouTube",
     "seeAllProjects": "Voir tous les projets",
+    "discover": "Découvrir",
     "viewProject": "Voir le projet",
     "contactUs": "Nous contacter",
     "sending": "Envoi en cours..."
   },
   "home": {
     "eyebrow": "GÉNIE CIVIL & ARCHITECTURE",
+    "pagesLabel": "EXPLOREZ CAMER-OSSAKA",
+    "pagesTitle": "Tout commence ici.",
+    "pagesDesc": "Découvrez nos expertises, nos réalisations et les équipes qui donnent vie à vos projets.",
+    "pages": {
+      "services": "Des solutions complètes, de l’étude à la réalisation de vos travaux.",
+      "projects": "Découvrez des chantiers et ouvrages réalisés avec exigence.",
+      "about": "Une histoire camerounaise, une ambition tournée vers le monde.",
+      "team": "Rencontrez les femmes et les hommes derrière chaque projet.",
+      "careers": "Rejoignez une équipe et explorez les opportunités du BTP.",
+      "contact": "Échangeons sur vos besoins et donnons forme à votre projet."
+    },
     "pillarsTitle": "NOS PILIERS",
     "valuesLabel": "NOS VALEURS",
     "valuesDesc": "Cinq engagements qui définissent chaque projet que nous réalisons.",

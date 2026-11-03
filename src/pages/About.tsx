@@ -17,23 +17,26 @@ export default function About() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo('.value-card', 
-        { y: 40, opacity: 0 }, 
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.5, 
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: '.values-section',
-            start: 'top 80%',
+    const media = gsap.matchMedia();
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      const ctx = gsap.context(() => {
+        gsap.fromTo('.value-card',
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: '.values-section',
+              start: 'top 80%',
+            }
           }
-        }
-      );
+        );
+      });
+      return () => ctx.revert();
     });
-
-    return () => ctx.revert();
+    return () => media.revert();
   }, []);
 
   return (

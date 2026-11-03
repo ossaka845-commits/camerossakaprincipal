@@ -187,6 +187,7 @@
       "subject": "Subject",
       "message": "Message",
       "send": "Send",
+      "sendError": "Your message could not be sent. Check your connection and try again.",
       "phone": "Phone",
       "phonePlaceholder": "+237 6XX XXX XXX",
       "namePlaceholder": "Your name",
@@ -227,7 +228,8 @@
       "documents": "Documents (Plans, Photos...)"
     },
     "submit": "Submit Request",
-    "success": "Your request has been sent successfully. We will contact you within 48 hours."
+    "success": "Your request has been sent successfully. We will contact you within 48 hours.",
+    "submitError": "Your request could not be sent. Check your connection and try again."
   },
   "btpConnexion": {
     "title": "C-O CONNEXION",
@@ -302,13 +304,33 @@
   "common": {
     "followUs": "Follow us",
     "followUsSocial": "Follow us on social media",
+    "primaryNavigation": "Primary navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "close": "Close",
+    "socialFacebook": "Facebook",
+    "socialInstagram": "Instagram",
+    "socialTikTok": "TikTok",
+    "socialYoutube": "YouTube",
     "seeAllProjects": "See all projects",
+    "discover": "Discover",
     "viewProject": "View project",
     "contactUs": "Contact us",
     "sending": "Sending..."
   },
   "home": {
     "eyebrow": "CIVIL ENGINEERING & ARCHITECTURE",
+    "pagesLabel": "EXPLORE CAMER-OSSAKA",
+    "pagesTitle": "It all starts here.",
+    "pagesDesc": "Explore our expertise, our projects, and the teams who bring your plans to life.",
+    "pages": {
+      "services": "End-to-end solutions, from project studies to construction delivery.",
+      "projects": "Explore projects and structures built to the highest standards.",
+      "about": "A Cameroonian story with a vision that reaches beyond borders.",
+      "team": "Meet the people and expertise behind every project.",
+      "careers": "Join our team and explore opportunities in construction.",
+      "contact": "Tell us what you need and let’s shape your project together."
+    },
     "pillarsTitle": "OUR PILLARS",
     "valuesLabel": "OUR VALUES",
     "valuesDesc": "Five commitments that define every project we deliver.",

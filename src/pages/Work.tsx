@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MapPin } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,28 +78,37 @@ export default function Work() {
   ];
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
+  const projectTriggerRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo('.project-card', 
-        { y: 50, opacity: 0 }, 
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.5, 
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: projectsRef.current,
-            start: 'top 80%',
-          }
-        }
-      );
-    });
+    if (selectedProject === null) projectTriggerRef.current?.focus();
+  }, [selectedProject]);
 
-    return () => ctx.revert();
+  useEffect(() => {
+    const media = gsap.matchMedia();
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      const ctx = gsap.context(() => {
+        gsap.fromTo('.project-card',
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: projectsRef.current,
+              start: 'top 80%',
+            }
+          }
+        );
+      });
+      return () => ctx.revert();
+    });
+    return () => media.revert();
   }, []);
 
   return (
+    <Dialog open={selectedProject !== null} onOpenChange={(open) => { if (!open) setSelectedProject(null); }}>
     <div className="pt-24 pb-16">
       {/* Header */}
       <section className="px-4 lg:px-[4vw] mb-12">
@@ -117,12 +127,17 @@ export default function Work() {
       <section ref={projectsRef} className="px-4 lg:px-[4vw]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <div
-              key={project.id}
-              className="project-card group bg-white border border-[#E5E5E5] shadow-sm rounded-sm overflow-hidden cursor-pointer hover:shadow-xl transition-shadow"
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <button
+                key={project.id}
+                type="button"
+                className="project-card group block w-full bg-white border border-[#E5E5E5] shadow-sm rounded-sm overflow-hidden text-left cursor-pointer hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#CE1126] transition-shadow"
+                onClick={(event) => {
+                  projectTriggerRef.current = event.currentTarget;
+                  setSelectedProject(project);
+                }}
+                aria-haspopup="dialog"
+              >
+              <span className="relative block aspect-[4/3] overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -130,33 +145,24 @@ export default function Work() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-transparent to-transparent opacity-60" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="flex items-center gap-2 text-sm text-white/80 mb-2">
-                    <MapPin className="w-4 h-4" />
+                <span className="absolute bottom-4 left-4 right-4">
+                  <span className="flex items-center gap-2 text-sm text-white/80 mb-2">
+                    <MapPin className="w-4 h-4" aria-hidden="true" />
                     {project.location}
-                  </div>
-                  <h3 className="text-lg font-semibold text-white font-['Sora'] line-clamp-2">
+                  </span>
+                  <span className="block text-lg font-semibold text-white font-['Sora'] line-clamp-2">
                     {project.title}
-                  </h3>
-                </div>
-              </div>
-
-            </div>
+                  </span>
+                </span>
+              </span>
+              </button>
           ))}
         </div>
       </section>
 
-      {/* Project Modal */}
       {selectedProject && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white/90 backdrop-blur-sm"
-          onClick={() => setSelectedProject(null)}
-        >
-          <div 
-            className="bg-white rounded-sm max-w-3xl w-full max-h-[90vh] overflow-auto"
-            onClick={e => e.stopPropagation()}
-          >
-            <div className="relative aspect-video">
+        <DialogContent aria-modal="true" className="max-w-3xl max-h-[90vh] overflow-auto rounded-xl bg-white p-0" showCloseButton={false}>
+          <div className="relative aspect-video">
               <img
                 src={selectedProject.image}
                 alt={selectedProject.title}
@@ -164,27 +170,27 @@ export default function Work() {
               />
               <button
                 onClick={() => setSelectedProject(null)}
-                aria-label="Fermer"
+                type="button"
+                aria-label={t('common.close')}
                 className="absolute top-4 right-4 w-10 h-10 bg-white/80 text-[#111111] text-xl rounded-full flex items-center justify-center hover:bg-white transition-colors"
               >
                 ×
               </button>
             </div>
-            <div className="p-8">
+            <div className="p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-[#666666]">{selectedProject.location}</span>
               </div>
-              <h2 className="heading-display text-3xl text-[#111111] mb-4">
+              <DialogTitle className="heading-display text-3xl text-[#111111] mb-4">
                 {selectedProject.title}
-              </h2>
-              <p className="text-[#666666] mb-6 leading-relaxed">
+              </DialogTitle>
+              <DialogDescription className="text-[#666666] mb-6 leading-relaxed">
                 {selectedProject.description}
-              </p>
-
+              </DialogDescription>
             </div>
-          </div>
-        </div>
+        </DialogContent>
       )}
     </div>
+    </Dialog>
   );
 }

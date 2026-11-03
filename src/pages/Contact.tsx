@@ -39,23 +39,26 @@ export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo('.office-card', 
-        { y: 40, opacity: 0 }, 
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.5, 
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: '.offices-section',
-            start: 'top 80%',
+    const media = gsap.matchMedia();
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      const ctx = gsap.context(() => {
+        gsap.fromTo('.office-card',
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: '.offices-section',
+              start: 'top 80%',
+            }
           }
-        }
-      );
+        );
+      });
+      return () => ctx.revert();
     });
-
-    return () => ctx.revert();
+    return () => media.revert();
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -84,7 +87,7 @@ export default function Contact() {
       }, 3000);
     } catch (err) {
       console.error('Erreur:', err);
-      setError('Une erreur est survenue. Veuillez réessayer.');
+      setError(t('contact.form.sendError'));
     } finally {
       setIsLoading(false);
     }
@@ -170,7 +173,7 @@ export default function Contact() {
           </h2>
           
           {isSubmitted ? (
-            <div className="bg-[#CE1126]/10 border border-[#CE1126] rounded-sm p-8 text-center">
+            <div role="status" aria-live="polite" className="bg-[#CE1126]/10 border border-[#CE1126] rounded-sm p-8 text-center">
               <div className="w-16 h-16 mx-auto mb-4 bg-[#CE1126] rounded-full flex items-center justify-center">
                 <Send className="w-8 h-8 text-white" />
               </div>
@@ -180,29 +183,31 @@ export default function Contact() {
           ) : (
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               {error && (
-                <div className="bg-red-500/10 border border-red-500 rounded-sm p-4 text-red-700 text-sm">
+                <div role="alert" className="bg-red-500/10 border border-red-500 rounded-sm p-4 text-red-700 text-sm">
                   {error}
                 </div>
               )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="label-mono text-[#666666] mb-2 block">
+                  <label htmlFor="contact-name" className="label-mono text-[#666666] mb-2 block">
                     {t('contact.form.name')}
                   </label>
                   <Input
+                    id="contact-name"
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="bg-white border-[#E5E5E5] text-[#111111] placeholder:text-[#999999] h-12"
-                    placeholder="Votre nom"
+                    placeholder={t('contact.form.namePlaceholder')}
                     required
                   />
                 </div>
                 <div>
-                  <label className="label-mono text-[#666666] mb-2 block">
+                  <label htmlFor="contact-email" className="label-mono text-[#666666] mb-2 block">
                     {t('contact.form.email')}
                   </label>
                   <Input
+                    id="contact-email"
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -213,10 +218,11 @@ export default function Contact() {
                 </div>
               </div>
               <div>
-                <label className="label-mono text-[#666666] mb-2 block">
+                <label htmlFor="contact-phone" className="label-mono text-[#666666] mb-2 block">
                   {t('contact.form.phone')}
                 </label>
                 <Input
+                  id="contact-phone"
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -225,27 +231,29 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label className="label-mono text-[#666666] mb-2 block">
+                <label htmlFor="contact-subject" className="label-mono text-[#666666] mb-2 block">
                   {t('contact.form.subject')}
                 </label>
                 <Input
+                  id="contact-subject"
                   type="text"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   className="bg-white border-[#E5E5E5] text-[#111111] placeholder:text-[#999999] h-12"
-                  placeholder="Sujet de votre message"
+                  placeholder={t('contact.form.subjectPlaceholder')}
                   required
                 />
               </div>
               <div>
-                <label className="label-mono text-[#666666] mb-2 block">
+                <label htmlFor="contact-message" className="label-mono text-[#666666] mb-2 block">
                   {t('contact.form.message')}
                 </label>
                 <Textarea
+                  id="contact-message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="bg-white border-[#E5E5E5] text-[#111111] placeholder:text-[#999999] min-h-[150px] resize-none"
-                  placeholder="Votre message..."
+                  placeholder={t('contact.form.messagePlaceholder')}
                   required
                 />
               </div>
@@ -275,6 +283,7 @@ export default function Contact() {
               target="_blank" 
               rel="noopener noreferrer"
               className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-[#666666] hover:text-[#1877F2] hover:bg-[#1877F2]/10 transition-all duration-300"
+              aria-label={t('common.socialFacebook')}
             >
               <Facebook className="w-6 h-6" />
             </a>
@@ -283,6 +292,7 @@ export default function Contact() {
               target="_blank" 
               rel="noopener noreferrer"
               className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-[#666666] hover:text-[#E4405F] hover:bg-[#E4405F]/10 transition-all duration-300"
+              aria-label={t('common.socialInstagram')}
             >
               <Instagram className="w-6 h-6" />
             </a>
@@ -291,6 +301,7 @@ export default function Contact() {
               target="_blank" 
               rel="noopener noreferrer"
               className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-[#666666] hover:text-white hover:bg-white/10 transition-all duration-300"
+              aria-label={t('common.socialTikTok')}
             >
               <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
@@ -301,6 +312,7 @@ export default function Contact() {
               target="_blank" 
               rel="noopener noreferrer"
               className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-[#666666] hover:text-[#FF0000] hover:bg-[#FF0000]/10 transition-all duration-300"
+              aria-label={t('common.socialYoutube')}
             >
               <Youtube className="w-6 h-6" />
             </a>

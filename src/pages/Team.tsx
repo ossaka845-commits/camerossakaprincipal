@@ -29,23 +29,26 @@ export default function Team() {
   const teamRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo('.team-card', 
-        { y: 50, opacity: 0 }, 
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.5, 
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: teamRef.current,
-            start: 'top 80%',
+    const media = gsap.matchMedia();
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      const ctx = gsap.context(() => {
+        gsap.fromTo('.team-card',
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: teamRef.current,
+              start: 'top 80%',
+            }
           }
-        }
-      );
+        );
+      });
+      return () => ctx.revert();
     });
-
-    return () => ctx.revert();
+    return () => media.revert();
   }, []);
 
   return (
@@ -104,6 +107,7 @@ export default function Team() {
             <div className="flex justify-center gap-4">
               <a
                 href="https://www.facebook.com/profile.php?id=100064047309007"
+                aria-label={t('common.socialFacebook')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#CE1126] transition-all"
@@ -112,6 +116,7 @@ export default function Team() {
               </a>
               <a
                 href="https://www.instagram.com/camerossak/"
+                aria-label={t('common.socialInstagram')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#CE1126] transition-all"
@@ -120,6 +125,7 @@ export default function Team() {
               </a>
               <a
                 href="https://www.tiktok.com/@camerossaka"
+                aria-label={t('common.socialTikTok')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#CE1126] transition-all"
@@ -130,6 +136,7 @@ export default function Team() {
               </a>
               <a
                 href="https://www.youtube.com/@Camer-ossakaConstruction-ol8nl"
+                aria-label={t('common.socialYoutube')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#CE1126] transition-all"

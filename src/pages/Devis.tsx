@@ -37,6 +37,7 @@ export default function Devis() {
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [documentFileName, setDocumentFileName] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     type: 'individual',
@@ -56,6 +57,7 @@ export default function Devis() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setSubmitError('');
 
     try {
       await generateAndSendForm({
@@ -82,7 +84,7 @@ export default function Devis() {
       setIsSubmitted(true);
     } catch (error) {
       console.error('Erreur:', error);
-      setIsSubmitted(true);
+      setSubmitError(t('quote.submitError'));
     } finally {
       setIsLoading(false);
     }
@@ -157,6 +159,11 @@ export default function Devis() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
+            {submitError && (
+              <p role="alert" className="rounded-sm border border-red-500 bg-red-50 p-4 text-sm text-red-800">
+                {submitError}
+              </p>
+            )}
             {/* Step 1: Type & Personal Info */}
             {step === 1 && (
               <div className="space-y-8">
