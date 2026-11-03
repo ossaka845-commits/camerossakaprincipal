@@ -3,16 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Building2, Users, Award, Facebook, Instagram, Youtube, ChevronLeft, ChevronRight, Hammer, Lightbulb, PackageCheck, Cpu, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Building2, Users, Award, ChevronLeft, ChevronRight, Hammer, Lightbulb, PackageCheck, Cpu, ShieldCheck } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const heroSlides = [
-  '/images/3persone.webp',
-  '/images/image8.webp',
-  '/images/image4.webp',
-  '/images/1772988529.webp',
-  '/images/image6.webp',
+  { image: '/images/3persone.webp', translationKey: 'home.heroSlides.slide1' },
+  { image: '/images/image8.webp', translationKey: 'home.heroSlides.slide2' },
+  { image: '/images/image4.webp', translationKey: 'home.heroSlides.slide3' },
+  { image: '/images/1772988529.webp', translationKey: 'home.heroSlides.slide4' },
+  { image: '/images/image6.webp', translationKey: 'home.heroSlides.slide5' },
 ];
 
 export default function Home() {
@@ -22,24 +22,67 @@ export default function Home() {
   const pillarsRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [timerResetKey, setTimerResetKey] = useState(0);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+
+  const requestSlide = useCallback((index: number) => {
+    setCurrentSlide(index);
+    setTimerResetKey((key) => key + 1);
+  }, []);
 
   const goToSlide = useCallback((index: number) => {
-    setCurrentSlide(index);
-  }, []);
+    requestSlide(index);
+  }, [requestSlide]);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
-  }, []);
+    requestSlide((currentSlide + heroSlides.length - 1) % heroSlides.length);
+  }, [currentSlide, requestSlide]);
 
   const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
-  }, []);
+    requestSlide((currentSlide + 1) % heroSlides.length);
+  }, [currentSlide, requestSlide]);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let timer: number | undefined;
+
+    const scheduleNextSlide = () => {
+      window.clearTimeout(timer);
+      if (document.hidden || reducedMotion.matches) return;
+      timer = window.setTimeout(() => {
+        setCurrentSlide((slide) => (slide + 1) % heroSlides.length);
+      }, 5500);
+    };
+
+    document.addEventListener('visibilitychange', scheduleNextSlide);
+    reducedMotion.addEventListener('change', scheduleNextSlide);
+    scheduleNextSlide();
+
+    return () => {
+      window.clearTimeout(timer);
+      document.removeEventListener('visibilitychange', scheduleNextSlide);
+      reducedMotion.removeEventListener('change', scheduleNextSlide);
+    };
+  }, [currentSlide, timerResetKey]);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const title = titleRef.current;
+    const description = descriptionRef.current;
+    if (!title || !description) return;
+    gsap.fromTo(
+      [title, description],
+      { y: 14, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out', clearProps: 'transform' },
+    );
+  }, [currentSlide]);
 
   useEffect(() => {
     const media = gsap.matchMedia();
     media.add('(prefers-reduced-motion: no-preference)', () => {
       const ctx = gsap.context(() => {
-        gsap.fromTo('.hero-eyebrow, .hero-title, .hero-subtitle, .hero-cta, .hero-stat',
+        gsap.fromTo('.hero-eyebrow, .hero-cta, .hero-stat',
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', stagger: 0.1 }
         );
@@ -96,18 +139,22 @@ export default function Home() {
           {heroSlides.map((slide, index) => (
             <img
               key={index}
-              src={slide}
+              src={slide.image}
               alt={`Camer-Ossaka Connexion — chantier ${index + 1}`}
               loading={index === 0 ? 'eager' : 'lazy'}
               fetchPriority={index === 0 ? 'high' : 'low'}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                index === currentSlide ? 'opacity-100' : 'opacity-0'
+              className={`absolute inset-0 w-full h-full object-cover ${
+                index === currentSlide ? 'opacity-100 scale-[1.035]' : 'opacity-0 scale-[1.08]'
               }`}
+              style={{ transition: 'opacity 700ms ease, transform 6000ms ease-out' }}
             />
           ))}
           {/* Multi-layer overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060606]/92 via-[#060606]/70 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#060606]/80 via-transparent to-[#060606]/30" />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(90deg, #060606 0%, rgba(6,6,6,0.84) 29%, rgba(6,6,6,0.36) 65%, rgba(6,6,6,0.14) 100%)' }}
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(0deg, rgba(6,6,6,0.6), transparent 32%)' }} />
           {/* Subtle blueprint grid */}
           <div className="absolute inset-0 grid-blueprint opacity-15" />
         </div>
@@ -121,55 +168,63 @@ export default function Home() {
         {/* Slide nav arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-6 md:left-10 bottom-12 z-20 w-11 h-11 rounded-full flex items-center justify-center border border-[#CE1126] bg-[#CE1126] text-white hover:border-[#A50E20] hover:bg-[#A50E20] transition-all duration-300"
+          className="absolute left-6 md:left-10 bottom-8 z-20 w-11 h-11 rounded-full flex items-center justify-center border border-white/40 text-white hover:border-[#CE1126] hover:bg-[#CE1126] transition-all duration-300"
           aria-label="Previous slide"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute left-20 md:left-24 bottom-12 z-20 w-11 h-11 rounded-full flex items-center justify-center border border-[#CE1126] bg-[#CE1126] text-white hover:border-[#A50E20] hover:bg-[#A50E20] transition-all duration-300"
+          className="absolute left-20 md:left-24 bottom-8 z-20 w-11 h-11 rounded-full flex items-center justify-center border border-white/40 text-white hover:border-[#CE1126] hover:bg-[#CE1126] transition-all duration-300"
           aria-label="Next slide"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
 
-        {/* Slide counter */}
-        <div className="absolute left-[4vw] bottom-14 z-20 flex items-center gap-3 ml-[100px] md:ml-[110px]">
+        {/* Slide controls */}
+        <div className="absolute left-[4vw] right-[4vw] bottom-0 z-20 flex items-center gap-3 ml-[100px] md:ml-[110px] border-t border-white/25 py-6">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 ${
                 index === currentSlide
-                  ? 'w-8 h-0.5 bg-[#CE1126]'
-                  : 'w-3 h-0.5 bg-[#CE1126]/50 hover:bg-[#CE1126]'
+                  ? 'w-12 h-[3px] bg-[#CE1126]'
+                  : 'w-5 h-[3px] bg-white/40 hover:bg-white/75'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
-          <span className="text-white/40 text-xs ml-2 label-mono">
-            {String(currentSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
-          </span>
         </div>
 
         {/* Hero content â€” left aligned */}
-        <div className="relative z-10 px-[5vw] lg:px-[8vw] max-w-4xl">
+        <div className="page-container relative z-10 max-w-4xl !mx-[5vw] lg:!mx-[8vw]">
           {/* Main headline */}
           <div className="hero-eyebrow flex items-center gap-3 mb-6">
             <span className="w-8 h-px bg-[#CE1126]" />
             <span className="label-mono text-white/80 text-[11px]">{t('home.eyebrow')}</span>
           </div>
-          <h1 className="hero-title heading-display text-[clamp(40px,7.5vw,84px)] text-white leading-[1.02] mb-8">
-            {t('hero.title')}
+          <h1 ref={titleRef} className="hero-title heading-display text-[clamp(40px,7.5vw,84px)] text-white leading-[1.02] mb-8 min-h-[2.04em]">
+            <span className="block">
+              {t(`${heroSlides[currentSlide].translationKey}.line1`)}
+              {t(`${heroSlides[currentSlide].translationKey}.line1End`) && (
+                <span className="text-[#CE1126]">{t(`${heroSlides[currentSlide].translationKey}.line1End`)}</span>
+              )}
+            </span>
+            <span className="block">
+              {t(`${heroSlides[currentSlide].translationKey}.line2`)}
+              {t(`${heroSlides[currentSlide].translationKey}.line2End`) && (
+                <span className="text-[#CE1126]">{t(`${heroSlides[currentSlide].translationKey}.line2End`)}</span>
+              )}
+            </span>
           </h1>
 
           {/* Divider */}
           <div className="hero-subtitle w-16 h-0.5 bg-[#CE1126] mb-6" />
 
           {/* Subtitle */}
-          <p className="hero-subtitle text-lg md:text-xl text-white/90 font-medium max-w-lg mb-10 leading-relaxed">
-            {t('hero.subtitle')}
+          <p ref={descriptionRef} className="text-lg md:text-xl text-white/90 font-medium max-w-lg mb-10 leading-relaxed min-h-[6rem]">
+            {t(`${heroSlides[currentSlide].translationKey}.description`)}
           </p>
 
           {/* CTAs */}
@@ -191,7 +246,7 @@ export default function Home() {
             <div
               key={i}
               className="hero-stat flex items-center gap-4 px-5 py-3 rounded-xl backdrop-blur-sm"
-              style={{ background: 'rgba(255,255,255,0.9)', borderLeft: `3px solid ${stat.accent}`, boxShadow: '0 8px 28px rgba(0,0,0,0.12)' }}
+              style={{ background: '#FFFFFF', border: '1px solid #E5E5E5', borderLeft: `3px solid ${stat.accent}` }}
             >
               <div className="text-2xl font-bold text-[#111111] font-['Sora']">{stat.value}</div>
               <div className="text-[11px] text-[#666666] label-mono leading-tight max-w-[100px]">{stat.label}</div>
@@ -214,11 +269,11 @@ export default function Home() {
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           PILLARS â€” Dark glass cards with icon accents
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      <section ref={pillarsRef} className="relative py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-[#F5F5F5]" />
+      <section ref={pillarsRef} className="relative py-20 lg:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-[#F8F8F8]" />
         <div className="absolute inset-0 grid-dots opacity-20 pointer-events-none" />
 
-        <div className="relative px-4 lg:px-[4vw]">
+        <div className="page-container relative">
           {/* Section header */}
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16">
             <div>
@@ -236,11 +291,11 @@ export default function Home() {
           </div>
 
           {/* Cards grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 border-t border-l border-[#E5E5E5]">
             {pillars.map((pillar) => (
               <div
                 key={pillar.key}
-                className="pillar-card surface-card group relative p-7 overflow-hidden cursor-default"
+                className="pillar-card group relative min-h-[260px] border-r border-b border-[#E5E5E5] bg-white p-7 overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1 hover:bg-[#F8F8F8] hover:shadow-[0_18px_35px_rgba(0,0,0,0.06)]"
               >
                 {/* Hover background fill */}
                 <div
@@ -256,7 +311,7 @@ export default function Home() {
                 <div className="relative z-10">
                   {/* Icon */}
                   <div
-                    className="w-12 h-12 flex items-center justify-center mb-6 rounded-xl"
+                    className="w-10 h-10 flex items-center justify-center mb-6"
                     style={{ background: `${pillar.accent}18`, border: `1px solid ${pillar.accent}35` }}
                   >
                     <pillar.icon className="w-5 h-5" style={{ color: pillar.accent }} />
@@ -280,16 +335,16 @@ export default function Home() {
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           CTA â€” Immersive green-tinted section
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      <section ref={ctaRef} className="relative py-32 overflow-hidden">
+      <section ref={ctaRef} className="relative py-20 lg:py-28 overflow-hidden bg-[#F8F8F8]">
         {/* Background layers */}
-        <div className="absolute inset-0 bg-[#FFFFFF]" />
+        <div className="absolute inset-0 bg-[#F8F8F8]" />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(206,17,38,0.14) 0%, transparent 70%)' }} />
         <div className="absolute inset-0 grid-blueprint-subtle opacity-50 pointer-events-none" />
         {/* Decorative geometric accent */}
         <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-5" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #CE1126 0, #CE1126 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
         <div className="divider-gradient absolute top-0 left-0 right-0" />
 
-        <div className="relative px-4 lg:px-[4vw] max-w-3xl">
+        <div className="page-container relative max-w-3xl">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-8 h-px bg-[#CE1126]" />
             <span className="label-mono text-[#CE1126] text-[11px]">{t('home.ctaKicker')}</span>
@@ -313,39 +368,6 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Social row */}
-          <div className="flex items-center gap-5">
-            <span className="label-mono text-[#999999] text-[10px]">{t('common.followUsSocial')}</span>
-            <div className="w-8 h-px bg-[#E5E5E5]" />
-            {[
-              { href: 'https://www.facebook.com/profile.php?id=100064047309007', icon: Facebook },
-              { href: 'https://www.instagram.com/camerossak/', icon: Instagram },
-              { href: 'https://www.youtube.com/@Camer-ossakaConstruction-ol8nl', icon: Youtube },
-              { href: 'https://www.tiktok.com/@camerossaka', icon: null },
-            ].map((s, i) => (
-              <a
-                key={i}
-                href={s.href}
-                aria-label={[
-                  t('common.socialFacebook'),
-                  t('common.socialInstagram'),
-                  t('common.socialYoutube'),
-                  t('common.socialTikTok'),
-                ][i]}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full flex items-center justify-center border border-[#E5E5E5] text-[#999999] hover:border-[#CE1126] hover:text-[#CE1126] transition-all duration-300"
-              >
-                {s.icon ? (
-                  <s.icon className="w-4 h-4" />
-                ) : (
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                  </svg>
-                )}
-              </a>
-            ))}
-          </div>
         </div>
       </section>
 

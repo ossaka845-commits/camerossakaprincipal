@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Menu, X, ChevronDown, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Facebook, Instagram, Youtube } from 'lucide-react';
 import { languages } from '@/i18n';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
@@ -10,7 +10,6 @@ export default function MainLayout() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -25,7 +24,6 @@ export default function MainLayout() {
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
-    setIsLangMenuOpen(false);
   };
 
   const navLinks = [
@@ -37,7 +35,7 @@ export default function MainLayout() {
     { label: t('nav.contact'), href: '/contact' },
   ];
 
-  const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
+  const activeLanguage = (i18n.resolvedLanguage || i18n.language).split('-')[0];
 
   return (
     <div className="min-h-screen bg-[#FFFFFF]">
@@ -45,8 +43,8 @@ export default function MainLayout() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-[#FFFFFF]/95 backdrop-blur-md py-3 border-b border-[#E5E5E5] shadow-[0_2px_16px_rgba(0,0,0,0.06)]'
-            : 'bg-transparent py-5'
+            ? 'h-[80px] bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E5E5E5] shadow-[0_2px_16px_rgba(0,0,0,0.06)]'
+            : 'h-[80px] bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E5E5E5]'
         }`}
       >
         {/* Barre de progression de lecture — tricolore Cameroun */}
@@ -59,39 +57,33 @@ export default function MainLayout() {
             }}
           />
         </div>
-        <div className="px-4 lg:px-[4vw] flex items-center justify-between">
+        <div className="page-container h-full grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 xl:gap-8">
           <Link to="/" className="flex items-center gap-3 min-w-0">
-            <div
-              className={`shrink-0 rounded-xl overflow-hidden bg-white transition-all duration-500 ${
-                isScrolled ? 'h-11 w-11' : 'h-12 w-12 md:h-14 md:w-14'
-              }`}
-            >
+            <div className="h-12 w-12 shrink-0 overflow-hidden bg-white">
               <img
                 src="/images/ossaka_logo.jpeg"
                 alt="Camer-Ossaka Connexion"
-                className="h-full w-full object-contain p-0.5"
+                className="h-full w-full object-contain"
               />
             </div>
             <span className="min-w-0 flex flex-col leading-tight">
-              <span className="font-['Sora'] font-semibold text-[15px] md:text-lg tracking-tight text-[#111111] truncate">
+              <span className="font-['Sora'] font-bold text-[12px] md:text-[13px] tracking-[-0.03em] text-[#111111] uppercase whitespace-nowrap">
                 Camer-Ossaka
               </span>
-              <span className="text-[11px] md:text-xs tracking-[0.14em] uppercase text-[#666666]">
+              <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#CE1126]">
                 Connexion
               </span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center justify-self-center gap-3 xl:gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`nav-link text-[13px] font-medium transition-colors duration-300 ${
-                  location.pathname === link.href
-                    ? 'nav-link-active text-[#CE1126]'
-                    : 'text-[#333333] hover:text-[#CE1126]'
+                className={`whitespace-nowrap text-[11px] xl:text-[12px] font-semibold transition-colors duration-200 ${
+                  location.pathname === link.href ? 'text-[#111111]' : 'text-[#333333] hover:text-[#CE1126]'
                 }`}
               >
                 {link.label}
@@ -100,49 +92,42 @@ export default function MainLayout() {
           </div>
 
           {/* Right Side */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3">
             {/* Language Selector */}
-            <div className="relative">
-              <button
-                onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-[#CE1126] hover:text-[#A50E20] transition-colors"
-              >
-                <img src={currentLang.flag} alt={currentLang.name} className="w-5 h-4 object-cover rounded-sm" />
-                <span className="uppercase">{currentLang.code}</span>
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              
-              {isLangMenuOpen && (
-                <div className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-xl border border-[#E5E5E5] overflow-hidden min-w-[150px]">
-                  {languages.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => changeLanguage(lang.code)}
-                      className={`flex items-center gap-3 w-full px-5 py-3 text-left hover:bg-[#CE1126]/10 hover:text-[#CE1126] transition-colors whitespace-nowrap ${
-                        i18n.language === lang.code ? 'text-[#CE1126]' : 'text-[#111111]'
-                      }`}
-                    >
-                      <img src={lang.flag} alt={lang.name} className="w-6 h-4 object-cover rounded-sm" />
-                      <span className="text-sm font-medium">{lang.name}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
+            <div className="flex items-center rounded-full border border-[#E5E5E5] p-1">
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  type="button"
+                  onClick={() => changeLanguage(lang.code)}
+                  aria-label={lang.name}
+                  aria-pressed={activeLanguage === lang.code}
+                  className={`flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[10px] font-semibold uppercase transition-colors ${
+                    activeLanguage === lang.code
+                      ? 'bg-[#F5F5F5] text-[#111111]'
+                      : 'text-[#666666] hover:bg-[#F8F8F8]'
+                  }`}
+                >
+                  <img src={lang.flag} alt="" className="h-3 w-4 object-cover" />
+                  {lang.code}
+                </button>
+              ))}
             </div>
 
             {/* CTA Devis */}
             <Link
               to="/devis"
-              className="btn-primary !px-5 !py-2.5 text-sm whitespace-nowrap shadow-none hover:-translate-y-0.5"
+              className="btn-primary !gap-2 !px-4 xl:!px-6 !py-3 text-[11px] xl:text-[12px] whitespace-nowrap shadow-none"
             >
               {t('nav.quote')}
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </Link>
 
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-[#CE1126] hover:text-[#A50E20]"
+            className="lg:hidden justify-self-end text-[#CE1126] hover:text-[#A50E20]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}  
             aria-label={isMobileMenuOpen ? t('common.closeMenu') : t('common.openMenu')}
             aria-expanded={isMobileMenuOpen}
@@ -220,47 +205,67 @@ export default function MainLayout() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-[#E5E5E5] py-16 relative">
-        {/* Liseré rouge / noir */}
-        <div className="absolute top-0 left-0 right-0 h-1 flex">
-          <div className="flex-1 bg-[#CE1126]" />
-          <div className="flex-1 bg-[#111111]" />
-        </div>
-        <div className="px-4 lg:px-[4vw]">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <footer className="bg-white border-t border-[#E5E5E5] py-14 md:py-16 relative">
+        <div className="page-container">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.7fr_1fr_1fr_1fr] gap-10 lg:gap-14 pb-12">
             {/* Brand */}
             <div>
-              <Link to="/" className="inline-flex items-center gap-3 mb-6">
-                <div className="h-12 w-12 rounded-xl overflow-hidden bg-white">
+              <Link to="/" className="inline-flex items-center gap-3 mb-5">
+                <div className="h-14 w-14 shrink-0 overflow-hidden bg-white">
                   <img
                     src="/images/ossaka_logo.jpeg"
                     alt="Camer-Ossaka Connexion"
-                    className="h-full w-full object-contain p-0.5"
+                    className="h-full w-full object-contain"
                   />
                 </div>
                 <span className="flex flex-col leading-tight">
-                  <span className="font-['Sora'] font-semibold text-lg tracking-tight text-[#111111]">
-                    Camer-Ossaka
+                  <span className="font-['Sora'] font-bold text-[15px] leading-tight tracking-[-0.03em] text-[#111111] uppercase">
+                    CAMER-OSSAKA
                   </span>
-                  <span className="text-[11px] tracking-[0.14em] uppercase text-[#666666]">
+                  <span className="text-[12px] font-bold tracking-[-0.02em] uppercase text-[#CE1126]">
                     Connexion
                   </span>
                 </span>
               </Link>
-              <p className="text-[#666666] leading-relaxed">
-                {t('footer.slogan')}
-              </p>
+              <p className="max-w-sm text-[13px] text-[#666666] leading-[1.8]">{t('footer.slogan')}</p>
+              <div className="mt-7">
+                <h4 className="flex items-center gap-3 label-mono text-[10px] text-[#666666] mb-5">
+                  <span className="h-px w-8 bg-[#CE1126]" />
+                  {t('footer.social')}
+                </h4>
+                <div className="flex gap-3">
+                  <a href="https://www.facebook.com/profile.php?id=100064047309007" aria-label={t('common.socialFacebook')} target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E5E5E5] text-[#666666] transition-colors hover:border-[#CE1126] hover:text-[#CE1126]">
+                    <Facebook className="h-4 w-4" />
+                  </a>
+                  <a href="https://www.instagram.com/camerossak/" aria-label={t('common.socialInstagram')} target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E5E5E5] text-[#666666] transition-colors hover:border-[#CE1126] hover:text-[#CE1126]">
+                    <Instagram className="h-4 w-4" />
+                  </a>
+                  <a href="https://www.tiktok.com/@camerossaka" aria-label={t('common.socialTikTok')} target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E5E5E5] text-[#666666] transition-colors hover:border-[#CE1126] hover:text-[#CE1126]">
+                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                    </svg>
+                  </a>
+                  <a href="https://www.youtube.com/@Camer-ossakaConstruction-ol8nl" aria-label={t('common.socialYoutube')} target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full border border-[#E5E5E5] text-[#666666] transition-colors hover:border-[#CE1126] hover:text-[#CE1126]">
+                    <Youtube className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-[#111111] font-semibold mb-6 font-['Sora']">{t('footer.links')}</h4>
-              <ul className="space-y-3">
-                {navLinks.map((link) => (
+              <h4 className="label-mono text-[10px] text-[#CE1126] mb-5">{t('footer.explore')}</h4>
+              <ul className="space-y-2.5">
+                {[
+                  { label: t('nav.work'), href: '/projects' },
+                  { label: t('nav.services'), href: '/services' },
+                  { label: t('nav.about'), href: '/a-propos' },
+                  { label: t('nav.team'), href: '/equipe' },
+                ].map((link) => (
                   <li key={link.href}>
                     <Link
                       to={link.href}
-                      className="text-[#666666] hover:text-[#CE1126] transition-colors"
+                      className="text-[13px] text-[#666666] hover:text-[#CE1126] transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -269,72 +274,31 @@ export default function MainLayout() {
               </ul>
             </div>
 
-            {/* Services */}
             <div>
-              <h4 className="text-[#111111] font-semibold mb-6 font-['Sora']">{t('nav.services')}</h4>
-              <ul className="space-y-3">
-                <li><Link to="/services" className="text-[#666666] hover:text-[#CE1126] transition-colors">{t('services.grosOeuvre.title')}</Link></li>
-                <li><Link to="/services" className="text-[#666666] hover:text-[#CE1126] transition-colors">{t('services.genieCivil.title')}</Link></li>
-                <li><Link to="/services" className="text-[#666666] hover:text-[#CE1126] transition-colors">{t('services.industriel.title')}</Link></li>
-                <li><Link to="/services" className="text-[#666666] hover:text-[#CE1126] transition-colors">{t('services.etudes.title')}</Link></li>
+              <h4 className="label-mono text-[10px] text-[#CE1126] mb-5">{t('footer.joinUs')}</h4>
+              <ul className="space-y-2.5">
+                <li><Link to="/btp-connexion" className="text-[13px] text-[#666666] hover:text-[#CE1126] transition-colors">{t('nav.btpConnexion')}</Link></li>
+                <li><Link to="/devis" className="text-[13px] text-[#666666] hover:text-[#CE1126] transition-colors">{t('footer.requestQuote')}</Link></li>
+                <li><a href="mailto:contact@co-connexion.com" className="text-[13px] text-[#666666] hover:text-[#CE1126] transition-colors">contact@co-connexion.com</a></li>
               </ul>
             </div>
 
-            {/* Legal */}
             <div>
-              <h4 className="text-[#111111] font-semibold mb-6 font-['Sora']">{t('footer.legal')}</h4>
-              <ul className="space-y-3">
-                <li><Link to="#" className="text-[#666666] hover:text-[#CE1126] transition-colors">{t('footer.privacy')}</Link></li>
-                <li><Link to="#" className="text-[#666666] hover:text-[#CE1126] transition-colors">{t('footer.terms')}</Link></li>
-              </ul>
+              <h4 className="label-mono text-[10px] text-[#CE1126] mb-5">{t('footer.office')}</h4>
+              <address className="not-italic space-y-2.5 text-[13px] text-[#666666] leading-relaxed">
+                <p>{t('footer.address')}</p>
+                <a href="tel:+237692831334" className="block hover:text-[#CE1126] transition-colors">
+                  +237 6 92 83 13 34
+                </a>
+                <p>{t('footer.hours')}</p>
+              </address>
 
-              {/* Social Media */}
-              <h4 className="text-[#111111] font-semibold mb-4 mt-8 font-['Sora']">{t('footer.social')}</h4>
-              <div className="flex gap-4">
-                <a
-                  href="https://www.facebook.com/profile.php?id=100064047309007"
-                  aria-label={t('common.socialFacebook')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center text-[#666666] hover:bg-[#CE1126] hover:border-[#CE1126] hover:text-white transition-all"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.instagram.com/camerossak/"
-                  aria-label={t('common.socialInstagram')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center text-[#666666] hover:bg-[#CE1126] hover:border-[#CE1126] hover:text-white transition-all"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.tiktok.com/@camerossaka"
-                  aria-label={t('common.socialTikTok')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center text-[#666666] hover:bg-[#CE1126] hover:border-[#CE1126] hover:text-white transition-all"
-                >
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                  </svg>
-                </a>
-                <a
-                  href="https://www.youtube.com/@Camer-ossakaConstruction-ol8nl"
-                  aria-label={t('common.socialYoutube')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-[#F5F5F5] border border-[#E5E5E5] flex items-center justify-center text-[#666666] hover:bg-[#CE1126] hover:border-[#CE1126] hover:text-white transition-all"
-                >
-                  <Youtube className="w-5 h-5" />
-                </a>
-              </div>
             </div>
+
           </div>
 
-          <div className="pt-8 border-t border-[#E5E5E5] text-center">
-            <p className="text-[#999999] text-sm">© {new Date().getFullYear()} {t('footer.copyright')}</p>
+          <div className="border-t border-[#E5E5E5] pt-5 text-center">
+            <p className="text-[#999999] text-xs">© {new Date().getFullYear()} {t('footer.copyright')}</p>
           </div>
         </div>
       </footer>

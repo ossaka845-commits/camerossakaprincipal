@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -111,26 +111,26 @@ export default function Work() {
     <Dialog open={selectedProject !== null} onOpenChange={(open) => { if (!open) setSelectedProject(null); }}>
     <div className="pt-24 pb-16">
       {/* Header */}
-      <section className="px-4 lg:px-[4vw] mb-12">
+      <section className="page-container mb-12">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#3B1F8A]/10 border border-[#3B1F8A]/40 rounded-full mb-6">
-            <span className="text-sm text-[#3B1F8A] label-mono">{t('work.badge')}</span>
+          <div className="inline-flex items-center gap-2 border-l-2 border-[#CE1126] pl-3 mb-6">
+            <span className="text-sm text-[#CE1126] label-mono">{t('work.badge')}</span>
           </div>
-          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#2C2834] mb-4">
+          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#111111] mb-4">
             {t('work.title')}
           </h1>
-          <p className="text-xl text-[#68636E]">{t('work.subtitle')}</p>
+          <p className="text-xl text-[#666666]">{t('work.subtitle')}</p>
         </div>
       </section>
 
       {/* Projects Grid */}
-      <section ref={projectsRef} className="px-4 lg:px-[4vw]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section ref={projectsRef} className="page-container">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-[#E5E5E5]">
           {projects.map((project) => (
               <button
                 key={project.id}
                 type="button"
-                className="project-card group block w-full bg-white border border-[#E8E4DE] shadow-sm rounded-2xl overflow-hidden text-left cursor-pointer hover:border-[#CE1126] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#CE1126] transition-shadow"
+                className="project-card group block w-full bg-white border-r border-b border-[#E5E5E5] overflow-hidden text-left cursor-pointer hover:border-[#CE1126] hover:shadow-[0_18px_35px_rgba(0,0,0,0.06)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#CE1126] transition-shadow"
                 onClick={(event) => {
                   projectTriggerRef.current = event.currentTarget;
                   setSelectedProject(project);
@@ -144,7 +144,7 @@ export default function Work() {
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-transparent to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060606] via-transparent to-transparent opacity-60" />
                 <span className="absolute bottom-4 left-4 right-4">
                   <span className="flex items-center gap-2 text-sm text-white/80 mb-2">
                     <MapPin className="w-4 h-4" aria-hidden="true" />
@@ -161,7 +161,7 @@ export default function Work() {
       </section>
 
       {selectedProject && (
-        <DialogContent aria-modal="true" className="max-w-3xl max-h-[90vh] overflow-auto rounded-xl bg-white p-0" showCloseButton={false}>
+        <DialogContent aria-modal="true" className="max-w-3xl max-h-[90vh] overflow-auto rounded-none bg-white p-0 border border-[#E5E5E5]" showCloseButton={false}>
           <div className="relative aspect-video">
               <img
                 src={selectedProject.image}
@@ -179,12 +179,12 @@ export default function Work() {
             </div>
             <div className="p-6 sm:p-8">
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-[#68636E]">{selectedProject.location}</span>
+                <span className="text-[#666666]">{selectedProject.location}</span>
               </div>
-              <DialogTitle className="heading-display text-3xl text-[#2C2834] mb-4">
+              <DialogTitle className="heading-display text-3xl text-[#111111] mb-4">
                 {selectedProject.title}
               </DialogTitle>
-              <DialogDescription className="text-[#68636E] mb-6 leading-relaxed">
+              <DialogDescription className="text-[#666666] mb-6 leading-relaxed">
                 {selectedProject.description}
               </DialogDescription>
             </div>

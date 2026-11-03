@@ -2,25 +2,24 @@
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Facebook, Instagram, Youtube } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const leadership = [
   {
     name: 'Jean-Marie Ondoua, M.Sc.',
-    role: 'Fondateur de Camer-Ossaka Connexion  Ingénieur civil & Entrepreneur',
-    bio: "Ingénieur civil et entrepreneur, titulaire d'une licence en génie civil de l'Université de Buea au Cameroun et d'un Master of Science obtenu en Allemagne. Spécialisé en infrastructures et ingénierie environnementale, il exerce actuellement comme surveillant de chantier en Allemagne. Fort de son expertise technique et de son expérience internationale, il ambitionne, à travers Camer-Ossaka Connexion, de promouvoir le développement des infrastructures, les investissements stratégiques et les partenariats internationaux, particulièrement en Afrique.",
+    role: 'Fondateur de Camer-Ossaka Connexion & Ingénieur civil ',
+    bio: "Ingénieur civil et entrepreneur, diplômé de l’Université de Buea et titulaire d’un Master of Science en Allemagne, il est spécialisé dans les infrastructures et l’ingénierie environnementale. Actuellement surveillant de chantier en Allemagne, il met son expertise internationale au service de Camer-Ossaka Connexion pour promouvoir le développement des infrastructures, les investissements stratégiques et les partenariats internationaux en Afrique.",
   },
   {
     name: 'Livine Diana Pouako, M.Sc.',
-    role: 'Co-fondatrice | Ingénieure civile & Entrepreneure',
-    bio: "Ingénieure civile et titulaire d'un Master en génie civil, elle possède une expertise technique et une vision entrepreneuriale orientée vers l'innovation et le développement durable. En tant que co-fondatrice de Camer-Ossaka Connexion, elle contribue à la définition des orientations stratégiques, au développement des projets et au rayonnement de l'entreprise. Son engagement, son savoir-faire et son esprit d'initiative participent à la construction d'une organisation ambitieuse, tournée vers l'excellence, les partenariats et la création de valeur.",
+    role: 'Co-fondatrice de Camer-Ossaka Connexion & Ingénieure civile',
+    bio: "Ingénieure civile titulaire d’un Master en génie civil, elle allie expertise technique et vision entrepreneuriale.Elle participe à la définition de la stratégie, au développement des projets et à la promotion de l’innovation, des partenariats et du développement durable.",
   },
   {
     name: 'Yannick Moumbe Lambo,M.Sc.',
-    role: 'Ingénieur en informatique & Entrepreneur',
-    bio: "Ingénieur en informatique et entrepreneur, titulaire d'une Licence et d'un Master en intelligence artificielle et automatisation obtenus en Allemagne. Il exerce actuellement en tant qu'ingénieur en intelligence artificielle , où il met son expertise au service du développement de solutions intelligentes et de l'automatisation des processus. Son parcours académique et professionnel associe technologies numériques, intelligence artificielle et systèmes intelligents. Au sein de Camer-Ossaka Connexion, il contribue à l'innovation technologique, au développement de solutions numériques avancées et à la réalisation des ambitions stratégiques de l'entreprise.",
+    role: 'Co-fondateur de Camer-Ossaka Connexion & Ingénieur en informatique ',
+    bio: "Ingénieur en informatique et entrepreneur, titulaire d’une Licence et d’un Master en électrotechnique et automatisation obtenus en Allemagne, il est spécialisé dans les solutions intelligentes et l’automatisation des processus. Au sein de Camer-Ossaka Connexion, il contribue à l’innovation technologique, au développement de solutions numériques et à la réalisation des ambitions stratégiques de l’entreprise.",
   },
 ];
 
@@ -52,33 +51,37 @@ export default function Team() {
   }, []);
 
   return (
-    <div className="pt-24 pb-16">
+    <div className="min-h-screen bg-[#F8F8F8] pt-24 pb-16">
       {/* Header */}
-      <section className="px-4 lg:px-[4vw] mb-16">
-        <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#3B1F8A]/10 border border-[#3B1F8A]/40 rounded-full mb-6">
-            <span className="text-sm text-[#3B1F8A] label-mono">{t('team.badge')}</span>
+      <section className="page-container mb-12 lg:mb-14">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-16">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-5">
+              <span className="h-px w-5 bg-[#CE1126]" />
+              <span className="text-[10px] text-[#CE1126] label-mono">{t('team.badge')}</span>
+            </div>
+            <h1 className="heading-display text-[clamp(36px,5vw,56px)] text-[#111111] leading-[1.08]">
+              {t('team.title')}
+            </h1>
           </div>
-          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#2C2834] mb-4">
-            {t('team.title')}
-          </h1>
-          <p className="text-xl text-[#68636E]">{t('team.subtitle')}</p>
         </div>
       </section>
 
       {/* Leadership */}
-      <section ref={teamRef} className="px-4 lg:px-[4vw] mb-20">
-        <h2 className="heading-display text-2xl text-[#2C2834] mb-8">{t('team.direction')}</h2>
-        <div className="max-w-6xl mx-auto">
+      <section ref={teamRef} className="page-container mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-[18px]">
           {leadership.map((person) => (
-            <article key={person.name} className="team-card grid grid-cols-1 md:grid-cols-[minmax(240px,0.8fr)_2fr] gap-6 md:gap-12 items-start border-b border-[#D8D8D8] py-8 md:py-10 first:border-t">
-              <div>
-                <h3 className="text-2xl font-semibold text-[#2C2834] font-['Sora'] mb-2">{person.name}</h3>
-                <p className="text-[#3B1F8A] text-sm leading-relaxed">{person.role}</p>
-              </div>
-              <div>
-                <p className="label-mono text-[#3B1F8A] text-[11px] mb-4">{t('team.profileLabel')}</p>
-                <p className="text-[#555555] text-base leading-relaxed">{person.bio}</p>
+            <article
+              key={person.name}
+              className="team-card relative flex min-h-[310px] flex-col border border-[#E5E5E5] bg-white px-6 py-6 lg:px-[30px] lg:py-[28px] transition-colors duration-300 hover:border-[#CE1126]/50"
+            >
+              <div className="relative z-10">
+                <h3 className="max-w-[90%] text-xl lg:text-[21px] font-semibold leading-[1.3] tracking-[-0.04em] text-[#111111] font-['Sora'] mb-2">
+                  {person.name}
+                </h3>
+                <p className="text-[#CE1126] text-[12px] font-semibold leading-relaxed mb-4">{person.role}</p>
+                <p className="label-mono text-[#999999] text-[9px] mb-2">{t('team.profileLabel')}</p>
+                <p className="text-[#666666] text-[13px] leading-[1.65]">{person.bio}</p>
               </div>
             </article>
           ))}
@@ -86,8 +89,8 @@ export default function Team() {
       </section>
 
       {/* Join CTA */}
-      <section className="px-4 lg:px-[4vw] py-20">
-        <div className="bg-gradient-to-r from-[#E23B3B] to-[#C41E6A] rounded-3xl p-10 md:p-12 text-center">
+      <section className="px-4 py-20">
+        <div className="page-container bg-[#CE1126] p-8 md:p-12 text-center">
           <h2 className="heading-display text-3xl md:text-4xl text-white mb-4">
             {t('team.joinTitle')}
           </h2>
@@ -100,51 +103,6 @@ export default function Team() {
           >
             {t('btpConnexion.jobs.title')}
           </a>
-          
-          {/* Social Media */}
-          <div className="mt-8 pt-8 border-t border-white/20">
-            <p className="text-white/80 mb-4">Suivez-nous sur les réseaux sociaux</p>
-            <div className="flex justify-center gap-4">
-              <a
-                href="https://www.facebook.com/profile.php?id=100064047309007"
-                aria-label={t('common.socialFacebook')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#CE1126] transition-all"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/camerossak/"
-                aria-label={t('common.socialInstagram')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#CE1126] transition-all"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.tiktok.com/@camerossaka"
-                aria-label={t('common.socialTikTok')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#CE1126] transition-all"
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                </svg>
-              </a>
-              <a
-                href="https://www.youtube.com/@Camer-ossakaConstruction-ol8nl"
-                aria-label={t('common.socialYoutube')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white hover:text-[#CE1126] transition-all"
-              >
-                <Youtube className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
         </div>
       </section>
     </div>

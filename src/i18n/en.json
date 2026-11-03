@@ -162,8 +162,6 @@
   "team": {
     "title": "Leadership",
     "badge": "Governance",
-    "subtitle": "Engineers and founders, trained in Cameroon and in Europe.",
-    "direction": "Founders",
     "cameroon": "Cameroon team",
     "africa": "Africa team",
     "europe": "Europe team",
@@ -331,6 +329,43 @@
   },
   "home": {
     "eyebrow": "Construction · Douala & international",
+    "heroSlides": {
+      "slide1": {
+        "line1": "Building further",
+        "line1End": ".",
+        "line2": "Together.",
+        "line2End": "",
+        "description": "From solid foundations to the highest ambitions. We bring to life the projects that move Africa forward."
+      },
+      "slide2": {
+        "line1": "Bold ideas",
+        "line1End": ".",
+        "line2": "Lasting structures.",
+        "line2End": "",
+        "description": "Every project deserves expertise to match its ambitions."
+      },
+      "slide3": {
+        "line1": "Precision",
+        "line1End": "",
+        "line2": "at every step",
+        "line2End": ".",
+        "description": "From design to delivery, we build with purpose and commitment."
+      },
+      "slide4": {
+        "line1": "A vision",
+        "line1End": "",
+        "line2": "without borders",
+        "line2End": ".",
+        "description": "Expertise comes together. New possibilities open up."
+      },
+      "slide5": {
+        "line1": "Building tomorrow",
+        "line1End": ".",
+        "line2": "Starting today.",
+        "line2End": "",
+        "description": "By your side, turning today's challenges into tomorrow's success."
+      }
+    },
     "pillarsTitle": "Our standard",
     "valuesLabel": "Method",
     "valuesDesc": "Five commitments, from first drawing to handover.",
@@ -339,12 +374,18 @@
     "ctaDesc": "Private client, company or public body: we review the brief and issue a readable quote."
   },
   "footer": {
-    "slogan": "Sites delivered. Buildings that last.",
+    "slogan": "Build with conviction. Connect talent. Move the projects that matter forward.",
     "links": "Navigate",
     "legal": "Legal",
     "privacy": "Privacy",
     "terms": "Terms of use",
     "copyright": "Camer-Ossaka Connexion. All rights reserved.",
-    "social": "Social"
+    "social": "Follow us",
+    "explore": "Explore",
+    "joinUs": "Join us",
+    "requestQuote": "Request a quote",
+    "office": "Our office",
+    "address": "Akwa, Douala, Cameroon",
+    "hours": "Mon–Fri: 8:00 am – 5:00 pm"
   }
 }

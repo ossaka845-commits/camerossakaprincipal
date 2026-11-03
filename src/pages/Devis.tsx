@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -98,13 +98,13 @@ export default function Devis() {
     return (
       <div className="pt-24 pb-16 min-h-screen flex items-center justify-center">
         <div className="text-center px-4">
-          <div className="w-20 h-20 mx-auto mb-6 bg-[#3B1F8A] rounded-full flex items-center justify-center">
+          <div className="w-20 h-20 mx-auto mb-6 bg-[#CE1126] rounded-full flex items-center justify-center">
             <CheckCircle className="w-10 h-10 text-white" />
           </div>
-          <h1 className="heading-display text-3xl md:text-4xl text-[#2C2834] mb-4">
+          <h1 className="heading-display text-3xl md:text-4xl text-[#111111] mb-4">
             {t('quote.success')}
           </h1>
-          <p className="text-[#68636E] mb-8">
+          <p className="text-[#666666] mb-8">
             Notre équipe étudiera votre demande et vous contactera rapidement.
           </p>
           <a
@@ -121,20 +121,20 @@ export default function Devis() {
   return (
     <div className="pt-24 pb-16">
       {/* Header */}
-      <section className="px-4 lg:px-[4vw] mb-12">
+      <section className="page-container mb-12">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#3B1F8A]/10 border border-[#3B1F8A]/40 rounded-full mb-6">
-            <span className="text-sm text-[#3B1F8A] label-mono">{t('nav.quote')}</span>
+          <div className="inline-flex items-center gap-2 border-l-2 border-[#CE1126] pl-3 mb-6">
+            <span className="text-sm text-[#CE1126] label-mono">{t('nav.quote')}</span>
           </div>
-          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#2C2834] mb-4">
+          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#111111] mb-4">
             {t('quote.title')}
           </h1>
-          <p className="text-xl text-[#68636E]">{t('quote.subtitle')}</p>
+          <p className="text-xl text-[#666666]">{t('quote.subtitle')}</p>
         </div>
       </section>
 
       {/* Form */}
-      <section className="px-4 lg:px-[4vw]">
+      <section className="page-container">
         <div className="max-w-4xl mx-auto">
           {/* Progress */}
           <div className="flex items-center gap-4 mb-12">
@@ -142,7 +142,7 @@ export default function Devis() {
               <div key={s} className="flex items-center gap-4 flex-1">
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
-                    step >= s ? 'bg-[#3B1F8A] text-white' : 'bg-[#E8E4DE] text-[#68636E]'
+                    step >= s ? 'bg-[#CE1126] text-white' : 'bg-[#E5E5E5] text-[#666666]'
                   }`}
                 >
                   {s}
@@ -150,7 +150,7 @@ export default function Devis() {
                 {s < 3 && (
                   <div
                     className={`flex-1 h-1 rounded ${
-                      step > s ? 'bg-[#3B1F8A]' : 'bg-[#E8E4DE]'
+                      step > s ? 'bg-[#CE1126]' : 'bg-[#E5E5E5]'
                     }`}
                   />
                 )}
@@ -160,15 +160,15 @@ export default function Devis() {
 
           <form onSubmit={handleSubmit} className="space-y-8">
             {submitError && (
-              <p role="alert" className="rounded-2xl border border-red-500 bg-red-50 p-4 text-sm text-red-800">
+              <p role="alert" className="border border-[#CE1126] bg-[#CE1126]/10 p-4 text-sm text-[#CE1126]">
                 {submitError}
               </p>
             )}
             {/* Step 1: Type & Personal Info */}
             {step === 1 && (
               <div className="space-y-8">
-                <div className="bg-white border border-[#E8E4DE] shadow-sm p-8 rounded-2xl">
-                  <Label className="label-mono text-[#68636E] mb-4 block">
+                <div className="bg-white border border-[#E5E5E5] p-6 md:p-8">
+                  <Label className="label-mono text-[#666666] mb-4 block">
                     {t('quote.type.label')}
                   </Label>
                   <RadioGroup
@@ -181,8 +181,8 @@ export default function Devis() {
                       { key: 'company', label: t('quote.type.company') },
                     ].map((type) => (
                       <div key={type.key} className="flex items-center space-x-2">
-                        <RadioGroupItem value={type.key} id={type.key} className="border-[#3B1F8A]" />
-                        <Label htmlFor={type.key} className="text-[#2C2834] cursor-pointer">
+                        <RadioGroupItem value={type.key} id={type.key} className="border-[#CE1126]" />
+                        <Label htmlFor={type.key} className="text-[#111111] cursor-pointer">
                           {type.label}
                         </Label>
                       </div>
@@ -190,77 +190,77 @@ export default function Devis() {
                   </RadioGroup>
                 </div>
 
-                <div className="bg-white border border-[#E8E4DE] shadow-sm p-8 rounded-2xl">
-                  <h3 className="text-lg font-semibold text-[#2C2834] mb-6 font-['Sora']">
+                <div className="bg-white border border-[#E5E5E5] p-6 md:p-8">
+                  <h3 className="text-lg font-semibold text-[#111111] mb-6 font-['Sora']">
                     {t('quote.personal.title')}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <Label className="label-mono text-[#68636E] mb-2 block">
+                      <Label className="label-mono text-[#666666] mb-2 block">
                         {t('quote.personal.firstname')}
                       </Label>
                       <Input
                         value={formData.firstname}
                         onChange={(e) => updateField('firstname', e.target.value)}
-                        className="bg-white border-[#E8E4DE] text-[#2C2834] h-12"
+                        className="bg-white border-[#E5E5E5] text-[#111111] h-12"
                         required
                       />
                     </div>
                     <div>
-                      <Label className="label-mono text-[#68636E] mb-2 block">
+                      <Label className="label-mono text-[#666666] mb-2 block">
                         {t('quote.personal.lastname')}
                       </Label>
                       <Input
                         value={formData.lastname}
                         onChange={(e) => updateField('lastname', e.target.value)}
-                        className="bg-white border-[#E8E4DE] text-[#2C2834] h-12"
+                        className="bg-white border-[#E5E5E5] text-[#111111] h-12"
                         required
                       />
                     </div>
                     <div>
-                      <Label className="label-mono text-[#68636E] mb-2 block">
+                      <Label className="label-mono text-[#666666] mb-2 block">
                         {t('quote.personal.email')}
                       </Label>
                       <Input
                         type="email"
                         value={formData.email}
                         onChange={(e) => updateField('email', e.target.value)}
-                        className="bg-white border-[#E8E4DE] text-[#2C2834] h-12"
+                        className="bg-white border-[#E5E5E5] text-[#111111] h-12"
                         required
                       />
                     </div>
                     <div>
-                      <Label className="label-mono text-[#68636E] mb-2 block">
+                      <Label className="label-mono text-[#666666] mb-2 block">
                         {t('quote.personal.phone')}
                       </Label>
                       <Input
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => updateField('phone', e.target.value)}
-                        className="bg-white border-[#E8E4DE] text-[#2C2834] h-12"
+                        className="bg-white border-[#E5E5E5] text-[#111111] h-12"
                         required
                       />
                     </div>
                     {formData.type !== 'individual' && (
                       <>
                         <div>
-                          <Label className="label-mono text-[#68636E] mb-2 block">
+                          <Label className="label-mono text-[#666666] mb-2 block">
                             {t('quote.personal.company')}
                           </Label>
                           <Input
                             value={formData.company}
                             onChange={(e) => updateField('company', e.target.value)}
-                            className="bg-white border-[#E8E4DE] text-[#2C2834] h-12"
+                            className="bg-white border-[#E5E5E5] text-[#111111] h-12"
                           />
                         </div>
                         <div>
-                          <Label className="label-mono text-[#68636E] mb-2 block">
+                          <Label className="label-mono text-[#666666] mb-2 block">
                             {t('quote.personal.taxNumber')}
                           </Label>
                           <Input
                             value={formData.taxNumber}
                             onChange={(e) => updateField('taxNumber', e.target.value)}
-                            className="bg-white border-[#E8E4DE] text-[#2C2834] h-12"
+                            className="bg-white border-[#E5E5E5] text-[#111111] h-12"
                           />
                         </div>
                       </>
@@ -283,24 +283,24 @@ export default function Devis() {
             {/* Step 2: Project Details */}
             {step === 2 && (
               <div className="space-y-8">
-                <div className="bg-white border border-[#E8E4DE] shadow-sm p-8 rounded-2xl">
-                  <h3 className="text-lg font-semibold text-[#2C2834] mb-6 font-['Sora']">
+                <div className="bg-white border border-[#E5E5E5] p-6 md:p-8">
+                  <h3 className="text-lg font-semibold text-[#111111] mb-6 font-['Sora']">
                     {t('quote.project.title')}
                   </h3>
                   
                   <div className="space-y-6">
                     <div>
-                      <Label className="label-mono text-[#68636E] mb-2 block">
+                      <Label className="label-mono text-[#666666] mb-2 block">
                         {t('quote.project.type')}
                       </Label>
                       <Select
                         value={formData.projectType}
                         onValueChange={(value) => updateField('projectType', value)}
                       >
-                        <SelectTrigger className="bg-white border-[#E8E4DE] text-[#2C2834] h-12">
+                        <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
                           <SelectValue placeholder="Sélectionnez..." />
                         </SelectTrigger>
-                        <SelectContent className="bg-white border-[#E8E4DE]">
+                        <SelectContent className="bg-white border-[#E5E5E5]">
                           {[
                             { key: 'new', label: t('quote.project.new') },
                             { key: 'renovation', label: t('quote.project.renovation') },
@@ -308,7 +308,7 @@ export default function Devis() {
                             { key: 'infrastructure', label: t('quote.project.infrastructure') },
                             { key: 'other', label: t('quote.project.other') },
                           ].map((type) => (
-                            <SelectItem key={type.key} value={type.key} className="text-[#2C2834]">
+                            <SelectItem key={type.key} value={type.key} className="text-[#111111]">
                               {type.label}
                             </SelectItem>
                           ))}
@@ -317,26 +317,26 @@ export default function Devis() {
                     </div>
 
                     <div>
-                      <Label className="label-mono text-[#68636E] mb-2 block">
+                      <Label className="label-mono text-[#666666] mb-2 block">
                         {t('quote.project.description')}
                       </Label>
                       <Textarea
                         value={formData.description}
                         onChange={(e) => updateField('description', e.target.value)}
-                        className="bg-white border-[#E8E4DE] text-[#2C2834] min-h-[120px] resize-none"
+                        className="bg-white border-[#E5E5E5] text-[#111111] min-h-[120px] resize-none"
                         placeholder="Décrivez votre projet en détail..."
                         required
                       />
                     </div>
 
                     <div>
-                      <Label className="label-mono text-[#68636E] mb-2 block">
+                      <Label className="label-mono text-[#666666] mb-2 block">
                         {t('quote.project.location')}
                       </Label>
                       <Input
                         value={formData.location}
                         onChange={(e) => updateField('location', e.target.value)}
-                        className="bg-white border-[#E8E4DE] text-[#2C2834] h-12"
+                        className="bg-white border-[#E5E5E5] text-[#111111] h-12"
                         placeholder="Pays, ville"
                         required
                       />
@@ -344,19 +344,19 @@ export default function Devis() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <Label className="label-mono text-[#68636E] mb-2 block">
+                        <Label className="label-mono text-[#666666] mb-2 block">
                           {t('quote.project.budget')}
                         </Label>
                         <Select
                           value={formData.budget}
                           onValueChange={(value) => updateField('budget', value)}
                         >
-                          <SelectTrigger className="bg-white border-[#E8E4DE] text-[#2C2834] h-12">
+                          <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
                             <SelectValue placeholder="Sélectionnez..." />
                           </SelectTrigger>
-                          <SelectContent className="bg-white border-[#E8E4DE]">
+                          <SelectContent className="bg-white border-[#E5E5E5]">
                             {budgetRanges.map((range) => (
-                              <SelectItem key={range} value={range} className="text-[#2C2834]">
+                              <SelectItem key={range} value={range} className="text-[#111111]">
                                 {range}
                               </SelectItem>
                             ))}
@@ -364,19 +364,19 @@ export default function Devis() {
                         </Select>
                       </div>
                       <div>
-                        <Label className="label-mono text-[#68636E] mb-2 block">
+                        <Label className="label-mono text-[#666666] mb-2 block">
                           {t('quote.project.deadline')}
                         </Label>
                         <Select
                           value={formData.deadline}
                           onValueChange={(value) => updateField('deadline', value)}
                         >
-                          <SelectTrigger className="bg-white border-[#E8E4DE] text-[#2C2834] h-12">
+                          <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
                             <SelectValue placeholder="Sélectionnez..." />
                           </SelectTrigger>
-                          <SelectContent className="bg-white border-[#E8E4DE]">
+                          <SelectContent className="bg-white border-[#E5E5E5]">
                             {deadlines.map((deadline) => (
-                              <SelectItem key={deadline} value={deadline} className="text-[#2C2834]">
+                              <SelectItem key={deadline} value={deadline} className="text-[#111111]">
                                 {deadline}
                               </SelectItem>
                             ))}
@@ -386,10 +386,10 @@ export default function Devis() {
                     </div>
 
                     <div>
-                      <Label className="label-mono text-[#68636E] mb-2 block">
+                      <Label className="label-mono text-[#666666] mb-2 block">
                         {t('quote.project.documents')}
                       </Label>
-                      <label className="border-2 border-dashed border-[#E8E4DE] rounded-2xl p-8 text-center hover:border-[#CE1126] transition-colors cursor-pointer block">
+                      <label className="border border-dashed border-[#E5E5E5] p-8 text-center hover:border-[#CE1126] transition-colors cursor-pointer block">
                         <input
                           type="file"
                           accept=".pdf,.dwg,.jpg,.jpeg,.png"
@@ -401,12 +401,12 @@ export default function Devis() {
                             }
                           }}
                         />
-                        <Upload className="w-8 h-8 mx-auto mb-3 text-[#68636E]" />
+                        <Upload className="w-8 h-8 mx-auto mb-3 text-[#666666]" />
                         {documentFileName ? (
-                          <p className="text-[#3B1F8A] text-sm font-medium">✅ {documentFileName}</p>
+                          <p className="text-[#CE1126] text-sm font-medium">✅ {documentFileName}</p>
                         ) : (
                           <>
-                            <p className="text-[#68636E] text-sm">
+                            <p className="text-[#666666] text-sm">
                               Glissez-déposez vos fichiers ou cliquez pour parcourir
                             </p>
                             <p className="text-[#999999] text-xs mt-2">
@@ -442,53 +442,53 @@ export default function Devis() {
             {/* Step 3: Review & Submit */}
             {step === 3 && (
               <div className="space-y-8">
-                <div className="bg-white border border-[#E8E4DE] shadow-sm p-8 rounded-2xl">
-                  <h3 className="text-lg font-semibold text-[#2C2834] mb-6 font-['Sora']">
+                <div className="bg-white border border-[#E5E5E5] p-6 md:p-8">
+                  <h3 className="text-lg font-semibold text-[#111111] mb-6 font-['Sora']">
                     Récapitulatif
                   </h3>
                   
                   <div className="space-y-4">
-                    <div className="flex justify-between py-3 border-b border-[#E8E4DE]">
-                      <span className="text-[#68636E]">Type</span>
-                      <span className="text-[#2C2834]">{t(`quote.type.${formData.type}`)}</span>
+                    <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
+                      <span className="text-[#666666]">Type</span>
+                      <span className="text-[#111111]">{t(`quote.type.${formData.type}`)}</span>
                     </div>
-                    <div className="flex justify-between py-3 border-b border-[#E8E4DE]">
-                      <span className="text-[#68636E]">Nom</span>
-                      <span className="text-[#2C2834]">{formData.firstname} {formData.lastname}</span>
+                    <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
+                      <span className="text-[#666666]">Nom</span>
+                      <span className="text-[#111111]">{formData.firstname} {formData.lastname}</span>
                     </div>
-                    <div className="flex justify-between py-3 border-b border-[#E8E4DE]">
-                      <span className="text-[#68636E]">Email</span>
-                      <span className="text-[#2C2834]">{formData.email}</span>
+                    <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
+                      <span className="text-[#666666]">Email</span>
+                      <span className="text-[#111111]">{formData.email}</span>
                     </div>
-                    <div className="flex justify-between py-3 border-b border-[#E8E4DE]">
-                      <span className="text-[#68636E]">Téléphone</span>
-                      <span className="text-[#2C2834]">{formData.phone}</span>
+                    <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
+                      <span className="text-[#666666]">Téléphone</span>
+                      <span className="text-[#111111]">{formData.phone}</span>
                     </div>
-                    <div className="flex justify-between py-3 border-b border-[#E8E4DE]">
-                      <span className="text-[#68636E]">Type de projet</span>
-                      <span className="text-[#2C2834]">{formData.projectType}</span>
+                    <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
+                      <span className="text-[#666666]">Type de projet</span>
+                      <span className="text-[#111111]">{formData.projectType}</span>
                     </div>
-                    <div className="flex justify-between py-3 border-b border-[#E8E4DE]">
-                      <span className="text-[#68636E]">Localisation</span>
-                      <span className="text-[#2C2834]">{formData.location}</span>
+                    <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
+                      <span className="text-[#666666]">Localisation</span>
+                      <span className="text-[#111111]">{formData.location}</span>
                     </div>
-                    <div className="flex justify-between py-3 border-b border-[#E8E4DE]">
-                      <span className="text-[#68636E]">Budget</span>
-                      <span className="text-[#2C2834]">{formData.budget}</span>
+                    <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
+                      <span className="text-[#666666]">Budget</span>
+                      <span className="text-[#111111]">{formData.budget}</span>
                     </div>
                     <div className="flex justify-between py-3">
-                      <span className="text-[#68636E]">Délai</span>
-                      <span className="text-[#2C2834]">{formData.deadline}</span>
+                      <span className="text-[#666666]">Délai</span>
+                      <span className="text-[#111111]">{formData.deadline}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Consentement anonymat */}
-                <div className="bg-[#FAF7F0] border border-[#E8E4DE] rounded-2xl p-4">
+                <div className="bg-[#F8F8F8] border border-[#E5E5E5] p-4">
                   <label className="flex items-start gap-3 cursor-pointer">
-                    <input type="checkbox" required className="mt-1 w-4 h-4 accent-[#3B1F8A] shrink-0" />
-                    <span className="text-sm text-[#68636E]">
-                      Avant de vous enregistrer : vos informations resteront strictement <span className="font-semibold text-[#2C2834]">anonymes et confidentielles</span>. J'ai lu et j'accepte. <span className="text-[#3B1F8A]">*</span>
+                    <input type="checkbox" required className="mt-1 w-4 h-4 accent-[#CE1126] shrink-0" />
+                    <span className="text-sm text-[#666666]">
+                      Avant de vous enregistrer : vos informations resteront strictement <span className="font-semibold text-[#111111]">anonymes et confidentielles</span>. J'ai lu et j'accepte. <span className="text-[#CE1126]">*</span>
                     </span>
                   </label>
                 </div>

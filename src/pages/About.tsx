@@ -1,16 +1,16 @@
-﻿import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Award, Shield, Lightbulb, Heart, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Award, Shield, Lightbulb, Heart } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const values = [
-  { key: 'excellence', icon: Award,     accent: '#2C2834', accentLight: 'rgba(0,0,0,0.10)' },
-  { key: 'integrity',  icon: Shield,    accent: '#3B1F8A', accentLight: 'rgba(59,31,138,0.08)' },
-  { key: 'innovation', icon: Lightbulb, accent: '#2C2834', accentLight: 'rgba(0,0,0,0.10)' },
-  { key: 'solidarity', icon: Heart,     accent: '#3B1F8A', accentLight: 'rgba(59,31,138,0.06)' },
+  { key: 'excellence', icon: Award,     accent: '#111111', accentLight: 'rgba(0,0,0,0.10)' },
+  { key: 'integrity',  icon: Shield,    accent: '#CE1126', accentLight: 'rgba(206,17,38,0.08)' },
+  { key: 'innovation', icon: Lightbulb, accent: '#111111', accentLight: 'rgba(0,0,0,0.10)' },
+  { key: 'solidarity', icon: Heart,     accent: '#CE1126', accentLight: 'rgba(206,17,38,0.06)' },
 ];
 
 export default function About() {
@@ -42,46 +42,46 @@ export default function About() {
   return (
     <div className="pt-24 pb-16">
       {/* Header */}
-      <section className="relative px-4 lg:px-[4vw] mb-20 pt-8">
+      <section className="page-container relative mb-20 pt-8">
         <div className="absolute inset-0 -top-24 grid-blueprint opacity-20 pointer-events-none" />
         <div className="relative">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-px bg-[#2C2834]" />
-            <span className="label-mono text-[#2C2834] text-[11px]">{t('about.badge')}</span>
+            <div className="w-6 h-px bg-[#CE1126]" />
+            <span className="label-mono text-[#111111] text-[11px]">{t('about.badge')}</span>
           </div>
-          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#2C2834] mb-4">
+          <h1 className="heading-display text-[clamp(40px,8vw,72px)] text-[#111111] mb-4">
             {t('about.title')}
           </h1>
         </div>
       </section>
 
       {/* History Section */}
-      <section className="px-4 lg:px-[4vw] mb-24">
+      <section className="page-container mb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-7">
-            <h2 className="heading-display text-3xl text-[#2C2834] mb-6">
+            <h2 className="heading-display text-3xl text-[#111111] mb-6">
               {t('about.history.title')}
             </h2>
-            <div className="space-y-4 text-[#68636E] leading-relaxed text-sm">
+            <div className="space-y-4 text-[#666666] leading-relaxed text-sm">
               <p>{t('about.history.p1')}</p>
               <p>{t('about.history.p2')}</p>
               <p>{t('about.history.p3')}</p>
             </div>
           </div>
-          <div className="lg:col-span-5 flex gap-4">
+          <div className="lg:col-span-5 grid grid-cols-2 gap-4">
             {[
-              { num: '15+', label: t('about.yearsExp'), accent: '#3B1F8A' },
-              { num: '200+', label: t('about.projectsDone') ?? 'Projets réalisés', accent: '#2C2834' },
+              { num: '15+', label: t('about.yearsExp'), accent: '#CE1126' },
+              { num: '200+', label: t('about.projectsDone') ?? 'Projets réalisés', accent: '#111111' },
             ].map((stat) => (
               <div
                 key={stat.num}
-                className="flex-1 p-6 rounded-2xl shadow-sm"
-                style={{ background: '#FFFFFF', border: '1px solid #E8E4DE', borderTop: `3px solid ${stat.accent}` }}
+                className="min-h-[150px] p-6"
+                style={{ background: '#FFFFFF', border: '1px solid #E5E5E5', borderTop: `2px solid ${stat.accent}` }}
               >
                 <div className="text-4xl font-bold mb-1" style={{ color: stat.accent, fontFamily: "'Sora', sans-serif" }}>
                   {stat.num}
                 </div>
-                <div className="text-[#68636E] text-xs label-mono">{stat.label}</div>
+                <div className="text-[#666666] text-xs label-mono">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -89,36 +89,36 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="relative values-section px-4 lg:px-[4vw] py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[#FFFFFF]" />
+      <section className="relative values-section py-20 lg:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-[#F8F8F8]" />
         <div className="divider-gradient absolute top-0 left-0 right-0" />
         <div className="divider-gradient absolute bottom-0 left-0 right-0" />
 
-        <div className="relative">
+        <div className="page-container relative">
           <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="w-8 h-px bg-[#2C2834]" />
-            <span className="label-mono text-[#2C2834] text-[11px]">{t('about.values.title')}</span>
-            <div className="w-8 h-px bg-[#2C2834]" />
+            <div className="w-8 h-px bg-[#111111]" />
+            <span className="label-mono text-[#111111] text-[11px]">{t('about.values.title')}</span>
+            <div className="w-8 h-px bg-[#111111]" />
           </div>
-          <h2 className="heading-display text-[clamp(28px,5vw,48px)] text-[#2C2834] mb-16 text-center">
+          <h2 className="heading-display text-[clamp(28px,5vw,48px)] text-[#111111] mb-16 text-center">
             {t('about.values.title')}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-[#E5E5E5]">
             {values.map((value) => (
               <div
                 key={value.key}
-                className="value-card surface-card group relative p-8 overflow-hidden"
+                className="value-card group relative min-h-[220px] border-r border-b border-[#E5E5E5] bg-white p-7 overflow-hidden transition-all duration-300 hover:bg-[#F8F8F8] hover:-translate-y-1"
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: value.accentLight }} />
                 <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: value.accent }} />
                 <div className="relative z-10">
                   <div
-                    className="w-12 h-12 flex items-center justify-center mb-6 rounded-xl"
+                    className="w-10 h-10 flex items-center justify-center mb-6"
                     style={{ background: `${value.accent}18`, border: `1px solid ${value.accent}35` }}
                   >
                     <value.icon className="w-5 h-5" style={{ color: value.accent }} />
                   </div>
-                  <h3 className="font-['Sora'] font-semibold text-lg text-[#2C2834] tracking-tight">
+                  <h3 className="font-['Sora'] font-semibold text-lg text-[#111111] tracking-tight">
                     {t(`about.values.${value.key}`)}
                   </h3>
                 </div>
@@ -128,31 +128,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Social Media Section */}
-      <section className="px-4 lg:px-[4vw] py-16">
-        <div className="flex items-center gap-3 mb-8">
-          <div className="w-8 h-px bg-[#7A8A9C]" />
-          <span className="label-mono text-[#68636E] text-[11px]">{t('common.followUs')}</span>
-        </div>
-        <div className="flex gap-3">
-          {[
-            { href: 'https://www.facebook.com/profile.php?id=100064047309007', icon: <Facebook className="w-4 h-4" /> },
-            { href: 'https://www.instagram.com/camerossak/', icon: <Instagram className="w-4 h-4" /> },
-            { href: 'https://www.youtube.com/@Camer-ossakaConstruction-ol8nl', icon: <Youtube className="w-4 h-4" /> },
-          ].map(({ href, icon }) => (
-            <a
-              key={href}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full flex items-center justify-center text-[#68636E] hover:text-[#CE1126] hover:border-[#CE1126] transition-all"
-              style={{ border: '1px solid #E8E4DE' }}
-            >
-              {icon}
-            </a>
-          ))}
-        </div>
-      </section>
     </div>
   );
 }

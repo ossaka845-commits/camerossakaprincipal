@@ -3,8 +3,8 @@
     "home": "Accueil",
     "work": "Réalisations",
     "services": "Expertises",
-    "about": "L'entreprise",
-    "team": "Direction",
+    "about": "À propos",
+    "team": "Équipe",
     "contact": "Contact",
     "quote": "Devis",
     "btpConnexion": "C-O Connexion"
@@ -162,8 +162,6 @@
   "team": {
     "title": "Direction",
     "badge": "Gouvernance",
-    "subtitle": "Ingénieurs et entrepreneurs, formés au Cameroun et en Europe.",
-    "direction": "Fondateurs",
     "cameroon": "Équipe Cameroun",
     "africa": "Équipe Afrique",
     "europe": "Équipe Europe",
@@ -331,6 +329,43 @@
   },
   "home": {
     "eyebrow": "BTP · Douala & international",
+    "heroSlides": {
+      "slide1": {
+        "line1": "Bâtir plus loin",
+        "line1End": ".",
+        "line2": "Ensemble.",
+        "line2End": "",
+        "description": "Des fondations solides aux ambitions les plus hautes. Nous donnons forme aux projets qui font avancer l'Afrique."
+      },
+      "slide2": {
+        "line1": "Des idées fortes",
+        "line1End": ".",
+        "line2": "Des ouvrages durables.",
+        "line2End": "",
+        "description": "Chaque projet mérite une expertise à la hauteur de ses ambitions."
+      },
+      "slide3": {
+        "line1": "La précision",
+        "line1End": "",
+        "line2": "à chaque étape",
+        "line2End": ".",
+        "description": "De la conception à la livraison, nous construisons avec méthode et engagement."
+      },
+      "slide4": {
+        "line1": "Une vision",
+        "line1End": "",
+        "line2": "sans frontières",
+        "line2End": ".",
+        "description": "Des expertises qui se rencontrent. Des possibilités qui s'ouvrent."
+      },
+      "slide5": {
+        "line1": "Construire demain",
+        "line1End": ".",
+        "line2": "Dès aujourd'hui.",
+        "line2End": "",
+        "description": "À vos côtés pour transformer les défis d'aujourd'hui en réussites de demain."
+      }
+    },
     "pillarsTitle": "Notre exigence",
     "valuesLabel": "Méthode",
     "valuesDesc": "Cinq engagements, du premier plan à la réception.",
@@ -339,12 +374,18 @@
     "ctaDesc": "Particulier, entreprise ou administration : nous étudions votre besoin et proposons un devis lisible."
   },
   "footer": {
-    "slogan": "Chantiers tenus. Ouvrages durables.",
+    "slogan": "Construire avec conviction. Connecter les talents. Faire avancer les projets qui comptent.",
     "links": "Navigation",
     "legal": "Informations",
     "privacy": "Confidentialité",
     "terms": "Conditions d'utilisation",
     "copyright": "Camer-Ossaka Connexion. Tous droits réservés.",
-    "social": "Réseaux"
+    "social": "Suivez-nous",
+    "explore": "Explorer",
+    "joinUs": "Nous rejoindre",
+    "requestQuote": "Demander un devis",
+    "office": "Notre bureau",
+    "address": "Akwa, Douala, Cameroun",
+    "hours": "Lun–Ven : 8h00 – 17h00"
   }
 }
