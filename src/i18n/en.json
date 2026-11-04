@@ -146,7 +146,7 @@
     "yearsExp": "years in operation",
     "history": {
       "title": "Our story",
-      "p1": "Founded in Cameroon in 2009, Camer-Ossaka Connexion links local craft with European construction standards — adapted to the site, not copied from a template.",
+      "p1": "Founded in Cameroon in 2019, Camer-Ossaka Connexion links local craft with European construction standards — adapted to the site, not copied from a template.",
       "p2": "From early sites in Douala to work abroad, our name rests on execution, clear commitments and teams that keep growing.",
       "p3": "We work with private clients, companies and institutions on buildings and infrastructure, held to four tests: quality, integrity, method and solidarity."
     },
@@ -178,7 +178,7 @@
     "messageSent": "Message sent",
     "messageReply": "We reply within two working days.",
     "followUs": "Social",
-    "subtitle": "Office in Akwa, Douala. One contact, a followed-up answer.",
+    "subtitle": "Office in Logpom, Douala. One contact, a followed-up answer.",
     "addresses": {
       "title": "Address",
       "yaounde": "Yaoundé, Cameroon",
@@ -328,19 +328,19 @@
     "sending": "Sending…"
   },
   "home": {
-    "eyebrow": "Construction · Douala & international",
+    "eyebrow": "Construction · Cameroon & international",
     "heroSlides": {
       "slide1": {
         "line1": "Building further",
-        "line1End": ".",
-        "line2": "Together.",
+        "line1End": "",
+        "line2": "Together",
         "line2End": "",
         "description": "From solid foundations to the highest ambitions. We bring to life the projects that move Africa forward."
       },
       "slide2": {
         "line1": "Bold ideas",
-        "line1End": ".",
-        "line2": "Lasting structures.",
+        "line1End": "",
+        "line2": "Lasting structures",
         "line2End": "",
         "description": "Every project deserves expertise to match its ambitions."
       },
@@ -348,20 +348,20 @@
         "line1": "Precision",
         "line1End": "",
         "line2": "at every step",
-        "line2End": ".",
+        "line2End": "",
         "description": "From design to delivery, we build with purpose and commitment."
       },
       "slide4": {
         "line1": "A vision",
         "line1End": "",
         "line2": "without borders",
-        "line2End": ".",
+        "line2End": "",
         "description": "Expertise comes together. New possibilities open up."
       },
       "slide5": {
         "line1": "Building tomorrow",
-        "line1End": ".",
-        "line2": "Starting today.",
+        "line1End": "",
+        "line2": "Starting today",
         "line2End": "",
         "description": "By your side, turning today's challenges into tomorrow's success."
       }
@@ -372,6 +372,33 @@
     "ctaKicker": "Work with us",
     "ctaTitle": "Tell us about the project",
     "ctaDesc": "Private client, company or public body: we review the brief and issue a readable quote."
+  },
+  "termsAcceptance": {
+    "eyebrow": "Please read before continuing",
+    "title": "Terms of use",
+    "intro": "By using this website, you agree to the following rules for accessing our information and services.",
+    "sections": {
+      "use": {
+        "title": "Use of this website",
+        "text": "This website presents Camer-Ossaka Connexion, its activities and services. You agree to use it lawfully and not to disrupt its operation."
+      },
+      "requests": {
+        "title": "Requests and information",
+        "text": "Information submitted through our forms must be accurate. A quote or contact request alone does not create a contract; any service will be subject to a separate agreement."
+      },
+      "content": {
+        "title": "Content",
+        "text": "The website’s text, images, trademarks and other content are protected. Reproduction or reuse requires prior permission from the relevant rights holders."
+      },
+      "availability": {
+        "title": "Information and availability",
+        "text": "We make reasonable efforts to keep information current and the website accessible, but do not guarantee that it will be error-free or uninterrupted."
+      }
+    },
+    "notice": "This is a basic summary, not a complete set of legal terms. Have it reviewed by a legal professional before relying on it as a legal document.",
+    "checkbox": "I have read and accept the terms of use.",
+    "accept": "Accept and continue",
+    "storageError": "Your browser could not save your acceptance. Allow local storage and try again."
   },
   "footer": {
     "slogan": "Build with conviction. Connect talent. Move the projects that matter forward.",
@@ -385,7 +412,7 @@
     "joinUs": "Join us",
     "requestQuote": "Request a quote",
     "office": "Our office",
-    "address": "Akwa, Douala, Cameroon",
+    "address": "Logpom, Douala, Cameroon",
     "hours": "Mon–Fri: 8:00 am – 5:00 pm"
   }
 }

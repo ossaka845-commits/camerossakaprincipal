@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+﻿import { useEffect, useRef, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
@@ -31,10 +31,6 @@ export default function Home() {
     setTimerResetKey((key) => key + 1);
   }, []);
 
-  const goToSlide = useCallback((index: number) => {
-    requestSlide(index);
-  }, [requestSlide]);
-
   const prevSlide = useCallback(() => {
     requestSlide((currentSlide + heroSlides.length - 1) % heroSlides.length);
   }, [currentSlide, requestSlide]);
@@ -44,25 +40,22 @@ export default function Home() {
   }, [currentSlide, requestSlide]);
 
   useEffect(() => {
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let timer: number | undefined;
 
     const scheduleNextSlide = () => {
       window.clearTimeout(timer);
-      if (document.hidden || reducedMotion.matches) return;
+      if (document.hidden) return;
       timer = window.setTimeout(() => {
         setCurrentSlide((slide) => (slide + 1) % heroSlides.length);
-      }, 5500);
+      }, 2000);
     };
 
     document.addEventListener('visibilitychange', scheduleNextSlide);
-    reducedMotion.addEventListener('change', scheduleNextSlide);
     scheduleNextSlide();
 
     return () => {
       window.clearTimeout(timer);
       document.removeEventListener('visibilitychange', scheduleNextSlide);
-      reducedMotion.removeEventListener('change', scheduleNextSlide);
     };
   }, [currentSlide, timerResetKey]);
 
@@ -111,8 +104,8 @@ export default function Home() {
   }, []);
 
   const stats = [
-    { value: '15+', label: t('stats.years'), icon: Award, accent: '#CE1126' },
-    { value: '500+', label: t('stats.projects'), icon: Building2, accent: '#111111' },
+    { value: '5+', label: t('stats.years'), icon: Award, accent: '#CE1126' },
+    { value: '100+', label: t('stats.projects'), icon: Building2, accent: '#111111' },
     { value: '98%', label: t('stats.satisfaction'), icon: Users, accent: '#CE1126' },
   ];
 
@@ -180,22 +173,6 @@ export default function Home() {
         >
           <ChevronRight className="w-5 h-5" />
         </button>
-
-        {/* Slide controls */}
-        <div className="absolute left-[4vw] right-[4vw] bottom-0 z-20 flex items-center gap-3 ml-[100px] md:ml-[110px] border-t border-white/25 py-6">
-          {heroSlides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`transition-all duration-300 ${
-                index === currentSlide
-                  ? 'w-12 h-[3px] bg-[#CE1126]'
-                  : 'w-5 h-[3px] bg-white/40 hover:bg-white/75'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
 
         {/* Hero content â€” left aligned */}
         <div className="page-container relative z-10 max-w-4xl !mx-[5vw] lg:!mx-[8vw]">

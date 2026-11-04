@@ -70,8 +70,8 @@ export default function About() {
           </div>
           <div className="lg:col-span-5 grid grid-cols-2 gap-4">
             {[
-              { num: '15+', label: t('about.yearsExp'), accent: '#CE1126' },
-              { num: '200+', label: t('about.projectsDone') ?? 'Projets réalisés', accent: '#111111' },
+              { num: '5+', label: t('about.yearsExp'), accent: '#CE1126' },
+              { num: '100+', label: t('about.projectsDone') ?? 'Projets réalisés', accent: '#111111' },
             ].map((stat) => (
               <div
                 key={stat.num}

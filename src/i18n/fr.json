@@ -25,19 +25,19 @@
   "pillars": {
     "build": {
       "title": "Construire",
-      "desc": "Fondations, béton armé et structures pensées pour durer — pas seulement pour être livrées."
+      "desc": "Fondations, béton armé et structures pensées pour durer — pas seulement pour être livrées"
     },
     "create": {
       "title": "Concevoir",
-      "desc": "Études, value engineering et choix techniques avant le premier coup de pioche."
+      "desc": "Études, value engineering et choix techniques avant le premier coup de pioche"
     },
     "deliver": {
       "title": "Livrer",
-      "desc": "Planning, logistique et réception : un chantier tenu dans les délais et le budget."
+      "desc": "Planning, logistique et réception : un chantier tenu dans les délais et le budget"
     },
     "modern": {
       "title": "Innover",
-      "desc": "BIM, préfabrication et matériaux adaptés à une construction plus responsable."
+      "desc": "BIM, préfabrication et matériaux adaptés à une construction plus responsable"
     },
     "reliable": {
       "title": "Tenir parole",
@@ -146,7 +146,7 @@
     "yearsExp": "années d'activité",
     "history": {
       "title": "Notre parcours",
-      "p1": "Créée au Cameroun en 2009, Camer-Ossaka Connexion relie le savoir-faire local aux exigences européennes du BTP — sans copier un modèle, en l'adaptant au terrain.",
+      "p1": "Créée au Cameroun en 2019, Camer-Ossaka Connexion relie le savoir-faire local aux exigences européennes du BTP — sans copier un modèle, en l'adaptant au terrain.",
       "p2": "Des premiers chantiers à Douala jusqu'aux missions à l'international, notre réputation s'est faite sur l'exécution, la clarté des engagements et la montée en compétence des équipes.",
       "p3": "Nous accompagnons particuliers, entreprises et institutions sur des ouvrages de construction et d'infrastructure, avec quatre exigences : qualité, intégrité, méthode et solidarité."
     },
@@ -178,7 +178,7 @@
     "messageSent": "Message envoyé",
     "messageReply": "Nous vous répondons sous 48 h ouvrées.",
     "followUs": "Réseaux",
-    "subtitle": "Siège à Akwa, Douala. Un interlocuteur, une réponse suivie.",
+    "subtitle": "Siège à Logpom, Douala. Un interlocuteur, une réponse suivie.",
     "addresses": {
       "title": "Adresse",
       "yaounde": "Yaoundé, Cameroun",
@@ -328,40 +328,40 @@
     "sending": "Envoi en cours…"
   },
   "home": {
-    "eyebrow": "BTP · Douala & international",
+    "eyebrow": "BTP · Cameroun & international",
     "heroSlides": {
       "slide1": {
         "line1": "Bâtir plus loin",
-        "line1End": ".",
-        "line2": "Ensemble.",
+        "line1End": "",
+        "line2": "Ensemble",
         "line2End": "",
         "description": "Des fondations solides aux ambitions les plus hautes. Nous donnons forme aux projets qui font avancer l'Afrique."
       },
       "slide2": {
         "line1": "Des idées fortes",
-        "line1End": ".",
-        "line2": "Des ouvrages durables.",
+        "line1End": "",
+        "line2": "Des ouvrages durables",
         "line2End": "",
-        "description": "Chaque projet mérite une expertise à la hauteur de ses ambitions."
+        "description": "Chaque projet mérite une expertise à la hauteur de ses ambitions"
       },
       "slide3": {
         "line1": "La précision",
         "line1End": "",
         "line2": "à chaque étape",
-        "line2End": ".",
-        "description": "De la conception à la livraison, nous construisons avec méthode et engagement."
+        "line2End": "",
+        "description": "De la conception à la livraison, nous construisons avec méthode et engagement"
       },
       "slide4": {
         "line1": "Une vision",
         "line1End": "",
         "line2": "sans frontières",
-        "line2End": ".",
-        "description": "Des expertises qui se rencontrent. Des possibilités qui s'ouvrent."
+        "line2End": "",
+        "description": "Des expertises qui se rencontrent. Des possibilités qui s'ouvrent"
       },
       "slide5": {
         "line1": "Construire demain",
-        "line1End": ".",
-        "line2": "Dès aujourd'hui.",
+        "line1End": "",
+        "line2": "Dès aujourd'hui",
         "line2End": "",
         "description": "À vos côtés pour transformer les défis d'aujourd'hui en réussites de demain."
       }
@@ -372,6 +372,33 @@
     "ctaKicker": "Travaillons ensemble",
     "ctaTitle": "Parlons de votre projet",
     "ctaDesc": "Particulier, entreprise ou administration : nous étudions votre besoin et proposons un devis lisible."
+  },
+  "termsAcceptance": {
+    "eyebrow": "À lire avant de continuer",
+    "title": "Conditions d’utilisation",
+    "intro": "En utilisant ce site, vous acceptez les règles suivantes concernant l’accès à nos informations et services.",
+    "sections": {
+      "use": {
+        "title": "Utilisation du site",
+        "text": "Le site présente Camer-Ossaka Connexion, ses activités et ses services. Vous vous engagez à l’utiliser de manière licite et à ne pas perturber son fonctionnement."
+      },
+      "requests": {
+        "title": "Demandes et informations",
+        "text": "Les informations que vous transmettez via les formulaires doivent être exactes. Une demande de devis ou de contact ne constitue pas à elle seule un contrat ; toute prestation fera l’objet d’un accord distinct."
+      },
+      "content": {
+        "title": "Contenus",
+        "text": "Les textes, images, marques et autres contenus du site sont protégés. Toute reproduction ou réutilisation nécessite l’autorisation préalable de leurs titulaires."
+      },
+      "availability": {
+        "title": "Informations et disponibilité",
+        "text": "Nous faisons des efforts raisonnables pour maintenir des informations à jour et le site accessible, sans garantir l’absence d’erreurs, d’interruptions ou d’indisponibilités."
+      }
+    },
+    "notice": "Ce texte est un résumé de base et ne remplace pas des conditions juridiques complètes. Faites-le vérifier par un professionnel du droit avant de vous y fier comme document juridique.",
+    "checkbox": "J’ai lu et j’accepte les conditions d’utilisation.",
+    "accept": "J’accepte et continuer",
+    "storageError": "Votre navigateur n’a pas permis d’enregistrer votre acceptation. Autorisez le stockage local puis réessayez."
   },
   "footer": {
     "slogan": "Construire avec conviction. Connecter les talents. Faire avancer les projets qui comptent.",
@@ -385,7 +412,7 @@
     "joinUs": "Nous rejoindre",
     "requestQuote": "Demander un devis",
     "office": "Notre bureau",
-    "address": "Akwa, Douala, Cameroun",
+    "address": "Logpom, Douala, Cameroun",
     "hours": "Lun–Ven : 8h00 – 17h00"
   }
 }

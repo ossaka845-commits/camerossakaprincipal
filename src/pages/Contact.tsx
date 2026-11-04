@@ -15,7 +15,7 @@ const offices = [
   {
     city: 'Douala',
     country: 'Cameroun',
-    address: 'Akwa',
+    address: 'Logpom',
     phone: '+237 6 92 83 13 34',
     email: 'contact@co-connexion.com',
     hours: 'Lun-Ven: 8h00 - 17h00',
@@ -138,14 +138,14 @@ export default function Contact() {
         <h2 className="heading-display text-2xl text-[#111111] mb-8">{t('contact.findUs')}</h2>
         <div className="overflow-hidden h-[400px] border border-[#E5E5E5]">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15918.881762814756!2d9.6945!3d4.0435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1061128f9c9e5c9d%3A0x9c8f6c3a4b0c7d8e!2sAkwa%2C%20Douala%2C%20Cameroun!5e0!3m2!1sfr!2sfr!4v1706700000000!5m2!1sfr!2sfr"
+            src="https://www.google.com/maps?q=Logpom%2C%20Douala%2C%20Cameroun&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Localisation Camer-Ossaka Connexion - Akwa, Douala, Cameroun"
+            title="Localisation Camer-Ossaka Connexion - Logpom, Douala, Cameroun"
           ></iframe>
         </div>
       </section>

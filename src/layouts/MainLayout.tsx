@@ -10,7 +10,18 @@ export default function MainLayout() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hasAcceptedTerms, setHasAcceptedTerms] = useState(false);
+  const [termsChecked, setTermsChecked] = useState(false);
+  const [termsStorageError, setTermsStorageError] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    try {
+      setHasAcceptedTerms(window.localStorage.getItem('camer-ossaka-terms-v1') === 'accepted');
+    } catch {
+      setTermsStorageError(true);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,8 +33,26 @@ export default function MainLayout() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (hasAcceptedTerms) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [hasAcceptedTerms]);
+
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
+  };
+
+  const acceptTerms = () => {
+    try {
+      window.localStorage.setItem('camer-ossaka-terms-v1', 'accepted');
+      setHasAcceptedTerms(true);
+    } catch {
+      setTermsStorageError(true);
+    }
   };
 
   const navLinks = [
@@ -38,7 +67,12 @@ export default function MainLayout() {
   const activeLanguage = (i18n.resolvedLanguage || i18n.language).split('-')[0];
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF]">
+    <>
+    <div
+      className="min-h-screen bg-[#FFFFFF]"
+      inert={!hasAcceptedTerms}
+      aria-hidden={!hasAcceptedTerms}
+    >
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -156,7 +190,7 @@ export default function MainLayout() {
                 key={link.href}
                 to={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-2xl font-semibold font-['Sora'] tracking-tight ${
+                className={`text-sm font-medium font-['Inter'] tracking-normal ${
                   location.pathname === link.href
                     ? 'text-[#CE1126]'
                     : 'text-[#111111] hover:text-[#CE1126]'
@@ -305,5 +339,85 @@ export default function MainLayout() {
 
       <WhatsAppButton />
     </div>
+
+      {!hasAcceptedTerms && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/60 p-4 backdrop-blur-sm">
+          <section
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="terms-dialog-title"
+            aria-describedby="terms-dialog-intro"
+            className="my-auto max-h-[min(90vh,760px)] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl sm:p-9"
+          >
+            <div className="mb-6 flex justify-end gap-2">
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  type="button"
+                  onClick={() => changeLanguage(lang.code)}
+                  aria-label={lang.name}
+                  aria-pressed={activeLanguage === lang.code}
+                  className={`rounded-md px-3 py-1.5 text-xs font-medium ${
+                    activeLanguage === lang.code
+                      ? 'bg-[#CE1126] text-white'
+                      : 'bg-[#F5F5F5] text-[#333333] hover:bg-[#EAEAEA]'
+                  }`}
+                >
+                  {lang.code.toUpperCase()}
+                </button>
+              ))}
+            </div>
+            <p className="label-mono mb-3 text-[10px] text-[#CE1126]">{t('termsAcceptance.eyebrow')}</p>
+            <h2 id="terms-dialog-title" className="mb-3 text-3xl font-semibold text-[#111111]">
+              {t('termsAcceptance.title')}
+            </h2>
+            <p id="terms-dialog-intro" className="mb-6 text-sm leading-relaxed text-[#666666]">
+              {t('termsAcceptance.intro')}
+            </p>
+
+            <div className="space-y-4 text-sm leading-relaxed text-[#444444]">
+              {['use', 'requests', 'content', 'availability'].map((section) => (
+                <div key={section}>
+                  <h3 className="mb-1 font-semibold text-[#111111]">
+                    {t(`termsAcceptance.sections.${section}.title`)}
+                  </h3>
+                  <p>{t(`termsAcceptance.sections.${section}.text`)}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-5 text-xs leading-relaxed text-[#777777]">
+              {t('termsAcceptance.notice')}
+            </p>
+
+            <label className="mt-6 flex cursor-pointer items-start gap-3 border-t border-[#E5E5E5] pt-5 text-sm leading-relaxed text-[#333333]">
+              <input
+                type="checkbox"
+                autoFocus
+                checked={termsChecked}
+                onChange={(event) => setTermsChecked(event.target.checked)}
+                className="mt-1 h-4 w-4 accent-[#CE1126]"
+              />
+              <span>{t('termsAcceptance.checkbox')}</span>
+            </label>
+
+            {termsStorageError && (
+              <p role="alert" className="mt-3 text-sm text-[#CE1126]">
+                {t('termsAcceptance.storageError')}
+              </p>
+            )}
+
+            <button
+              type="button"
+              onClick={acceptTerms}
+              disabled={!termsChecked}
+              className="btn-primary mt-5 w-full justify-center rounded-lg disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {t('termsAcceptance.accept')}
+            </button>
+          </section>
+        </div>
+      )}
+    </>
   );
 }

@@ -9,7 +9,7 @@ const leadership = [
   {
     name: 'Jean-Marie Ondoua, M.Sc.',
     role: 'Fondateur de Camer-Ossaka Connexion & Ingénieur civil ',
-    bio: "Ingénieur civil et entrepreneur, diplômé de l’Université de Buea et titulaire d’un Master of Science en Allemagne, il est spécialisé dans les infrastructures et l’ingénierie environnementale. Actuellement surveillant de chantier en Allemagne, il met son expertise internationale au service de Camer-Ossaka Connexion pour promouvoir le développement des infrastructures, les investissements stratégiques et les partenariats internationaux en Afrique.",
+    bio: "Ingénieur civil et entrepreneur, diplômé de l’Université de Buea et titulaire d’un Master en Allemagne, il est spécialisé en infrastructures et ingénierie environnementale. Au sein de Camer-Ossaka Connexion, il met son expertise internationale au service du développement des infrastructures, des investissements stratégiques et des partenariats internationaux en Afrique.",
   },
   {
     name: 'Livine Diana Pouako, M.Sc.',
@@ -19,7 +19,7 @@ const leadership = [
   {
     name: 'Yannick Moumbe Lambo,M.Sc.',
     role: 'Co-fondateur de Camer-Ossaka Connexion & Ingénieur en informatique ',
-    bio: "Ingénieur en informatique et entrepreneur, titulaire d’une Licence et d’un Master en électrotechnique et automatisation obtenus en Allemagne, il est spécialisé dans les solutions intelligentes et l’automatisation des processus. Au sein de Camer-Ossaka Connexion, il contribue à l’innovation technologique, au développement de solutions numériques et à la réalisation des ambitions stratégiques de l’entreprise.",
+    bio: "Ingénieur en informatique et entrepreneur, diplômé en électrotechnique et automatisation en Allemagne, il est spécialisé dans les solutions intelligentes et les technologies innovantes. Au sein de Camer-Ossaka Connexion, il contribue à la transformation numérique, à l’automatisation et au développement technologique de l’entreprise..",
   },
 ];
 
