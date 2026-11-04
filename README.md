@@ -1,5 +1,12 @@
 # React + TypeScript + Vite
 
+## Deploying to GitHub Pages
+
+The `Deploy to GitHub Pages` workflow builds the site and publishes it whenever changes are pushed to `main`.
+For the first deployment, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**.
+
+The site URL is <https://yannbien.github.io/camerossakaprincipal/>.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
