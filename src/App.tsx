@@ -25,6 +25,7 @@ const PAGE_TITLE_KEYS: Record<string, string> = {
   '/': 'pageTitles.home',
   '/projects': 'pageTitles.work',
   '/service': 'pageTitles.services',
+  '/Services': 'pageTitles.services',
   '/a-propos': 'pageTitles.about',
   '/equipe': 'pageTitles.team',
   '/contact': 'pageTitles.contact',
@@ -72,8 +73,9 @@ function App() {
             <Route index element={<Home />} />
             <Route path="projects" element={<Work />} />
             <Route path="work" element={<Navigate to="/projects" replace />} />
-            <Route path="service" element={<Services />} />
-            <Route path="services" element={<Navigate to="/service" replace />} />
+            <Route path="Services" caseSensitive element={<Services />} />
+            <Route path="service" element={<Navigate to="/Services" replace />} />
+            <Route path="services" element={<Navigate to="/Services" replace />} />
             <Route path="a-propos" element={<About />} />
             <Route path="about" element={<Navigate to="/a-propos" replace />} />
             <Route path="equipe" element={<Team />} />
