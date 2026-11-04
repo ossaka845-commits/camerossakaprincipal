@@ -27,7 +27,7 @@ export default function Work() {
       location: t('work.projects.p1.location'),
       country: 'cameroon',
       type: 'infrastructure',
-      image: '/images/build_concrete_structure.jpg',
+      image: `${import.meta.env.BASE_URL}images/build_concrete_structure.jpg`,
       description: t('work.projects.p1.description')
     },
     {
@@ -36,7 +36,7 @@ export default function Work() {
       location: t('work.projects.p2.location'),
       country: 'africa',
       type: 'infrastructure',
-      image: '/images/image6.webp',
+      image: `${import.meta.env.BASE_URL}images/image6.webp`,
       description: t('work.projects.p2.description')
     },
     {
@@ -45,7 +45,7 @@ export default function Work() {
       location: t('work.projects.p3.location'),
       country: 'africa',
       type: 'building',
-      image: '/images/modern_concrete_wall.jpg',
+      image: `${import.meta.env.BASE_URL}images/modern_concrete_wall.jpg`,
       description: t('work.projects.p3.description')
     },
     {
@@ -54,7 +54,7 @@ export default function Work() {
       location: t('work.projects.p4.location'),
       country: 'africa',
       type: 'building',
-      image: '/images/3persone.webp',
+      image: `${import.meta.env.BASE_URL}images/3persone.webp`,
       description: t('work.projects.p4.description')
     },
     {
@@ -63,7 +63,7 @@ export default function Work() {
       location: t('work.projects.p5.location'),
       country: 'africa',
       type: 'building',
-      image: '/images/image8.webp',
+      image: `${import.meta.env.BASE_URL}images/image8.webp`,
       description: t('work.projects.p5.description')
     },
     {
@@ -72,7 +72,7 @@ export default function Work() {
       location: t('work.projects.p6.location'),
       country: 'africa',
       type: 'industrial',
-      image: '/images/image4.webp',
+      image: `${import.meta.env.BASE_URL}images/image4.webp`,
       description: t('work.projects.p6.description')
     },
   ];

@@ -1,5 +1,6 @@
 ﻿import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -94,12 +95,12 @@ export default function Team() {
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
             {t('team.joinDesc')}
           </p>
-          <a
-            href="/btp-connexion"
+          <Link
+            to="/btp-connexion"
             className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#CE1126] border border-[#CE1126] font-semibold rounded-full hover:bg-[#CE1126] hover:text-white transition-colors"
           >
             {t('btpConnexion.jobs.title')}
-          </a>
+          </Link>
         </div>
       </section>
     </div>

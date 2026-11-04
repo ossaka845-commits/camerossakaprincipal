@@ -97,7 +97,7 @@ export default function MainLayout() {
           <Link to="/" className="flex items-center gap-3 min-w-0">
             <div className="h-12 w-12 shrink-0 overflow-hidden bg-white">
               <img
-                src="/images/ossaka_logo.jpeg"
+                src={`${import.meta.env.BASE_URL}images/ossaka_logo.jpeg`}
                 alt="Camer-Ossaka Connexion"
                 className="h-full w-full object-contain"
               />
@@ -249,7 +249,7 @@ export default function MainLayout() {
               <Link to="/" className="inline-flex items-center gap-3 mb-5">
                 <div className="h-14 w-14 shrink-0 overflow-hidden bg-white">
                   <img
-                    src="/images/ossaka_logo.jpeg"
+                    src={`${import.meta.env.BASE_URL}images/ossaka_logo.jpeg`}
                     alt="Camer-Ossaka Connexion"
                     className="h-full w-full object-contain"
                   />

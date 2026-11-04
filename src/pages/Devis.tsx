@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -94,12 +95,12 @@ export default function Devis() {
           <p className="text-[#666666] mb-8">
             {t('quote.successDetails')}
           </p>
-          <a
-            href="/"
+          <Link
+            to="/"
             className="btn-primary"
           >
             {t('quote.backHome')}
-          </a>
+          </Link>
         </div>
       </div>
     );

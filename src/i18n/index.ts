@@ -32,6 +32,6 @@ i18n
 export default i18n;
 
 export const languages = [
-  { code: 'fr', name: 'Français', flag: '/images/flag-fr.png' },
-  { code: 'en', name: 'English', flag: '/images/flag-en.png' },
+  { code: 'fr', name: 'Français', flag: `${import.meta.env.BASE_URL}images/flag-fr.png` },
+  { code: 'en', name: 'English', flag: `${import.meta.env.BASE_URL}images/flag-en.png` },
 ];

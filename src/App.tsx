@@ -64,7 +64,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ScrollAndTitleManager />
       <Suspense fallback={<PageLoader />}>
         <Routes>

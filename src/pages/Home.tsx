@@ -8,11 +8,11 @@ import { ArrowRight, Building2, Users, Award, ChevronLeft, ChevronRight, Hammer,
 gsap.registerPlugin(ScrollTrigger);
 
 const heroSlides = [
-  { image: '/images/3persone.webp', translationKey: 'home.heroSlides.slide1' },
-  { image: '/images/image8.webp', translationKey: 'home.heroSlides.slide2' },
-  { image: '/images/image4.webp', translationKey: 'home.heroSlides.slide3' },
-  { image: '/images/1772988529.webp', translationKey: 'home.heroSlides.slide4' },
-  { image: '/images/image6.webp', translationKey: 'home.heroSlides.slide5' },
+  { image: `${import.meta.env.BASE_URL}images/3persone.webp`, translationKey: 'home.heroSlides.slide1' },
+  { image: `${import.meta.env.BASE_URL}images/image8.webp`, translationKey: 'home.heroSlides.slide2' },
+  { image: `${import.meta.env.BASE_URL}images/image4.webp`, translationKey: 'home.heroSlides.slide3' },
+  { image: `${import.meta.env.BASE_URL}images/1772988529.webp`, translationKey: 'home.heroSlides.slide4' },
+  { image: `${import.meta.env.BASE_URL}images/image6.webp`, translationKey: 'home.heroSlides.slide5' },
 ];
 
 export default function Home() {
