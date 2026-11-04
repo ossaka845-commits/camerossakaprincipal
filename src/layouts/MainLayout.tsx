@@ -60,7 +60,7 @@ export default function MainLayout() {
   const navLinks = [
     { label: t('nav.home'), href: '/' },
     { label: t('nav.work'), href: '/projects' },
-    { label: t('nav.services'), href: '/services' },
+    { label: t('nav.services'), href: '/service' },
     { label: t('nav.about'), href: '/a-propos' },
     { label: t('nav.team'), href: '/equipe' },
     { label: t('nav.contact'), href: '/contact' },
@@ -294,7 +294,7 @@ export default function MainLayout() {
               <ul className="space-y-2.5">
                 {[
                   { label: t('nav.work'), href: '/projects' },
-                  { label: t('nav.services'), href: '/services' },
+                  { label: t('nav.services'), href: '/service' },
                   { label: t('nav.about'), href: '/a-propos' },
                   { label: t('nav.team'), href: '/equipe' },
                 ].map((link) => (
