@@ -14,8 +14,9 @@
     <meta name="robots" content="index, follow" />
 
     <script>
+      const base = '%BASE_URL%';
       const redirect = new URLSearchParams(window.location.search).get('redirect');
-      if (redirect && redirect.startsWith('/camerossakaprincipal/')) {
+      if (redirect && redirect.startsWith(base)) {
         window.history.replaceState(null, '', redirect);
       }
     </script>

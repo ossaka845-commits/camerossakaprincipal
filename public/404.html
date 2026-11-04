@@ -3,11 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <script>
-      const base = '/camerossakaprincipal/';
+      const projectBase = '/camerossakaprincipal/';
+      const base = window.location.pathname.startsWith(projectBase) ? projectBase : '/';
       const redirect = `${window.location.pathname}${window.location.search}${window.location.hash}`;
-      if (window.location.pathname.startsWith(base)) {
-        window.location.replace(`${base}?redirect=${encodeURIComponent(redirect)}`);
-      }
+      window.location.replace(`${base}?redirect=${encodeURIComponent(redirect)}`);
     </script>
   </head>
   <body></body>
