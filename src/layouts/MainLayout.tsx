@@ -10,18 +10,20 @@ export default function MainLayout() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [hasAcceptedTerms, setHasAcceptedTerms] = useState(false);
-  const [termsChecked, setTermsChecked] = useState(false);
-  const [termsStorageError, setTermsStorageError] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
+  const [termsState, setTermsState] = useState(() => {
     try {
-      setHasAcceptedTerms(window.localStorage.getItem('camer-ossaka-terms-v1') === 'accepted');
+      return {
+        accepted: window.localStorage.getItem('camer-ossaka-terms-v1') === 'accepted',
+        storageError: false,
+      };
     } catch {
-      setTermsStorageError(true);
+      return { accepted: false, storageError: true };
     }
-  }, []);
+  });
+  const [termsChecked, setTermsChecked] = useState(false);
+  const hasAcceptedTerms = termsState.accepted;
+  const termsStorageError = termsState.storageError;
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,9 +51,9 @@ export default function MainLayout() {
   const acceptTerms = () => {
     try {
       window.localStorage.setItem('camer-ossaka-terms-v1', 'accepted');
-      setHasAcceptedTerms(true);
+      setTermsState({ accepted: true, storageError: false });
     } catch {
-      setTermsStorageError(true);
+      setTermsState((state) => ({ ...state, storageError: true }));
     }
   };
 

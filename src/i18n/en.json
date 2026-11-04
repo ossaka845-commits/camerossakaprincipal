@@ -398,7 +398,7 @@
     "notice": "This is a basic summary, not a complete set of legal terms. Have it reviewed by a legal professional before relying on it as a legal document.",
     "checkbox": "I have read and accept the terms of use.",
     "accept": "Accept and continue",
-    "storageError": "Your browser could not save your acceptance. Allow local storage and try again."
+    "storageError": "Your browser could not save your choice. Check its storage settings and try again."
   },
   "legalPage": {
     "badge": "Information and policies",
@@ -416,7 +416,7 @@
         "title": "Privacy and personal data",
         "p1": "Our forms may ask for your name, email address, telephone number and information needed to handle your request. Please provide only information relevant to your inquiry.",
         "p2": "This information is intended for Camer-Ossaka Connexion to respond to your requests. In the website’s current configuration, the form generates a PDF on your device; sending it to an external service is not enabled.",
-        "p3": "The website stores your selected language and, after you choose to accept, your acceptance of the terms in your browser’s local storage. These items remain on your device and can be removed in your browser settings.",
+        "p3": "The website stores your selected language and acceptance of the terms in your browser’s local storage. Acceptance will be requested again if you clear the site’s data or use a different browser or device.",
         "p4": "For questions or requests about your information, contact contact@co-connexion.com. Retention periods, the legal basis and how to exercise your rights must be confirmed by the site operator under applicable rules."
       },
       "notice": {
@@ -430,7 +430,7 @@
         "title": "Cookies and local storage",
         "p1": "The application code currently contains no identified advertising or audience-measurement cookies. It uses your browser’s local storage to remember your selected language and acceptance of the terms of use.",
         "p2": "The site loads external resources, including Google Fonts and a Google Maps embed on the Contact page. Those providers may receive technical data when resources load and may apply their own policies.",
-        "p3": "You can clear local storage and browsing data in your browser settings. Clearing the acceptance record will cause the acceptance prompt to appear again on a future visit."
+        "p3": "You can clear local storage and browsing data in your browser settings. If you delete the saved acceptance, the website will ask you to read and accept the terms again."
       }
     }
   },

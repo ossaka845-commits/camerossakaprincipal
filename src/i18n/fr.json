@@ -398,7 +398,7 @@
     "notice": "Ce texte est un résumé de base et ne remplace pas des conditions juridiques complètes. Faites-le vérifier par un professionnel du droit avant de vous y fier comme document juridique.",
     "checkbox": "J’ai lu et j’accepte les conditions d’utilisation.",
     "accept": "J’accepte et continuer",
-    "storageError": "Votre navigateur n’a pas permis d’enregistrer votre acceptation. Autorisez le stockage local puis réessayez."
+    "storageError": "Votre navigateur n’a pas pu mémoriser votre choix. Vérifiez ses paramètres de stockage puis réessayez."
   },
   "legalPage": {
     "badge": "Informations et politiques",
@@ -416,7 +416,7 @@
         "title": "Confidentialité et données personnelles",
         "p1": "Les formulaires peuvent demander votre nom, votre adresse e-mail, votre numéro de téléphone et les renseignements nécessaires au traitement de votre demande. Ne transmettez que les informations utiles à votre démarche.",
         "p2": "Ces informations sont destinées à Camer-Ossaka Connexion afin de répondre à vos demandes. Dans la configuration actuelle du site, le formulaire génère un document PDF sur votre appareil ; l’envoi à un service externe n’est pas activé.",
-        "p3": "Le site conserve dans le stockage local de votre navigateur la langue choisie et, après votre action, votre acceptation des conditions. Ces éléments restent sur votre appareil et peuvent être supprimés depuis les paramètres du navigateur.",
+        "p3": "Le site conserve dans le stockage local de votre navigateur la langue choisie et votre acceptation des conditions. Cette acceptation sera demandée à nouveau si vous effacez les données du site ou utilisez un autre navigateur ou appareil.",
         "p4": "Pour toute question ou demande concernant vos informations, contactez contact@co-connexion.com. Les durées de conservation, la base juridique et les modalités d’exercice de vos droits doivent être confirmées par le responsable du site selon les règles applicables."
       },
       "notice": {
@@ -430,7 +430,7 @@
         "title": "Cookies et stockage local",
         "p1": "Le site n’utilise actuellement aucun cookie publicitaire ou de mesure d’audience identifié dans son code applicatif. Il utilise le stockage local du navigateur pour mémoriser la langue sélectionnée et l’acceptation des conditions d’utilisation.",
         "p2": "Des ressources externes sont chargées, notamment les polices Google Fonts et une carte Google Maps sur la page Contact. Ces fournisseurs peuvent recevoir des données techniques lors de leur chargement et appliquer leurs propres politiques.",
-        "p3": "Vous pouvez effacer le stockage local et les données de navigation depuis les paramètres de votre navigateur. L’effacement de l’acceptation entraînera la réapparition de la demande d’acceptation lors d’une prochaine visite."
+        "p3": "Vous pouvez effacer le stockage local et les données de navigation depuis les paramètres de votre navigateur. Si vous supprimez l’acceptation enregistrée, le site vous redemandera de lire et d’accepter les conditions."
       }
     }
   },
