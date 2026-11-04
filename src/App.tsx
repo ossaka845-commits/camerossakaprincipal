@@ -1,4 +1,4 @@
-﻿import { useEffect, lazy, Suspense } from 'react';
+import { useEffect, useLayoutEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -36,8 +36,8 @@ const PAGE_TITLES: Record<string, string> = {
 function ScrollAndTitleManager() {
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     document.title = PAGE_TITLES[pathname] ?? "Camer-Ossaka Connexion — Construction d'Excellence";
     ScrollTrigger.refresh();
   }, [pathname]);
