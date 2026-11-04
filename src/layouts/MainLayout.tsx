@@ -331,8 +331,29 @@ export default function MainLayout() {
 
           </div>
 
-          <div className="border-t border-[#E5E5E5] pt-5 text-center">
-            <p className="text-[#999999] text-xs">© {new Date().getFullYear()} {t('footer.copyright')}</p>
+          <div className="flex flex-col gap-4 border-t border-[#E5E5E5] pt-5 sm:flex-row sm:items-center sm:justify-between">
+            <nav
+              aria-label={t('legalPage.contents')}
+              className="flex flex-wrap items-center gap-x-5 gap-y-2 sm:order-2 sm:justify-end sm:gap-x-6"
+            >
+              {[
+                { label: t('footer.terms'), href: '/informations-legales#conditions' },
+                { label: t('footer.privacy'), href: '/informations-legales#confidentialite' },
+                { label: t('footer.legal'), href: '/informations-legales#mentions-legales' },
+                { label: t('footer.cookies'), href: '/informations-legales#cookies' },
+              ].map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="whitespace-nowrap text-xs text-[#666666] transition-colors hover:text-[#CE1126]"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            <p className="text-xs text-[#999999] sm:order-1">
+              © {new Date().getFullYear()} {t('footer.copyright')}
+            </p>
           </div>
         </div>
       </footer>

@@ -400,12 +400,47 @@
     "accept": "J’accepte et continuer",
     "storageError": "Votre navigateur n’a pas permis d’enregistrer votre acceptation. Autorisez le stockage local puis réessayez."
   },
+  "legalPage": {
+    "badge": "Informations et politiques",
+    "title": "Informations légales",
+    "intro": "Consultez les conditions d’utilisation, les informations sur les données personnelles, les mentions légales et le fonctionnement du stockage utilisé sur ce site.",
+    "contents": "Sommaire des informations légales",
+    "sections": {
+      "terms": {
+        "title": "Conditions d’utilisation",
+        "p1": "Le site présente Camer-Ossaka Connexion, ses activités et ses services. Vous vous engagez à l’utiliser de manière licite et à ne pas perturber son fonctionnement.",
+        "p2": "Les informations que vous transmettez via les formulaires doivent être exactes. Une demande de devis ou de contact ne constitue pas à elle seule un contrat ; toute prestation fera l’objet d’un accord distinct.",
+        "p3": "Les textes, images, marques et autres contenus du site sont protégés. Toute reproduction ou réutilisation nécessite l’autorisation préalable de leurs titulaires. Nous faisons des efforts raisonnables pour maintenir le site accessible et ses informations à jour, sans garantir l’absence d’erreurs ou d’interruptions."
+      },
+      "privacy": {
+        "title": "Confidentialité et données personnelles",
+        "p1": "Les formulaires peuvent demander votre nom, votre adresse e-mail, votre numéro de téléphone et les renseignements nécessaires au traitement de votre demande. Ne transmettez que les informations utiles à votre démarche.",
+        "p2": "Ces informations sont destinées à Camer-Ossaka Connexion afin de répondre à vos demandes. Dans la configuration actuelle du site, le formulaire génère un document PDF sur votre appareil ; l’envoi à un service externe n’est pas activé.",
+        "p3": "Le site conserve dans le stockage local de votre navigateur la langue choisie et, après votre action, votre acceptation des conditions. Ces éléments restent sur votre appareil et peuvent être supprimés depuis les paramètres du navigateur.",
+        "p4": "Pour toute question ou demande concernant vos informations, contactez contact@co-connexion.com. Les durées de conservation, la base juridique et les modalités d’exercice de vos droits doivent être confirmées par le responsable du site selon les règles applicables."
+      },
+      "notice": {
+        "title": "Mentions légales",
+        "p1": "Éditeur du site : Camer-Ossaka Connexion. Adresse de contact : Logpom, Douala, Cameroun. E-mail : contact@co-connexion.com. Téléphone : +237 6 92 83 13 34.",
+        "p2": "Hébergement : Vercel, Inc. Le site est déployé sur l’infrastructure Vercel ; les modalités et coordonnées de l’hébergeur sont disponibles sur vercel.com.",
+        "p3": "Les informations de forme juridique, de capital, d’immatriculation et le nom du directeur de publication n’ont pas été fournis pour cette mise à jour. Elles doivent être ajoutées et vérifiées par l’éditeur avant publication définitive.",
+        "p4": "Les présentes informations sont un modèle de base établi à partir des éléments disponibles ; elles ne constituent pas un avis juridique. Faites-les vérifier par un professionnel compétent dans les juridictions concernées."
+      },
+      "cookies": {
+        "title": "Cookies et stockage local",
+        "p1": "Le site n’utilise actuellement aucun cookie publicitaire ou de mesure d’audience identifié dans son code applicatif. Il utilise le stockage local du navigateur pour mémoriser la langue sélectionnée et l’acceptation des conditions d’utilisation.",
+        "p2": "Des ressources externes sont chargées, notamment les polices Google Fonts et une carte Google Maps sur la page Contact. Ces fournisseurs peuvent recevoir des données techniques lors de leur chargement et appliquer leurs propres politiques.",
+        "p3": "Vous pouvez effacer le stockage local et les données de navigation depuis les paramètres de votre navigateur. L’effacement de l’acceptation entraînera la réapparition de la demande d’acceptation lors d’une prochaine visite."
+      }
+    }
+  },
   "footer": {
     "slogan": "Construire avec conviction. Connecter les talents. Faire avancer les projets qui comptent.",
     "links": "Navigation",
     "legal": "Informations",
     "privacy": "Confidentialité",
     "terms": "Conditions d'utilisation",
+    "cookies": "Cookies",
     "copyright": "Camer-Ossaka Connexion. Tous droits réservés.",
     "social": "Suivez-nous",
     "explore": "Explorer",

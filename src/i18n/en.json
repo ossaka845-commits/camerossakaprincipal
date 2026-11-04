@@ -400,12 +400,47 @@
     "accept": "Accept and continue",
     "storageError": "Your browser could not save your acceptance. Allow local storage and try again."
   },
+  "legalPage": {
+    "badge": "Information and policies",
+    "title": "Legal information",
+    "intro": "Read the terms of use, information about personal data, legal notice and details about storage used on this website.",
+    "contents": "Legal information contents",
+    "sections": {
+      "terms": {
+        "title": "Terms of use",
+        "p1": "This website presents Camer-Ossaka Connexion, its activities and services. You agree to use it lawfully and not to disrupt its operation.",
+        "p2": "Information submitted through our forms must be accurate. A quote or contact request alone does not create a contract; any service will be subject to a separate agreement.",
+        "p3": "The website’s text, images, trademarks and other content are protected. Reuse requires prior permission from the relevant rights holders. We make reasonable efforts to keep the website accessible and information current, but do not guarantee that it will be error-free or uninterrupted."
+      },
+      "privacy": {
+        "title": "Privacy and personal data",
+        "p1": "Our forms may ask for your name, email address, telephone number and information needed to handle your request. Please provide only information relevant to your inquiry.",
+        "p2": "This information is intended for Camer-Ossaka Connexion to respond to your requests. In the website’s current configuration, the form generates a PDF on your device; sending it to an external service is not enabled.",
+        "p3": "The website stores your selected language and, after you choose to accept, your acceptance of the terms in your browser’s local storage. These items remain on your device and can be removed in your browser settings.",
+        "p4": "For questions or requests about your information, contact contact@co-connexion.com. Retention periods, the legal basis and how to exercise your rights must be confirmed by the site operator under applicable rules."
+      },
+      "notice": {
+        "title": "Legal notice",
+        "p1": "Website publisher: Camer-Ossaka Connexion. Contact address: Logpom, Douala, Cameroon. Email: contact@co-connexion.com. Telephone: +237 6 92 83 13 34.",
+        "p2": "Hosting: Vercel, Inc. The website is deployed on Vercel infrastructure; provider information and contact details are available at vercel.com.",
+        "p3": "The legal form, share capital, registration details and publication director’s name were not supplied for this update. The publisher must add and verify them before final publication.",
+        "p4": "This is a basic template based on the information available and is not legal advice. Have it reviewed by a qualified professional in the relevant jurisdictions."
+      },
+      "cookies": {
+        "title": "Cookies and local storage",
+        "p1": "The application code currently contains no identified advertising or audience-measurement cookies. It uses your browser’s local storage to remember your selected language and acceptance of the terms of use.",
+        "p2": "The site loads external resources, including Google Fonts and a Google Maps embed on the Contact page. Those providers may receive technical data when resources load and may apply their own policies.",
+        "p3": "You can clear local storage and browsing data in your browser settings. Clearing the acceptance record will cause the acceptance prompt to appear again on a future visit."
+      }
+    }
+  },
   "footer": {
     "slogan": "Build with conviction. Connect talent. Move the projects that matter forward.",
     "links": "Navigate",
     "legal": "Legal",
     "privacy": "Privacy",
     "terms": "Terms of use",
+    "cookies": "Cookies",
     "copyright": "Camer-Ossaka Connexion. All rights reserved.",
     "social": "Follow us",
     "explore": "Explore",

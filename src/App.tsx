@@ -16,6 +16,7 @@ const Team = lazy(() => import('./pages/Team'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Devis = lazy(() => import('./pages/Devis'));
 const BTPConnexion = lazy(() => import('./pages/BTPConnexion'));
+const Legal = lazy(() => import('./pages/Legal'));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,6 +30,7 @@ const PAGE_TITLES: Record<string, string> = {
   '/devis': 'Demande de Devis | Camer-Ossaka Connexion',
   '/soumettre': 'Demande de Devis | Camer-Ossaka Connexion',
   '/btp-connexion': 'BTP Connexion | Camer-Ossaka Connexion',
+  '/informations-legales': 'Informations légales | Camer-Ossaka Connexion',
 };
 
 function ScrollAndTitleManager() {
@@ -77,6 +79,7 @@ function App() {
             <Route path="Submit" element={<Devis />} />
             <Route path="btp-connexion" element={<BTPConnexion />} />
             <Route path="Register" element={<BTPConnexion />} />
+            <Route path="informations-legales" element={<Legal />} />
           </Route>
         </Routes>
       </Suspense>
