@@ -133,7 +133,7 @@ export default function Home() {
             <img
               key={index}
               src={slide.image}
-              alt={`Camer-Ossaka Connexion — chantier ${index + 1}`}
+              alt={t('common.constructionSiteAlt', { number: index + 1 })}
               loading={index === 0 ? 'eager' : 'lazy'}
               fetchPriority={index === 0 ? 'high' : 'low'}
               className={`absolute inset-0 w-full h-full object-cover ${
@@ -162,14 +162,14 @@ export default function Home() {
         <button
           onClick={prevSlide}
           className="absolute left-6 md:left-10 bottom-8 z-20 w-11 h-11 rounded-full flex items-center justify-center border border-white/40 text-white hover:border-[#CE1126] hover:bg-[#CE1126] transition-all duration-300"
-          aria-label="Previous slide"
+          aria-label={t('common.previousSlide')}
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={nextSlide}
           className="absolute left-20 md:left-24 bottom-8 z-20 w-11 h-11 rounded-full flex items-center justify-center border border-white/40 text-white hover:border-[#CE1126] hover:bg-[#CE1126] transition-all duration-300"
-          aria-label="Next slide"
+          aria-label={t('common.nextSlide')}
         >
           <ChevronRight className="w-5 h-5" />
         </button>

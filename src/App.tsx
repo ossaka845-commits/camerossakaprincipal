@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './i18n';
@@ -20,34 +21,36 @@ const Legal = lazy(() => import('./pages/Legal'));
 
 gsap.registerPlugin(ScrollTrigger);
 
-const PAGE_TITLES: Record<string, string> = {
-  '/': "Camer-Ossaka Connexion — Construction d'Excellence | BTP Cameroun",
-  '/projects': 'Nos Réalisations | Camer-Ossaka Connexion',
-  '/services': 'Nos Services BTP | Camer-Ossaka Connexion',
-  '/a-propos': 'À Propos | Camer-Ossaka Connexion',
-  '/equipe': 'Notre Équipe | Camer-Ossaka Connexion',
-  '/contact': 'Contact | Camer-Ossaka Connexion',
-  '/devis': 'Demande de Devis | Camer-Ossaka Connexion',
-  '/soumettre': 'Demande de Devis | Camer-Ossaka Connexion',
-  '/btp-connexion': 'BTP Connexion | Camer-Ossaka Connexion',
-  '/informations-legales': 'Informations légales | Camer-Ossaka Connexion',
+const PAGE_TITLE_KEYS: Record<string, string> = {
+  '/': 'pageTitles.home',
+  '/projects': 'pageTitles.work',
+  '/services': 'pageTitles.services',
+  '/a-propos': 'pageTitles.about',
+  '/equipe': 'pageTitles.team',
+  '/contact': 'pageTitles.contact',
+  '/devis': 'pageTitles.quote',
+  '/soumettre': 'pageTitles.quote',
+  '/btp-connexion': 'pageTitles.btpConnexion',
+  '/informations-legales': 'pageTitles.legal',
 };
 
 function ScrollAndTitleManager() {
   const { pathname } = useLocation();
+  const { t, i18n } = useTranslation();
 
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    document.title = PAGE_TITLES[pathname] ?? "Camer-Ossaka Connexion — Construction d'Excellence";
+    document.title = t(PAGE_TITLE_KEYS[pathname] ?? 'pageTitles.default');
     ScrollTrigger.refresh();
-  }, [pathname]);
+  }, [pathname, t, i18n.resolvedLanguage]);
 
   return null;
 }
 
 function PageLoader() {
+  const { t } = useTranslation();
   return (
-    <div className="flex items-center justify-center min-h-[60vh]" role="status" aria-label="Chargement">
+    <div className="flex items-center justify-center min-h-[60vh]" role="status" aria-label={t('common.loading')}>
       <div className="w-10 h-10 border-4 border-black/20 border-t-black rounded-full animate-spin" />
     </div>
   );

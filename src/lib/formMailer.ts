@@ -30,6 +30,7 @@ interface FormField {
 interface FormSubmission {
   title: string;
   fields: FormField[];
+  language: 'en' | 'fr';
   senderEmail?: string;
   senderName?: string;
 }
@@ -39,6 +40,8 @@ interface FormSubmission {
  */
 function generatePDF(submission: FormSubmission): jsPDF {
   const doc = new jsPDF();
+  const isEnglish = submission.language === 'en';
+  const locale = isEnglish ? 'en-GB' : 'fr-FR';
   const pageWidth = doc.internal.pageSize.getWidth();
   const margin = 20;
   const contentWidth = pageWidth - margin * 2;
@@ -55,11 +58,11 @@ function generatePDF(submission: FormSubmission): jsPDF {
 
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
-  doc.text('Construction & BTP', margin, 30);
+  doc.text(isEnglish ? 'Construction & Civil Engineering' : 'Construction & BTP', margin, 30);
   doc.text('www.camerossaka.com', margin, 36);
 
   const now = new Date();
-  const dateStr = now.toLocaleDateString('fr-FR', {
+  const dateStr = now.toLocaleString(locale, {
     day: '2-digit',
     month: 'long',
     year: 'numeric',
@@ -128,13 +131,15 @@ function generatePDF(submission: FormSubmission): jsPDF {
   doc.setFontSize(8);
   doc.setTextColor(150, 150, 150);
   doc.text(
-    'Ce document a été généré automatiquement depuis le site Camer-Ossaka Connexion.',
+    isEnglish
+      ? 'This document was automatically generated from the Camer-Ossaka Connexion website.'
+      : 'Ce document a été généré automatiquement depuis le site Camer-Ossaka Connexion.',
     pageWidth / 2,
     footerY,
     { align: 'center' }
   );
   doc.text(
-    `Email de contact : ${RECIPIENT_EMAIL}`,
+    `${isEnglish ? 'Contact email' : 'Email de contact'} : ${RECIPIENT_EMAIL}`,
     pageWidth / 2,
     footerY + 5,
     { align: 'center' }
@@ -147,13 +152,16 @@ function generatePDF(submission: FormSubmission): jsPDF {
  * Formate le résumé texte pour le corps de l'email
  */
 function formatTextBody(submission: FormSubmission): string {
+  const isEnglish = submission.language === 'en';
+  const locale = isEnglish ? 'en-GB' : 'fr-FR';
+  const visitor = isEnglish ? 'Visitor' : 'Visiteur';
   const lines: string[] = [];
-  lines.push(`Formulaire : ${submission.title}`);
-  lines.push(`Date : ${new Date().toLocaleDateString('fr-FR', {
+  lines.push(`${isEnglish ? 'Form' : 'Formulaire'} : ${submission.title}`);
+  lines.push(`Date : ${new Date().toLocaleString(locale, {
     day: '2-digit', month: 'long', year: 'numeric',
     hour: '2-digit', minute: '2-digit',
   })}`);
-  lines.push(`De : ${submission.senderName || 'Visiteur'} (${submission.senderEmail || '—'})`);
+  lines.push(`${isEnglish ? 'From' : 'De'} : ${submission.senderName || visitor} (${submission.senderEmail || '—'})`);
   lines.push('');
 
   for (const field of submission.fields) {
@@ -183,7 +191,8 @@ export async function generateAndSendForm(
   const fileName = `${submission.title.replace(/\s+/g, '_')}_${Date.now()}.pdf`;
 
   // 4. Préparer le sujet de l'email
-  const subject = `[Camer-Ossaka Connexion] ${submission.title} — ${submission.senderName || 'Visiteur'}`;
+  const visitor = submission.language === 'en' ? 'Visitor' : 'Visiteur';
+  const subject = `[Camer-Ossaka Connexion] ${submission.title} — ${submission.senderName || visitor}`;
 
   // 5. Envoyer au Google Apps Script
   try {
@@ -210,7 +219,7 @@ export async function generateAndSendForm(
         subject,
         textBody: formatTextBody(submission),
         toEmail: RECIPIENT_EMAIL,
-        senderName: submission.senderName || 'Visiteur',
+        senderName: submission.senderName || visitor,
         senderEmail: submission.senderEmail || '',
       }),
     });

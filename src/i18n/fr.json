@@ -9,6 +9,18 @@
     "quote": "Devis",
     "btpConnexion": "C-O Connexion"
   },
+  "pageTitles": {
+    "home": "Camer-Ossaka Connexion — Construction d'Excellence | BTP Cameroun",
+    "work": "Nos Réalisations | Camer-Ossaka Connexion",
+    "services": "Nos Expertises | Camer-Ossaka Connexion",
+    "about": "À Propos | Camer-Ossaka Connexion",
+    "team": "Notre Équipe | Camer-Ossaka Connexion",
+    "contact": "Contact | Camer-Ossaka Connexion",
+    "quote": "Demande de Devis | Camer-Ossaka Connexion",
+    "btpConnexion": "BTP Connexion | Camer-Ossaka Connexion",
+    "legal": "Informations légales | Camer-Ossaka Connexion",
+    "default": "Camer-Ossaka Connexion — Construction d'Excellence"
+  },
   "hero": {
     "title": "Construire l'avenir",
     "subtitle": "Entreprise de BTP basée à Douala. Gros œuvre, génie civil et projets clés en main, menés avec exigence et transparence.",
@@ -168,7 +180,21 @@
     "experts": "Experts",
     "profileLabel": "Parcours",
     "joinTitle": "Rejoindre l'équipe",
-    "joinDesc": "C-O Connexion met en relation talents du BTP et entreprises. Consultez les opportunités ou déposez votre profil."
+    "joinDesc": "C-O Connexion met en relation talents du BTP et entreprises. Consultez les opportunités ou déposez votre profil.",
+    "members": {
+      "jeanMarie": {
+        "role": "Fondateur de Camer-Ossaka Connexion & Ingénieur civil",
+        "bio": "Ingénieur civil et entrepreneur, diplômé de l’Université de Buea et titulaire d’un Master en Allemagne, il est spécialisé en infrastructures et ingénierie environnementale. Au sein de Camer-Ossaka Connexion, il met son expertise internationale au service du développement des infrastructures, des investissements stratégiques et des partenariats internationaux en Afrique."
+      },
+      "livine": {
+        "role": "Co-fondatrice de Camer-Ossaka Connexion & Ingénieure civile",
+        "bio": "Ingénieure civile titulaire d’un Master en génie civil, elle allie expertise technique et vision entrepreneuriale. Elle participe à la définition de la stratégie, au développement des projets et à la promotion de l’innovation, des partenariats et du développement durable."
+      },
+      "yannick": {
+        "role": "Co-fondateur de Camer-Ossaka Connexion & Ingénieur en informatique",
+        "bio": "Ingénieur en informatique et entrepreneur, diplômé en électrotechnique et automatisation en Allemagne, il est spécialisé dans les solutions intelligentes et les technologies innovantes. Au sein de Camer-Ossaka Connexion, il contribue à la transformation numérique, à l’automatisation et au développement technologique de l’entreprise."
+      }
+    }
   },
   "contact": {
     "title": "Contact",
@@ -178,7 +204,7 @@
     "messageSent": "Message envoyé",
     "messageReply": "Nous vous répondons sous 48 h ouvrées.",
     "followUs": "Réseaux",
-    "subtitle": "Siège à Logpom, Douala. Un interlocuteur, une réponse suivie.",
+    "subtitle": "Siège à Logpom-Douala. Un interlocuteur, une réponse suivie.",
     "addresses": {
       "title": "Adresse",
       "yaounde": "Yaoundé, Cameroun",
@@ -195,6 +221,7 @@
       "phone": "Téléphone",
       "phonePlaceholder": "+237 6 XX XX XX XX",
       "namePlaceholder": "Votre nom",
+      "emailPlaceholder": "votre@email.com",
       "subjectPlaceholder": "Objet de votre demande",
       "messagePlaceholder": "Décrivez votre besoin…"
     }
@@ -233,7 +260,43 @@
     },
     "submit": "Envoyer la demande",
     "success": "Demande reçue. Nous vous contactons sous 48 h.",
-    "submitError": "La demande n'a pas pu partir. Vérifiez votre connexion et réessayez."
+    "successDetails": "Notre équipe étudiera votre demande et vous contactera rapidement.",
+    "submitError": "La demande n'a pas pu partir. Vérifiez votre connexion et réessayez.",
+    "continue": "Continuer",
+    "back": "Retour",
+    "backHome": "Retour à l'accueil",
+    "summary": "Récapitulatif",
+    "select": "Sélectionnez...",
+    "descriptionPlaceholder": "Décrivez votre projet en détail...",
+    "locationPlaceholder": "Pays, ville",
+    "privacyConsent": "Avant l’envoi, vos informations resteront strictement anonymes et confidentielles. J’ai lu et j’accepte.",
+    "uploadInstructions": "Glissez-déposez vos fichiers ou cliquez pour parcourir",
+    "uploadLimits": "PDF, DWG, JPG jusqu'à 50 Mo",
+    "review": {
+      "type": "Type",
+      "name": "Nom",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "projectType": "Type de projet",
+      "location": "Localisation",
+      "budget": "Budget",
+      "deadline": "Délai"
+    },
+    "budgets": {
+      "under30": "Moins de 30 millions FCFA",
+      "30to60": "30 - 60 millions FCFA",
+      "60to300": "60 - 300 millions FCFA",
+      "300to600": "300 - 600 millions FCFA",
+      "600to3000": "600 millions - 3 milliards FCFA",
+      "over3000": "Plus de 3 milliards FCFA"
+    },
+    "deadlines": {
+      "under3": "Moins de 3 mois",
+      "3to6": "3 à 6 mois",
+      "6to12": "6 à 12 mois",
+      "1to2": "1 à 2 ans",
+      "over2": "Plus de 2 ans"
+    }
   },
   "btpConnexion": {
     "title": "C-O Connexion",
@@ -246,6 +309,73 @@
     "registrationSent": "Inscription envoyée",
     "registrationReply": "Nous vous contactons dès qu'une mission correspond à votre profil.",
     "individualIntro": "Inscrivez-vous pour être mis en relation avec des employeurs du BTP.",
+    "form": {
+      "lastName": "Nom",
+      "firstName": "Prénom",
+      "yourLastName": "Votre nom",
+      "yourFirstName": "Votre prénom",
+      "country": "Pays",
+      "countryExample": "Ex. : Cameroun, France...",
+      "city": "Ville",
+      "cityExample": "Ex. : Yaoundé, Douala...",
+      "trade": "Métier",
+      "selectTrade": "Sélectionnez votre métier...",
+      "trades": {
+        "laborer": "Manœuvre",
+        "mason": "Maçon",
+        "technician": "Technicien",
+        "engineer": "Ingénieur",
+        "plumber": "Plombier",
+        "electrician": "Électricien"
+      },
+      "experience": "Expérience (années)",
+      "select": "Sélectionnez...",
+      "experienceRanges": {
+        "0to2": "0 - 2 ans",
+        "3to5": "3 - 5 ans",
+        "5to10": "5 - 10 ans",
+        "10plus": "10 ans et plus"
+      },
+      "cv": "CV (PDF)",
+      "cvAttached": "CV joint : {{fileName}}",
+      "dropCv": "Glissez-déposez votre CV ou cliquez pour parcourir",
+      "pdfLimit": "PDF uniquement, max. 5 Mo",
+      "availability": "Disponibilité",
+      "availabilityExample": "Ex. : immédiate, dans 1 mois, à partir du...",
+      "phoneOrEmail": "Numéro / E-mail",
+      "contactExample": "+237 6XX XXX XXX ou adresse@email.com",
+      "skills": "Compétences spécifiques",
+      "optional": " (optionnel)",
+      "skillsExample": "Ex. : AutoCAD, béton armé, coffrage, soudure TIG...",
+      "privacyConsent": "Avant l’envoi, vos informations resteront strictement anonymes et confidentielles. J’ai lu et j’accepte.",
+      "sending": "Envoi en cours...",
+      "sendApplication": "Envoyer mon inscription",
+      "verifiedCompany": "Entreprise vérifiée",
+      "companyRegistrationTitle": "Inscription espace entreprises - C-O Connexion",
+      "individualRegistrationTitle": "Inscription espace particulier - C-O Connexion",
+      "requestSent": "Demande envoyée !",
+      "companyRequestReply": "Notre équipe vérifiera votre dossier et activera votre badge Entreprise vérifiée sous 48 h.",
+      "companyIntro": "Inscrivez votre entreprise pour accéder aux profils qualifiés et être visible sur la plateforme C-O Connexion.",
+      "companyName": "Nom de l'entreprise",
+      "companyExample": "Ex. : Camer-Ossaka Connexion SARL",
+      "domain": "Domaine",
+      "selectDomain": "Sélectionnez un domaine...",
+      "domains": {
+        "btp": "BTP (Bâtiment & Travaux Publics)",
+        "roads": "Routes & Voirie",
+        "building": "Bâtiment",
+        "civilEngineering": "Génie civil",
+        "publicWorks": "Travaux publics",
+        "construction": "Construction",
+        "other": "Autre"
+      },
+      "location": "Localisation",
+      "emailExample": "contact@entreprise.com",
+      "telephone": "Téléphone",
+      "adminEmail": "E-mail administrateur",
+      "adminPlaceholder": "E-mail du responsable ou gestionnaire du compte",
+      "sendCompany": "Inscrire mon entreprise"
+    },
     "hero": {
       "title": "Talents et entreprises du BTP",
       "desc": "Déposez votre profil ou inscrivez votre société. Nous connectons les compétences aux chantiers qui en ont besoin."
@@ -325,7 +455,27 @@
     "discover": "Découvrir",
     "viewProject": "Voir le chantier",
     "contactUs": "Nous contacter",
-    "sending": "Envoi en cours…"
+    "sending": "Envoi en cours…",
+    "previousSlide": "Diapositive précédente",
+    "nextSlide": "Diapositive suivante",
+    "constructionSiteAlt": "Chantier de Camer-Ossaka Connexion n° {{number}}",
+    "formPrivacyConsent": "Avant l’envoi, vos informations resteront strictement anonymes et confidentielles. J’ai lu et j’accepte.",
+    "mapLocation": "Emplacement de Camer-Ossaka Connexion — Logpom-Douala, Cameroun",
+    "cameroon": "Cameroun",
+    "officeHours": "Lun–Ven : 8 h–17 h",
+    "loading": "Chargement"
+  },
+  "whatsapp": {
+    "online": "En ligne",
+    "close": "Fermer",
+    "greeting": "Bonjour ! 👋 Comment pouvons-nous vous aider ?",
+    "now": "maintenant",
+    "quote": "Demander un devis",
+    "services": "Nos services",
+    "contact": "Nous contacter",
+    "startConversation": "Démarrer la conversation",
+    "contactOnWhatsApp": "Contacter sur WhatsApp",
+    "defaultMessage": "Bonjour, je visite le site Camer-Ossaka Connexion et j’aimerais avoir plus d’informations."
   },
   "home": {
     "eyebrow": "BTP · Cameroun & international",
@@ -421,7 +571,7 @@
       },
       "notice": {
         "title": "Mentions légales",
-        "p1": "Éditeur du site : Camer-Ossaka Connexion. Adresse de contact : Logpom, Douala, Cameroun. E-mail : contact@co-connexion.com. Téléphone : +237 6 92 83 13 34.",
+        "p1": "Éditeur du site : Camer-Ossaka Connexion. Adresse de contact : Logpom-Douala, Cameroun. E-mail : contact@co-connexion.com. Téléphone : +237 6 92 83 13 34.",
         "p2": "Hébergement : Vercel, Inc. Le site est déployé sur l’infrastructure Vercel ; les modalités et coordonnées de l’hébergeur sont disponibles sur vercel.com.",
         "p3": "Les informations de forme juridique, de capital, d’immatriculation et le nom du directeur de publication n’ont pas été fournis pour cette mise à jour. Elles doivent être ajoutées et vérifiées par l’éditeur avant publication définitive.",
         "p4": "Les présentes informations sont un modèle de base établi à partir des éléments disponibles ; elles ne constituent pas un avis juridique. Faites-les vérifier par un professionnel compétent dans les juridictions concernées."
@@ -447,7 +597,7 @@
     "joinUs": "Nous rejoindre",
     "requestQuote": "Demander un devis",
     "office": "Notre bureau",
-    "address": "Logpom, Douala, Cameroun",
+    "address": "Logpom-Douala, Cameroun",
     "hours": "Lun–Ven : 8h00 – 17h00"
   }
 }

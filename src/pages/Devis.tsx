@@ -15,25 +15,11 @@ import {
 import { Upload, Send, CheckCircle, Loader2 } from 'lucide-react';
 import { generateAndSendForm } from '@/lib/formMailer';
 
-const budgetRanges = [
-  'Moins de 30 millions FCFA',
-  '30 - 60 millions FCFA',
-  '60 - 300 millions FCFA',
-  '300 - 600 millions FCFA',
-  '600 millions - 3 milliards FCFA',
-  'Plus de 3 milliards FCFA',
-];
-
-const deadlines = [
-  'Moins de 3 mois',
-  '3 à 6 mois',
-  '6 à 12 mois',
-  '1 à 2 ans',
-  'Plus de 2 ans',
-];
+const budgetRanges = ['under30', '30to60', '60to300', '300to600', '600to3000', 'over3000'];
+const deadlines = ['under3', '3to6', '6to12', '1to2', 'over2'];
 
 export default function Devis() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -61,23 +47,24 @@ export default function Devis() {
 
     try {
       await generateAndSendForm({
-        title: 'NOUS SOUMETTRE UN PROJET',
+        title: t('quote.title'),
+        language: (i18n.resolvedLanguage || i18n.language).startsWith('en') ? 'en' : 'fr',
         senderName: `${formData.firstname} ${formData.lastname}`,
         senderEmail: formData.email,
         fields: [
-          { label: 'Type de client', value: formData.type === 'individual' ? 'Particulier' : 'Entreprise' },
-          { label: 'Prénom', value: formData.firstname },
-          { label: 'Nom', value: formData.lastname },
-          { label: 'Email', value: formData.email },
-          { label: 'Téléphone', value: formData.phone },
-          ...(formData.company ? [{ label: 'Entreprise', value: formData.company }] : []),
-          ...(formData.taxNumber ? [{ label: 'N° Contribuable', value: formData.taxNumber }] : []),
-          { label: 'Type de projet', value: formData.projectType },
-          { label: 'Description du projet', value: formData.description },
-          { label: 'Localisation', value: formData.location },
-          { label: 'Budget estimé', value: formData.budget },
-          { label: 'Délai souhaité', value: formData.deadline },
-          ...(documentFileName ? [{ label: 'Document joint', value: documentFileName }] : []),
+          { label: t('quote.type.label'), value: t(`quote.type.${formData.type}`) },
+          { label: t('quote.personal.firstname'), value: formData.firstname },
+          { label: t('quote.personal.lastname'), value: formData.lastname },
+          { label: t('quote.personal.email'), value: formData.email },
+          { label: t('quote.personal.phone'), value: formData.phone },
+          ...(formData.company ? [{ label: t('quote.personal.company'), value: formData.company }] : []),
+          ...(formData.taxNumber ? [{ label: t('quote.personal.taxNumber'), value: formData.taxNumber }] : []),
+          { label: t('quote.project.type'), value: t(`quote.project.${formData.projectType}`) },
+          { label: t('quote.project.description'), value: formData.description },
+          { label: t('quote.project.location'), value: formData.location },
+          { label: t('quote.project.budget'), value: t(`quote.budgets.${formData.budget}`) },
+          { label: t('quote.project.deadline'), value: t(`quote.deadlines.${formData.deadline}`) },
+          ...(documentFileName ? [{ label: t('quote.project.documents'), value: documentFileName }] : []),
         ],
       });
 
@@ -105,13 +92,13 @@ export default function Devis() {
             {t('quote.success')}
           </h1>
           <p className="text-[#666666] mb-8">
-            Notre équipe étudiera votre demande et vous contactera rapidement.
+            {t('quote.successDetails')}
           </p>
           <a
             href="/"
             className="btn-primary"
           >
-            Retour à l'accueil
+            {t('quote.backHome')}
           </a>
         </div>
       </div>
@@ -274,7 +261,7 @@ export default function Devis() {
                     onClick={() => setStep(2)}
                     className="btn-primary px-8 py-6 h-auto"
                   >
-                    Continuer
+                    {t('quote.continue')}
                   </Button>
                 </div>
               </div>
@@ -298,7 +285,7 @@ export default function Devis() {
                         onValueChange={(value) => updateField('projectType', value)}
                       >
                         <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
-                          <SelectValue placeholder="Sélectionnez..." />
+                          <SelectValue placeholder={t('quote.select')} />
                         </SelectTrigger>
                         <SelectContent className="bg-white border-[#E5E5E5]">
                           {[
@@ -324,7 +311,7 @@ export default function Devis() {
                         value={formData.description}
                         onChange={(e) => updateField('description', e.target.value)}
                         className="bg-white border-[#E5E5E5] text-[#111111] min-h-[120px] resize-none"
-                        placeholder="Décrivez votre projet en détail..."
+                        placeholder={t('quote.descriptionPlaceholder')}
                         required
                       />
                     </div>
@@ -337,7 +324,7 @@ export default function Devis() {
                         value={formData.location}
                         onChange={(e) => updateField('location', e.target.value)}
                         className="bg-white border-[#E5E5E5] text-[#111111] h-12"
-                        placeholder="Pays, ville"
+                        placeholder={t('quote.locationPlaceholder')}
                         required
                       />
                     </div>
@@ -352,12 +339,12 @@ export default function Devis() {
                           onValueChange={(value) => updateField('budget', value)}
                         >
                           <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
-                            <SelectValue placeholder="Sélectionnez..." />
+                            <SelectValue placeholder={t('quote.select')} />
                           </SelectTrigger>
                           <SelectContent className="bg-white border-[#E5E5E5]">
                             {budgetRanges.map((range) => (
                               <SelectItem key={range} value={range} className="text-[#111111]">
-                                {range}
+                                {t(`quote.budgets.${range}`)}
                               </SelectItem>
                             ))}
                           </SelectContent>
@@ -372,12 +359,12 @@ export default function Devis() {
                           onValueChange={(value) => updateField('deadline', value)}
                         >
                           <SelectTrigger className="bg-white border-[#E5E5E5] text-[#111111] h-12">
-                            <SelectValue placeholder="Sélectionnez..." />
+                            <SelectValue placeholder={t('quote.select')} />
                           </SelectTrigger>
                           <SelectContent className="bg-white border-[#E5E5E5]">
                             {deadlines.map((deadline) => (
                               <SelectItem key={deadline} value={deadline} className="text-[#111111]">
-                                {deadline}
+                                {t(`quote.deadlines.${deadline}`)}
                               </SelectItem>
                             ))}
                           </SelectContent>
@@ -407,10 +394,10 @@ export default function Devis() {
                         ) : (
                           <>
                             <p className="text-[#666666] text-sm">
-                              Glissez-déposez vos fichiers ou cliquez pour parcourir
+                              {t('quote.uploadInstructions')}
                             </p>
                             <p className="text-[#999999] text-xs mt-2">
-                              PDF, DWG, JPG jusqu'à 50 Mo
+                              {t('quote.uploadLimits')}
                             </p>
                           </>
                         )}
@@ -426,14 +413,14 @@ export default function Devis() {
                     onClick={() => setStep(1)}
                     className="px-8 py-6 h-auto"
                   >
-                    Retour
+                    {t('quote.back')}
                   </Button>
                   <Button
                     type="button"
                     onClick={() => setStep(3)}
                     className="btn-primary px-8 py-6 h-auto"
                   >
-                    Continuer
+                    {t('quote.continue')}
                   </Button>
                 </div>
               </div>
@@ -444,41 +431,41 @@ export default function Devis() {
               <div className="space-y-8">
                 <div className="bg-white border border-[#E5E5E5] p-6 md:p-8">
                   <h3 className="text-lg font-semibold text-[#111111] mb-6 font-['Sora']">
-                    Récapitulatif
+                    {t('quote.summary')}
                   </h3>
                   
                   <div className="space-y-4">
                     <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
-                      <span className="text-[#666666]">Type</span>
+                      <span className="text-[#666666]">{t('quote.review.type')}</span>
                       <span className="text-[#111111]">{t(`quote.type.${formData.type}`)}</span>
                     </div>
                     <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
-                      <span className="text-[#666666]">Nom</span>
+                      <span className="text-[#666666]">{t('quote.review.name')}</span>
                       <span className="text-[#111111]">{formData.firstname} {formData.lastname}</span>
                     </div>
                     <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
-                      <span className="text-[#666666]">Email</span>
+                      <span className="text-[#666666]">{t('quote.review.email')}</span>
                       <span className="text-[#111111]">{formData.email}</span>
                     </div>
                     <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
-                      <span className="text-[#666666]">Téléphone</span>
+                      <span className="text-[#666666]">{t('quote.review.phone')}</span>
                       <span className="text-[#111111]">{formData.phone}</span>
                     </div>
                     <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
-                      <span className="text-[#666666]">Type de projet</span>
-                      <span className="text-[#111111]">{formData.projectType}</span>
+                      <span className="text-[#666666]">{t('quote.review.projectType')}</span>
+                      <span className="text-[#111111]">{t(`quote.project.${formData.projectType}`)}</span>
                     </div>
                     <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
-                      <span className="text-[#666666]">Localisation</span>
+                      <span className="text-[#666666]">{t('quote.review.location')}</span>
                       <span className="text-[#111111]">{formData.location}</span>
                     </div>
                     <div className="flex justify-between py-3 border-b border-[#E5E5E5]">
-                      <span className="text-[#666666]">Budget</span>
-                      <span className="text-[#111111]">{formData.budget}</span>
+                      <span className="text-[#666666]">{t('quote.review.budget')}</span>
+                      <span className="text-[#111111]">{t(`quote.budgets.${formData.budget}`)}</span>
                     </div>
                     <div className="flex justify-between py-3">
-                      <span className="text-[#666666]">Délai</span>
-                      <span className="text-[#111111]">{formData.deadline}</span>
+                      <span className="text-[#666666]">{t('quote.review.deadline')}</span>
+                      <span className="text-[#111111]">{t(`quote.deadlines.${formData.deadline}`)}</span>
                     </div>
                   </div>
                 </div>
@@ -488,7 +475,7 @@ export default function Devis() {
                   <label className="flex items-start gap-3 cursor-pointer">
                     <input type="checkbox" required className="mt-1 w-4 h-4 accent-[#CE1126] shrink-0" />
                     <span className="text-sm text-[#666666]">
-                      Avant de vous enregistrer : vos informations resteront strictement <span className="font-semibold text-[#111111]">anonymes et confidentielles</span>. J'ai lu et j'accepte. <span className="text-[#CE1126]">*</span>
+                      {t('quote.privacyConsent')} <span className="text-[#CE1126]">*</span>
                     </span>
                   </label>
                 </div>
@@ -500,7 +487,7 @@ export default function Devis() {
                     onClick={() => setStep(2)}
                     className="px-8 py-6 h-auto"
                   >
-                    Retour
+                    {t('quote.back')}
                   </Button>
                   <Button
                     type="submit"
@@ -508,7 +495,7 @@ export default function Devis() {
                     className="btn-primary px-8 py-6 h-auto"
                   >
                     {isLoading ? (
-                      <><Loader2 className="w-5 h-5 mr-2 animate-spin" />Envoi en cours...</>
+                      <><Loader2 className="w-5 h-5 mr-2 animate-spin" />{t('common.sending')}</>
                     ) : (
                       <><Send className="w-5 h-5 mr-2" />{t('quote.submit')}</>
                     )}

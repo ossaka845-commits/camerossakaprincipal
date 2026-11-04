@@ -9,6 +9,18 @@
     "quote": "Quote",
     "btpConnexion": "C-O Connexion"
   },
+  "pageTitles": {
+    "home": "Camer-Ossaka Connexion — Excellence in Construction | Cameroon",
+    "work": "Our Projects | Camer-Ossaka Connexion",
+    "services": "Our Capabilities | Camer-Ossaka Connexion",
+    "about": "About Us | Camer-Ossaka Connexion",
+    "team": "Our Team | Camer-Ossaka Connexion",
+    "contact": "Contact | Camer-Ossaka Connexion",
+    "quote": "Request a Quote | Camer-Ossaka Connexion",
+    "btpConnexion": "C-O Connexion | Camer-Ossaka Connexion",
+    "legal": "Legal Information | Camer-Ossaka Connexion",
+    "default": "Camer-Ossaka Connexion — Excellence in Construction"
+  },
   "hero": {
     "title": "Building the future",
     "subtitle": "A Douala-based contractor for structural works, civil engineering and turnkey projects — delivered with discipline and transparency.",
@@ -168,7 +180,21 @@
     "experts": "Experts",
     "profileLabel": "Background",
     "joinTitle": "Join the team",
-    "joinDesc": "C-O Connexion matches construction talent with companies. Browse openings or submit your profile."
+    "joinDesc": "C-O Connexion matches construction talent with companies. Browse openings or submit your profile.",
+    "members": {
+      "jeanMarie": {
+        "role": "Founder of Camer-Ossaka Connexion & Civil Engineer",
+        "bio": "A civil engineer and entrepreneur, he graduated from the University of Buea and holds a Master’s degree from Germany. He specializes in infrastructure and environmental engineering. At Camer-Ossaka Connexion, he applies his international expertise to infrastructure development, strategic investment and partnerships across Africa."
+      },
+      "livine": {
+        "role": "Co-founder of Camer-Ossaka Connexion & Civil Engineer",
+        "bio": "A civil engineer with a Master’s degree in civil engineering, she combines technical expertise with an entrepreneurial outlook. She contributes to strategy, project development, innovation, partnerships and sustainable development."
+      },
+      "yannick": {
+        "role": "Co-founder of Camer-Ossaka Connexion & Software Engineer",
+        "bio": "A computer engineer and entrepreneur, he studied electrical engineering and automation in Germany and specializes in smart solutions and innovative technologies. At Camer-Ossaka Connexion, he contributes to digital transformation, automation and the company’s technological development."
+      }
+    }
   },
   "contact": {
     "title": "Contact",
@@ -178,7 +204,7 @@
     "messageSent": "Message sent",
     "messageReply": "We reply within two working days.",
     "followUs": "Social",
-    "subtitle": "Office in Logpom, Douala. One contact, a followed-up answer.",
+    "subtitle": "Office in Logpom-Douala. One contact, a followed-up answer.",
     "addresses": {
       "title": "Address",
       "yaounde": "Yaoundé, Cameroon",
@@ -195,6 +221,7 @@
       "phone": "Phone",
       "phonePlaceholder": "+237 6 XX XX XX XX",
       "namePlaceholder": "Your name",
+      "emailPlaceholder": "you@email.com",
       "subjectPlaceholder": "Subject of your enquiry",
       "messagePlaceholder": "Describe what you need…"
     }
@@ -233,7 +260,43 @@
     },
     "submit": "Send request",
     "success": "Request received. We will contact you within 48 hours.",
-    "submitError": "The request could not be sent. Check your connection and try again."
+    "successDetails": "Our team will review your request and contact you shortly.",
+    "submitError": "The request could not be sent. Check your connection and try again.",
+    "continue": "Continue",
+    "back": "Back",
+    "backHome": "Back to home",
+    "summary": "Summary",
+    "select": "Select...",
+    "descriptionPlaceholder": "Describe your project in detail...",
+    "locationPlaceholder": "Country, city",
+    "privacyConsent": "Before submitting, your information will remain strictly anonymous and confidential. I have read and agree.",
+    "uploadInstructions": "Drag and drop your files or click to browse",
+    "uploadLimits": "PDF, DWG, JPG up to 50 MB",
+    "review": {
+      "type": "Type",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "projectType": "Project type",
+      "location": "Location",
+      "budget": "Budget",
+      "deadline": "Timeline"
+    },
+    "budgets": {
+      "under30": "Under 30 million FCFA",
+      "30to60": "30–60 million FCFA",
+      "60to300": "60–300 million FCFA",
+      "300to600": "300–600 million FCFA",
+      "600to3000": "600 million–3 billion FCFA",
+      "over3000": "Over 3 billion FCFA"
+    },
+    "deadlines": {
+      "under3": "Under 3 months",
+      "3to6": "3–6 months",
+      "6to12": "6–12 months",
+      "1to2": "1–2 years",
+      "over2": "Over 2 years"
+    }
   },
   "btpConnexion": {
     "title": "C-O Connexion",
@@ -246,6 +309,73 @@
     "registrationSent": "Registration sent",
     "registrationReply": "We will contact you when an assignment matches your profile.",
     "individualIntro": "Register to be matched with construction employers.",
+    "form": {
+      "lastName": "Last name",
+      "firstName": "First name",
+      "yourLastName": "Your last name",
+      "yourFirstName": "Your first name",
+      "country": "Country",
+      "countryExample": "e.g. Cameroon, France...",
+      "city": "City",
+      "cityExample": "e.g. Yaoundé, Douala...",
+      "trade": "Trade",
+      "selectTrade": "Select your trade...",
+      "trades": {
+        "laborer": "Laborer",
+        "mason": "Mason",
+        "technician": "Technician",
+        "engineer": "Engineer",
+        "plumber": "Plumber",
+        "electrician": "Electrician"
+      },
+      "experience": "Experience (years)",
+      "select": "Select...",
+      "experienceRanges": {
+        "0to2": "0–2 years",
+        "3to5": "3–5 years",
+        "5to10": "5–10 years",
+        "10plus": "10+ years"
+      },
+      "cv": "CV (PDF)",
+      "cvAttached": "CV attached: {{fileName}}",
+      "dropCv": "Drag and drop your CV or click to browse",
+      "pdfLimit": "PDF only, max. 5 MB",
+      "availability": "Availability",
+      "availabilityExample": "e.g. immediately, in 1 month, from...",
+      "phoneOrEmail": "Phone / Email",
+      "contactExample": "+237 6XX XXX XXX or name@email.com",
+      "skills": "Specific skills",
+      "optional": " (optional)",
+      "skillsExample": "e.g. AutoCAD, reinforced concrete, formwork, TIG welding...",
+      "privacyConsent": "Before submitting, your information will remain strictly anonymous and confidential. I have read and agree.",
+      "sending": "Sending...",
+      "sendApplication": "Submit my registration",
+      "verifiedCompany": "Verified company",
+      "companyRegistrationTitle": "Company registration - C-O Connexion",
+      "individualRegistrationTitle": "Individual registration - C-O Connexion",
+      "requestSent": "Request sent!",
+      "companyRequestReply": "Our team will review your application and activate your Verified Company badge within 48 hours.",
+      "companyIntro": "Register your company to access qualified profiles and become visible on the C-O Connexion platform.",
+      "companyName": "Company name",
+      "companyExample": "e.g. Camer-Ossaka Connexion Ltd",
+      "domain": "Industry",
+      "selectDomain": "Select an industry...",
+      "domains": {
+        "btp": "Construction & public works",
+        "roads": "Roads & highways",
+        "building": "Building",
+        "civilEngineering": "Civil engineering",
+        "publicWorks": "Public works",
+        "construction": "Construction",
+        "other": "Other"
+      },
+      "location": "Location",
+      "emailExample": "contact@company.com",
+      "telephone": "Phone",
+      "adminEmail": "Administrator email",
+      "adminPlaceholder": "Email of the account owner or manager",
+      "sendCompany": "Register my company"
+    },
     "hero": {
       "title": "Talent and contractors",
       "desc": "Submit your profile or register your company. We connect skills with the sites that need them."
@@ -325,7 +455,27 @@
     "discover": "Explore",
     "viewProject": "View project",
     "contactUs": "Contact us",
-    "sending": "Sending…"
+    "sending": "Sending…",
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "constructionSiteAlt": "Camer-Ossaka Connexion construction site {{number}}",
+    "formPrivacyConsent": "Before submitting, your information will remain strictly anonymous and confidential. I have read and agree.",
+    "mapLocation": "Camer-Ossaka Connexion location — Logpom-Douala, Cameroon",
+    "cameroon": "Cameroon",
+    "officeHours": "Mon–Fri: 8:00 am – 5:00 pm",
+    "loading": "Loading"
+  },
+  "whatsapp": {
+    "online": "Online",
+    "close": "Close",
+    "greeting": "Hello! 👋 How can we help you?",
+    "now": "now",
+    "quote": "Request a quote",
+    "services": "Our services",
+    "contact": "Contact us",
+    "startConversation": "Start a conversation",
+    "contactOnWhatsApp": "Contact us on WhatsApp",
+    "defaultMessage": "Hello, I’m visiting the Camer-Ossaka Connexion website and would like more information."
   },
   "home": {
     "eyebrow": "Construction · Cameroon & international",
@@ -421,7 +571,7 @@
       },
       "notice": {
         "title": "Legal notice",
-        "p1": "Website publisher: Camer-Ossaka Connexion. Contact address: Logpom, Douala, Cameroon. Email: contact@co-connexion.com. Telephone: +237 6 92 83 13 34.",
+        "p1": "Website publisher: Camer-Ossaka Connexion. Contact address: Logpom-Douala, Cameroon. Email: contact@co-connexion.com. Telephone: +237 6 92 83 13 34.",
         "p2": "Hosting: Vercel, Inc. The website is deployed on Vercel infrastructure; provider information and contact details are available at vercel.com.",
         "p3": "The legal form, share capital, registration details and publication director’s name were not supplied for this update. The publisher must add and verify them before final publication.",
         "p4": "This is a basic template based on the information available and is not legal advice. Have it reviewed by a qualified professional in the relevant jurisdictions."
@@ -447,7 +597,7 @@
     "joinUs": "Join us",
     "requestQuote": "Request a quote",
     "office": "Our office",
-    "address": "Logpom, Douala, Cameroon",
+    "address": "Logpom-Douala, Cameroon",
     "hours": "Mon–Fri: 8:00 am – 5:00 pm"
   }
 }

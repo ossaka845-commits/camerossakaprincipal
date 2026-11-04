@@ -14,17 +14,17 @@ const offices = [
  
   {
     city: 'Douala',
-    country: 'Cameroun',
+    country: 'common.cameroon',
     address: 'Logpom',
     phone: '+237 6 92 83 13 34',
     email: 'contact@co-connexion.com',
-    hours: 'Lun-Ven: 8h00 - 17h00',
+    hours: 'common.officeHours',
   },
  
 ];
 
 export default function Contact() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -67,15 +67,16 @@ export default function Contact() {
 
     try {
       await generateAndSendForm({
-        title: 'FORMULAIRE DE CONTACT',
+        title: t('contact.sendMessage'),
+        language: (i18n.resolvedLanguage || i18n.language).startsWith('en') ? 'en' : 'fr',
         senderName: formData.name,
         senderEmail: formData.email,
         fields: [
-          { label: 'Nom', value: formData.name },
-          { label: 'Email', value: formData.email },
-          { label: 'Téléphone', value: formData.phone },
-          { label: 'Sujet', value: formData.subject },
-          { label: 'Message', value: formData.message },
+          { label: t('contact.form.name'), value: formData.name },
+          { label: t('contact.form.email'), value: formData.email },
+          { label: t('contact.form.phone'), value: formData.phone },
+          { label: t('contact.form.subject'), value: formData.subject },
+          { label: t('contact.form.message'), value: formData.message },
         ],
       });
 
@@ -103,7 +104,7 @@ export default function Contact() {
               <div className="flex items-center gap-3 mb-4">
                 <div>
                   <h3 className="text-lg font-semibold text-[#111111] font-['Sora']">{office.city}</h3>
-                  <p className="text-[#666666] text-sm">{office.country}</p>
+                  <p className="text-[#666666] text-sm">{t(office.country)}</p>
                 </div>
               </div>
               <div className="space-y-3">
@@ -125,7 +126,7 @@ export default function Contact() {
                 </div>
                 <div className="flex items-center gap-3 text-[#666666]">
                   <Clock className="w-5 h-5 flex-shrink-0 text-[#CE1126]" />
-                  <span>{office.hours}</span>
+                  <span>{t(office.hours)}</span>
                 </div>
               </div>
             </div>
@@ -145,7 +146,7 @@ export default function Contact() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Localisation Camer-Ossaka Connexion - Logpom, Douala, Cameroun"
+            title={t('common.mapLocation')}
           ></iframe>
         </div>
       </section>
@@ -197,7 +198,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="bg-white border-[#E5E5E5] text-[#111111] placeholder:text-[#999999] h-12"
-                    placeholder="votre@email.com"
+                    placeholder={t('contact.form.emailPlaceholder')}
                     required
                   />
                 </div>

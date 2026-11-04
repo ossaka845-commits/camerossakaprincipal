@@ -7,19 +7,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const leadership = [
   {
+    id: 'jeanMarie',
     name: 'Jean-Marie Ondoua, M.Sc.',
-    role: 'Fondateur de Camer-Ossaka Connexion & Ingénieur civil ',
-    bio: "Ingénieur civil et entrepreneur, diplômé de l’Université de Buea et titulaire d’un Master en Allemagne, il est spécialisé en infrastructures et ingénierie environnementale. Au sein de Camer-Ossaka Connexion, il met son expertise internationale au service du développement des infrastructures, des investissements stratégiques et des partenariats internationaux en Afrique.",
   },
   {
+    id: 'livine',
     name: 'Livine Diana Pouako, M.Sc.',
-    role: 'Co-fondatrice de Camer-Ossaka Connexion & Ingénieure civile',
-    bio: "Ingénieure civile titulaire d’un Master en génie civil, elle allie expertise technique et vision entrepreneuriale.Elle participe à la définition de la stratégie, au développement des projets et à la promotion de l’innovation, des partenariats et du développement durable.",
   },
   {
+    id: 'yannick',
     name: 'Yannick Moumbe Lambo,M.Sc.',
-    role: 'Co-fondateur de Camer-Ossaka Connexion & Ingénieur en informatique ',
-    bio: "Ingénieur en informatique et entrepreneur, diplômé en électrotechnique et automatisation en Allemagne, il est spécialisé dans les solutions intelligentes et les technologies innovantes. Au sein de Camer-Ossaka Connexion, il contribue à la transformation numérique, à l’automatisation et au développement technologique de l’entreprise..",
   },
 ];
 
@@ -79,9 +76,9 @@ export default function Team() {
                 <h3 className="max-w-[90%] text-xl lg:text-[21px] font-semibold leading-[1.3] tracking-[-0.04em] text-[#111111] font-['Sora'] mb-2">
                   {person.name}
                 </h3>
-                <p className="text-[#CE1126] text-[12px] font-semibold leading-relaxed mb-4">{person.role}</p>
+                <p className="text-[#CE1126] text-[12px] font-semibold leading-relaxed mb-4">{t(`team.members.${person.id}.role`)}</p>
                 <p className="label-mono text-[#999999] text-[9px] mb-2">{t('team.profileLabel')}</p>
-                <p className="text-[#666666] text-[13px] leading-[1.65]">{person.bio}</p>
+                <p className="text-[#666666] text-[13px] leading-[1.65]">{t(`team.members.${person.id}.bio`)}</p>
               </div>
             </article>
           ))}
